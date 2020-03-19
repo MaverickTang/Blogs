@@ -663,219 +663,6 @@
         
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://mavericktang.github.io/en/2020/02/23/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Haotian Tang">
-      <meta itemprop="description" content="Live without Barricades!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mavericreate.Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/en/2020/02/23/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/" class="post-title-link" itemprop="url">爬取进击的巨人漫画</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-23 15:13:57" itemprop="dateCreated datePublished" datetime="2020-02-23T15:13:57-08:00">2020-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-11 20:07:58" itemprop="dateModified" datetime="2020-03-11T20:07:58-07:00">2020-03-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/en/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>16k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>15 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用Scrapy爬取进击的巨人漫画"><a href="#使用Scrapy爬取进击的巨人漫画" class="headerlink" title="使用Scrapy爬取进击的巨人漫画"></a>使用Scrapy爬取进击的巨人漫画</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>​        自己看到网上有两个大牛分别爬取了<strong>合法</strong>(Naruto)与<strong>非法</strong>(<del>你懂的</del>)的漫画，十分感叹，便也想借鉴借鉴，结果大牛的的代码在博主的电脑上运行不了(<del>丧尽天良</del>),所以就只有自己写了一个算是结合版的代码，爬取了这个<a href="https://www.fzdm.com/" target="_blank" rel="noopener">网站</a>。在此分享给大家，授人以both🐟。</p>
-<p>​        代码已经挂在GitHub上面了，想下漫画的可以滑到最下面观看下载方法，这个方法不仅可以下载进击的巨人，整个网站的漫画都可以爬，建议大家别乱改我设置的延迟，爬的太快了可能会被网站锁IP。</p>
-<h2 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h2><p>博主的环境如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mavericks-MacBook-Pro:~ maverick$</span><br><span class="line">Python 2.7.10 (default, Feb 22 2019, 21:55:15) </span><br><span class="line">Scrapy 1.8.0 - no active project</span><br></pre></td></tr></table></figure>
-
-<p>在这里我默认大家都已经安装好了scrapy，<a href="https://www.osgeo.cn/scrapy/intro/install.html#intro-install" target="_blank" rel="noopener">传送门</a></p>
-<p>不知道大家会遇到什么麻烦，博主只用了这一句代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Scrapy</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、基础准备"><a href="#三、基础准备" class="headerlink" title="三、基础准备"></a>三、基础准备</h2><h3 id="Scrapy简介（大牛的文章）"><a href="#Scrapy简介（大牛的文章）" class="headerlink" title="Scrapy简介（大牛的文章）"></a>Scrapy简介（<a href="https://blog.csdn.net/c406495762/article/details/72858983" target="_blank" rel="noopener">大牛的文章</a>）</h3><pre><code>Scrapy Engine(Scrapy核心) 负责数据流在各个组件之间的流。Spiders(爬虫)发出Requests请求，经由Scrapy Engine(Scrapy核心) 交给Scheduler(调度器)，Downloader(下载器)Scheduler(调度器) 获得Requests请求，然后根据Requests请求，从网络下载数据。Downloader(下载器)的Responses响应再传递给Spiders进行分析。根据需求提取出Items，交给Item Pipeline进行下载。Spiders和Item Pipeline是需要用户根据响应的需求进行编写的。除此之外，还有两个中间件，Downloaders Mddlewares和Spider Middlewares，这两个中间件为用户提供方面，通过插入自定义代码扩展Scrapy的功能，例如去重等。</code></pre><p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/scrapy_architecture.png" alt="Scrapy"></p>
-<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>注意！这篇文章并不是official文章，一切还以<a href="https://www.osgeo.cn/scrapy/intro/tutorial.html" target="_blank" rel="noopener">官方教程</a>为准。这里只讲本次操作用到的知识。</p>
-<ul>
-<li>创建一个Scrapy项目；</li>
-<li>定义提取的Item；</li>
-<li>编写爬取网站的 spider 并提取 Item；</li>
-<li>利用python自带的request库莱下载漫画</li>
-</ul>
-<h2 id="四、第二次准备"><a href="#四、第二次准备" class="headerlink" title="四、第二次准备"></a>四、第二次准备</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject Titan</span><br></pre></td></tr></table></figure>
-
-<p>然后我们可以观察项目内涉及的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">|____Titan</span><br><span class="line">| |____.DS_Store</span><br><span class="line">| |____scrapy.cfg</span><br><span class="line">| |____Titan</span><br><span class="line">| | |____.DS_Store</span><br><span class="line">| | |____spiders</span><br><span class="line">| | | |____titan_spider.py</span><br><span class="line">| | | |______init__.py</span><br><span class="line">| | | |______pycache__</span><br><span class="line">| | | | |______init__.cpython-38.pyc</span><br><span class="line">| | | | |____titan_spider.cpython-38.pyc</span><br><span class="line">| | | | |____titan_spider.cpython-37.pyc</span><br><span class="line">| | | | |______init__.cpython-37.pyc</span><br><span class="line">| | |______init__.py</span><br><span class="line">| | |______pycache__</span><br><span class="line">| | | |______init__.cpython-38.pyc</span><br><span class="line">| | | |____settings.cpython-38.pyc</span><br><span class="line">| | | |____settings.cpython-37.pyc</span><br><span class="line">| | | |______init__.cpython-37.pyc</span><br><span class="line">| | |____middlewares.py</span><br><span class="line">| | |____settings.py</span><br><span class="line">| | |____items.py</span><br><span class="line">| | |____pipelines.py</span><br></pre></td></tr></table></figure>
-
-<p>大部分都没啥用，重点是我们要在spider里面添加一个自己编写的python文件，可以是任意名字，像我就叫他巨人蜘蛛</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titan_spider.py</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建spider类"><a href="#创建spider类" class="headerlink" title="创建spider类"></a>创建spider类</h3><p>创建一个用来实现具体爬取功能的类，我们所有的处理实现都会在这个类中进行，它必须为 <code>scrapy.Spider</code> 的子类。</p>
-<p>在 <code>Titan/spiders</code> 文件路径下创建 <code>titan_spider.py</code> 文件。在里面就开始我们蜘蛛（<del>只猪</del>）的初始化</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#上面code是为了让其支持中文</span></span><br><span class="line"><span class="keyword">import</span> scrapy<span class="comment">#scrapy本尊</span></span><br><span class="line"><span class="keyword">import</span> re<span class="comment">#保存文件的library</span></span><br><span class="line"><span class="keyword">import</span> time<span class="comment">#设置延时</span></span><br><span class="line"><span class="keyword">import</span> requests<span class="comment">#从网络下载图片</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TitanSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">	name = <span class="string">"titan"</span><span class="comment">#定义spider的名字</span></span><br><span class="line">	start_urls = [<span class="string">'https://manhua.fzdm.com/132/'</span>]<span class="comment">#起始页面</span></span><br><span class="line">	allowed_domains = [<span class="string">'https://manhua.fzdm.com'</span>,<span class="string">'http://p2.manhuapan.com/'</span>]<span class="comment">#允许范围</span></span><br><span class="line">  <span class="comment">#上面的名字都是official的名字千万别改</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="shell分析"><a href="#shell分析" class="headerlink" title="shell分析"></a>shell分析</h3><p>在command line里面输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell &#39;https:&#x2F;&#x2F;manhua.fzdm.com&#x2F;39&#39;</span><br></pre></td></tr></table></figure>
-
-<p>然后你会得到这一堆东西（别🐦它）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">2020-02-23 20:14:47 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: scrapybot)</span><br><span class="line">2020-02-23 20:14:47 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.4, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.8.1 (v3.8.1:1b293b6006, Dec 18 2019, 14:08:53) - [Clang 6.0 (clang-600.0.57)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform macOS-10.14.6-x86_64-i386-64bit</span><br><span class="line">2020-02-23 20:14:47 [scrapy.crawler] INFO: Overridden settings: &#123;&#39;DUPEFILTER_CLASS&#39;: &#39;scrapy.dupefilters.BaseDupeFilter&#39;, &#39;LOGSTATS_INTERVAL&#39;: 0&#125;</span><br><span class="line">2020-02-23 20:14:47 [scrapy.extensions.telnet] INFO: Telnet Password: e3528447494d6c3d</span><br><span class="line">2020-02-23 20:14:47 [scrapy.middleware] INFO: Enabled extensions:</span><br><span class="line">...中间省略...</span><br><span class="line">[s] Available Scrapy objects:</span><br><span class="line">[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)</span><br><span class="line">[s]   crawler    &lt;scrapy.crawler.Crawler object at 0x10d0cd760&gt;</span><br><span class="line">[s]   item       &#123;&#125;</span><br><span class="line">[s]   request    &lt;GET https:&#x2F;&#x2F;manhua.fzdm.com&#x2F;39&gt;</span><br><span class="line">[s]   response   &lt;200 https:&#x2F;&#x2F;manhua.fzdm.com&#x2F;39&#x2F;&#x2F;&gt;</span><br><span class="line">[s]   settings   &lt;scrapy.settings.Settings object at 0x10d0cd460&gt;</span><br><span class="line">[s]   spider     &lt;DefaultSpider &#39;default&#39; at 0x10d573400&gt;</span><br><span class="line">[s] Useful shortcuts:</span><br><span class="line">[s]   fetch(url[, redirect&#x3D;True]) Fetch URL and update local objects (by default, redirects are followed)</span><br><span class="line">[s]   fetch(req)                  Fetch a scrapy.Request and update local objects </span><br><span class="line">[s]   shelp()           Shell help (print this help)</span><br><span class="line">[s]   view(response)    View response in a browser</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>然后我们就要使用xpath或者是css去寻找指定的页面内容（<del>奥利给干它</del>）</p>
-<p>博主也学习了一些时间，建议各位去康康这个<a href="https://www.jianshu.com/p/489c5d21cdc7" target="_blank" rel="noopener">教程</a>(<del>求作者给广告费恰饭</del>)</p>
-<p>理清思路，现在我们要找到各话的url，通过观察发现这些url都在<a>标签下</p>
-<p>观察方法：鼠标右键然后点击inspect，再点一下左上角的选择器就可以查看页面元素的所在位置了</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect.png" alt="Inspect"></p>
-<p>于是输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.xpath(&#39;&#x2F;&#x2F;li&#x2F;a[1]&#x2F;@href&#39;).extract()</span><br></pre></td></tr></table></figure>
-
-<p>获取到所有符合这种特征的herf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;li&#x2F;a[1]&#x2F;@href&#39;).extract()</span><br><span class="line">[&#39;&#x2F;&#x2F;www.fzdm.com&#39;, &#39;&#x2F;&#x2F;news.fzdm.com&#39;, &#39;&#x2F;&#x2F;manhua.fzdm.com&#39;, &#39;126&#x2F;&#39;, &#39;125&#x2F;&#39;, &#39;124&#x2F;&#39;, &#39;123&#x2F;&#39;, &#39;122&#x2F;&#39;, &#39;121&#x2F;&#39;, &#39;120&#x2F;&#39;, &#39;119&#x2F;&#39;, &#39;118&#x2F;&#39;, &#39;117&#x2F;&#39;, &#39;116&#x2F;&#39;, &#39;qc65&#x2F;&#39;, &#39;115&#x2F;&#39;, &#39;qc64&#x2F;&#39;, &#39;114&#x2F;&#39;, &#39;qc63&#x2F;&#39;, &#39;113&#x2F;&#39;, &#39;qc62&#x2F;&#39;, &#39;112&#x2F;&#39;, &#39;前传61&#x2F;&#39;, &#39;111&#x2F;&#39;, &#39;前传60&#x2F;&#39;, &#39;110&#x2F;&#39;, &#39;前传59&#x2F;&#39;, &#39;109&#x2F;&#39;, &#39;108&#x2F;&#39;, &#39;前传57&#x2F;&#39;, &#39;107&#x2F;&#39;, &#39;前传56&#x2F;&#39;, &#39;106&#x2F;&#39;, &#39;前传55&#x2F;&#39;, &#39;105&#x2F;&#39;, &#39;前传54&#x2F;&#39;, &#39;104&#x2F;&#39;, &#39;103&#x2F;&#39;, &#39;102&#x2F;&#39;, &#39;qz51&#x2F;&#39;, &#39;101&#x2F;&#39;, &#39;100&#x2F;&#39;, &#39;qz49&#x2F;&#39;, &#39;99&#x2F;&#39;, &#39;qz48&#x2F;&#39;, &#39;98&#x2F;&#39;, &#39;qz47&#x2F;&#39;, &#39;97&#x2F;&#39;, &#39;thf46&#x2F;&#39;, &#39;096&#x2F;&#39;, &#39;wp45&#x2F;&#39;, &#39;95&#x2F;&#39;, &#39;qz44&#x2F;&#39;, &#39;94&#x2F;&#39;, &#39;qz43&#x2F;&#39;, &#39;93&#x2F;&#39;, &#39;qz42&#x2F;&#39;, &#39;92&#x2F;&#39;, &#39;qz41&#x2F;&#39;, &#39;91&#x2F;&#39;, &#39;qz40&#x2F;&#39;, &#39;qz40&#x2F;&#39;, &#39;qz39&#x2F;&#39;, &#39;qz38&#x2F;&#39;, &#39;90&#x2F;&#39;, &#39;89&#x2F;&#39;, &#39;88&#x2F;&#39;, &#39;qz37&#x2F;&#39;, &#39;87&#x2F;&#39;, &#39; before-the-fall-36&#x2F;&#39;, &#39;86&#x2F;&#39;, &#39;85&#x2F;&#39;, &#39;84&#x2F;&#39;, &#39;83&#x2F;&#39;, &#39;82&#x2F;&#39;, &#39;81&#x2F;&#39;, &#39;80&#x2F;&#39;, &#39;079&#x2F;&#39;, &#39;078&#x2F;&#39;, &#39;77&#x2F;&#39;, &#39;76&#x2F;&#39;, &#39;75&#x2F;&#39;, &#39;d74&#x2F;&#39;, &#39;73&#x2F;&#39;, &#39;72&#x2F;&#39;, &#39;71&#x2F;&#39;, &#39;70&#x2F;&#39;, &#39;69&#x2F;&#39;, &#39;d68&#x2F;&#39;, &#39;67&#x2F;&#39;, &#39;66&#x2F;&#39;, &#39;dxj52&#x2F;&#39;, &#39;65&#x2F;&#39;, &#39;64&#x2F;&#39;, &#39;63&#x2F;&#39;, &#39;62&#x2F;&#39;, &#39;61&#x2F;&#39;, &#39;60&#x2F;&#39;, &#39;59&#x2F;&#39;, &#39;wc08&#x2F;&#39;, &#39;58&#x2F;&#39;, &#39;wc07&#x2F;&#39;, &#39;qc07&#x2F;&#39;, &#39;57&#x2F;&#39;, &#39;wc06&#x2F;&#39;, &#39;56&#x2F;&#39;, &#39;qc06&#x2F;&#39;, &#39;55&#x2F;&#39;, &#39;54&#x2F;&#39;, &#39;wc04&#x2F;&#39;, &#39;53&#x2F;&#39;, &#39;wc02&#x2F;&#39;, &#39;52&#x2F;&#39;, &#39;wc01&#x2F;&#39;, &#39;51&#x2F;&#39;, &#39;50&#x2F;&#39;, &#39;wc00&#x2F;&#39;, &#39;49&#x2F;&#39;, &#39;xz&#x2F;&#39;, &#39;qc01&#x2F;&#39;, &#39;48&#x2F;&#39;, &#39;fwp&#x2F;&#39;, &#39;47&#x2F;&#39;, &#39;sgp&#x2F;&#39;, &#39;46&#x2F;&#39;, &#39;45&#x2F;&#39;, &#39;44&#x2F;&#39;, &#39;fwp02&#x2F;&#39;, &#39;fwp01&#x2F;&#39;, &#39;043&#x2F;&#39;, &#39;042&#x2F;&#39;, &#39;041&#x2F;&#39;, &#39;040&#x2F;&#39;, &#39;039&#x2F;&#39;, &#39;038&#x2F;&#39;, &#39;037&#x2F;&#39;, &#39;036&#x2F;&#39;, &#39;035&#x2F;&#39;, &#39;034&#x2F;&#39;, &#39;033&#x2F;&#39;, &#39;032&#x2F;&#39;, &#39;031&#x2F;&#39;, &#39;030&#x2F;&#39;, &#39;029&#x2F;&#39;, &#39;028&#x2F;&#39;, &#39;027&#x2F;&#39;, &#39;026&#x2F;&#39;, &#39;025&#x2F;&#39;, &#39;024&#x2F;&#39;, &#39;023&#x2F;&#39;, &#39;022&#x2F;&#39;, &#39;021&#x2F;&#39;, &#39;020&#x2F;&#39;, &#39;019&#x2F;&#39;, &#39;018&#x2F;&#39;, &#39;017&#x2F;&#39;, &#39;016&#x2F;&#39;, &#39;015&#x2F;&#39;, &#39;014&#x2F;&#39;, &#39;013&#x2F;&#39;, &#39;012&#x2F;&#39;, &#39;011&#x2F;&#39;, &#39;010&#x2F;&#39;, &#39;009&#x2F;&#39;, &#39;008&#x2F;&#39;, &#39;007&#x2F;&#39;, &#39;006&#x2F;&#39;, &#39;005&#x2F;&#39;, &#39;004&#x2F;&#39;, &#39;003&#x2F;&#39;, &#39;002&#x2F;&#39;, &#39;001&#x2F;&#39;]</span><br></pre></td></tr></table></figure>
-
-<p>我们发现又有几个浑水<strong>摸鱼</strong>的url混了进来，不过咱们先把这个放在一边，等会在python里面用字符串操作把它们给筛掉（<del>博主不会一步找到正确url的方法qaq</del>），如果有更好的方法请大神指出（带我带我！）</p>
-<p> 使用ctrl+d退出之前的shell，分析章节页面。这次我们需要找到图片的url以及下一页的url</p>
-<h3 id="再次分析"><a href="#再次分析" class="headerlink" title="再次分析"></a>再次分析</h3><p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect2.png" alt="Inspect"></p>
-<p>手动@风车动漫的广告商到我这里来把广告费结一下，【手动狗头】</p>
-<p>这次我们找一下下一页的url（这个网站他图片的url放的比较日怪）</p>
-<p>在command line里面输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell &#39;https:&#x2F;&#x2F;manhua.fzdm.com&#x2F;39&#x2F;&#x2F;126&#x2F;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>然后我们需要再次找到 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;index_0.html&quot; class&#x3D;&quot;pure-button button-success&quot;&gt;第1页&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-
-<p>然后老套路</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;index&quot;)]&#x2F;@href&#39;).extract()</span><br><span class="line">[&#39;index_0.html&#39;, &#39;index_1.html&#39;, &#39;index_2.html&#39;, &#39;index_3.html&#39;, &#39;index_4.html&#39;, &#39;index_5.html&#39;, &#39;index_6.html&#39;, &#39;index_1.html&#39;]</span><br></pre></td></tr></table></figure>
-
-<p>我们知道最后一个url就是咱们的next page了</p>
-<p><strong>但是！！！</strong></p>
-<p>我们这么才能知道这一章什么时候结束呢？</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect3.png" alt="Inspect"></p>
-<p>这是我们的最后一页的代码，看起来从url上一点头绪都没有，但是从旁边的文字上我们又有了新的线索，一般它会给出如：下一页这样的信息，最后一页则没有这样的信息，只要我们知道是否有“下一页”，我们就能知道是否为最后一页</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/last.png" alt="Inspect"></p>
-<p>所以要获取上面的文字，使用如下方法：</p>
-<p>请看第一页与最后一页的对比</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;index&quot;)]&#x2F;text()&#39;).extract()</span><br><span class="line">[&#39;第1页&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;下一页&#39;]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;a[contains(@href, &quot;index&quot;)]&#x2F;text()&#39;).extract()</span><br><span class="line">[&#39;上一页&#39;, &#39;40&#39;, &#39;41&#39;, &#39;42&#39;, &#39;43&#39;, &#39;44&#39;, &#39;第45页&#39;]</span><br></pre></td></tr></table></figure>
-
-<p>然后既然我们已经知道了判断下一页的方法，接下来就是获取图片链接了</p>
-<h3 id="获取图片链接"><a href="#获取图片链接" class="headerlink" title="获取图片链接"></a>获取图片链接</h3><p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/pic.png" alt="Inspect"></p>
-<p>再次选择我们找到了图片的url</p>
-<p><strong>但是</strong>。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;img&#x2F;@src&#39;).extract()</span><br><span class="line">[&#39;https:&#x2F;&#x2F;static.fzdm.com&#x2F;css&#x2F;logo.png&#39;, &#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;fzdm&#x2F;st@75839ec8feb53ac89fe52134fc648a17bd1bd31f&#x2F;img&#x2F;loading.gif&#39;]</span><br></pre></td></tr></table></figure>
-
-<p>woc居然找不到图片的url？？？</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/heirque.jpeg" alt="Inspect"></p>
-<p>于是康康这个蜘蛛获取到的整个html代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.body</span><br><span class="line">b&#39;&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta http-equiv&#x3D;&quot;Content-Type&quot; content&#x3D;&quot;text&#x2F;html; charset&#x3D;utf-8&quot;&gt;&lt;meta http-equiv&#x3D;&quot;Content-Language&quot; content&#x3D;&quot;utf-8&quot;&gt;&lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;Edge,chrome&#x3D;1&quot;&gt;&lt;meta http-equiv&#x3D;&quot;x-dns-prefetch-control&quot; content&#x3D;&quot;on&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;www.fzdm.com&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;manhua.fzdm.com&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;p1.manhuapan.com&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;p2.manhuapan.com&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;p5.manhuapan.com&quot;&gt;&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;p17.manhuapan.com&quot;&gt;&lt;meta content&#x3D;&quot;all&quot; name&#x3D;&quot;robots&quot;&gt;&lt;title&gt;\xe8\xbf\x9b\xe5\x87\xbb\xe7\x9a\x84\xe5\xb7\xa8\xe4\xba\xba126\xe8\xaf\x9d </span><br><span class="line">……以下省略</span><br></pre></td></tr></table></figure>
-
-<p>我们复制之后打开任意代码编译器然后<code>Command+f</code>寻找这个“2020/02/08055441539556.jpg”url在哪里。</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/pic2.png" alt="Inspect"></p>
-<p>我们发现这个url放在javascript里面，使用<code>document.write()</code>。。。</p>
-<p>你以为我有什么骚操作？？？</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/saocaozuo.gif" alt="Inspect"></p>
-<p>我还真没有。。。</p>
-<p>找到script</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&#39;&#x2F;&#x2F;script&#x2F;text()&#39;).extract()</span><br><span class="line">[&quot;if (&#39;serviceWorker&#39; in navigator) &#123;\n      navigator.serviceWorker.register(&#39;&#x2F;sw.js&#39;, &#123; scope: &#39;&#x2F;&#39; &#125;).then(function (registration) &#123;\n        &#x2F;&#x2F; registration.unregister().then(function(boolean) &#123;\n        &#x2F;&#x2F; if boolean &#x3D; true, unregister is successful\n        &#x2F;&#x2F; &#125;);\n        &#x2F;&#x2F; 注册成功\n        &#x2F;*\n      var serviceWorker;\n      if (registration.installing) &#123;\n        console.log(&#39;installing&#39;);\n      &#125; else if (registration.waiting) &#123;\n        console.log(&#39;waiting&#39;);\n      &#125; else if (registration.active) &#123;\n        console.log(&#39;active&#39;);\n      &#125;\n      *&#x2F;\n        console.log(&#39;ServiceWorker registration successful with scope: &#39;, registration.scope);\n      &#125;).catch(function (err) &#123;\n        &#x2F;&#x2F; 注册失败 :(\n        console.log(&#39;ServiceWorker registration failed: &#39;, err);\n        let refreshing &#x3D; false\n        navigator.serviceWorker.addEventListener(&#39;controllerchange&#39;, () &#x3D;&gt; &#123;\n          if (refreshing) &#123;\n            return\n</span><br><span class="line">……以下省略</span><br></pre></td></tr></table></figure>
-
-<p>于是我们获得了一个很大的array which有我们需要的url</p>
-<p>博主是个铁憨憨，强行用python的正则表达式找到了这个url</p>
-<p>正则表达式不会的可以走<a href="https://www.runoob.com/python/python-reg-expressions.html" target="_blank" rel="noopener">这里</a></p>
-<p>在编程的时候，我们就先记录下这些script，然后再继续操作</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pre_img_url = response.xpath(<span class="string">'//script/text()'</span>).extract()<span class="comment">#记录script</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(pre_img_url)):<span class="comment">#记录的时候是以array存储的</span></span><br><span class="line">			matchObj = re.search( <span class="string">r'url=\"()\s*(.*)jpg'</span>, pre_img_url[i], re.M|re.I)<span class="comment">#正则表达式寻找</span></span><br><span class="line">			<span class="keyword">if</span> matchObj:</span><br><span class="line">				ppreimgurl = matchObj.group()<span class="comment">#里面就包含了我们要找的url（本例是“2020/02/08055441539556.jpg”）</span></span><br><span class="line">				img_url= <span class="string">'http://p2.manhuapan.com/'</span> + ppreimgurl[<span class="number">5</span>:len(ppreimgurl)]<span class="comment">#在前面加上存储图片的网址</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="五、开始编写"><a href="#五、开始编写" class="headerlink" title="五、开始编写"></a>五、开始编写</h2><p>还记得我们最开始的<code>parse()</code>吗？我们现在给他添加一点东西</p>
-<p>解释都在代码里面</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">		link_urls = response.xpath(<span class="string">'//li/a[1]/@href'</span>).extract()<span class="comment">#找到各话的url</span></span><br><span class="line">		names = response.xpath(<span class="string">'//li/a[1]/@title'</span>).extract()<span class="comment">#找到各话的名字，方便命名文件夹</span></span><br><span class="line">    <span class="comment"># 下面的variable可以不管</span></span><br><span class="line">		x=<span class="number">-1</span></span><br><span class="line">		h=<span class="number">0</span></span><br><span class="line">		comics_url_list = []</span><br><span class="line">		rnames = []</span><br><span class="line">		base = <span class="string">'https://manhua.fzdm.com/132/'</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(link_urls)):</span><br><span class="line">			h=bool(re.search(<span class="string">r'\d'</span>, link_urls[i]))</span><br><span class="line">			<span class="keyword">if</span>(h==<span class="literal">True</span>):</span><br><span class="line">				x=x+<span class="number">1</span></span><br><span class="line">				name=names[x]</span><br><span class="line">				url=base + link_urls[i]<span class="comment">#它的url只有base后面的部分，所以要把base加上</span></span><br><span class="line">				rnames.append(name)<span class="comment">#将各话的名字加入一个新的array</span></span><br><span class="line">				comics_url_list.append(url)<span class="comment">#将url加入array</span></span><br><span class="line"><span class="comment">#				print("%s :https://www.manhuadui.com %s"%(names[4+x],link_urls[i]))</span></span><br><span class="line"><span class="comment">#				print("%s : %s"%(rnames[x],comics_url_list[x]))	</span></span><br><span class="line">				</span><br><span class="line">		print(<span class="string">'\n&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; current page comics list &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;'</span>)</span><br><span class="line">		print(comics_url_list)</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> url <span class="keyword">in</span> comics_url_list:</span><br><span class="line">			<span class="keyword">yield</span> scrapy.Request(url=url, callback=self.comics_parse, dont_filter=<span class="literal">True</span>)<span class="comment">#通过特殊的scrapy传递将url传到下一个函数对下一层网页进行爬取</span></span><br><span class="line">      <span class="comment">#一定要加入dont_filter=True，不然会出bug（不进入下个函数）</span></span><br><span class="line">			print(<span class="string">'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;  parse comics:'</span> + url)</span><br></pre></td></tr></table></figure>
-
-<p>接下来我们编写<code>comics_parse(self, response)</code>函数来处理各话的url</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">comics_parse</span><span class="params">(self, response)</span>:</span><span class="comment">#另一个函数爬取下层页面</span></span><br><span class="line">		pre_img_url = response.xpath(<span class="string">'//script/text()'</span>).extract()<span class="comment">#获取script</span></span><br><span class="line">		img_url = <span class="string">''</span></span><br><span class="line">		ptitle=response.xpath(<span class="string">'//title/text()'</span>).extract()<span class="comment">#获取章节名称</span></span><br><span class="line">		prepage_num=response.xpath(<span class="string">'//a[contains(@href, "index")]/text()'</span>).extract()<span class="comment">#获取页面名字</span></span><br><span class="line">		page_num=<span class="string">''</span></span><br><span class="line">		a=<span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,len(prepage_num)):<span class="comment">#寻找page number来作为文件名</span></span><br><span class="line">			<span class="keyword">for</span> _char <span class="keyword">in</span> prepage_num[j]:<span class="comment">#判断中文字符来找到当前页码（它会是“第n页”）</span></span><br><span class="line">				<span class="keyword">if</span> <span class="string">'\u4e00'</span> &lt;= _char &lt;= <span class="string">'\u9fa5'</span>:</span><br><span class="line">					page_num=prepage_num[j]</span><br><span class="line">					<span class="keyword">if</span> page_num == <span class="string">'下一页'</span>:<span class="comment">#如果是‘下一页’叫表示它漏过了‘第一页’</span></span><br><span class="line">						page_num=<span class="string">'第1页'</span></span><br><span class="line">					a=<span class="number">1</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">			<span class="keyword">if</span>(a==<span class="number">1</span>):</span><br><span class="line">				<span class="keyword">break</span>	 </span><br><span class="line">		t=ptitle[<span class="number">0</span>]</span><br><span class="line">		index=ptitle[<span class="number">0</span>].find(<span class="string">'话'</span>)<span class="comment">#通过找到‘话’来找到章节的名字</span></span><br><span class="line">		title=t[<span class="number">0</span>:(index+<span class="number">1</span>)]<span class="comment">#截取章节名字</span></span><br><span class="line"><span class="comment">#		matchObj = re.search( r'url=\"()\s*(.*)jpg', line, re.M|re.I)</span></span><br><span class="line"> 	 <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pre_img_url)):<span class="comment">#记录的时候是以array存储的      </span></span><br><span class="line">   		matchObj = re.search( <span class="string">r'url=\"()\s*(.*)jpg'</span>, pre_img_url[i], re.M|re.I)<span class="comment">#正则表达式寻找      </span></span><br><span class="line">    	<span class="keyword">if</span> matchObj:        </span><br><span class="line">      	ppreimgurl = matchObj.group()<span class="comment">#里面就包含了我们要找的url（本例是“2020/02/08055441539556.jpg”）        img_url= 'http://p2.manhuapan.com/' + ppreimgurl[5:len(ppreimgurl)]#在前面加上存储图片的网址</span></span><br><span class="line">				self.log(<span class="string">'&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;开始下载&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;'</span>)</span><br><span class="line"><span class="comment">#				self.save_img(page_num[len(page_num)], title, img_url)</span></span><br><span class="line">				document = <span class="string">'/Users/maverick/Desktop/test/One punch'</span></span><br><span class="line">				comics_path = document + <span class="string">'/'</span> + title</span><br><span class="line">				exists = os.path.exists(comics_path)</span><br><span class="line">				<span class="keyword">if</span> <span class="keyword">not</span> exists:<span class="comment">#如果没有创建过文件夹</span></span><br><span class="line"><span class="comment">#					self.log('create document: ' + title)</span></span><br><span class="line">					os.makedirs(comics_path)</span><br><span class="line">				pic_name = comics_path + <span class="string">'/'</span> + page_num + <span class="string">'.jpg'</span></span><br><span class="line">				exists = os.path.exists(pic_name)</span><br><span class="line">				<span class="keyword">if</span> <span class="keyword">not</span> exists:</span><br><span class="line">					time.sleep(<span class="number">0.1</span>)<span class="comment">#延时防止锁ip</span></span><br><span class="line">					urlretrieve(img_url, pic_name)<span class="comment">#下载图片</span></span><br><span class="line">				<span class="keyword">break</span>		</span><br><span class="line">		pages_urls = response.xpath(<span class="string">'//a[contains(@href, "index")]/@href'</span>).extract()<span class="comment">#找到下一页的url</span></span><br><span class="line">		page_situation = response.xpath(<span class="string">'//a[contains(@href, "index")]/text()'</span>).extract()<span class="comment">#与是否为最后一页有关</span></span><br><span class="line">		ans=<span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> _char <span class="keyword">in</span> page_situation[len(page_situation)<span class="number">-1</span>]:<span class="comment">#还是通过中文来判断是否为最后一页</span></span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> <span class="string">'\u4e00'</span> &lt;= _char &lt;= <span class="string">'\u9fa5'</span>:</span><br><span class="line">				ans=<span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span>(ans==<span class="number">0</span>):</span><br><span class="line">			premyfront = response.request.url<span class="comment">#找到当前页面的url，再通过字符串操作得到基础页</span></span><br><span class="line">			fenge = premyfront.split(<span class="string">'/'</span>)</span><br><span class="line">			myfont=<span class="string">''</span></span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">				myfont=myfont+fenge[i]+<span class="string">'/'</span></span><br><span class="line">			next_page = myfont+pages_urls[len(pages_urls)<span class="number">-1</span>]<span class="comment">#得到下一页</span></span><br><span class="line">			self.log(next_page)</span><br><span class="line">			<span class="keyword">yield</span> scrapy.Request(next_page, callback=self.comics_parse, dont_filter=<span class="literal">True</span>)	<span class="comment">#递归自己</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			self.log(<span class="string">'parse comics:'</span> + title + <span class="string">'finished.'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后我们就可以欣赏它爬取的漫画了。因为整个网站的机制是一样的，所以我们只需要修改url地址，就可以任意爬取自己想看的漫画了。</p>
-<h2 id="五、后记"><a href="#五、后记" class="headerlink" title="五、后记"></a>五、后记</h2><p>如果是自己想用的话，代码已经在<a href="https://github.com/MaverickTang/Attack-on-titan-download" target="_blank" rel="noopener">GitHub</a>上面了，下载下来就可以直接用。</p>
-<p>不仅是巨人，这个爬虫还可以爬取整个网站上的其他漫画，比如：</p>
-<p>一拳超人，火影忍者，海贼王,鬼灭之刃等。</p>
-<p>请求星星✨</p>
-<p>使用terminalcd到根目录然后运行以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl titan</span><br></pre></td></tr></table></figure>
-
-<p>记得把保存的本机地址还有想爬取的漫画地址改一下</p>
-<p>当然只要编程的速度够快，这种下载速度绝对比某网盘快得多，最关键的是方便并且可以装B。。。</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/xiazai.gif" alt="Inspect"></p>
-<p>放上自己爬到的兵长帅照哈哈哈哈哈</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/%E7%AC%AC1%E9%A1%B5.jpg" alt="Inspect"></p>
-<h2 id="六、参考链接及版权说明"><a href="#六、参考链接及版权说明" class="headerlink" title="六、参考链接及版权说明"></a>六、参考链接及版权说明</h2><p>博主是第一次写博客，如果侵权请联系我删除，还有对两个大佬写的博客表示诚挚感谢，链接第一与第二个为两个大佬的博客。</p>
-<p>参考链接：</p>
-<p>1(合法).<a href="https://blog.csdn.net/c406495762/article/details/72858983" target="_blank" rel="noopener">https://blog.csdn.net/c406495762/article/details/72858983</a></p>
-<p>2(非法).<a href="https://moshuqi.github.io/2016/09/27/Python爬虫-Scrapy框架/" target="_blank" rel="noopener">https://moshuqi.github.io/2016/09/27/Python%E7%88%AC%E8%99%AB-Scrapy%E6%A1%86%E6%9E%B6/</a></p>
-<p>3(正则表达式).<a href="https://www.runoob.com/python/python-reg-expressions.html" target="_blank" rel="noopener">https://www.runoob.com/python/python-reg-expressions.html</a></p>
-<p>4(xpath与css学习).<a href="https://www.jianshu.com/p/489c5d21cdc7" target="_blank" rel="noopener">https://www.jianshu.com/p/489c5d21cdc7</a></p>
-<p>5(下载图片方法).<a href="https://morvanzhou.github.io/tutorials/data-manipulation/scraping/3-02-download/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/data-manipulation/scraping/3-02-download/</a></p>
-<p>6(进击的巨人在线观看).<a href="https://manhua.fzdm.com/39/" target="_blank" rel="noopener">https://manhua.fzdm.com/39/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://mavericktang.github.io/en/2020/02/15/Graph%20theory/">
 
@@ -1825,7 +1612,7 @@ Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener
       <div class="site-state-item site-state-posts">
           <a href="/en/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1836,7 +1623,7 @@ Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener
       <div class="site-state-item site-state-tags">
             <a href="/en/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1887,13 +1674,13 @@ Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">80k</span>
+    <span title="Symbols count total">64k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:13</span>
+    <span title="Reading time total">58 mins.</span>
 </div>
   <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
   </div>
