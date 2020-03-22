@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>American memory</title>
+    <url>/en/2020/03/19/American-memory/</url>
+    <content><![CDATA[<h1 id="There’s-nothing-we-have-on-our-hand"><a href="#There’s-nothing-we-have-on-our-hand" class="headerlink" title="There’s nothing we have on our hand"></a>There’s nothing we have on our hand</h1><h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>Our memory is like sands in our hand. We thought we were holding them firmly, but actually──There’s nothing we have on our hand. </p>
+<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/bokuranoteniha-nanimonaikedo/1204763777?i=1204764497"></iframe>
+
+<h2 id="Explantation"><a href="#Explantation" class="headerlink" title="Explantation"></a>Explantation</h2><p>Since I begin this Call-Back, we all know what is going to happen. So let me make it clear: I will never going back here, I will not only leave maranatha, but also USA. I am going back to China. The saddest part is not just about the fact, but also I don’t have the chance to say goodbye to all of you. </p>
+]]></content>
+      <categories>
+        <category>Call-Back</category>
+      </categories>
+      <tags>
+        <tag>Call-Back</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bitwise operation</title>
     <url>/en/2020/03/14/Bitwise-operation/</url>
     <content><![CDATA[<h1 id="Bitwise-Operation"><a href="#Bitwise-Operation" class="headerlink" title="Bitwise Operation"></a>Bitwise Operation</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a><a href="https://en.wikipedia.org/wiki/Bitwise_operation" target="_blank" rel="noopener">Intro</a></h2><p> In <a href="https://en.wikipedia.org/wiki/Digital_computer" target="_blank" rel="noopener">digital computer</a> <a href="https://en.wikipedia.org/wiki/Computer_programming" target="_blank" rel="noopener">programming</a>, a <strong>bitwise operation</strong> operates on one or more <a href="https://en.wikipedia.org/wiki/Bit_pattern" target="_blank" rel="noopener">bit patterns</a> or <a href="https://en.wikipedia.org/wiki/Binary_numeral_system" target="_blank" rel="noopener">binary numerals</a> at the level of their individual <a href="https://en.wikipedia.org/wiki/Bit" target="_blank" rel="noopener">bits</a>. It is a fast and simple action, directly supported by the <a href="https://en.wikipedia.org/wiki/Central_processing_unit" target="_blank" rel="noopener">processor</a>, and is used to manipulate values for comparisons and calculations.</p>
@@ -83,7 +98,7 @@
 <p>$\therefore$ 100&lt;&lt;2, (100)<sub>2</sub>=1100100&lt;&lt;2=11001=25. We can tell that it is equal to 100/2^2^.</p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Code</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -299,7 +314,7 @@
 
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Code</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -549,7 +564,7 @@
 <p>12.<a href="https://www.luogu.com.cn/problem/P3106" target="_blank" rel="noopener">https://www.luogu.com.cn/problem/P3106</a></p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Code</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -641,67 +656,11 @@
 <p>“I don’t care about warning, I only care about error!”</p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Code</category>
       </categories>
       <tags>
         <tag>Java</tag>
         <tag>Project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nuisance-Hexo</title>
-    <url>/en/2020/02/10/Nuisance-Hexo/</url>
-    <content><![CDATA[<h1 id="Hexo-Probably-the-most-detailed-guide-for-2020"><a href="#Hexo-Probably-the-most-detailed-guide-for-2020" class="headerlink" title="Hexo: Probably the most detailed guide for 2020"></a>Hexo: Probably the most detailed guide for 2020</h1><h2 id="Introducing-Hexo-and-this-blog"><a href="#Introducing-Hexo-and-this-blog" class="headerlink" title="Introducing Hexo and this blog"></a>Introducing Hexo and this blog</h2><p><strong>Hexo</strong> is a useful tool for people who want to create their own blog website. It is really a convenient tool for it will automatically generate the beautiful designed website and even help you upload it to your Github. The perfect thing about blog is that it can save the people later who do the same thing energy and time. Same reason as I started my blog with this article. It took me 3 hours to use this tool for the bugs and the obsolete blogs elsewhere. Now on 9 February 2020, here we go.</p>
-<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>Here is the things I believe you guys already have and grasped:</p>
-<ul>
-<li><strong>Git tools</strong></li>
-<li><strong>Github account</strong></li>
-<li><strong>Xcode command line tools</strong></li>
-<li><strong>nvm and Node.js</strong><br>If you don’t have it, please see the link below to get those staffs!</li>
-</ul>
-<h2 id="Get-Hexo-work-on-your-MAC"><a href="#Get-Hexo-work-on-your-MAC" class="headerlink" title="Get Hexo work on your MAC!"></a>Get Hexo work on your MAC!</h2><p>Go to Terminal, and input those code:</p>
-<ul>
-<li>Download Hexo<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
-<li>Its extension (Add sudo in the front if not working)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-Use this if error exists when you download the extension (Take me half hour to get those things down)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g  </span><br><span class="line">npm install hexo-deployer-git --save </span><br><span class="line">mkdir ~&#x2F;.npm-global</span><br><span class="line">npm config set prefix &#39;~&#x2F;.npm-global&#39;</span><br><span class="line">export PATH&#x3D;~&#x2F;.npm-global&#x2F;bin:$PATH</span><br><span class="line">source ~&#x2F;.profile</span><br><span class="line">npm install -g jshint</span><br><span class="line">NPM_CONFIG_PREFIX&#x3D;~&#x2F;.npm-global</span><br></pre></td></tr></table></figure>
-Big ones from stackoverflow said that it was global download?(<del>Whatever</del>)</li>
-</ul>
-<h2 id="Use-hexo-to-create-your-Blog-project"><a href="#Use-hexo-to-create-your-Blog-project" class="headerlink" title="Use hexo to create your Blog project!"></a>Use hexo to create your Blog project!</h2><ul>
-<li>Now use command cd to get to an empty folder(Must be empty, if error exist just create a new one)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ......&#x2F;&#x2F;whatever your folder is</span><br></pre></td></tr></table></figure></li>
-<li>Initialize your folder, get the basic model for your blog<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></li>
-<li>Generate your website(test)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">or</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
-<li>View your website in your browser<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br><span class="line">or</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></li>
-</ul>
-<h2 id="Get-your-Blog-available-online"><a href="#Get-your-Blog-available-online" class="headerlink" title="Get your Blog available online!"></a>Get your Blog available online!</h2><h3 id="Get-SSH-key-on-your-Github"><a href="#Get-SSH-key-on-your-Github" class="headerlink" title="Get SSH key on your Github"></a>Get SSH key on your Github</h3><p>See it you got your SSH key on your computer</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd ~&#x2F;. ssh</span><br></pre></td></tr></table></figure>
-<p>If there is no respond just skip action 2 to action 3</p>
-<p>Get your SSH key</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line">Generating public&#x2F;private rsa key pair.</span><br><span class="line">Enter file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
-<p>And press return until you see this</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.</span><br><span class="line">Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
-<p>Go to the folder where has your ssh key(Here is the route looks like)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.</span><br></pre></td></tr></table></figure>
-<p>Then go to settings, <a href="https://github.com/settings/keys" target="_blank" rel="noopener" title="Github">Express</a><br>Then add your new SSH key<br>Then you need to do some change on this file<code>_config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;wavky&#x2F;wavky.github.io.git(Your Github repository，like above)</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p><strong>Be careful with the space under the deploy!</strong>(My half hour went away!)<br>@(Error: My Hexo deploy failed)<br>Error reporting will be like this:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">You should configure deployment settings in _config.yml first!</span><br><span class="line">Available deployer plugins: git</span><br></pre></td></tr></table></figure>
-<p>Then finally<br>Post your Blog in website:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<h4 id="Have-trouble-finding-your-blog"><a href="#Have-trouble-finding-your-blog" class="headerlink" title="Have trouble finding your blog?"></a>Have trouble finding your blog?</h4><p>-&gt;Settings-&gt;GitHub Pages</p>
-<p>Thanks for your patience to read this article…..<br><strong>Just joking</strong><br>You might also met the problem like<code>Hexo no styles</code><br>here is the way to solve it<br>Go to your <code>./public/index.html</code> (In your folder)<br>Found(use command+f)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;css&#x2F;style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>Exchange with</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;(Here is your website name)&#x2F;css&#x2F;style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>Such as my website named <a href="https://mavericktang.github.io/Blogs/">https://mavericktang.github.io/Blogs/</a><br>Then the place should be <code>Blogs</code></p>
-<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Hopefully this article would help you with to solve your problem.<br>And feel free to visit my personal web!<br><a href="https://mavericktang.github.io/mavericreate/">https://mavericktang.github.io/mavericreate/</a></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -791,11 +750,67 @@ Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener
 <p>3.<a href="https://www.runoob.com/cplusplus/cpp-basic-input-output.html" target="_blank" rel="noopener">https://www.runoob.com/cplusplus/cpp-basic-input-output.html</a></p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Code</category>
       </categories>
       <tags>
         <tag>C++</tag>
         <tag>Competition</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nuisance-Hexo</title>
+    <url>/en/2020/02/10/Nuisance-Hexo/</url>
+    <content><![CDATA[<h1 id="Hexo-Probably-the-most-detailed-guide-for-2020"><a href="#Hexo-Probably-the-most-detailed-guide-for-2020" class="headerlink" title="Hexo: Probably the most detailed guide for 2020"></a>Hexo: Probably the most detailed guide for 2020</h1><h2 id="Introducing-Hexo-and-this-blog"><a href="#Introducing-Hexo-and-this-blog" class="headerlink" title="Introducing Hexo and this blog"></a>Introducing Hexo and this blog</h2><p><strong>Hexo</strong> is a useful tool for people who want to create their own blog website. It is really a convenient tool for it will automatically generate the beautiful designed website and even help you upload it to your Github. The perfect thing about blog is that it can save the people later who do the same thing energy and time. Same reason as I started my blog with this article. It took me 3 hours to use this tool for the bugs and the obsolete blogs elsewhere. Now on 9 February 2020, here we go.</p>
+<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>Here is the things I believe you guys already have and grasped:</p>
+<ul>
+<li><strong>Git tools</strong></li>
+<li><strong>Github account</strong></li>
+<li><strong>Xcode command line tools</strong></li>
+<li><strong>nvm and Node.js</strong><br>If you don’t have it, please see the link below to get those staffs!</li>
+</ul>
+<h2 id="Get-Hexo-work-on-your-MAC"><a href="#Get-Hexo-work-on-your-MAC" class="headerlink" title="Get Hexo work on your MAC!"></a>Get Hexo work on your MAC!</h2><p>Go to Terminal, and input those code:</p>
+<ul>
+<li>Download Hexo<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
+<li>Its extension (Add sudo in the front if not working)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+Use this if error exists when you download the extension (Take me half hour to get those things down)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g  </span><br><span class="line">npm install hexo-deployer-git --save </span><br><span class="line">mkdir ~&#x2F;.npm-global</span><br><span class="line">npm config set prefix &#39;~&#x2F;.npm-global&#39;</span><br><span class="line">export PATH&#x3D;~&#x2F;.npm-global&#x2F;bin:$PATH</span><br><span class="line">source ~&#x2F;.profile</span><br><span class="line">npm install -g jshint</span><br><span class="line">NPM_CONFIG_PREFIX&#x3D;~&#x2F;.npm-global</span><br></pre></td></tr></table></figure>
+Big ones from stackoverflow said that it was global download?(<del>Whatever</del>)</li>
+</ul>
+<h2 id="Use-hexo-to-create-your-Blog-project"><a href="#Use-hexo-to-create-your-Blog-project" class="headerlink" title="Use hexo to create your Blog project!"></a>Use hexo to create your Blog project!</h2><ul>
+<li>Now use command cd to get to an empty folder(Must be empty, if error exist just create a new one)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ......&#x2F;&#x2F;whatever your folder is</span><br></pre></td></tr></table></figure></li>
+<li>Initialize your folder, get the basic model for your blog<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></li>
+<li>Generate your website(test)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">or</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
+<li>View your website in your browser<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br><span class="line">or</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></li>
+</ul>
+<h2 id="Get-your-Blog-available-online"><a href="#Get-your-Blog-available-online" class="headerlink" title="Get your Blog available online!"></a>Get your Blog available online!</h2><h3 id="Get-SSH-key-on-your-Github"><a href="#Get-SSH-key-on-your-Github" class="headerlink" title="Get SSH key on your Github"></a>Get SSH key on your Github</h3><p>See it you got your SSH key on your computer</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd ~&#x2F;. ssh</span><br></pre></td></tr></table></figure>
+<p>If there is no respond just skip action 2 to action 3</p>
+<p>Get your SSH key</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line">Generating public&#x2F;private rsa key pair.</span><br><span class="line">Enter file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
+<p>And press return until you see this</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Your identification has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.</span><br><span class="line">Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
+<p>Go to the folder where has your ssh key(Here is the route looks like)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa.</span><br></pre></td></tr></table></figure>
+<p>Then go to settings, <a href="https://github.com/settings/keys" target="_blank" rel="noopener" title="Github">Express</a><br>Then add your new SSH key<br>Then you need to do some change on this file<code>_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;wavky&#x2F;wavky.github.io.git(Your Github repository，like above)</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><strong>Be careful with the space under the deploy!</strong>(My half hour went away!)<br>@(Error: My Hexo deploy failed)<br>Error reporting will be like this:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">You should configure deployment settings in _config.yml first!</span><br><span class="line">Available deployer plugins: git</span><br></pre></td></tr></table></figure>
+<p>Then finally<br>Post your Blog in website:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<h4 id="Have-trouble-finding-your-blog"><a href="#Have-trouble-finding-your-blog" class="headerlink" title="Have trouble finding your blog?"></a>Have trouble finding your blog?</h4><p>-&gt;Settings-&gt;GitHub Pages</p>
+<p>Thanks for your patience to read this article…..<br><strong>Just joking</strong><br>You might also met the problem like<code>Hexo no styles</code><br>here is the way to solve it<br>Go to your <code>./public/index.html</code> (In your folder)<br>Found(use command+f)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;css&#x2F;style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>Exchange with</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;(Here is your website name)&#x2F;css&#x2F;style.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>Such as my website named <a href="https://mavericktang.github.io/Blogs/">https://mavericktang.github.io/Blogs/</a><br>Then the place should be <code>Blogs</code></p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Hopefully this article would help you with to solve your problem.<br>And feel free to visit my personal web!<br><a href="https://mavericktang.github.io/mavericreate/">https://mavericktang.github.io/mavericreate/</a></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
