@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mavericktang.github.io/en/en/2020/03/27/American-memory/</loc>
-    <lastmod>2020-04-02</lastmod>
-  </url>  <url>
-    <loc>https://mavericktang.github.io/en/en/2020/03/15/Bitwise-operation/</loc>
-    <lastmod>2020-03-20</lastmod>
-  </url>  <url>
-    <loc>https://mavericktang.github.io/en/en/2020/02/11/Attendence%20Taking/</loc>
-    <lastmod>2020-03-20</lastmod>
-  </url>  <url>
     <loc>https://mavericktang.github.io/en/en/2020/02/11/String%20In%20C%20and%20C++(Intro)/</loc>
-    <lastmod>2020-03-20</lastmod>
-  </url>  <url>
-    <loc>https://mavericktang.github.io/en/en/2020/03/12/Data-Structure-Tree/</loc>
-    <lastmod>2020-03-20</lastmod>
-  </url>  <url>
-    <loc>https://mavericktang.github.io/en/en/2020/02/16/Graph%20theory/</loc>
-    <lastmod>2020-03-20</lastmod>
+    <lastmod>2020-04-04</lastmod>
   </url>  <url>
     <loc>https://mavericktang.github.io/en/en/2020/02/11/Nuisance-Hexo/</loc>
-    <lastmod>2020-02-15</lastmod>
+    <lastmod>2020-04-04</lastmod>
   </url>  <url>
-    <loc>https://mavericktang.github.io/en/en/2020/02/10/hello-world/</loc>
-    <lastmod>2020-02-15</lastmod>
+    <loc>https://mavericktang.github.io/en/en/2020/02/16/Graph%20theory/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
+    <loc>https://mavericktang.github.io/en/en/2020/03/12/Data-Structure-Tree/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
+    <loc>https://mavericktang.github.io/en/en/2020/03/15/Bitwise-operation/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
+    <loc>https://mavericktang.github.io/en/en/2020/03/27/American-memory/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
+    <loc>https://mavericktang.github.io/en/en/2020/02/11/Attendence%20Taking/</loc>
+    <lastmod>2020-04-04</lastmod>
   </url>
 </urlset>

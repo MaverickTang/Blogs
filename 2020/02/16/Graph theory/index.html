@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mavericktang.github.io","root":"/en/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"mavericktang.github.io","root":"/en/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Graph theory in Computer competitionIntroGraph theory is prabobly the most popular question in computer competition in USACO and NOIP(China). It is actually a branch of math theory. In the questions t">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MaverickTang/Images/master/Floyd.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MaverickTang/Images/master/SPFA.gif">
 <meta property="article:published_time" content="2020-02-16T02:32:35.000Z">
-<meta property="article:modified_time" content="2020-03-20T04:09:10.156Z">
+<meta property="article:modified_time" content="2020-04-04T01:20:28.507Z">
 <meta property="article:author" content="Haotian Tang">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Competition">
@@ -106,6 +106,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/en/atom.xml" title="Mavericreate.Blog" type="application/atom+xml">
 </head>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
@@ -162,17 +163,37 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/en/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/en/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/en/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/en/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/en/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-switch_lang">
 
     <a href="https://mavericktang.github.io/Blogs" rel="section"><i class="fa fa-fw fa-language"></i>简体中文</a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/en/tools/" rel="section"><i class="fa fa-fw fa-legal"></i>Tools</a>
+
+  </li>
+        <li class="menu-item menu-item-image">
+
+    <a href="https://imgchr.com/album/Y0zVS" rel="noopener" target="_blank"><i class="fa fa-fw fa-image"></i>Photos</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/en/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -248,6 +269,8 @@
         </h1>
 
         <div class="post-meta">
+
+         
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -261,7 +284,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-19 21:09:10" itemprop="dateModified" datetime="2020-03-19T21:09:10-07:00">2020-03-19</time>
+                <time title="Modified: 2020-04-03 18:20:28" itemprop="dateModified" datetime="2020-04-03T18:20:28-07:00">2020-04-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,13 +329,15 @@
 
       
         <h1 id="Graph-theory-in-Computer-competition"><a href="#Graph-theory-in-Computer-competition" class="headerlink" title="Graph theory in Computer competition"></a><strong>Graph theory</strong> in Computer competition</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Graph theory is prabobly the most popular question in computer competition in USACO and NOIP(China). It is actually a branch of math theory. In the questions they would give you many points in a graph and ask you to find out the shortest way or the possile way to go from one point to another one. Sometimes it will provide you with values of the edge and ask you to calculate the smallest coast. Sounds pretty simple Hahhhhh. Let’s have a look!</p>
+<a id="more"></a>
+
 <h2 id="Basic-Information"><a href="#Basic-Information" class="headerlink" title="Basic Information"></a>Basic Information</h2><p><strong>PS</strong>: You can jump to next block and keep reading, and find the concept you don’t understand above.</p>
 <p><strong>Graph</strong> is a <a href="https://en.wikipedia.org/wiki/Tuple" target="_blank" rel="noopener">2-tuple</a> which describes the relationship between the points. Usually explained as G=(V,E), and V, E are mutiple sets.</p>
 <p>Graph has two different types:</p>
 <p><strong>Undirected graph</strong>: Every elements in E are disordered 2-tuple(u,v), we name the element <strong>Undirected edge</strong>. And u,v$\in$V. Let e=(u,v), then u and v are e’s <strong>endpoint</strong></p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/Undirected.png" alt="**Undirected graph**"></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/Undirected.png" alt="**Undirected graph**"></p>
 <p><strong>Directed graph</strong>: Every elements in E are ordered 2-tuple, write as u$\longrightarrow$v, we name the element <strong>Directed edge</strong>.  Let e=u$\longrightarrow$v, then u is e’s <strong>Tail</strong>, and v is e’s <strong>head</strong>.</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/Directed.png" alt="**directed graph**"></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/Directed.png" alt="**directed graph**"></p>
 <p>And for every elements in V, we call it <strong>Vertex</strong> or <strong>Node</strong>.</p>
 <p>…….</p>
 <p>Actually there is a lot more concept we need to know for the Graph Theory, but we are just programmers(<del>I don’t want to write down</del>) Here is the link for <a href="https://oi-wiki.org/graph/concept/" target="_blank" rel="noopener">More basic info</a>.</p>
@@ -341,7 +366,7 @@
 <p>Then here are two big basic alograithm for Graph theory.</p>
 <h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>DFS,  full name <a href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank" rel="noopener">Depth First Search</a>.</p>
 <p>To make it easy, the core of it is to follow one road till it is going to an end. We travel through every edges as long as the edge can be traveled through.</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/DFS.png" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/DFS.png" alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> vis[mx]=&#123;<span class="number">0</span>&#125;;<span class="comment">//To make sure you won't travel through the same edge over and over again</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	vis[s]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=head[s];i;i=eg[i].next)&#123;<span class="comment">//travel</span></span><br><span class="line">		<span class="keyword">if</span>(!vis[eg[i].dest])&#123;<span class="comment">//haven't travel through</span></span><br><span class="line">			dfs(eg[i].dest);<span class="comment">//Then travel</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Simple as this. </p>
@@ -361,7 +386,7 @@
 
 <h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>BFS, full name <strong>Breadth First Search</strong></p>
 <p>BFS is a traversing algorithm where you should start traversing from a selected node (source or starting node) and traverse the graph layerwise thus exploring the neighbour nodes (nodes which are directly connected to source node). You must then move towards the next-level neighbour nodes.</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/BFS.png" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/BFS.png" alt=""></p>
 <p>Code:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;//Import queue libaray</span></span></span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;<span class="comment">//Declare queue</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	q.push(s);vis[s]=<span class="number">1</span>;<span class="comment">//push s into the queue and vis</span></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;<span class="comment">//As long as there is still elements in the queue</span></span><br><span class="line">		<span class="keyword">int</span> u=q.front();<span class="comment">//Get the front of the queue</span></span><br><span class="line">		q.pop();<span class="comment">//Get the front of the queue out</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i;i=eg[i].next)&#123;<span class="comment">//Same old story</span></span><br><span class="line">			<span class="keyword">int</span> v=eg[i].dest;</span><br><span class="line">			<span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">				q.push(v),vis[v]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -390,7 +415,7 @@
 
 <h2 id="More-advanced-Algotithm"><a href="#More-advanced-Algotithm" class="headerlink" title="More advanced Algotithm"></a>More advanced Algotithm</h2><h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><p>It uses the idea of BFS, aims to solve the Shortest path problem. It works both well for Directed graph and undirected graph.  </p>
 <p>The point of Djikstra is be greedy. We declare an array to restore the distance from the starting point to another point, initialize them as infinite number if there is no direct edge from starting point to them, and if they do have, put them as the smae value as the value of the edge .So that we can replace them with smaller number which we gained from the value of the route. As the graph.</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/Djk.gif" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/Djk.gif" alt=""></p>
 <p>Dijkstra has Time complexity 𝑂(n^2), but with heap, it can be 𝑂((𝑛+𝑚)log2𝑛)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="comment">//Declare another struct to restore the information for the point</span></span><br><span class="line">	<span class="keyword">int</span> dis,pos;<span class="comment">//pos means the number of the point</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt;( <span class="keyword">const</span> node &amp;x )<span class="keyword">const</span>&#123;<span class="comment">//declare the operator '&lt;' by our own function</span></span><br><span class="line">		<span class="keyword">return</span> x.dis &lt; dis;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">std</span>::priority_queue&lt;node&gt; q;<span class="comment">//priority queue</span></span><br><span class="line"><span class="keyword">int</span> dis[mx],vis[mx];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	dis[s]=<span class="number">0</span>;</span><br><span class="line">	q.push((node)&#123;<span class="number">0</span>,s&#125;);<span class="comment">//push into queue as struct node</span></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node tmp=q.top();q.pop();</span><br><span class="line">		<span class="keyword">int</span> x=tmp.pos,d=tmp.dis;</span><br><span class="line">		<span class="keyword">if</span>(!vis[x])&#123;<span class="comment">//Got to the tail, if we didn't visit it</span></span><br><span class="line">		vis[x]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=eg[i].next)&#123;</span><br><span class="line">			<span class="keyword">int</span> y=eg[i].dest;</span><br><span class="line">			<span class="keyword">if</span>(dis[y]&gt;dis[x]+eg[i].val)&#123;</span><br><span class="line">				dis[y]=dis[x]+eg[i].val;<span class="comment">//The core of the code, to replace for smaller</span></span><br><span class="line">				<span class="keyword">if</span>(!vis[y])<span class="comment">//Got to the head, if we didn't visit it</span></span><br><span class="line">					q.push((node)&#123;dis[y],y&#125;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -414,7 +439,7 @@
 <p>Like Dijkstra, Floyd’s core is also enumerate. It enumerate every point by 3 for loops. Because we suppose there is a shorter way than directly get to the point. We use g[i] [j] to express the distance from i to j, so there might be a point k in between might make this case:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g[i][j]&gt;g[i][k]+g[k][j];</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/Floyd.png" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/Floyd.png" alt=""></p>
 <p>I think it is easier to understand by code:(Probably the shortest one you ever meet)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">floyd</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(g[i][k]&lt;inf&amp;&amp;g[k][j]&lt;inf&amp;&amp;g[i][j]&gt;g[i][k]+g[k][j])</span><br><span class="line">					g[i][j]=g[i][k]+g[k][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -445,7 +470,7 @@
 <h3 id="SPFA"><a href="#SPFA" class="headerlink" title="SPFA"></a>SPFA</h3><p>SPFA, full name <strong>Shortest Path Faster Algorithm</strong>.</p>
 <p>Sounds pretty cool Hahhh. Actually, I think it is the most useful algorithm for graph theory, it can deal with almost all kinds of graph. Now, let’s see how it works!</p>
 <p>It works by repeatedly selecting a vertex and using it to relax, if possible, all of its neighbors. If a node was successfully relaxed, then it might in turn be necessary to use it to relax other vertices, and hence it is marked for consideration also. Once there are no vertices left to be considered, the algorithm terminates. Note that a vertex might be considered several times during the course of the algorithm. The usual implementation strategy is to use a <a href="http://wcipeg.com/wiki/Queue" target="_blank" rel="noopener">queue</a> to hold the vertices that might be considered next.</p>
-<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/SPFA.gif" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/MaverickTang/Images/master/SPFA.gif" alt=""></p>
 <p>Code:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> u,v;    <span class="built_in">memset</span>(dist,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dist));<span class="comment">//Initialize dist</span></span><br><span class="line">	dist[s]=<span class="number">0</span>;<span class="comment">//Get start point as 0</span></span><br><span class="line">	inque[s]=<span class="number">1</span>;<span class="comment">//Memorize the s is in the queue</span></span><br><span class="line">	q.push(s);<span class="comment">//in queue</span></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		u=q.front(), q.pop();  inque[u]=<span class="number">0</span>;<span class="comment">//Get the front of queue out</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=head[u]; i; i=eg[i].next)&#123;</span><br><span class="line">			  v=eg[i].dest;</span><br><span class="line">			  <span class="keyword">if</span>(dist[v]&gt;dist[u]+eg[i].val)&#123;<span class="comment">//If find a route with smaller value</span></span><br><span class="line">				  dist[v]= dist[u]+eg[i].val;<span class="comment">//change it </span></span><br><span class="line">				  fa[v]=u;<span class="comment">//Memorize the tail of v</span></span><br><span class="line">				  <span class="keyword">if</span>(!inque[v])&#123;</span><br><span class="line">					  q.push(v), inque[v]=<span class="number">1</span>;</span><br><span class="line">				  &#125;</span><br><span class="line">			  &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -701,13 +726,15 @@
       <div class="site-state-item site-state-posts">
           <a href="/en/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/en/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/en/tags/">
@@ -820,6 +847,8 @@
   
   <script src="/en/lib/anime.min.js"></script>
   <script src="/en/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/en/lib/velocity/velocity.min.js"></script>
   <script src="/en/lib/velocity/velocity.ui.min.js"></script>
 
@@ -943,11 +972,11 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 
 
 <!--崩溃欺骗-->
-<script type="text/javascript" src="/en/js/crash_cheat.js"></script>
+<script type="/Blogs/text/javascript" src="/Blogs/js/crash_cheat.js"></script>
 
 
 
-	<script async src="/en/js/cursor/fireworks.js"></script>
+	<script async src="/Blogs/js/cursor/fireworks.js"></script>
 
 
     </div>
