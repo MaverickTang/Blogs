@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Although There&#39;s Nothing We Have On Our Hand</title>
-    <url>/en/2020/03/27/American-memory/</url>
+    <url>/Blogs/2020/03/27/American-memory/</url>
     <content><![CDATA[<h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>Our memory is like sands in our hand. We thought we were holding them firmly, but actually──There’s nothing we have on our hand. This is why this blog is here. It helps us to remember this precious memory. Especially for me, this precious memory almost has a range of 7 months. At least I have built this blog which might help you to learn my story. </p>
 <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/bokuranoteniha-nanimonaikedo/1204763777?i=1204764497"></iframe>
 
@@ -95,7 +95,7 @@
   </entry>
   <entry>
     <title>Bitwise operation</title>
-    <url>/en/2020/03/15/Bitwise-operation/</url>
+    <url>/Blogs/2020/03/15/Bitwise-operation/</url>
     <content><![CDATA[<h1 id="Bitwise-Operation"><a href="#Bitwise-Operation" class="headerlink" title="Bitwise Operation"></a>Bitwise Operation</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a><a href="https://en.wikipedia.org/wiki/Bitwise_operation" target="_blank" rel="noopener">Intro</a></h2><p> In <a href="https://en.wikipedia.org/wiki/Digital_computer" target="_blank" rel="noopener">digital computer</a> <a href="https://en.wikipedia.org/wiki/Computer_programming" target="_blank" rel="noopener">programming</a>, a <strong>bitwise operation</strong> operates on one or more <a href="https://en.wikipedia.org/wiki/Bit_pattern" target="_blank" rel="noopener">bit patterns</a> or <a href="https://en.wikipedia.org/wiki/Binary_numeral_system" target="_blank" rel="noopener">binary numerals</a> at the level of their individual <a href="https://en.wikipedia.org/wiki/Bit" target="_blank" rel="noopener">bits</a>. It is a fast and simple action, directly supported by the <a href="https://en.wikipedia.org/wiki/Central_processing_unit" target="_blank" rel="noopener">processor</a>, and is used to manipulate values for comparisons and calculations.</p>
 <a id="more"></a>
 
@@ -187,7 +187,7 @@
   </entry>
   <entry>
     <title>Data Structure: Tree</title>
-    <url>/en/2020/03/12/Data-Structure-Tree/</url>
+    <url>/Blogs/2020/03/12/Data-Structure-Tree/</url>
     <content><![CDATA[<h1 id="Data-Structure-Tree"><a href="#Data-Structure-Tree" class="headerlink" title="Data Structure: Tree"></a>Data Structure: Tree</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>In computer science, a <strong>data structure</strong> is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data</p>
 <a id="more"></a>
 
@@ -405,7 +405,7 @@
   </entry>
   <entry>
     <title>Graph theory</title>
-    <url>/en/2020/02/16/Graph%20theory/</url>
+    <url>/Blogs/2020/02/16/Graph%20theory/</url>
     <content><![CDATA[<h1 id="Graph-theory-in-Computer-competition"><a href="#Graph-theory-in-Computer-competition" class="headerlink" title="Graph theory in Computer competition"></a><strong>Graph theory</strong> in Computer competition</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Graph theory is prabobly the most popular question in computer competition in USACO and NOIP(China). It is actually a branch of math theory. In the questions they would give you many points in a graph and ask you to find out the shortest way or the possile way to go from one point to another one. Sometimes it will provide you with values of the edge and ask you to calculate the smallest coast. Sounds pretty simple Hahhhhh. Let’s have a look!</p>
 <a id="more"></a>
 
@@ -657,7 +657,7 @@
   </entry>
   <entry>
     <title>Attendence Taking program design</title>
-    <url>/en/2020/02/11/Attendence%20Taking/</url>
+    <url>/Blogs/2020/02/11/Attendence%20Taking/</url>
     <content><![CDATA[<h1 id="Attendence-Taking-program-design"><a href="#Attendence-Taking-program-design" class="headerlink" title="Attendence Taking program design"></a>Attendence Taking program design</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p><strong>Mr.Lartuno</strong> give us the project that we need to design a Attendence software for him. (<del>Because he is lazy to finish it himself</del>)  So here is how it is designed.</p>
 <a id="more"></a>
 
@@ -751,7 +751,7 @@
   </entry>
   <entry>
     <title>Nuisance-Hexo</title>
-    <url>/en/2020/02/11/Nuisance-Hexo/</url>
+    <url>/Blogs/2020/02/11/Nuisance-Hexo/</url>
     <content><![CDATA[<h1 id="Hexo-Probably-the-most-detailed-guide-for-2020"><a href="#Hexo-Probably-the-most-detailed-guide-for-2020" class="headerlink" title="Hexo: Probably the most detailed guide for 2020"></a>Hexo: Probably the most detailed guide for 2020</h1><h2 id="Introducing-Hexo-and-this-blog"><a href="#Introducing-Hexo-and-this-blog" class="headerlink" title="Introducing Hexo and this blog"></a>Introducing Hexo and this blog</h2><p><strong>Hexo</strong> is a useful tool for people who want to create their own blog website. It is really a convenient tool for it will automatically generate the beautiful designed website and even help you upload it to your Github. The perfect thing about blog is that it can save the people later who do the same thing energy and time. Same reason as I started my blog with this article. It took me 3 hours to use this tool for the bugs and the obsolete blogs elsewhere. Now on 9 February 2020, here we go.</p>
 <a id="more"></a>
 
@@ -809,7 +809,7 @@ Default location: <a href="http://localhost:4000/" target="_blank" rel="noopener
   </entry>
   <entry>
     <title>String In C and C++(Intro)</title>
-    <url>/en/2020/02/11/String%20In%20C%20and%20C++(Intro)/</url>
+    <url>/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/</url>
     <content><![CDATA[<h1 id="How-to-use-C-String-in-Competition"><a href="#How-to-use-C-String-in-Competition" class="headerlink" title="How to use C++ String in Competition"></a>How to use C++ String in Competition</h1><p>Today, we are going to talk about C++ String and how to use it in competition. Since it is my first blog about USACO or CCF(In China) competition. And also It works for Computer Science students in USA. This article will divide as two parts. Each part will explain char and String in C or C++.</p>
 <a id="more"></a>
 

@@ -3,11 +3,11 @@
   <title>Mavericreate.Blog</title>
   
   <subtitle>if(Coding == Happiness &amp;&amp; Happiness == Life)</subtitle>
-  <link href="/en/atom.xml" rel="self"/>
+  <link href="/Blogs/atom.xml" rel="self"/>
   
-  <link href="https://mavericktang.github.io/en/"/>
+  <link href="https://mavericktang.github.io/Blogs/"/>
   <updated>2020-04-04T01:20:12.886Z</updated>
-  <id>https://mavericktang.github.io/en/</id>
+  <id>https://mavericktang.github.io/Blogs/</id>
   
   <author>
     <name>Haotian Tang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Although There&#39;s Nothing We Have On Our Hand</title>
-    <link href="https://mavericktang.github.io/en/2020/03/27/American-memory/"/>
-    <id>https://mavericktang.github.io/en/2020/03/27/American-memory/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/03/27/American-memory/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/03/27/American-memory/</id>
     <published>2020-03-27T04:07:37.000Z</published>
     <updated>2020-04-04T01:20:12.886Z</updated>
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="Call-Back" scheme="https://mavericktang.github.io/en/categories/Call-Back/"/>
+      <category term="Call-Back" scheme="https://mavericktang.github.io/Blogs/categories/Call-Back/"/>
     
     
-      <category term="Call-Back" scheme="https://mavericktang.github.io/en/tags/Call-Back/"/>
+      <category term="Call-Back" scheme="https://mavericktang.github.io/Blogs/tags/Call-Back/"/>
     
   </entry>
   
   <entry>
     <title>Bitwise operation</title>
-    <link href="https://mavericktang.github.io/en/2020/03/15/Bitwise-operation/"/>
-    <id>https://mavericktang.github.io/en/2020/03/15/Bitwise-operation/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/03/15/Bitwise-operation/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/03/15/Bitwise-operation/</id>
     <published>2020-03-14T18:13:38.000Z</published>
     <updated>2020-04-04T01:20:20.567Z</updated>
     
@@ -58,19 +58,19 @@
     </summary>
     
     
-      <category term="Code" scheme="https://mavericktang.github.io/en/categories/Code/"/>
+      <category term="Code" scheme="https://mavericktang.github.io/Blogs/categories/Code/"/>
     
     
-      <category term="C++" scheme="https://mavericktang.github.io/en/tags/C/"/>
+      <category term="C++" scheme="https://mavericktang.github.io/Blogs/tags/C/"/>
     
-      <category term="Competition" scheme="https://mavericktang.github.io/en/tags/Competition/"/>
+      <category term="Competition" scheme="https://mavericktang.github.io/Blogs/tags/Competition/"/>
     
   </entry>
   
   <entry>
     <title>Data Structure: Tree</title>
-    <link href="https://mavericktang.github.io/en/2020/03/12/Data-Structure-Tree/"/>
-    <id>https://mavericktang.github.io/en/2020/03/12/Data-Structure-Tree/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/03/12/Data-Structure-Tree/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/03/12/Data-Structure-Tree/</id>
     <published>2020-03-11T23:35:49.000Z</published>
     <updated>2020-04-04T01:20:25.066Z</updated>
     
@@ -83,19 +83,19 @@
     </summary>
     
     
-      <category term="Code" scheme="https://mavericktang.github.io/en/categories/Code/"/>
+      <category term="Code" scheme="https://mavericktang.github.io/Blogs/categories/Code/"/>
     
     
-      <category term="C++" scheme="https://mavericktang.github.io/en/tags/C/"/>
+      <category term="C++" scheme="https://mavericktang.github.io/Blogs/tags/C/"/>
     
-      <category term="Competition" scheme="https://mavericktang.github.io/en/tags/Competition/"/>
+      <category term="Competition" scheme="https://mavericktang.github.io/Blogs/tags/Competition/"/>
     
   </entry>
   
   <entry>
     <title>Graph theory</title>
-    <link href="https://mavericktang.github.io/en/2020/02/16/Graph%20theory/"/>
-    <id>https://mavericktang.github.io/en/2020/02/16/Graph%20theory/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/02/16/Graph%20theory/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/02/16/Graph%20theory/</id>
     <published>2020-02-16T02:32:35.000Z</published>
     <updated>2020-04-04T01:20:28.507Z</updated>
     
@@ -108,19 +108,19 @@
     </summary>
     
     
-      <category term="Code" scheme="https://mavericktang.github.io/en/categories/Code/"/>
+      <category term="Code" scheme="https://mavericktang.github.io/Blogs/categories/Code/"/>
     
     
-      <category term="C++" scheme="https://mavericktang.github.io/en/tags/C/"/>
+      <category term="C++" scheme="https://mavericktang.github.io/Blogs/tags/C/"/>
     
-      <category term="Competition" scheme="https://mavericktang.github.io/en/tags/Competition/"/>
+      <category term="Competition" scheme="https://mavericktang.github.io/Blogs/tags/Competition/"/>
     
   </entry>
   
   <entry>
     <title>Attendence Taking program design</title>
-    <link href="https://mavericktang.github.io/en/2020/02/11/Attendence%20Taking/"/>
-    <id>https://mavericktang.github.io/en/2020/02/11/Attendence%20Taking/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/02/11/Attendence%20Taking/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/02/11/Attendence%20Taking/</id>
     <published>2020-02-10T23:13:57.000Z</published>
     <updated>2020-04-04T01:19:54.598Z</updated>
     
@@ -133,19 +133,19 @@
     </summary>
     
     
-      <category term="Code" scheme="https://mavericktang.github.io/en/categories/Code/"/>
+      <category term="Code" scheme="https://mavericktang.github.io/Blogs/categories/Code/"/>
     
     
-      <category term="Java" scheme="https://mavericktang.github.io/en/tags/Java/"/>
+      <category term="Java" scheme="https://mavericktang.github.io/Blogs/tags/Java/"/>
     
-      <category term="Project" scheme="https://mavericktang.github.io/en/tags/Project/"/>
+      <category term="Project" scheme="https://mavericktang.github.io/Blogs/tags/Project/"/>
     
   </entry>
   
   <entry>
     <title>Nuisance-Hexo</title>
-    <link href="https://mavericktang.github.io/en/2020/02/11/Nuisance-Hexo/"/>
-    <id>https://mavericktang.github.io/en/2020/02/11/Nuisance-Hexo/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/02/11/Nuisance-Hexo/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/02/11/Nuisance-Hexo/</id>
     <published>2020-02-10T23:13:57.000Z</published>
     <updated>2020-04-04T01:20:51.478Z</updated>
     
@@ -158,19 +158,19 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://mavericktang.github.io/en/categories/Blog/"/>
+      <category term="Blog" scheme="https://mavericktang.github.io/Blogs/categories/Blog/"/>
     
     
-      <category term="Hexo" scheme="https://mavericktang.github.io/en/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://mavericktang.github.io/Blogs/tags/Hexo/"/>
     
-      <category term="Blog" scheme="https://mavericktang.github.io/en/tags/Blog/"/>
+      <category term="Blog" scheme="https://mavericktang.github.io/Blogs/tags/Blog/"/>
     
   </entry>
   
   <entry>
     <title>String In C and C++(Intro)</title>
-    <link href="https://mavericktang.github.io/en/2020/02/11/String%20In%20C%20and%20C++(Intro)/"/>
-    <id>https://mavericktang.github.io/en/2020/02/11/String%20In%20C%20and%20C++(Intro)/</id>
+    <link href="https://mavericktang.github.io/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/"/>
+    <id>https://mavericktang.github.io/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/</id>
     <published>2020-02-10T23:13:57.000Z</published>
     <updated>2020-04-04T01:21:22.530Z</updated>
     
@@ -183,12 +183,12 @@
     </summary>
     
     
-      <category term="Code" scheme="https://mavericktang.github.io/en/categories/Code/"/>
+      <category term="Code" scheme="https://mavericktang.github.io/Blogs/categories/Code/"/>
     
     
-      <category term="C++" scheme="https://mavericktang.github.io/en/tags/C/"/>
+      <category term="C++" scheme="https://mavericktang.github.io/Blogs/tags/C/"/>
     
-      <category term="Competition" scheme="https://mavericktang.github.io/en/tags/Competition/"/>
+      <category term="Competition" scheme="https://mavericktang.github.io/Blogs/tags/Competition/"/>
     
   </entry>
   
