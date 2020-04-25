@@ -52,12 +52,12 @@
       var switchLang = document.getElementsByClassName("menu-item menu-item-switch_lang")[0];
       switchLang.onclick = function() {
           var href = window.location.href;
-          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog/');
+          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog');
           if(indexOfEn !== -1) {
-              window.location.href = href.replace('/Zh-Blog/', '/Blogs');
+              window.location.href = href.replace('/Zh-Blog', '/Blogs');
           }
           else {
-              window.location.href = href.replace('/Blogs', '/Zh-Blog/');
+              window.location.href = href.replace('/Blogs', '/Zh-Blog');
           }
           if(typeof(_prevOnload) === 'function') {
               _prevOnload();
@@ -477,8 +477,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Blogs/2020/02/11/Nuisance-Hexo/" rel="prev" title="Nuisance-Hexo">
-      <i class="fa fa-chevron-left"></i> Nuisance-Hexo
+    <a href="/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/" rel="prev" title="String In C and C++(Intro)">
+      <i class="fa fa-chevron-left"></i> String In C and C++(Intro)
     </a></div>
       <div class="post-nav-item">
     <a href="/Blogs/2020/02/16/Graph%20theory/" rel="next" title="Graph theory">

@@ -52,12 +52,12 @@
       var switchLang = document.getElementsByClassName("menu-item menu-item-switch_lang")[0];
       switchLang.onclick = function() {
           var href = window.location.href;
-          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog/');
+          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog');
           if(indexOfEn !== -1) {
-              window.location.href = href.replace('/Zh-Blog/', '/Blogs');
+              window.location.href = href.replace('/Zh-Blog', '/Blogs');
           }
           else {
-              window.location.href = href.replace('/Blogs', '/Zh-Blog/');
+              window.location.href = href.replace('/Blogs', '/Zh-Blog');
           }
           if(typeof(_prevOnload) === 'function') {
               _prevOnload();
@@ -478,10 +478,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/Blogs/2020/02/11/Nuisance-Hexo/" rel="next" title="Nuisance-Hexo">
-      Nuisance-Hexo <i class="fa fa-chevron-right"></i>
+    <a href="/Blogs/2020/02/11/Nuisance-Hexo/" rel="prev" title="Nuisance-Hexo">
+      <i class="fa fa-chevron-left"></i> Nuisance-Hexo
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Blogs/2020/02/11/Attendence%20Taking/" rel="next" title="Attendence Taking program design">
+      Attendence Taking program design <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

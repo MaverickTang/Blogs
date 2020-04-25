@@ -48,12 +48,12 @@
       var switchLang = document.getElementsByClassName("menu-item menu-item-switch_lang")[0];
       switchLang.onclick = function() {
           var href = window.location.href;
-          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog/');
+          var indexOfEn = href.toLowerCase().indexOf('/Zh-Blog');
           if(indexOfEn !== -1) {
-              window.location.href = href.replace('/Zh-Blog/', '/Blogs');
+              window.location.href = href.replace('/Zh-Blog', '/Blogs');
           }
           else {
-              window.location.href = href.replace('/Blogs', '/Zh-Blog/');
+              window.location.href = href.replace('/Blogs', '/Zh-Blog');
           }
           if(typeof(_prevOnload) === 'function') {
               _prevOnload();
@@ -361,8 +361,8 @@
       </div>
 
       <h2 class="post-title">
-          <a class="post-title-link" href="/Blogs/2020/02/11/Nuisance-Hexo/" itemprop="url">
-            <span itemprop="name">Nuisance-Hexo</span>
+          <a class="post-title-link" href="/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/" itemprop="url">
+            <span itemprop="name">String In C and C++(Intro)</span>
           </a>
       </h2>
 
@@ -381,8 +381,8 @@
       </div>
 
       <h2 class="post-title">
-          <a class="post-title-link" href="/Blogs/2020/02/11/String%20In%20C%20and%20C++(Intro)/" itemprop="url">
-            <span itemprop="name">String In C and C++(Intro)</span>
+          <a class="post-title-link" href="/Blogs/2020/02/11/Nuisance-Hexo/" itemprop="url">
+            <span itemprop="name">Nuisance-Hexo</span>
           </a>
       </h2>
 
