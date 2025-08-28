@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="简介I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上 I2C物理层 ·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。 ·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。 ·每个连接到总线的设备都有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I2C">
+<meta property="og:url" content="http://example.com/2025/08/28/I2C/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="简介I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上 I2C物理层 ·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。 ·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。 ·每个连接到总线的设备都有">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-13f2e9e79052fab366696994d2cf85d9_1440w.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-1731c80f7c957ba510ac073e50483705_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-2e7da749509983984c037ea57c151222_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-81bbae342cab337627cf272b44db67b5_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-824476a9d0304a01ac3f4b15190abd08_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-933083b14613c8db15b7a9801e7bbf97_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-cf186fae58138d2b2267c804ae49cfb3_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-14fd1d6dd21de804e75ad773003a1216_720w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-5d68fa57d49c5f936f35c9ff6960666a_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-b27296911924ff1f8cc4a45ca13604d7_720w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-a7609f6f52ffc96d92b806d106d40a19_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-b5050de35cc69f96b49c1f0904f277b7_720w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-d1158c854bfe5a8cdd2ae0313543d4f9_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-c62ae09d5c6d58c6893ab249b36ae740_720w.webp">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.874Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="I2C">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-13f2e9e79052fab366696994d2cf85d9_1440w.jpg">
+  
+  
+  
+  <title>I2C - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="I2C"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">I2C</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上</p>
+<h2 id="I2C物理层"><a href="#I2C物理层" class="headerlink" title="I2C物理层"></a><strong>I2C物理层</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-13f2e9e79052fab366696994d2cf85d9_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。</p>
+<p>·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。</p>
+<p>·每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
+<p>·总线通过上拉电阻接到电源。当I2C设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
+<p>·多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
+<p>·具有三种传输模式：标准模式传输速率为100kbit&#x2F;s，快速模式为400kbit&#x2F;s，高速模下可达3.4Mbit&#x2F;s，但目前大多I2C设备尚不支持高速模式。</p>
+<h2 id="I2C协议层"><a href="#I2C协议层" class="headerlink" title="I2C协议层"></a><strong>I2C协议层</strong></h2><p>以主机向从机写数据为例，其基本结构如图所示，依次为：<br><strong>起始信号——从机地址——读写信号——数据位——应答位——… … ——停止位</strong></p>
+<p><img src="https://pic2.zhimg.com/80/v2-1731c80f7c957ba510ac073e50483705_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p>起始信号(S)：当 SCL 线是高电平时，SDA 线从高电平向低电平切换；停止信号(P)：当 SCL 是高电平时，SDA 线由低电平向高电平切换。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-2e7da749509983984c037ea57c151222_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p>帧地址：I2C总线上的每个设备都有自己的独立地址，主机发起通讯时，通过SDA信号线发送设备地址(SLAVE_ADDRESS)来查找从机。I2C协议规定设备地址可以是7位或10位，实际中7位的地址应用比较广泛。</p>
+<p>I2C使用SDA信号线来传输数据，使用SCL信号线进行数据同步。SDA数据线在SCL的每个时钟周期传输一位数据。传输时，SCL为高电平的时候SDA表示的数据有效，即此时的SDA为高电平时表示数据“1”，为低电平时表示数据“0”。当SCL为低电平时，SDA的数据无效，一般在这个时候SDA进行电平切换，为下一次表示数据做好准备。</p>
+<p>I2C的数据和地址传输都带响应。响应包括“应答(ACK)”和“非应答(NACK)”两种信号。</p>
+<p>作为数据接收端时，当设备(无论主从机)接收到I2C传输的一个字节数据或地址后，若希望对方继续发送数据，则需要向对方发送“应答(ACK)”信号，发送方会继续发送下一个数据；若接收端希望结束数据传输，则向对方发送“非应答(NACK)”信号，发送方接收到该信号后会产生一个停止信号，结束信号传输。</p>
+<h2 id="I2C功能框图剖析"><a href="#I2C功能框图剖析" class="headerlink" title="I2C功能框图剖析"></a><strong>I2C功能框图剖析</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-81bbae342cab337627cf272b44db67b5_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>时钟控制逻辑：</strong></p>
+<p>SCL线的时钟信号，由I2C接口根据时钟控制寄存器(CCR)控制，控制的参数主要为时钟频率。配置I2C的CCR寄存器可修改通讯速率相关的参数。</p>
+<p>可选择I2C通讯的“标准&#x2F;快速”模式，这两个模式分别I2C对应100&#x2F;400Kbit&#x2F;s的通讯速率。</p>
+<p>在快速模式下可选择SCL时钟的占空比，可选Tlow&#x2F;Thigh&#x3D;2或Tlow&#x2F;Thigh&#x3D;16&#x2F;9模式，我们知道I2C协议在SCL高电平时对SDA信号采样，SCL低电平时SDA准备下一个数据，修改SCL 的高低电平比会影响数据采样，但其实这两个模式的比例差别并不大，若不是要求非常严格，随便选就可以了。</p>
+<p>CCR寄存器中还有一个12位的配置因子CCR，它与I2C外设的输入时钟源共同作用，产生SCL时钟，STM32的I2C外设都挂载在APB1总线上，使用APB1的时钟源PCLK1，SCL信号线的输出时钟公式如下：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-824476a9d0304a01ac3f4b15190abd08_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p>例如，我们的PCLK1&#x3D;36MHz，想要配置400Kbit&#x2F;s的速率，计算方式如下：</p>
+<p>PCLK时钟周期：TPCLK1 &#x3D; 1&#x2F;36000000</p>
+<p>目标SCL时钟周期：TSCL &#x3D; 1&#x2F;400000</p>
+<p>SCL时钟周期内的高电平时间：THIGH &#x3D; TSCL&#x2F;3</p>
+<p>SCL时钟周期内的低电平时间：TLOW &#x3D; 2*TSCL&#x2F;3</p>
+<p>计算CCR的值：CCR &#x3D; THIGH&#x2F;TPCLK1 &#x3D; 30</p>
+<p>计算结果得出CCR为30，向该寄存器位写入此值则可以控制IIC的通讯速率为400KHz，其实即使配置出来的SCL时钟不完全等于标准的400KHz，IIC通讯的正确性也不会受到影响，因为所有数据通讯都是由SCL协调的，只要它的时钟频率不远高于标准即可。</p>
+<p><strong>数据控制逻辑：</strong></p>
+<p>I2C的SDA信号主要连到数据移位寄存器上，数据移位寄存器的数据来源及目标是数据寄存器(DR)、地址寄存器(OAR)、PEC寄存器以及SDA数据线。当向外发送数据的时候，数据移位寄存器以“数据寄存器”为数据源，把数据一位一位地通过SDA信号线发送出去；当从外部接收数据的时候，数据移位寄存器把SDA信号线采样到的数据一位位地存储到“数据寄存器”中。若使能了数据校验，接收到的数据会经过PCE计算器运算，运算结果存储在“PEC 寄存器”中。当STM32的I2C工作在从机模式的时候，接收到设备地址信号时，数据移位寄存器会把接收到的地址与STM32的自身的“I2C地址寄存器”的值作比较，以便响应主机的寻址。STM32的自身I2C地址可通过修改“自身地址寄存器”修改，支持同时使用两个I2C设备地址，两个地址分别存储在OAR1和OAR2中。</p>
+<p><strong>整体控制逻辑：</strong></p>
+<p>整体控制逻辑负责协调整个I2C外设，控制逻辑的工作模式根据我们配置的“控制寄存器(CR1&#x2F;CR2)”的参数而改变。在外设工作时，控制逻辑会根据外设的工作状态修改“状态寄存器(SR1和SR2)”，我们只要读取这些寄存器相关的寄存器位，就可以了解I2C的工作状态。除此之外，控制逻辑还根据要求，负责控制产生I2C中断信号、DMA请求及各种I2C的通讯信号(起始、停止、响应信号等)。</p>
+<h2 id="通讯过程"><a href="#通讯过程" class="headerlink" title="通讯过程"></a><strong>通讯过程</strong></h2><p>使用I2C外设通讯时，在通讯的不同阶段它会对“状态寄存器(SR1及SR2)”的不同数据位写入参数，我们通过读取这些寄存器标志来了解通讯状态。</p>
+<p><strong>从发送模式：</strong></p>
+<p><img src="https://pic4.zhimg.com/80/v2-933083b14613c8db15b7a9801e7bbf97_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>从接收模式：</strong></p>
+<p><img src="https://pic4.zhimg.com/80/v2-cf186fae58138d2b2267c804ae49cfb3_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<h1 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a>I2C</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>IC (Inter-Integrated Circuit) is a</p>
+<ul>
+<li><p>﻿﻿Synchronous</p>
+</li>
+<li><p>﻿﻿multi-master</p>
+</li>
+<li><p>﻿﻿multi-slave</p>
+</li>
+<li><p>﻿﻿packet switched</p>
+</li>
+<li><p>﻿﻿single-ended</p>
+</li>
+</ul>
+<p>serial computer bus invented in 1982 by Philips Semiconductor</p>
+<p>It is widely used for attaching <strong>lower-speed peripheral</strong> Is to processors and microcontrollers in <strong>short-distance, intra-board communication</strong>.</p>
+<p>Inter-Integrated Circuit, or I2C</p>
+<ul>
+<li>﻿﻿I2C combines <strong>the best features of SPI and UART</strong>.</li>
+<li>﻿﻿With I2C, we can <strong>connect multiple slaves to a single master</strong> (like SPI) and we can have multiple masters controlling single, or multiple slaves.</li>
+<li>﻿﻿I2C is really useful when you want to have more than one microcontroller logging data to a single memory card or displaying text to a single LCD</li>
+<li>Like UART communication, I2C only <strong>uses two wires</strong> to transmit data between devices</li>
+</ul>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><ul>
+<li>Half-duplex, synchronous, multi-master bus  </li>
+<li>No chip select or arbitration logic required</li>
+<li>Serial data (SDA) and Serial clock (SCL)</li>
+</ul>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>Each peripheral is known as a “node” and can act as either a <strong>master or a slave</strong></li>
+<li>The master <strong>controls the data transfer</strong> and <strong>generates the clock signal</strong></li>
+<li>The slave is any device addressed by the master</li>
+<li><strong>More than one</strong> microcontroller can be connected to the bus, and they <strong>can claim the master role at different times</strong>.</li>
+<li>The protocol uses the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL) signals</strong> to support serial communication of 8-bit data bytes, 7- bit device addresses as well as control information</li>
+<li>All data is <strong>transferred in blocks of 8 bits (a byte)</strong>, with no limit on the number of bytes that can be transferred in a message</li>
+<li>Each byte is followed by a <strong>1 bit acknowledgement</strong> from the receiver.</li>
+</ul>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>Master – the device that <strong>initiates communication and controls the clock</strong>.</p>
+<ul>
+<li><strong>Multiple masters</strong> are also supported on an I2C bus.</li>
+</ul>
+<p>Slave – <strong>a device on the bus that is read or written to</strong>, but does not initiate transmission or provide a clock.</p>
+<p>Slave address – a unique and predetermined address for each slave on the bus.</p>
+<ul>
+<li>This address is used by the master to indicate which slave it wants to communicate with.</li>
+</ul>
+<p><strong>SDA (Serial Data)</strong> – The line for the master and slave to <strong>send and receive data</strong>.</p>
+<p><strong>SCL (Serial Clock)</strong> – The line that <strong>carries the clock signal</strong>.</p>
+<ul>
+<li><p>I2C is a <strong>serial</strong> communication protocol, so data is transferred <strong>bit by bit</strong> along a single wire (the SDA line).</p>
+</li>
+<li><p>Like SPI, I2C is <strong>synchronous</strong>（同步的）, so the output of bits is synchronized to the sampling of bits by a clock signal shared between the master and the slave.</p>
+</li>
+<li><p>The clock signal is always <strong>controlled by the master</strong>.</p>
+</li>
+</ul>
+<h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>The I2C standard is a serial interface implement with a two- wire link that can <strong>support multiple masters and multiple slaves</strong></p>
+<p>I2C uses two bi directional open collector BJT or open drain of MOSFET lines</p>
+<p>It behave like a switch and can have possibly two states- ON or OFF</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>使用I2C时，数据被转换成messages，messages则被分解为数据帧。每条messages都有一个地址帧，其中包含从站的二进制地址，以及一个或多个包含正在传输的数据的数据帧。该消息还包括每个数据帧之间的启动和停止条件，读&#x2F;写位和ACK &#x2F; NACK位：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-14fd1d6dd21de804e75ad773003a1216_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>启动条件：在SCL线路从高电平切换到低电平之前，SDA线路从高电平切换到低电平。</p>
+<p>停止条件：SCL线路从低电平切换到高电平后，SDA线路从低电平切换到高电平。</p>
+<p>地址帧：每个从站唯一的7或10位序列，用于在主站想与之通信时识别从站。</p>
+<p>读&#x2F;写位：单个位，指定主器件是向从器件发送数据(低电压电平)还是从器件请求数据(高电压电平)。</p>
+<p>ACK &#x2F; NACK位：消息中的每个帧后跟一个应答&#x2F;不应答位。<strong>如果成功接收到地址帧或数据帧，则从接收设备向发送方返回ACK位</strong>。</p>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a><strong>地址</strong></h4><p>I2C没有像SPI这样的从选择线，因此它需要另一种方法让从器件知道数据正在发送给它，而不是另一个从器件。它通过地址来做到这一点。地址帧始终是新消息中起始位之后的第一帧。</p>
+<p>主设备将与其通信的从设备的地址发送给与其连接的每个从设备。然后，每个从设备将从主设备发送的地址与其自己的地址进行比较。如果地址匹配，则将低电压ACK位发送回主机。如果地址不匹配，则从器件不执行任何操作，SDA线保持高电平。</p>
+<p>The LSB of the address byte is the direction control bit ◦ </p>
+<ul>
+<li>High &#x3D; read</li>
+<li><em>Low &#x3D; write</em></li>
+</ul>
+<h4 id="读-写位"><a href="#读-写位" class="headerlink" title="读&#x2F;写位"></a><strong>读&#x2F;写位</strong></h4><p>地址帧在末尾包括一个位，用于通知从设备，主设备是想要向其写入数据还是从主设备接收数据。如果<strong>主设备想要向从设备发送数据，则读&#x2F;写位是低电平</strong>。如果主设备向从设备<strong>请求数据，则该位是高电平</strong>。</p>
+<ul>
+<li>When the master is <strong>writing</strong> to a slave, the master sends the 8-bits of data and the slave produces the ACK&#x2F;NACK signal.</li>
+<li>When the master is <strong>reading</strong> from a slave, the slave sends the 8-bits of data and the master produces the ACK&#x2F;NACK</li>
+</ul>
+<p>signal.</p>
+<h4 id="数据框架"><a href="#数据框架" class="headerlink" title="数据框架"></a><strong>数据框架</strong></h4><p>在主设备检测到来自从设备的ACK位之后，准备好发送第一个数据帧。</p>
+<p>数据帧始终为8位长，并以最高有效位先发送。紧接着每个数据帧的ACK &#x2F; NACK位以验证帧已被成功接收。在发送下一个数据帧之前，主机或从机必须接收ACK位(取决于发送数据的人)。</p>
+<p>在发送了所有数据帧之后，主设备可以向从设备发送停止条件以停止传输。<strong>停止条件是SCL线上从低电平到高电平转换后，SDA线上从低电平变为高电平，SCL线保持高电平</strong>。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><h4 id="一主多从"><a href="#一主多从" class="headerlink" title="一主多从"></a>一主多从</h4><p>由于I2C使用寻址，因此可以从单个主设备控制多个从设备。<strong>使用7位地址，可以使用128(27)个唯一地址</strong>。使用10位地址并不常见，但提供1,024(210)个唯一地址。要将多个从器件连接到单个主器件，请像这样连接它们，使用4.7K欧姆上拉电阻将SDA和SCL线连接到Vcc</p>
+<h4 id="多主多从"><a href="#多主多从" class="headerlink" title="多主多从"></a>多主多从</h4><p>多个主设备可以连接到单个从设备或多个从设备。当两个主设备尝试通过SDA线同时发送或接收数据时，同一系统中出现多个主设备的问题。为了解决这个问题，<strong>每个主设备需要在发送消息之前检测SDA线路是低还是高</strong>。如果SDA线为低电平，则表示另一个主控制器已控制总线，主控制器应等待发送消息。如果SDA线路很高，那么传输信息是安全的。要将多个主设备连接到多个从设备，请使用下图，使用4.7K欧姆上拉电阻将SDA和SCL线路连接到Vcc</p>
+<h3 id="Clock-Stretching"><a href="#Clock-Stretching" class="headerlink" title="Clock Stretching"></a>Clock Stretching</h3><p>12C devices can <strong>slow down communication by stretching SCL</strong></p>
+<ul>
+<li>﻿﻿kind of flow control</li>
+<li>﻿﻿If an addressed slave device is not ready to process more data it will stretch the clock</li>
+</ul>
+<p>﻿﻿The master will not be able to raise the clock line</p>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
+<li>主机向每一个连接的从设备发送数据，然后<strong>将SDA信号从高切换到低，之后在将SCL从高切换到低电平</strong>。</li>
+</ol>
+<p><img src="https://pic3.zhimg.com/80/v2-5d68fa57d49c5f936f35c9ff6960666a_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol start="2">
+<li>主设备向每个从设备发送它想要与之通信的从设备的7或10位<strong>地址，以及读&#x2F;写位</strong>：</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-b27296911924ff1f8cc4a45ca13604d7_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol start="3">
+<li>每个从设备将主设备发送的地址与其自己的地址进行比较。<strong>如果地址匹配，则从器件通过将SDA线拉低一位来返回ACK位</strong>。如果主设备的地址与从设备的地址<strong>不匹配，则从设备将SDA线保持为高电平</strong>。</li>
+</ol>
+<p><img src="https://pic2.zhimg.com/80/v2-a7609f6f52ffc96d92b806d106d40a19_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol start="4">
+<li>主设备<strong>发送或接收数据帧</strong>：</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-b5050de35cc69f96b49c1f0904f277b7_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol start="5">
+<li>在传输了每个数据帧之后，接收设备将另一个ACK位<strong>返回给发送方以确认成功接收到该帧</strong>：</li>
+</ol>
+<p><img src="https://pic2.zhimg.com/80/v2-d1158c854bfe5a8cdd2ae0313543d4f9_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol start="6">
+<li>要停止数据传输，主机通过在<strong>将SDA切换为高电平之前切换SCL为高电平来向从机发送停止条件</strong>：</li>
+</ol>
+<p><img src="https://pic1.zhimg.com/80/v2-c62ae09d5c6d58c6893ab249b36ae740_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>To stop the data transmission, the master sends a stop condition to the slave by <strong>switching SCL high  before switching SDA high</strong> </p>
+<p><strong>Idle</strong> <strong>–</strong> when both SDA and SCL are held high by the pull-up resistors and no I2C device is attempting to communicate.</p>
+<p><strong>Busy –</strong> when devices are driving the bus.</p>
+<p><strong>Messages –</strong> how I2C information is transferred.</p>
+<h2 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a><strong>优点</strong></h3><ul>
+<li><p>只使用两根电线</p>
+</li>
+<li><p>支持多个主服务器和多个从服务器</p>
+</li>
+<li><p>ACK &#x2F; NACK位确认每个帧都已成功传输</p>
+</li>
+<li><p>硬件没有UART那么复杂</p>
+</li>
+<li><p>众所周知且广泛使用的协议</p>
+</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h3><ul>
+<li><p>数据传输速率比SPI慢</p>
+</li>
+<li><p>数据帧的大小限制为8位</p>
+</li>
+<li><p>实现比SPI更复杂的硬件</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/83941898">https://zhuanlan.zhihu.com/p/83941898</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/I2C/" class="print-no-link">#I2C</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>I2C</div>
+      <div>http://example.com/2025/08/28/I2C/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/28/Docker/" title="Docker">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/28/KVL%E5%92%8CKCL%E5%88%86%E6%9E%90/" title="KVL和KCL分析">
+                        <span class="hidden-mobile">KVL和KCL分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

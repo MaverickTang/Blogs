@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="网站加密技术简介随着大数据时代的发展，各个公司的数据保护意识越来越强，大家都在想尽办法保护自家产品的数据不轻易被爬虫爬走。由于网页是提供信息和服务的重要载体，所以对网页上的信息进行保护就成了至关重要的一个环节。 网页是运行在浏览器端的，当我们浏览一个网页时，其 HTML 代码、 JavaScript 代码都会被下载到浏览器中执行。借助浏览器的开发者工具，我们可以看到网页在加载过程中所有网络请求的详">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript逆向简介">
+<meta property="og:url" content="http://example.com/2025/08/28/javascript%E9%80%86%E5%90%91%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="网站加密技术简介随着大数据时代的发展，各个公司的数据保护意识越来越强，大家都在想尽办法保护自家产品的数据不轻易被爬虫爬走。由于网页是提供信息和服务的重要载体，所以对网页上的信息进行保护就成了至关重要的一个环节。 网页是运行在浏览器端的，当我们浏览一个网页时，其 HTML 代码、 JavaScript 代码都会被下载到浏览器中执行。借助浏览器的开发者工具，我们可以看到网页在加载过程中所有网络请求的详">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.cuiqingcai.com/viunz.png">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.903Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="javascript逆向简介">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.cuiqingcai.com/viunz.png">
+  
+  
+  
+  <title>javascript逆向简介 - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="javascript逆向简介"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          52 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">javascript逆向简介</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="网站加密技术简介"><a href="#网站加密技术简介" class="headerlink" title="网站加密技术简介"></a>网站加密技术简介</h1><p>随着大数据时代的发展，各个公司的数据保护意识越来越强，大家都在想尽办法保护自家产品的数据不轻易被爬虫爬走。由于网页是提供信息和服务的重要载体，所以对网页上的信息进行保护就成了至关重要的一个环节。</p>
+<p>网页是运行在浏览器端的，当我们浏览一个网页时，其 HTML 代码、 JavaScript 代码都会被下载到浏览器中执行。借助浏览器的开发者工具，我们可以看到网页在加载过程中所有网络请求的详细信息，也能清楚地看到网站运行的 HTML 代码和 JavaScript 代码，这些代码中就包含了网站加载的全部逻辑，如加载哪些资源、请求接口是如何构造的、页面是如何渲染的等等。正因为代码是完全透明的，所以如果我们能够把其中的执行逻辑研究出来，就可以模拟各个网络请求进行数据爬取了。</p>
+<p>然而，事情没有想象得那么简单。随着前端技术的发展，前端代码的打包技术、混淆技术、加密技术也层出不穷，借助于这些技术，各个公司可以在前端对 JavaScript 代码采取一定的保护，比如变量名混淆、执行逻辑混淆、反调试、核心逻辑加密等，这些保护手段使得我们没法很轻易地找出 JavaScript 代码中包含的的执行逻辑。</p>
+<p>在前几章的案例中，我们也试着爬取了各种形式的网站。其中有的网站的数据接口是没有任何验证或加密参数的，我们可以轻松模拟并爬取其中的数据；但有的网站稍显复杂，网站的接口中增加了一些加密参数，同时对 JavaScript 代码采取了上文所述的一些防护措施，当时我们没有直接尝试去破解，而是用 Selenium 等类似工具来实现模拟浏览器执行的方式来进行 “所见即所得 “的爬取。其实对于后者，我们还有另外一种解决方案，那就是直接逆向 JavaScript 代码，找出其中的加密逻辑，从而直接实现该加密逻辑来进行爬取。如果加密逻辑实在过于复杂，我们也可以找出一些关键入口，从而实现对加密逻辑的单独模拟执行和数据爬取。这些方案难度可能很大，比如关键入口很难寻找，或者加密逻辑难以模拟，可是一旦成功找到突破口，我们便可以不用借助于 Selenium 等工具进行整页数据的渲染而实现数据爬取，这样爬取效率会大幅提升。</p>
+<p>本章我们首先会对 JavaScript 防护技术进行介绍，然后介绍一些常用的 JavaScript 逆向技巧，包括浏览器工具的使用、Hook 技术、AST 技术、特殊混淆技术的处理、WebAssembly 技术的处理。了解了这些技术，我们可以更从容地应对 JavaScript 防护技术。</p>
+<h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1. 引入"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#1-%E5%BC%95%E5%85%A5" title="1. 引入"></a>1. 引入</h2><p>我们在爬取网站的时候，会遇到一些情况需要分析一些接口或 URL 信息，在这个过程中，我们会遇到各种各样类似加密的情形，比如说：</p>
+<ul>
+<li>某个网站的 URL 带有一些看不太懂的长串加密参数，要抓取就必须要懂得这些参数是怎么构造的，否则我们连完整的 URL 都构造不出来，更不用说爬取了。</li>
+<li>分析某个网站的 Ajax 接口的时候，可以看到接口的一些参数也是加密的，或者 Request Headers 里面也可能带有一些加密参数，如果不知道这些参数的具体构造逻辑就没法直接用程序来模拟这些 Ajax 请求。</li>
+<li>翻看网站的 JavaScript 源代码，可以发现很多压缩了或者看不太懂的字符，比如 JavaScript 文件名被编码，JavaScript 的文件内容都压缩成几行，JavaScript 变量也被修改成单个字符或者一些十六进制的字符，导致我们不好轻易根据 JavaScript 找出某些接口的加密逻辑。</li>
+</ul>
+<p>这些情况呢，基本上都是网站为了保护其本身的一些数据不被轻易抓取而采取的一些措施，我们可以把它归类为两大类：</p>
+<ul>
+<li>URL&#x2F;API 参数加密</li>
+<li>JavaScript 压缩、混淆和加密</li>
+</ul>
+<p>这一节我们就来了解下这两类技术的基本原理和一些常见的示例。知己知彼，百战不殆，了解了这些技术的实现原理之后，我们才能更好地去逆向其中的逻辑，从而实现数据爬取。</p>
+<h2 id="2-网站数据防护方案"><a href="#2-网站数据防护方案" class="headerlink" title="2. 网站数据防护方案"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#2-%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88" title="2. 网站数据防护方案"></a>2. 网站数据防护方案</h2><p>当今大数据时代，数据已经变得越来越重要，网页和 App 现在是主流的数据载体，如果其数据的 API 没有设置任何保护措施，在爬虫工程师解决了一些基本的反爬如封 IP、验证码的问题之后，那么数据还是可以被轻松爬取到的。</p>
+<p>那么，有没有可能在 URL&#x2F;API 层面或 JavaScript 层面也加上一层防护呢？答案是可以。</p>
+<h3 id="URL-API-参数加密"><a href="#URL-API-参数加密" class="headerlink" title="URL&#x2F;API 参数加密"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#URL-API-%E5%8F%82%E6%95%B0%E5%8A%A0%E5%AF%86" title="URL/API 参数加密"></a>URL&#x2F;API 参数加密</h3><p>网站运营者首先想到防护措施可能是对某些数据接口的参数进行加密，比如说对某些 URL 的一些参数加上校验码或者把一些 id 信息进行编码，使其变得难以阅读或构造；或者对某些 API 请求加上一些 token、sign 等签名，这样这些请求发送到服务器时，服务器会通过客户端发来的一些请求信息以及双方约定好的秘钥等来对当前的请求进行校验，如果校验通过，才返回对应数据结果。</p>
+<p>比如说客户端和服务端约定一种接口校验逻辑，客户端在每次请求服务端接口的时候都会附带一个 sign 参数，这个 sign 参数可能是由当前时间信息、请求的 URL、请求的数据、设备的 ID、双方约定好的秘钥经过一些加密算法构造而成的，客户端会实现这个加密算法构造 sign，然后每次请求服务器的时候附带上这个参数。服务端会根据约定好的算法和请求的数据对 sign 进行校验，如果校验通过，才返回对应的数据，否则拒绝响应。</p>
+<p>当然登录状态的校验也可以看作是此类方案，比如一个 API 的调用必须要传一个 token，这个 token 必须用户登录之后才能获取，如果请求的时候不带该 token，API 就不会返回任何数据。</p>
+<p>倘若没有这种措施，那么基本上 URL 或者 API 接口是完全公开可以访问的，这意味着任何人都可以直接调用来获取数据，几乎是零防护的状态，这样是非常危险的，而且数据也可以被轻易地被爬虫爬取。因此对 URL&#x2F;API 参数一些加密和校验是非常有必要的。</p>
+<h3 id="JavaScript-压缩、混淆和加密"><a href="#JavaScript-压缩、混淆和加密" class="headerlink" title="JavaScript 压缩、混淆和加密"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#JavaScript-%E5%8E%8B%E7%BC%A9%E3%80%81%E6%B7%B7%E6%B7%86%E5%92%8C%E5%8A%A0%E5%AF%86" title="JavaScript 压缩、混淆和加密"></a>JavaScript 压缩、混淆和加密</h3><p>接口加密技术看起来的确是一个不错的解决方案，但单纯依靠它并不能很好地解决问题。为什么呢？</p>
+<p>对于网页来说，其逻辑是依赖于 JavaScript 来实现的，JavaScript 有如下特点：</p>
+<ul>
+<li>JavaScript 代码运行于客户端，也就是它必须要在用户浏览器端加载并运行。</li>
+<li>JavaScript 代码是公开透明的，也就是说浏览器可以直接获取到正在运行的 JavaScript 的源码。</li>
+</ul>
+<p>由于这两个原因，至使 JavaScript 代码是不安全的，任何人都可以读、分析、复制、盗用，甚至篡改。</p>
+<p>所以说，对于上述情形，客户端 JavaScript 对于某些加密的实现是很容易被找到或模拟的，了解了加密逻辑后，模拟参数的构造和请求也就是轻而易举了，所以如果 JavaScript 没有做任何层面的保护的话，接口加密技术基本上对数据起不到什么防护作用。</p>
+<p>如果你不想让自己的数据被轻易获取，不想他人了解 JavaScript 逻辑的实现，或者想降低被不怀好意的人甚至是黑客攻击。那么就需要用到 JavaScript 压缩、混淆和加密技术了。</p>
+<p>这里压缩、混淆和加密技术简述如下：</p>
+<ul>
+<li><p>代码压缩：即去除 JavaScript 代码中的不必要的空格、换行等内容，使源码都压缩为几行内容，降低代码可读性，当然同时也能提高网站的加载速度。</p>
+</li>
+<li><p>代码混淆：使用变量替换、字符串阵列化、控制流平坦化、多态变异、僵尸函数、调试保护等手段，使代码变地难以阅读和分析，达到最终保护的目的。但这不影响代码原有功能。是理想、实用的 JavaScript 保护方案。</p>
+</li>
+<li><p>代码加密：可以通过某种手段将 JavaScript 代码进行加密，转成人无法阅读或者解析的代码，如借用 WebAssembly 技术，可以直接将 JavaScript 代码用 C&#x2F;C++ 实现，JavaScript 调用其编译后形成的文件来执行相应的功能。</p>
+</li>
+</ul>
+<p>下面我们对上面的技术分别予以介绍。</p>
+<h2 id="3-URL-API-参数加密"><a href="#3-URL-API-参数加密" class="headerlink" title="3. URL&#x2F;API 参数加密"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#3-URL-API-%E5%8F%82%E6%95%B0%E5%8A%A0%E5%AF%86" title="3. URL/API 参数加密"></a>3. URL&#x2F;API 参数加密</h2><p>现在绝大多数网站的数据一般都是通过服务器提供的 API 来获取的，网站或 App 可以请求某个数据 API 获取到对应的数据，然后再把获取的数据展示出来。但有些数据是比较宝贵或私密的，这些数据肯定是需要一定层面上的保护。所以不同 API 的实现也就对应着不同的安全防护级别，我们这里来总结下。</p>
+<p>为了提升接口的安全性，客户端会和服务端约定一种接口校验方式，一般来说会使用到各种加密和编码算法，如 Base64、Hex 编码，MD5、AES、DES、RSA 等对称或非对称加密。</p>
+<p>举个例子，比如说客户端和服务器双方约定一个 sign 用作接口的签名校验，其生成逻辑是客户端将 URL Path 进行 MD5 加密然后拼接上 URL 的某个参数再进行 Base64 编码，最后得到一个字符串 sign，这个 sign 会通过 Request URL 的某个参数或 Request Headers 发送给服务器。服务器接收到请求后，对 URL Path 同样进行 MD5 加密，然后拼接上 URL 的某个参数，也进行 Base64 编码也得到了一个 sign，然后比对生成的 sign 和客户端发来的 sign 是否是一致的，如果是一致的，那就返回正确的结果，否则拒绝响应。这就是一个比较简单的接口参数加密的实现。如果有人想要调用这个接口的话，必须要定义好 sign 的生成逻辑，否则是无法正常调用接口的。</p>
+<p>当然上面的这个实现思路比较简单，这里还可以增加一些时间戳信息增加时效性判断，或增加一些非对称加密进一步提高加密的复杂程度。但不管怎样，只要客户端和服务器约定好了加密和校验逻辑，任何形式加密算法都是可以的。</p>
+<p>这里要实现接口参数加密就需要用到一些加密算法，客户端和服务器肯定也都有对应的 SDK 实现这些加密算法，如 JavaScript 的 crypto-js，Python 的 hashlib、Crypto 等等。</p>
+<p>但还是如上文所说，如果是网页的话，客户端实现加密逻辑如果是用 JavaScript 来实现，其源代码对用户是完全可见的，如果没有对 JavaScript 做任何保护的话，是很容易弄清楚客户端加密的流程的。</p>
+<p>因此，我们需要对 JavaScript 利用压缩、混淆等方式来对客户端的逻辑进行一定程度上的保护。</p>
+<h2 id="4-JavaScript-压缩"><a href="#4-JavaScript-压缩" class="headerlink" title="4. JavaScript 压缩"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#4-JavaScript-%E5%8E%8B%E7%BC%A9" title="4. JavaScript 压缩"></a>4. JavaScript 压缩</h2><p>这个非常简单，JavaScript 压缩即去除 JavaScript 代码中的不必要的空格、换行等内容或者把一些可能公用的代码进行处理实现共享，最后输出的结果都压缩为几行内容，代码可读性变得很差，同时也能提高网站加载速度。</p>
+<p>如果仅仅是去除空格换行这样的压缩方式，其实几乎是没有任何防护作用的，因为这种压缩方式仅仅是降低了代码的直接可读性。如果我们有一些格式化工具可以轻松将 JavaScript 代码变得易读，比如利用 IDE、在线工具或 Chrome 浏览器都能还原格式化的代码。</p>
+<p>比如这里举一个最简单的 JavaScript 压缩示例，原来的 JavaScript 代码是这样的：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">echo</span><span class="hljs-params">(stringA, stringB)</span> &#123;  <br>  <span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;Germey&quot;</span>;  <br>  alert(<span class="hljs-string">&quot;hello &quot;</span> + name);  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>压缩之后就变成这样子：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pf">function echo(d, c) &#123;  <span class="hljs-variable">&lt;br&gt;</span>  <span class="hljs-keyword">const</span> e = <span class="hljs-string">&quot;Germey&quot;</span>;  <span class="hljs-variable">&lt;br&gt;</span>  alert(<span class="hljs-string">&quot;hello &quot;</span> + e);  <span class="hljs-variable">&lt;br&gt;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到这里参数的名称都被简化了，代码中的空格也被去掉了，整个代码也被压缩成了一行，代码的整体可读性降低了。</p>
+<p>目前主流的前端开发技术大多都会利用 Webpack、Rollup 等工具进行打包，Webpack、Rollup 会对源代码进行编译和压缩，输出几个打包好的 JavaScript 文件，其中我们可以看到输出的 JavaScript 文件名带有一些不规则字符串，同时文件内容可能只有几行内容，变量名都是一些简单字母表示。这其中就包含 JavaScript 压缩技术，比如一些公共的库输出成 bundle 文件，一些调用逻辑压缩和转义成冗长的几行代码，这些都属于 JavaScript 压缩。另外其中也包含了一些很基础的 JavaScript 混淆技术，比如把变量名、方法名替换成一些简单字符，降低代码可读性。</p>
+<p>但整体来说，JavaScript 压缩技术只能在很小的程度上起到防护作用，要想真正提高防护效果还得依靠 JavaScript 混淆和加密技术。</p>
+<h2 id="5-JavaScript-混淆"><a href="#5-JavaScript-混淆" class="headerlink" title="5. JavaScript 混淆"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#5-JavaScript-%E6%B7%B7%E6%B7%86" title="5. JavaScript 混淆"></a>5. JavaScript 混淆</h2><p>JavaScript 混淆是完全是在 JavaScript 上面进行的处理，它的目的就是使得 JavaScript 变得难以阅读和分析，大大降低代码可读性，是一种很实用的 JavaScript 保护方案。</p>
+<p>JavaScript 混淆技术主要有以下几种：</p>
+<ul>
+<li><p>变量混淆：将带有含义的变量名、方法名、常量名随机变为无意义的类乱码字符串，降低代码可读性，如转成单个字符或十六进制字符串。</p>
+</li>
+<li><p>字符串混淆：将字符串阵列化集中放置、并可进行 MD5 或 Base64 加密存储，使代码中不出现明文字符串，这样可以避免使用全局搜索字符串的方式定位到入口点。</p>
+</li>
+<li><p>属性加密：针对 JavaScript 对象的属性进行加密转化，隐藏代码之间的调用关系。</p>
+</li>
+<li><p>控制流平坦化：打乱函数原有代码执行流程及函数调用关系，使代码逻变得混乱无序。</p>
+</li>
+<li><p>无用代码注入：随机在代码中插入不会被执行到的无用代码，进一步使代码看起来更加混乱。</p>
+</li>
+<li><p>调试保护：基于调试器特性，对当前运行环境进行检验，加入一些强制调试 debugger 语句，使其在调试模式下难以顺利执行 JavaScript 代码。</p>
+</li>
+<li><p>多态变异：使 JavaScript 代码每次被调用时，将代码自身即立刻自动发生变异，变化为与之前完全不同的代码，即功能完全不变，只是代码形式变异，以此杜绝代码被动态分析调试。</p>
+</li>
+<li><p>锁定域名：使 JavaScript 代码只能在指定域名下执行。</p>
+</li>
+<li><p>反格式化：如果对 JavaScript 代码进行格式化，则无法执行，导致浏览器假死。</p>
+</li>
+<li><p>特殊编码：将 JavaScript 完全编码为人不可读的代码，如表情符号、特殊表示内容等等。</p>
+</li>
+</ul>
+<p>总之，以上方案都是 JavaScript 混淆的实现方式，可以在不同程度上保护 JavaScript 代码。</p>
+<p>在前端开发中，现在 JavaScript 混淆主流的实现是 javascript-obfuscator (<a target="_blank" rel="noopener" href="https://github.com/javascript-obfuscator/javascript-obfuscator">https://github.com/javascript-obfuscator/javascript-obfuscator</a>) 和 terser (<a target="_blank" rel="noopener" href="https://github.com/terser/terser">https://github.com/terser/terser</a>) 这两个库，其都能提供一些代码混淆功能，也都有对应的 Webpack 和 Rollup 打包工具的插件，利用它们我们可以非常方便地实现页面的混淆，最终可以输出压缩和混淆后的 JavaScript 代码，使得 JavaScript 代码可读性大大降低。</p>
+<p>下面我们以 javascript-obfuscator 为例来介绍一些代码混淆的实现，了解了实现，那么自然我们就对混淆的机理有了更加深刻的认识。</p>
+<p>javascript-obfuscator 的官网地址为：<a target="_blank" rel="noopener" href="https://obfuscator.io/%EF%BC%8C%E5%85%B6%E5%AE%98%E6%96%B9%E4%BB%8B%E7%BB%8D%E5%86%85%E5%AE%B9%E5%A6%82%E4%B8%8B%EF%BC%9A">https://obfuscator.io/，其官方介绍内容如下：</a></p>
+<blockquote>
+<p>A free and efficient obfuscator for JavaScript (including ES2017). Make your code harder to copy and prevent people from stealing your work.</p>
+</blockquote>
+<p>它是支持 ES8 的免费、高效的 JavaScript 混淆库，它可以使得你的 JavaScript 代码经过混淆后难以被复制、盗用，混淆后的代码具有和原来的代码一模一样的功能。</p>
+<p>怎么使用呢？首先，我们需要安装好 Node.js 12.x 版本及以上，确保可以正常使用 npm 命令，具体的安装方式可以参考：<a target="_blank" rel="noopener" href="https://setup.scrape.center/nodejs%E3%80%82">https://setup.scrape.center/nodejs。</a></p>
+<p>接着新建一个文件夹，比如 js-obfuscate，然后进入该文件夹，初始化工作空间：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> init<br></code></pre></td></tr></table></figure>
+
+<p>这里会提示我们输入一些信息，创建一个 package.json 文件，这就完成了项目初始化了。</p>
+<p>接下来我们来安装 javascript-obfuscator 这个库：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> i -D javascript-obfuscator<br></code></pre></td></tr></table></figure>
+
+<p>稍等片刻，即可看到本地 js-obfuscate 文件夹下生成了一个 node_modules 文件夹，里面就包含了 javascript-obfuscator 这个库，这就说明安装成功了，文件夹结构如图所示：</p>
+<p><img src="https://cdn.cuiqingcai.com/viunz.png" srcset="/img/loading.gif" lazyload alt="image-20210612155500985"></p>
+<p>接下来我们就可以编写代码来实现一个混淆样例了，如新建一个 main.js 文件，内容如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">const code <span class="hljs-operator">=</span> `  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> &#x27;<span class="hljs-number">1</span>&#x27; <span class="hljs-operator">+</span> <span class="hljs-number">1</span>  <span class="hljs-symbol">&lt;br&gt;</span>console.log(&#x27;x&#x27;, x)  <span class="hljs-symbol">&lt;br&gt;</span>`;  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-symbol">&lt;br&gt;</span>const options <span class="hljs-operator">=</span> &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-params">compact:</span> <span class="hljs-literal">false</span>,  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-params">controlFlowFlattening:</span> <span class="hljs-literal">true</span>,  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-symbol">&lt;br&gt;</span>const obfuscator <span class="hljs-operator">=</span> require(<span class="hljs-string">&quot;javascript-obfuscator&quot;</span>);  <span class="hljs-symbol">&lt;br&gt;</span>function obfuscate(code, options) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  return obfuscator.obfuscate(code, options).getObfuscatedCode();  <span class="hljs-symbol">&lt;br&gt;</span>&#125;  <span class="hljs-symbol">&lt;br&gt;</span>console.log(obfuscate(code, options));<br></code></pre></td></tr></table></figure>
+
+<p>在这里我们定义了两个变量，一个是 code，即需要被混淆的代码，另一个是混淆选项，是一个 Object。接下来我们引入了 javascript-obfuscator 这库，然后定义了一个方法，传入 code 和 options，来获取混淆后的代码，最后控制台输出混淆后的代码。</p>
+<p>代码逻辑比较简单，我们来执行一下代码：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">main</span>.js<br></code></pre></td></tr></table></figure>
+
+<p>输出结果如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">var _0x53bf <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;log&quot;</span>];  <span class="hljs-symbol">&lt;br&gt;</span>(function (_0x1d84fe, _0x3aeda0) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x10a5a <span class="hljs-operator">=</span> function (_0x2f0a52) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>    while (--_0x2f0a52) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>      _0x1d84fe[<span class="hljs-string">&quot;push&quot;</span>](_0x1d84fe[<span class="hljs-string">&quot;shift&quot;</span>]());  <span class="hljs-symbol">&lt;br&gt;</span>    &#125;  <span class="hljs-symbol">&lt;br&gt;</span>  &#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x10a5a(<span class="hljs-operator">++</span>_0x3aeda0);  <span class="hljs-symbol">&lt;br&gt;</span>&#125;)(_0x53bf, <span class="hljs-number">0</span>x172);  <span class="hljs-symbol">&lt;br&gt;</span>var _0x480a <span class="hljs-operator">=</span> function (_0x4341e5, _0x5923b4) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x4341e5 <span class="hljs-operator">=</span> _0x4341e5 <span class="hljs-operator">-</span> <span class="hljs-number">0</span>x0;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0xb3622e <span class="hljs-operator">=</span> _0x53bf[_0x4341e5];  <span class="hljs-symbol">&lt;br&gt;</span>  return _0xb3622e;  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-number">0</span>x1;  <span class="hljs-symbol">&lt;br&gt;</span>console[_0x480a(<span class="hljs-string">&quot;0x0&quot;</span>)](<span class="hljs-string">&quot;x&quot;</span>, x);<br></code></pre></td></tr></table></figure>
+
+<p>看到了吧，那么简单的两行代码，被我们混淆成了这个样子，其实这里我们就是设定了一个「控制流平坦化」的选项。整体看来，代码的可读性大大降低，也大大加大了 JavaScript 调试的难度。</p>
+<p>好，那么我们来跟着 javascript-obfuscator 走一遍，就能具体知道 JavaScript 混淆到底有多少方法了。</p>
+<blockquote>
+<p>注意：由于这些例子中，调用 javascript-obfuscator 进行混淆的实现是一样的，所以下文的示例只说明 code 和 options 变量的修改，完整代码请自行补全。</p>
+</blockquote>
+<h3 id="代码压缩"><a href="#代码压缩" class="headerlink" title="代码压缩"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#%E4%BB%A3%E7%A0%81%E5%8E%8B%E7%BC%A9" title="代码压缩"></a>代码压缩</h3><p>这里 javascript-obfuscator 也提供了代码压缩的功能，使用其参数 compact 即可完成 JavaScript 代码的压缩，输出为一行内容。默认是 true，如果定义为 false，则混淆后的代码会分行显示。</p>
+<p>示例如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">const code <span class="hljs-operator">=</span> `  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> &#x27;<span class="hljs-number">1</span>&#x27; <span class="hljs-operator">+</span> <span class="hljs-number">1</span>  <span class="hljs-symbol">&lt;br&gt;</span>console.log(&#x27;x&#x27;, x)  <span class="hljs-symbol">&lt;br&gt;</span>`;  <span class="hljs-symbol">&lt;br&gt;</span>const options <span class="hljs-operator">=</span> &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-params">compact:</span> <span class="hljs-literal">false</span>,  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>这里我们先把代码压缩 compact 选项设置为 false，运行结果如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">let <span class="hljs-attribute">x</span> = <span class="hljs-string">&quot;1&quot;</span> + <span class="hljs-number">0</span>x1;  &lt;br&gt;console<span class="hljs-selector-attr">[<span class="hljs-string">&quot;log&quot;</span>]</span>(<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-attribute">x</span>);<br></code></pre></td></tr></table></figure>
+
+<p>如果不设置 compact 或把 compact 设置为 true，结果如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">var _0x151c <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;log&quot;</span>];  <span class="hljs-symbol">&lt;br&gt;</span>(function (_0x1ce384, _0x20a7c7) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x25fc92 <span class="hljs-operator">=</span> function (_0x188aec) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>    while (--_0x188aec) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>      _0x1ce384[<span class="hljs-string">&quot;push&quot;</span>](_0x1ce384[<span class="hljs-string">&quot;shift&quot;</span>]());  <span class="hljs-symbol">&lt;br&gt;</span>    &#125;  <span class="hljs-symbol">&lt;br&gt;</span>  &#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x25fc92(<span class="hljs-operator">++</span>_0x20a7c7);  <span class="hljs-symbol">&lt;br&gt;</span>&#125;)(_0x151c, <span class="hljs-number">0</span>x1b7);  <span class="hljs-symbol">&lt;br&gt;</span>var _0x553e <span class="hljs-operator">=</span> function (_0x259219, _0x241445) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x259219 <span class="hljs-operator">=</span> _0x259219 <span class="hljs-operator">-</span> <span class="hljs-number">0</span>x0;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x56d72d <span class="hljs-operator">=</span> _0x151c[_0x259219];  <span class="hljs-symbol">&lt;br&gt;</span>  return _0x56d72d;  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-number">0</span>x1;  <span class="hljs-symbol">&lt;br&gt;</span>console[_0x553e(<span class="hljs-string">&quot;0x0&quot;</span>)](<span class="hljs-string">&quot;x&quot;</span>, x);<br></code></pre></td></tr></table></figure>
+
+<p>可以看到单行显示的时候，对变量名进行了进一步的混淆，这里变量的命名都变成了 16 进制形式的字符串，这是因为启用了一些默认压缩和混淆配置导致的。总之我们可以看到代码的可读性相比之前大大降低了。</p>
+<h3 id="变量名混淆"><a href="#变量名混淆" class="headerlink" title="变量名混淆"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#%E5%8F%98%E9%87%8F%E5%90%8D%E6%B7%B7%E6%B7%86" title="变量名混淆"></a>变量名混淆</h3><p>变量名混淆可以通过在 javascript-obfuscator 中配置 identifierNamesGenerator 参数实现，我们通过这个参数可以控制变量名混淆的方式，如 hexadecimal 则会替换为 16 进制形式的字符串，在这里我们可以设定如下值：</p>
+<ul>
+<li>hexadecimal：将变量名替换为 16 进制形式的字符串，如 <code>0xabc123</code>。</li>
+<li>mangled：将变量名替换为普通的简写字符，如 <code>a</code>、<code>b</code>、<code>c</code> 等。</li>
+</ul>
+<p>该参数的值默认为 hexadecimal。</p>
+<p>我们将该参数修改为 mangled 来试一下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">const code <span class="hljs-operator">=</span> `  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> hello <span class="hljs-operator">=</span> &#x27;<span class="hljs-number">1</span>&#x27; <span class="hljs-operator">+</span> <span class="hljs-number">1</span>  <span class="hljs-symbol">&lt;br&gt;</span>console.log(&#x27;hello&#x27;, hello)  <span class="hljs-symbol">&lt;br&gt;</span>`;  <span class="hljs-symbol">&lt;br&gt;</span>const options <span class="hljs-operator">=</span> &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-params">compact:</span> <span class="hljs-literal">true</span>,  <span class="hljs-symbol">&lt;br&gt;</span>  <span class="hljs-params">identifierNamesGenerator:</span> <span class="hljs-string">&quot;mangled&quot;</span>,  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">var a <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;hello&quot;</span>];  <span class="hljs-symbol">&lt;br&gt;</span>(function (c, d) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  var e <span class="hljs-operator">=</span> function (f) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>    while (--f) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>      c[<span class="hljs-string">&quot;push&quot;</span>](c[<span class="hljs-string">&quot;shift&quot;</span>]());  <span class="hljs-symbol">&lt;br&gt;</span>    &#125;  <span class="hljs-symbol">&lt;br&gt;</span>  &#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  e(<span class="hljs-operator">++</span>d);  <span class="hljs-symbol">&lt;br&gt;</span>&#125;)(a, <span class="hljs-number">0</span>x9b);  <span class="hljs-symbol">&lt;br&gt;</span>var b <span class="hljs-operator">=</span> function (c, d) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  c <span class="hljs-operator">=</span> c <span class="hljs-operator">-</span> <span class="hljs-number">0</span>x0;  <span class="hljs-symbol">&lt;br&gt;</span>  var e <span class="hljs-operator">=</span> a[c];  <span class="hljs-symbol">&lt;br&gt;</span>  return e;  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> hello <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-number">0</span>x1;  <span class="hljs-symbol">&lt;br&gt;</span>console[<span class="hljs-string">&quot;log&quot;</span>](b(<span class="hljs-string">&quot;0x0&quot;</span>), hello);<br></code></pre></td></tr></table></figure>
+
+<p>可以看到这里的变量命名都变成了 <code>a</code>、<code>b</code> 等形式。</p>
+<p>如果我们将 identifierNamesGenerator 修改为 hexadecimal 或者不设置，运行结果如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">var _0x4e98 <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;log&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>];  <span class="hljs-symbol">&lt;br&gt;</span>(function (_0x4464de, _0x39de6c) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0xdffdda <span class="hljs-operator">=</span> function (_0x6a95d5) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>    while (--_0x6a95d5) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>      _0x4464de[<span class="hljs-string">&quot;push&quot;</span>](_0x4464de[<span class="hljs-string">&quot;shift&quot;</span>]());  <span class="hljs-symbol">&lt;br&gt;</span>    &#125;  <span class="hljs-symbol">&lt;br&gt;</span>  &#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  _0xdffdda(<span class="hljs-operator">++</span>_0x39de6c);  <span class="hljs-symbol">&lt;br&gt;</span>&#125;)(_0x4e98, <span class="hljs-number">0</span>xc8);  <span class="hljs-symbol">&lt;br&gt;</span>var _0x53cb <span class="hljs-operator">=</span> function (_0x393bda, _0x8504e7) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x393bda <span class="hljs-operator">=</span> _0x393bda <span class="hljs-operator">-</span> <span class="hljs-number">0</span>x0;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x46ab80 <span class="hljs-operator">=</span> _0x4e98[_0x393bda];  <span class="hljs-symbol">&lt;br&gt;</span>  return _0x46ab80;  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> hello <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-number">0</span>x1;  <span class="hljs-symbol">&lt;br&gt;</span>console[_0x53cb(<span class="hljs-string">&quot;0x0&quot;</span>)](_0x53cb(<span class="hljs-string">&quot;0x1&quot;</span>), hello);<br></code></pre></td></tr></table></figure>
+
+<p>可以看到选用了 mangled，其代码体积会更小，但 hexadecimal 其可读性会更低。</p>
+<p>另外我们还可以通过设置 identifiersPrefix 参数来控制混淆后的变量前缀，示例如下：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-keyword">const</span> code = `  <span class="hljs-variable">&lt;br&gt;</span>let hello = &#x27;<span class="hljs-number">1</span>&#x27; + <span class="hljs-number">1</span>  <span class="hljs-variable">&lt;br&gt;</span>console.<span class="hljs-keyword">log</span>(&#x27;hello&#x27;, hello)  <span class="hljs-variable">&lt;br&gt;</span>`;  <span class="hljs-variable">&lt;br&gt;</span><span class="hljs-keyword">const</span> options = &#123;  <span class="hljs-variable">&lt;br&gt;</span>  identifiersPrefix: <span class="hljs-string">&quot;germey&quot;</span>,  <span class="hljs-variable">&lt;br&gt;</span>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">var germey_0x3dea <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;log&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>];  <span class="hljs-symbol">&lt;br&gt;</span>(function (_0x348ff3, _0x5330e8) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x1568b1 <span class="hljs-operator">=</span> function (_0x4740d8) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>    while (--_0x4740d8) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>      _0x348ff3[<span class="hljs-string">&quot;push&quot;</span>](_0x348ff3[<span class="hljs-string">&quot;shift&quot;</span>]());  <span class="hljs-symbol">&lt;br&gt;</span>    &#125;  <span class="hljs-symbol">&lt;br&gt;</span>  &#125;;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x1568b1(<span class="hljs-operator">++</span>_0x5330e8);  <span class="hljs-symbol">&lt;br&gt;</span>&#125;)(germey_0x3dea, <span class="hljs-number">0</span>x94);  <span class="hljs-symbol">&lt;br&gt;</span>var germey_0x30e4 <span class="hljs-operator">=</span> function (_0x2e8f7c, _0x1066a8) &#123;  <span class="hljs-symbol">&lt;br&gt;</span>  _0x2e8f7c <span class="hljs-operator">=</span> _0x2e8f7c <span class="hljs-operator">-</span> <span class="hljs-number">0</span>x0;  <span class="hljs-symbol">&lt;br&gt;</span>  var _0x5166ba <span class="hljs-operator">=</span> germey_0x3dea[_0x2e8f7c];  <span class="hljs-symbol">&lt;br&gt;</span>  return _0x5166ba;  <span class="hljs-symbol">&lt;br&gt;</span>&#125;;  <span class="hljs-symbol">&lt;br&gt;</span><span class="hljs-keyword">let</span> hello <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-number">0</span>x1;  <span class="hljs-symbol">&lt;br&gt;</span>console[germey_0x30e4(<span class="hljs-string">&quot;0x0&quot;</span>)](germey_0x30e4(<span class="hljs-string">&quot;0x1&quot;</span>), hello);<br></code></pre></td></tr></table></figure>
+
+<p>可以看到混淆后的变量前缀加上了我们自定义的字符串 germey。</p>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/2022111.html#7-%E6%80%BB%E7%BB%93" title="7. 总结"></a>7. 总结</h2><p>以上，我们就介绍了接口加密技术和 JavaScript 的压缩、混淆技术，也对 WebAssembly 技术有了初步的了解，知己知彼方能百战不殆，了解了原理，我们才能更好地去实现 JavaScript 的逆向。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" class="category-chain-item">python爬虫学习</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/javascript%E9%80%86%E5%90%91%E7%AE%80%E4%BB%8B/" class="print-no-link">#javascript逆向简介</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>javascript逆向简介</div>
+      <div>http://example.com/2025/08/28/javascript逆向简介/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/28/git%E8%BF%9C%E7%A8%8B%E5%BA%93%E6%93%8D%E4%BD%9C/" title="git远程库操作">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git远程库操作</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/28/javascript%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="javascript逆向实战">
+                        <span class="hidden-mobile">javascript逆向实战</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
