@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="[[1数字电路基础（数字编码与逻辑]] [[2时序电路设计]] [[2组合电路设计]] [[3硬件实现技术（MSI与Verilog]] [[4存储器体系（拓展]] 讲数字IC之前，先讲讲数字和模拟之间的区别。  数字和模拟电路都是用来处理信号的 模拟信号是连续变化的，数字信号是非连续的 模拟电路所要处理的信号，是直接来自自然界的，例如光、声音、电磁波等等 数字电路所处理的信号，要么来自模拟电路采样">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路">
-<meta property="og:url" content="http://example.com/2025/08/28/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="[[1数字电路基础（数字编码与逻辑]] [[2时序电路设计]] [[2组合电路设计]] [[3硬件实现技术（MSI与Verilog]] [[4存储器体系（拓展]] 讲数字IC之前，先讲讲数字和模拟之间的区别。  数字和模拟电路都是用来处理信号的 模拟信号是连续变化的，数字信号是非连续的 模拟电路所要处理的信号，是直接来自自然界的，例如光、声音、电磁波等等 数字电路所处理的信号，要么来自模拟电路采样">
 <meta property="og:locale" content="zh_CN">
@@ -72,12 +72,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -86,15 +86,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -111,7 +111,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -178,7 +178,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -208,7 +208,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -303,10 +303,10 @@
 <li>数字电路所处理的信号，要么来自模拟电路采样之后的0101，或者来自其他数字电路</li>
 </ul>
 <h3 id="需求阶段"><a href="#需求阶段" class="headerlink" title="需求阶段"></a><strong>需求阶段</strong></h3><p>产品的需求是随着时代的发展变化的。<br>从早期的收音机，黑白电视，个人电脑，但后面的手机，多媒体设备，网络设备等等。  </p>
-<p><img src="https://pic2.zhimg.com/v2-de3e37044a7f64f085c0b07d201b7703_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic2.zhimg.com/v2-de3e37044a7f64f085c0b07d201b7703_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>产品需求的变迁</p>
 <p>产品需求的增加，也推动着芯片规模的不断扩张<br>数字IC（Integrated Circuit）规模划分是指将数字IC根据其晶体管数量或门数等特征进行分级，以便快速识别和比较芯片的复杂度和功耗。根据规模的不同，数字IC可以分为Small Scale Integration（<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=SSI&zhida_source=entity">SSI</a>）、Medium Scale Integration（<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=MSI&zhida_source=entity">MSI</a>）、Large Scale Integration（<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=LSI&zhida_source=entity">LSI</a>）、Very Large Scale Integration（<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=VLSI&zhida_source=entity">VLSI</a>）和Ultra Large Scale Integration（<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=ULSI&zhida_source=entity">ULSI</a>）等几个不同的等级。  </p>
-<p><img src="https://pic3.zhimg.com/v2-c36abf44d5ad0504731aa79c5d29d796_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic3.zhimg.com/v2-c36abf44d5ad0504731aa79c5d29d796_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>晶体管数量的增长</p>
 <ul>
 <li><strong>SSI</strong><br>  通常指的是由1-10个逻辑门组成的集成电路，主要应用于数字时钟、计数器等简单电路；</li>
@@ -315,7 +315,7 @@
 <li><strong>VLSI</strong><br>  通常由上千万个晶体管或甚至更多的逻辑门组成，主要应用于高速低功耗的微处理器、DSP等大规模复杂电路设计；</li>
 <li><strong>ULSI</strong><br>  通常包含数十亿个晶体管，在现代CPU、GPU、FPGA等芯片的制造中被广泛应用。</li>
 </ul>
-<h3 id="规格制定"><a href="#规格制定" class="headerlink" title="规格制定"></a><strong>规格制定</strong></h3><p><img src="https://pic1.zhimg.com/v2-0a0f51a213514e3dbaabc97227d6ecb2_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="规格制定"><a href="#规格制定" class="headerlink" title="规格制定"></a><strong>规格制定</strong></h3><p><img src="https://pic1.zhimg.com/v2-0a0f51a213514e3dbaabc97227d6ecb2_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>intel i9 规格</p>
 <p>规格的定制，可以从如下几个方面考虑：</p>
 <ul>
@@ -328,10 +328,10 @@
 <li>生产要求：规定 IC 芯片的生产过程和质量控制要求，包括生产流程、工艺参数、测试标准等。</li>
 <li>兼容性要求：规定 IC 芯片与其他设备和系统的兼容性要求，确保芯片能够与其他设备和系统进行交互操作。</li>
 </ul>
-<h3 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a><strong>架构设计</strong></h3><p><img src="https://pic1.zhimg.com/v2-99f5ecfd1363f50525c23aa3b793e7c0_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a><strong>架构设计</strong></h3><p><img src="https://pic1.zhimg.com/v2-99f5ecfd1363f50525c23aa3b793e7c0_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>架构设计</p>
 <p>CPU 芯片设计的架构可以分为以下几个模块：<br>控制单元（Control Unit）：控制单元是中央处理器的核心部分，它主要负责控制整个 CPU 的操作，包括指令解码、指令寻址、分支控制、时序控制等。<br>算术逻辑单元（Arithmetic Logic Unit，ALU）：算术逻辑单元是 CPU 的重要部件，它主要负责各种算术和逻辑运算（如加、减、乘、除、与、或、非、异或等）。<br>存储单元（Memory Unit）：存储单元是 CPU 的重要组成部分，它主要负责 CPU 与主存储器和缓存之间的数据传输和交换。其中，缓存主要用于提高 CPU 访问主存储器的速度。<br>输入输出接口（I&#x2F;O Interface）：输入输出接口是 CPU 与外部设备进行通信的接口，它主要用于管理数据的输入输出，包括串口、并口、USB、网卡等接口。<br>浮点运算单元（Floating-point Unit，FPU）：浮点运算单元主要用于执行浮点运算任务，如科学计算、图形处理、音视频编解码等。<br>上述模块之间通过适当的接口和通信机制连接在一起，形成完整的 CPU 芯片的架构。  </p>
-<h3 id="行为描述"><a href="#行为描述" class="headerlink" title="行为描述"></a><strong>行为描述</strong></h3><p><img src="https://pic2.zhimg.com/v2-9b263b025f0dff8ebd7a555b3560eabb_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="行为描述"><a href="#行为描述" class="headerlink" title="行为描述"></a><strong>行为描述</strong></h3><p><img src="https://pic2.zhimg.com/v2-9b263b025f0dff8ebd7a555b3560eabb_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>数字IC行为描述</p>
 <p>VLSI (Very Large Scale Integration) 行为描述是指在数字 IC （集成电路）设计中，使用高级编程语言或其他形式的抽象化语言来描述数字电路的行为、功能、性能和约束等，并将其转换为实际的物理设计。该技术可以提供高层次的设计抽象和模块化设计方法，可以使设计工程师更加专注于设计的核心问题，提高设计效率和准确性。<br>在 VLSI 行为描述中，一般会包括以下元素：</p>
 <ul>
@@ -342,16 +342,16 @@
 <li>寄存器 (Register)：用于存储状态的元素，通常用于时序相关的设计中。</li>
 <li>电路组件 (Component)：由基本电路组件连接而成的电路部件，如门电路、触发器等。</li>
 </ul>
-<h3 id="RTL实现"><a href="#RTL实现" class="headerlink" title="RTL实现"></a><strong>RTL实现</strong></h3><p><img src="https://pic1.zhimg.com/v2-d91fc3af135dae212386adf845c838c8_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="RTL实现"><a href="#RTL实现" class="headerlink" title="RTL实现"></a><strong>RTL实现</strong></h3><p><img src="https://pic1.zhimg.com/v2-d91fc3af135dae212386adf845c838c8_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>RTL实现</p>
 <p><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=RTL%E8%AE%BE%E8%AE%A1&zhida_source=entity">RTL设计</a>是数字电路设计的一种方法，它是基于寄存器传输级（Register Transfer Level）的设计方法。RTL设计要点如下：<br>了解同步电路的设计要求：同步电路是由时钟信号控制操作的电路，因此在RTL设计中也需要遵循同步电路的设计要求，例如流水线结构、寄存器插入等。<br>理解寄存器传送级的概念：RTL设计采用寄存器传送级表示状态转换和数据传输，设计人员需要对各个寄存器的角色和作用进行深入理解，以确保正确的数据传输和状态转换。<br>合理划分模块：在RTL设计中，不同功能的模块应该被合理地划分为子模块，以便于设计人员进行模块级别的测试和调试。<br>优化逻辑电路：在RTL设计中，需要优化逻辑电路以降低时延、功耗和面积。其中包括使用合适的逻辑门、避免冗余逻辑、减少时钟周期等。<br>遵循设计规范：RTL设计需要遵循一定的设计规范和标准，例如IEEE标准和公司内部的设计规范，以确保设计的正确性和可靠性。<br>模拟和验证：在RTL设计完成之后，需要进行模拟和验证测试以确保功能的正确性和稳定性。这个过程通常包括模拟验证、仿真测试、硬件验证等。  </p>
-<h3 id="功能验证"><a href="#功能验证" class="headerlink" title="功能验证"></a><strong>功能验证</strong></h3><p><img src="https://pic2.zhimg.com/v2-292ffa45cbcb0a007529d2ed4eefcc67_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="功能验证"><a href="#功能验证" class="headerlink" title="功能验证"></a><strong>功能验证</strong></h3><p><img src="https://pic2.zhimg.com/v2-292ffa45cbcb0a007529d2ed4eefcc67_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>功能验证</p>
 <p>数字芯片功能验证的要点包括：<br>功能规格：根据数字芯片的设计目标和需求，制定详细的功能规格，明确数字芯片应该实现的各项功能。<br>测试计划：制定测试计划，包括测试用例的编写、测试流程的设计、测试覆盖率的评估等。<br>功能仿真：使用仿真工具对数字芯片进行功能仿真，检测数字芯片的逻辑功能是否符合预期，包括输入输出信号的波形、时序等。<br>时序约束：在设计数字芯片时，需要设置各种时序约束，如时钟频率、数据传输时序等，测试时也需要注意这些时序约束。<br><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=%E8%BE%B9%E7%95%8C%E6%89%AB%E6%8F%8F&zhida_source=entity">边界扫描</a>：边界扫描是一种常用的数字电路测试方法，通过向数字芯片的组合逻辑引入扫描链，将数字芯片的内部状态导出到芯片的边界上进行观测和控制，方便测试人员对数字芯片进行调试和验证。<br>异常情况测试：数字芯片在实际应用中可能会遇到各种异常情况，如电压变化、温度变化、电磁干扰等，因此在测试时也需要考虑这些异常情况的测试。  </p>
-<h3 id="逻辑综合"><a href="#逻辑综合" class="headerlink" title="逻辑综合"></a><strong>逻辑综合</strong></h3><p><img src="https://pic1.zhimg.com/v2-ec9eec4f9e92185f02dee22151ee74e0_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="逻辑综合"><a href="#逻辑综合" class="headerlink" title="逻辑综合"></a><strong>逻辑综合</strong></h3><p><img src="https://pic1.zhimg.com/v2-ec9eec4f9e92185f02dee22151ee74e0_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>逻辑综合</p>
 <p>VLSI 逻辑综合步骤通常包括以下几个方面：<br>设计输入文件。设计人员通常使用硬件描述语言 (HDL)，如 VHDL 或 Verilog，来描述数字电路的逻辑功能。<br>代码分析和优化。在这一阶段，逻辑综合工具会对设计进行分析和优化，以便将其转换为更高效的门级电路。<br>门级综合。在这一阶段，逻辑综合器将将高级描述的电路转换为经过优化的门级电路，同时生成一个门级网表 (netlist) 文件。<br>时序约束和时序分析。对于大型电路，逻辑综合工具需要施加时序约束以确保电路能够正确地运行。时序分析则是检查电路的时序需求是否得到满足。<br>布局布线。在这一阶段，电路的物理布局和连线被确定。最终的产品质量和性能与此阶段的设计相关。  </p>
-<h3 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a><strong>布局优化</strong></h3><p><img src="https://pic4.zhimg.com/v2-9170fb7715139af74764200fb2e97f3b_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a><strong>布局优化</strong></h3><p><img src="https://pic4.zhimg.com/v2-9170fb7715139af74764200fb2e97f3b_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>placement</p>
 <p><strong><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=VLSI+placement&zhida_source=entity">VLSI placement</a></strong><br>不仅仅是将综合电路网表中的标准单元进行放置，还要对设计进行优化，也要考虑布线的可行性。放置的标准多样，有时间驱动、拥堵驱动和功率优化等不同的驱动方式。<br>在这个过程中，有一些注意事项需要遵守以确保成功的放置。首先考虑的是能够满足时序约束；其次是减小拥堵并最小化面积；第三是通过统计阻力方案来优化功耗，以及其他一些与特定应用相关的指标。<br>因此，VLSI placement的注意事项包括但不限于如下内容：</p>
 <ul>
@@ -361,10 +361,10 @@
 <li>根据特定应用调整策略</li>
 </ul>
 <p><strong><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=VLSI+routing&zhida_source=entity">VLSI routing</a></strong><br>的主要目标是在放置时最小化芯片面积的同时满足电路性能指标。与 VLSI placement 类似，VLSI routing 也有许多注意事项需要遵守。<br>电路特性的保持。将电路移植到芯片上后，必须确保其内部结构不受破坏。因此，布线必须符合时序和信号完整性要求，例如最小化电源噪声、抑制串扰等。<br>路由规划。芯片中的路由路径必须进行正确规划，以避免出现拥堵或冲突。可以通过特定的算法来规划路由，例如迭代加深搜索 (IDS)、通路搜素 (Rip-up and Retry) 等。<br>优化布线。在进行布线时，需要根据具体的电路性能要求优化芯片布线。这包括提高路由速度以及减少路由的功耗和面积。<br>关注散热问题。芯片内部布线可能会导致电子设备产生很高的温度，这可能会影响电路的稳定性和寿命。因此，需要考虑热建模、散热技术和电源供应等问题，以确保芯片可以稳定运行。  </p>
-<h3 id="时序分析"><a href="#时序分析" class="headerlink" title="时序分析"></a><strong>时序分析</strong></h3><p><img src="https://pic2.zhimg.com/v2-fb365f8c3d17b32ff914e1716576fa03_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="时序分析"><a href="#时序分析" class="headerlink" title="时序分析"></a><strong>时序分析</strong></h3><p><img src="https://pic2.zhimg.com/v2-fb365f8c3d17b32ff914e1716576fa03_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>sta</p>
 <p>VLSI 时序分析的主要目标是确保芯片的逻辑与时序符合设计需求。<br>时钟分析。VLSI 设计中，时钟信号通常用来触发各个模块的操作。因此，对时钟信号的分析至关重要，需要确保它的频率和相位符合设计要求，同时不会产生过多的抖动。<br>延迟分析。在 VLSI 设计中，延迟会影响信号的稳定性和精确性。因此，需要进行延迟分析来确定各个模块之间传输数据所需的最大时延和最小时延等参数。<br>时序修复。在时序分析过程中，可能会出现一些违反时序约束的情况。为了解决这些问题，需要采取不同的时序修复策略，例如添加缓存器、修改时序约束等。<br>时序约束管理。在 VLSI 设计中，时序约束可以帮助工具理解设计规范。因此，需要管理时序约束，以确保其准确性和一致性  </p>
-<h3 id="版图后验证"><a href="#版图后验证" class="headerlink" title="版图后验证"></a><strong>版图后验证</strong></h3><p><img src="https://pic1.zhimg.com/v2-a09beab9d8e800e10908e9d359f59f52_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="版图后验证"><a href="#版图后验证" class="headerlink" title="版图后验证"></a><strong>版图后验证</strong></h3><p><img src="https://pic1.zhimg.com/v2-a09beab9d8e800e10908e9d359f59f52_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>layout</p>
 <p>VLSI 验证流程主要包括 planning、execution、measurement 和 response 四个阶段。</p>
 <ul>
@@ -376,10 +376,10 @@
 <li>物理验证是将电路设计进行物理实验和测试，以验证电路是否符合物理性能和特性；</li>
 <li>后仿真验证是通过将集成电路安装在目标系统中进行测试，以验证系统的性能和功能是否符合要求。</li>
 </ul>
-<h3 id="制造"><a href="#制造" class="headerlink" title="制造"></a><strong>制造</strong></h3><p><img src="https://picx.zhimg.com/v2-73682eaa1bbfe98500d581d8b705173d_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="制造"><a href="#制造" class="headerlink" title="制造"></a><strong>制造</strong></h3><p><img src="https://picx.zhimg.com/v2-73682eaa1bbfe98500d581d8b705173d_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>光刻制作流程</p>
 <p>VLSI制造技术是在一个芯片上集成数十亿的晶体管，可以用于制造微处理器、内存等电子元件。其制造要点包括：<br><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=CMOS%E5%B7%A5%E8%89%BA&zhida_source=entity">CMOS工艺</a>：CMOS是一种互补金属氧化物半导体技术，它使用p型和n型场效应晶体管来实现电路功能，具有低功耗、可靠性高等优点。<br><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=226029679&content_type=Article&match_order=1&q=%E5%85%89%E5%88%BB%E6%8A%80%E6%9C%AF&zhida_source=entity">光刻技术</a>：光刻技术是一种将芯片图案转移到硅片表面的方法，主要用于制作集成电路的图案和结构。<br>金属蒸发和化学气相沉积技术：这两种技术是制作集成电路金属导线的关键方法，可以制作出高精度的电路结构。<br>衬底材料：衬底材料是制造VLSI芯片的基本材料，目前主要采用的是单晶硅衬底。<br>清洗和检测：在制造过程中需要进行清洗和检测，以确保芯片质量和可靠性。  </p>
-<h3 id="封装测试"><a href="#封装测试" class="headerlink" title="封装测试"></a><strong>封装测试</strong></h3><p><img src="https://pic3.zhimg.com/v2-24e23b317f46e1c996d7509772e29312_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="封装测试"><a href="#封装测试" class="headerlink" title="封装测试"></a><strong>封装测试</strong></h3><p><img src="https://pic3.zhimg.com/v2-24e23b317f46e1c996d7509772e29312_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>封装</p>
 <p>VLSI 后仿验证是指将集成电路芯片安装在目标系统中进行测试，以验证系统的性能和功能是否符合预期要求。<br>后仿验证一般包括三个步骤：芯片采样、芯片封装以及芯片测试。</p>
 <ul>
@@ -405,17 +405,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" class="category-chain-item">集成电路设计</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" class="category-chain-item">集成电路设计</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" class="category-chain-item">数字电路</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" class="category-chain-item">数字电路</a>
   
   
 
@@ -434,7 +434,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" class="print-no-link">#数字电路</a>
+        <a href="/Blogs/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" class="print-no-link">#数字电路</a>
       
     </div>
   
@@ -447,7 +447,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>数字电路</div>
-      <div>http://example.com/2025/08/28/数字电路/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/数字电路/</div>
     </div>
     <div class="license-meta">
       
@@ -491,7 +491,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E6%90%AD%E5%BB%BAOutlineVPN/" title="搭建OutlineVPN">
+                      <a href="/Blogs/2025/08/28/%E6%90%AD%E5%BB%BAOutlineVPN/" title="搭建OutlineVPN">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">搭建OutlineVPN</span>
                         <span class="visible-mobile">上一篇</span>
@@ -501,8 +501,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/%E6%94%BE%E5%A4%A7%E5%99%A8%E8%AE%BE%E8%AE%A1/" title="放大器设计">
-                        <span class="hidden-mobile">放大器设计</span>
+                      <a href="/Blogs/2025/08/28/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81%E4%B8%8E%E9%80%BB%E8%BE%91/" title="数字电路基础数字编码与逻辑">
+                        <span class="hidden-mobile">数字电路基础数字编码与逻辑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -630,8 +630,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -653,7 +653,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -752,7 +752,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -760,7 +760,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

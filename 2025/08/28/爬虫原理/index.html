@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="HTTP 基本原理在正式学习网络爬虫之前，我们需要详细了解 HTTP 的基本原理，了解在浏览器中敲入 URL 到获取网页内容之间发生了什么。了解这些内容，有助于我们进一步了解爬虫的基本原理。 1.1 HTTP 基本原理在本节中，我们会详细了解 HTTP 的基本原理，了解在浏览器中敲入 URL 到获取网页内容之间发生了什么。了解这些内容，有助于我们进一步了解爬虫的基本原理。 1. URI 和 URL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫原理">
-<meta property="og:url" content="http://example.com/2025/08/28/%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="HTTP 基本原理在正式学习网络爬虫之前，我们需要详细了解 HTTP 的基本原理，了解在浏览器中敲入 URL 到获取网页内容之间发生了什么。了解这些内容，有助于我们进一步了解爬虫的基本原理。 1.1 HTTP 基本原理在本节中，我们会详细了解 HTTP 的基本原理，了解在浏览器中敲入 URL 到获取网页内容之间发生了什么。了解这些内容，有助于我们进一步了解爬虫的基本原理。 1. URI 和 URL">
 <meta property="og:locale" content="zh_CN">
@@ -75,12 +75,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -89,15 +89,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -114,7 +114,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -211,7 +211,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -297,7 +297,7 @@
 <h1 id="1-1-HTTP-基本原理"><a href="#1-1-HTTP-基本原理" class="headerlink" title="1.1 HTTP 基本原理"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#1-1-HTTP-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86" title="1.1 HTTP 基本原理"></a>1.1 HTTP 基本原理</h1><p>在本节中，我们会详细了解 HTTP 的基本原理，了解在浏览器中敲入 URL 到获取网页内容之间发生了什么。了解这些内容，有助于我们进一步了解爬虫的基本原理。</p>
 <h2 id="1-URI-和-URL"><a href="#1-URI-和-URL" class="headerlink" title="1. URI 和 URL"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#1-URI-%E5%92%8C-URL" title="1. URI 和 URL"></a>1. URI 和 URL</h2><p>这里我们先了解一下 URI 和 URL。URI 的全称为 Uniform Resource Identifier，即统一资源标志符；而 URL 的全称为 Universal Resource Locator，即统一资源定位符。举例来说，<a target="_blank" rel="noopener" href="https://github.com/favicon.ico">https://github.com/favicon.ico</a> 是一个 URL，也是一个 URI。即有这样一个图标资源，我们用 URL&#x2F;URI 来唯一指定了它的访问方式，这其中包括了访问协议 https、访问路径（即根目录）和资源名称 favicon.ico。通过这样一个链接，我们便可以从互联网上找到这个资源，这就是 URL&#x2F;URI。</p>
 <p>URL 是 URI 的子集，也就是说每个 URL 都是 URI，但不是每个 URI 都是 URL。那么，怎样的 URI 不是 URL 呢？URI 还包括一个子类，叫作 URN，它的全称为 Universal Resource Name，即统一资源名称。URN 只命名资源而不指定如何定位资源，比如 urn:isbn:0451450523 指定了一本书的 ISBN，可以唯一标识这本书，但是没有指定到哪里定位这本书，这就是 URN。URL、URN 和 URI 的关系可以用图 1-1 表示。</p>
-<p><img src="https://cdn.cuiqingcai.com/l7600.jpg" srcset="/img/loading.gif" lazyload alt="URL、URN 和 URI 关系图"></p>
+<p><img src="https://cdn.cuiqingcai.com/l7600.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="URL、URN 和 URI 关系图"></p>
 <p>但是在目前的互联网，URN 使用得非常少，几乎所有的 URI 都是 URL，所以对于一般的网页链接，我们既可以称之为 URL，也可以称之为 URI，我个人习惯称之为 URL。</p>
 <p>但 URL 也不是随便写的，它也是需要遵循一定的格式规范的，基本的组成格式如下：</p>
 <table>
@@ -382,13 +382,13 @@
 <h2 id="3-HTTP-请求过程"><a href="#3-HTTP-请求过程" class="headerlink" title="3. HTTP 请求过程"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#3-HTTP-%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B" title="3. HTTP 请求过程"></a>3. HTTP 请求过程</h2><p>我们在浏览器中输入一个 URL，回车之后便会在浏览器中观察到页面内容。</p>
 <p>实际上，这个过程是浏览器向网站所在的服务器发送了一个请求，网站服务器接收到这个请求后进行处理和解析，然后返回对应的响应，接着传回给浏览器。</p>
 <p>由于响应里包含页面的源代码等内容，浏览器再对其进行解析，便将网页呈现了出来，流程如图 1-3 所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/aod7o.jpg" srcset="/img/loading.gif" lazyload alt="模型图"></p>
+<p><img src="https://cdn.cuiqingcai.com/aod7o.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="模型图"></p>
 <p>此处客户端即代表我们自己的 PC 或手机浏览器，服务器即要访问的网站所在的服务器。</p>
 <p>为了更直观地说明这个过程，这里用 Chrome 浏览器开发者模式下的 Network 监听组件来做下演示，它可以显示访问当前请求网页时发生的所有网络请求和响应。</p>
 <p>打开 Chrome 浏览器，访问百度 <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com/</a>，这时候鼠标右键并选择 “检查” 菜单（或直接按快捷键 F12），即可打开浏览器的开发者工具，如下图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/rc3jq.png" srcset="/img/loading.gif" lazyload alt="打开浏览器的开发者工具"></p>
+<p><img src="https://cdn.cuiqingcai.com/rc3jq.png" srcset="/Blogs/img/loading.gif" lazyload alt="打开浏览器的开发者工具"></p>
 <p>我们切换到 Network 面板，然后重新刷新网页，这时候就可以看到在 Network 面板下方出现了很多个条目，其中一个条目就代表一次发送请求和接收响应的过程，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/lwt4l.png" srcset="/img/loading.gif" lazyload alt="请求和接收响应的过程"></p>
+<p><img src="https://cdn.cuiqingcai.com/lwt4l.png" srcset="/Blogs/img/loading.gif" lazyload alt="请求和接收响应的过程"></p>
 <p>我们先观察第一个网络请求，即 <a target="_blank" rel="noopener" href="http://www.baidu.com,其中各列的含义如下./">www.baidu.com，其中各列的含义如下。</a></p>
 <ul>
 <li>第一列 Name：请求的名称，一般会将 URL 的最后一部分内容当作名称。</li>
@@ -401,7 +401,7 @@
 <li>第八列 Waterfall：网络请求的可视化瀑布流。</li>
 </ul>
 <p>我们点击这个条目，即可看到其更详细的信息，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/0utz7.png" srcset="/img/loading.gif" lazyload alt="更详细的信息"></p>
+<p><img src="https://cdn.cuiqingcai.com/0utz7.png" srcset="/Blogs/img/loading.gif" lazyload alt="更详细的信息"></p>
 <p>首先是 General 部分，其中 Request URL 为请求的 URL，Request Method 为请求的方法，Status Code 为响应状态码，Remote Address 为远程服务器的地址和端口，Referrer Policy 为 Referrer 判别策略。</p>
 <p>再继续往下可以看到，有 Response Headers 和 Request Headers，它们分别代表响应头和请求头。请求头里带有许多请求信息，例如浏览器标识、Cookie、Host 等信息，这是请求的一部分，服务器会根据请求头内的信息判断请求是否合法，进而作出对应的响应。图 1-5 中看到的 Response Headers 就是响应的一部分，其中包含了服务器的类型、文档类型、日期等信息，浏览器接收到响应后，会解析响应内容，进而呈现网页内容。</p>
 <p>下面我们分别来介绍一下请求和响应都包含哪些内容。</p>
@@ -473,7 +473,7 @@
 <p>因此，请求头是请求的重要组成部分，在写爬虫时，大部分情况下都需要设定请求头。</p>
 <h3 id="请求体（Request-Body）"><a href="#请求体（Request-Body）" class="headerlink" title="请求体（Request Body）"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#%E8%AF%B7%E6%B1%82%E4%BD%93%EF%BC%88Request-Body%EF%BC%89" title="请求体（Request Body）"></a>请求体（Request Body）</h3><p>请求体，即 Request Body 一般承载的内容是 POST 请求中的表单数据，而对于 GET 请求，请求体则为空。</p>
 <p>例如，这里我登录 GitHub 时捕获到的请求和响应如图 1-6 所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/4tinn.jpg" srcset="/img/loading.gif" lazyload alt="请求和响应"></p>
+<p><img src="https://cdn.cuiqingcai.com/4tinn.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="请求和响应"></p>
 <p>登录之前，我们填写了用户名和密码信息，提交时这些内容就会以表单数据的形式提交给服务器，此时需要注意 Request Headers 中指定 Content-Type 为 application&#x2F;x-www-form-urlencoded。只有设置 Content-Type 为 application&#x2F;x-www-form-urlencoded，才会以表单数据的形式提交。另外，我们也可以将 Content-Type 设置为 application&#x2F;json 来提交 JSON 数据，或者设置为 multipart&#x2F;form-data 来上传文件。</p>
 <p>如下表是 Content-Type 和 POST 提交数据方式的关系</p>
 <table>
@@ -719,7 +719,7 @@
 <li>Expires：指定响应的过期时间，可以使代理服务器或浏览器将加载的内容更新到缓存中。如果再次访问时，就可以直接从缓存中加载，降低服务器负载，缩短加载时间。</li>
 </ul>
 <h3 id="响应体（Response-Body）"><a href="#响应体（Response-Body）" class="headerlink" title="响应体（Response Body）"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#%E5%93%8D%E5%BA%94%E4%BD%93%EF%BC%88Response-Body%EF%BC%89" title="响应体（Response Body）"></a>响应体（Response Body）</h3><p>响应体，即 Response Body，这可以说是最关键的部分了，响应的正文数据都在响应体中，比如请求网页时，它的响应体就是网页的 HTML 代码；请求一张图片时，它的响应体就是图片的二进制数据。我们做爬虫请求网页后，要解析的内容就是响应体，如图 1-7 所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/6sq5o.jpg" srcset="/img/loading.gif" lazyload alt="响应体"></p>
+<p><img src="https://cdn.cuiqingcai.com/6sq5o.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="响应体"></p>
 <p>在浏览器开发者工具中点击 Preview，就可以看到网页的源代码，也就是响应体的内容，它是解析的目标。</p>
 <p>在做爬虫时，我们主要通过响应体得到网页的源代码、JSON 数据等，然后从中做相应内容的提取。</p>
 <p>本节中，我们了解了 HTTP 的基本原理，大概了解了访问网页时背后的请求和响应过程。本节涉及的知识点需要好好掌握，后面分析网页请求时会经常用到。</p>
@@ -762,7 +762,7 @@
 <p>由此可见，HTTP&#x2F;2.0 提供了简单的构建块实现了自定义策略来调节资源使用和分配，以及实现新传输能力，同时提升了网页应用的实际性能和感知性能。</p>
 <h3 id="服务端推送"><a href="#服务端推送" class="headerlink" title="服务端推送"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A8%E9%80%81" title="服务端推送"></a>服务端推送</h3><p>HTTP&#x2F;2.0 新增的另一个强大的新功能是，服务器可以对一个客户端请求发送多个响应。 换句话说，除了对最初请求的响应外，服务器还可以向客户端推送额外资源，而无需客户端明确地请求。</p>
 <p>如果某些资源客户端是一定会请求的，这时就可以采取服务端推送的技术，在客户端发起一次请求后，额外提前给客户端推送必要的资源，这样就可以相对减少一点延迟时间。例如，服务端可以主动把 JS 和 CSS 文件推送给客户端，而不需要客户端解析 HTML 时再发送这些请求。</p>
-<p><img src="https://cdn.cuiqingcai.com/y0vea.png" srcset="/img/loading.gif" lazyload alt="服务端推送"></p>
+<p><img src="https://cdn.cuiqingcai.com/y0vea.png" srcset="/Blogs/img/loading.gif" lazyload alt="服务端推送"></p>
 <p>服务端可以主动推送，当然客户端也有权利选择是否接收。如果服务端推送的资源已经被浏览器缓存过，浏览器可以通过发送 RST_STREAM 帧来拒收。</p>
 <p>另外主动推送也遵守同源策略，即服务器不能随便将第三方资源推送给客户端，而必须是经过双方确认才行，这样也能保证一定的安全性。</p>
 <h3 id="HTTP-2-0-发展现状"><a href="#HTTP-2-0-发展现状" class="headerlink" title="HTTP&#x2F;2.0 发展现状"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202212.html#HTTP-2-0-%E5%8F%91%E5%B1%95%E7%8E%B0%E7%8A%B6" title="HTTP/2.0 发展现状"></a>HTTP&#x2F;2.0 发展现状</h3><p>HTTP&#x2F;2.0 的普及是一件任重而道远的事情，一些主流的网站现在已经支持了 HTTP&#x2F;2.0，主流浏览器现在都已经实现了 HTTP&#x2F;2.0 的支持，但总的来看，目前大部分网站依然还是以 HTTP&#x2F;1.1 为主。</p>
@@ -783,7 +783,7 @@
 <h3 id="（1）HTML"><a href="#（1）HTML" class="headerlink" title="（1）HTML"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202213.html#%EF%BC%881%EF%BC%89HTML" title="（1）HTML"></a>（1）HTML</h3><p>HTML，其英文叫做 HyperText Markup Language，中文翻译叫做超文本标记语言，但我们通常不会用中文翻译来称呼它，一般就叫 HTML。</p>
 <p>HTML 是用来描述网页的一种语言，网页包括文字、按钮、图片和视频等各种复杂的元素，其基础架构就是 HTML。不同类型的元素通过不同类型的标签来表示，如图片用 <code>img</code>标签表示，视频用 <code>video</code> 标签表示，段落用 <code>p</code> 标签表示，它们之间的布局又常通过布局标签 <code>div</code> 嵌套组合而成，各种标签通过不同的排列和嵌套才形成了网页的框架。</p>
 <p>那 HTML 长什么样子呢？我们可以随意打开一个网站，比如淘宝 <a target="_blank" rel="noopener" href="https://www.taobao.com,然后右键菜单点击“检查元素”或者按/">https://www.taobao.com，然后右键菜单点击 “检查元素” 或者按</a> F12 快捷键，即可打开浏览器开发者工具，切换到 Elements 面板，这时候就可以看到这里呈现的就是淘宝网对应的 HTML，它包含了一系列标签，浏览器解析这些标签后，便会在网页中渲染成一个个的节点，这便形成了我们平常看到的网页。比如这里可以看到一个输入框就对应一个 input 标签，可以用于输入文字。</p>
-<p><img src="https://cdn.cuiqingcai.com/jq4ak.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/jq4ak.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>不同的标签对应着不同的功能，这些标签定义的节点相互嵌套和组合形成了复杂的层次关系，就形成了网页的架构。</p>
 <h3 id="（2）CSS"><a href="#（2）CSS" class="headerlink" title="（2）CSS"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202213.html#%EF%BC%882%EF%BC%89CSS" title="（2）CSS"></a>（2）CSS</h3><p>HTML 定义了网页的结构，但是只有 HTML 页面的布局并不美观，可能只是简单的节点元素的排列。为了让网页看起来更好看一些，这里借助了 CSS。</p>
 <p>CSS，全称叫作 Cascading Style Sheets，即层叠样式表。“层叠” 是指当在 HTML 中引用了数个样式文件，并且样式发生冲突时，浏览器能依据层叠顺序处理。“样式” 指网页中文字大小、颜色、元素间距、排列等格式。CSS 是目前唯一的网页页面排版样式标准，有了它的帮助，页面才会变得更为美观。</p>
@@ -846,7 +846,7 @@
 <p>它指定了网页的编码为 UTF-8。</p>
 <p><code>title</code> 标签则定义了网页的标题，会显示在网页的选项卡中，不会显示在正文中。<code>body</code> 标签内则是在网页正文中显示的内容。<code>div</code> 标签定义了网页中的区块，它的 <code>id</code> 是 <code>container</code>，这是一个非常常用的属性，且 <code>id</code> 的内容在网页中是唯一的，我们可以通过它来获取这个区块。然后在此区块内又有一个 <code>div</code> 标签，它的 <code>class</code> 为 <code>wrapper</code>，这也是一个非常常用的属性，经常与 CSS 配合使用来设定样式。然后此区块内部又有一个 <code>h2</code> 标签，这代表一个二级标题。另外，还有一个 <code>p</code> 标签，这代表一个段落。在这两者中直接写入相应的内容即可在网页中呈现出来，它们也有各自的 <code>class</code> 属性。</p>
 <p>将代码保存后，双击该文件在浏览器中打开，可以看到如图所示的内容。</p>
-<p><img src="https://cdn.cuiqingcai.com/wi3k2.png" srcset="/img/loading.gif" lazyload alt="运行结果"></p>
+<p><img src="https://cdn.cuiqingcai.com/wi3k2.png" srcset="/Blogs/img/loading.gif" lazyload alt="运行结果"></p>
 <p>可以看到，选项卡上显示了 This is a Demo 字样，这是我们在 <code>head</code> 中的 <code>title</code> 里定义的文字。而网页正文是 <code>body</code> 标签内部定义的各个元素生成的，可以看到这里显示了二级标题和段落。</p>
 <p>这个实例便是网页的一般结构。一个网页的标准形式是 <code>html</code> 标签内嵌套 <code>head</code> 和 <code>body</code> 标签，<code>head</code> 内定义网页的配置和引用，<code>body</code> 内定义网页的正文。</p>
 <h2 id="3-节点树及节点间的关系"><a href="#3-节点树及节点间的关系" class="headerlink" title="3 节点树及节点间的关系"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202213.html#3-%E8%8A%82%E7%82%B9%E6%A0%91%E5%8F%8A%E8%8A%82%E7%82%B9%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" title="3 节点树及节点间的关系"></a>3 节点树及节点间的关系</h2><p>在 HTML 中，所有标签定义的内容都是节点，它们构成了一个 HTML 节点树，也称之为 HTML DOM 树。</p>
@@ -859,20 +859,20 @@
 <li>注释是注释节点，在 HTML 中有特殊的语法会被解析为注释，但其也会对应一个节点。</li>
 </ul>
 <p>所以，HTML DOM 将 HTML 文档视作树结构，这种结构被称为节点树，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/5fe0q.jpg" srcset="/img/loading.gif" lazyload alt="节点树"></p>
+<p><img src="https://cdn.cuiqingcai.com/5fe0q.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="节点树"></p>
 <p>通过 HTML DOM，树中的所有节点均可通过 JavaScript 访问，所有 HTML 节点元素均可被修改，也可以被创建或删除。</p>
 <p>节点树中的节点彼此拥有层级关系。我们常用父（parent）、子（child）和兄弟（sibling）等术语描述这些关系。父节点拥有子节点，同级的子节点被称为兄弟节点。</p>
 <p>在节点树中，顶端节点称为根（root）。除了根节点之外，每个节点都有父节点，同时可拥有任意数量的子节点或兄弟节点。图展示了节点树以及节点之间的关系。</p>
-<p><img src="https://cdn.cuiqingcai.com/muz4m.jpg" srcset="/img/loading.gif" lazyload alt="节点树及节点间的关系"></p>
+<p><img src="https://cdn.cuiqingcai.com/muz4m.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="节点树及节点间的关系"></p>
 <h2 id="4-选择器"><a href="#4-选择器" class="headerlink" title="4. 选择器"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202213.html#4-%E9%80%89%E6%8B%A9%E5%99%A8" title="4. 选择器"></a>4. 选择器</h2><p>我们知道网页由一个个节点组成，CSS 选择器会根据不同的节点设置不同的样式规则，那么怎样来定位节点呢？</p>
 <p>在 CSS 中，我们使用 CSS 选择器来定位节点。例如，上例中 <code>div</code> 节点的 <code>id</code> 为 <code>container</code>，那么就可以表示为 <code>#container</code>，其中 <code>#</code> 开头代表选择 <code>id</code>，其后紧跟 <code>id</code>的名称。另外，如果我们想选择 <code>class</code> 为 <code>wrapper</code> 的节点，便可以使用<code>.wrapper</code>，这里以点（.）开头代表选择 <code>class</code>，其后紧跟 <code>class</code> 的名称。另外，还有一种选择方式，那就是根据标签名筛选，例如想选择二级标题，直接用 <code>h2</code> 即可。这是最常用的 3 种表示，分别是根据 <code>id</code>、<code>class</code>、标签名筛选，请牢记它们的写法。</p>
 <p>另外，CSS 选择器还支持嵌套选择，各个选择器之间加上空格分隔开便可以代表嵌套关系，如 <code>#container .wrapper p</code> 则代表先选择 <code>id</code> 为 <code>container</code> 的节点，然后选中其内部的 <code>class</code> 为 <code>wrapper</code> 的节点，然后再进一步选中其内部的 <code>p</code> 节点。另外，如果不加空格，则代表并列关系，如 <code>div#container .wrapper p.text</code> 代表先选择 <code>id</code> 为 <code>container</code> 的 <code>div</code> 节点，然后选中其内部的 <code>class</code> 为 <code>wrapper</code> 的节点，再进一步选中其内部的 <code>class</code> 为 <code>text</code> 的 <code>p</code> 节点。这就是 CSS 选择器，其筛选功能还是非常强大的。</p>
 <p>我们可以在浏览器中测试 CSS 选择器的效果，依然还是打开浏览器的开发者工具，然后按快捷键 Ctrl + F（如果你用的是 Mac，则是 Command + F），这时候在左下角便会出现一个搜索框，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/x3taf.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/x3taf.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>这时候我们输入 <code>.title</code> 就是选中了 class 为 title 的节点，这时候该节点就会被选中并在网页中高亮显示，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/ww6nn.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/ww6nn.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>输入 <code>div#container .wrapper p.text</code> 就逐层选中了 id 为 container 中 class 为 wrapper 节点中的 p 节点，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/3g8jg.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/3g8jg.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>另外，CSS 选择器还有一些其他语法规则，具体如下表所示。</p>
 <p>CSS 选择器的其他语法规则</p>
 <table>
@@ -1142,7 +1142,7 @@
 <p>反之，如果传给服务器的 Cookies 是无效的，或者 Session 已经过期了，我们将不能继续访问页面，此时可能会收到错误的响应或者跳转到登录页面重新登录。</p>
 <p>所以，Cookies 和 Session 需要配合，一个处于客户端，一个处于服务端，二者共同协作，就实现了登录 Session 控制。</p>
 <h4 id="属性结构"><a href="#属性结构" class="headerlink" title="属性结构"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202214.html#%E5%B1%9E%E6%80%A7%E7%BB%93%E6%9E%84" title="属性结构"></a>属性结构</h4><p>接下来，我们来看看 Cookies 都有哪些内容。这里以知乎为例，在浏览器开发者工具中打开 Application 选项卡，然后在左侧会有一个 Storage 部分，最后一项即为 Cookies，将其点开，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/5yb6e.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/5yb6e.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>Cookies 列表</p>
 <p>可以看到，这里有很多条目，其中每个条目可以称为 Cookie。它有如下几个属性。</p>
 <ul>
@@ -1187,22 +1187,22 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" class="category-chain-item">python爬虫学习</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" class="category-chain-item">python爬虫学习</a>
   
   
 
@@ -1223,7 +1223,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" class="print-no-link">#爬虫原理</a>
+        <a href="/Blogs/tags/%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" class="print-no-link">#爬虫原理</a>
       
     </div>
   
@@ -1236,7 +1236,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>爬虫原理</div>
-      <div>http://example.com/2025/08/28/爬虫原理/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/爬虫原理/</div>
     </div>
     <div class="license-meta">
       
@@ -1280,9 +1280,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B/" title="爬虫简介">
+                      <a href="/Blogs/2025/08/28/%E6%A8%A1%E6%8B%9F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" title="模拟集成电路设计">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">爬虫简介</span>
+                        <span class="hidden-mobile">模拟集成电路设计</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1290,8 +1290,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="特征向量">
-                        <span class="hidden-mobile">特征向量</span>
+                      <a href="/Blogs/2025/08/28/%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B/" title="爬虫简介">
+                        <span class="hidden-mobile">爬虫简介</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1419,8 +1419,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1442,7 +1442,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -1541,7 +1541,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -1549,7 +1549,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

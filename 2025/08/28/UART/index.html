@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="UART(universal asynchronous receiver &#x2F; transmitter)IntroUART stands for universal asynchronous receiver &#x2F; transmitter and defines a protocol, or set of rules, for exchanging serial data betw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UART">
-<meta property="og:url" content="http://example.com/2025/08/28/UART/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/UART/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="UART(universal asynchronous receiver &#x2F; transmitter)IntroUART stands for universal asynchronous receiver &#x2F; transmitter and defines a protocol, or set of rules, for exchanging serial data betw">
 <meta property="og:locale" content="zh_CN">
@@ -65,12 +65,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -79,15 +79,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -104,7 +104,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -123,7 +123,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -135,7 +135,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -147,7 +147,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -159,7 +159,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -171,7 +171,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -201,7 +201,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -331,7 +331,7 @@
 <p>if no parity bit is used, the data frame can be 9 bits long. In most cases, the data is sent with the least significant bit first.</p>
 <p>UART属于异步传输数据，这意味着没有时钟信号将发送的位输出与接收的位采样同步，也就是发送与接收使用各自的时钟。发送端将开始和停止位添加到传输的数据帧中，通过数据帧中定义的开始位和结束位，接收端知道何时开始读取这些位。</p>
 <p>每个数据帧包含 1 个起始位、5 到 9 个数据位（取决于 UART的设置，如果有奇偶校验位是5到8，没有则是5到9）、一个可选的奇偶校验位和 1 个或 2 个停止位：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-70f190a00d291bba9cff2a200e82225e_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-70f190a00d291bba9cff2a200e82225e_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h3 id="Start-bit"><a href="#Start-bit" class="headerlink" title="Start bit"></a>Start bit</h3><p>The UART data transmission line is normally held at a <strong>high voltage level when it’s not transmitting data</strong>.</p>
 <p>To start the transfer of data, the transmitting UART pulls the transmission line from high to low for one clock cycle.</p>
 <p>When the receiving UART detects the high to low voltage transition, it begins reading the bits in the data frame at the frequency of the baud rate.</p>
@@ -349,24 +349,24 @@
 <p>The receiver tests the state of the incoming signal on each clock pulse, looking for the beginning of the start bit.</p>
 <h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
 <li><p>The transmitting UART receives data in parallel from the data bus（UART 从数据总线并行接收数据</p>
-<p><img src="https://pic4.zhimg.com/80/v2-e313af39d2d11b2506bbb4115e90a4db_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-e313af39d2d11b2506bbb4115e90a4db_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 </li>
 <li><p>The transmitting UART adds the start bit, parity bit, and the stop bit(s) to the data frame（发送 UART 将起始位、奇偶校验位和停止位添加到数据帧</p>
 </li>
 </ol>
-<p><img src="https://pic3.zhimg.com/80/v2-7a2a8b69c3e254a7b94af3bd516fd98e_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-7a2a8b69c3e254a7b94af3bd516fd98e_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="3">
 <li>The entire packet is sent serially from the transmitting UART to the receiving UART. The receiving UART samples the data line at the pre-configured baud rate（整个数据包从发送 UART 串行发送到接收 UART。接收 UART 以预配置的波特率对数据线进行采样：</li>
 </ol>
-<p><img src="https://pic2.zhimg.com/80/v2-90aa2be6d36d73cab28abf5b20286621_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-90aa2be6d36d73cab28abf5b20286621_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="4">
 <li>The receiving UART discards the start bit, parity bit, and stop bit from the data frame（接收 UART 丢弃数据帧中的起始位、奇偶校验位和停止位</li>
 </ol>
-<p><img src="https://pic3.zhimg.com/80/v2-6651afb43334c9b97c3de786d65a66b6_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-6651afb43334c9b97c3de786d65a66b6_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="5">
 <li>The receiving UART converts the serial data back into parallel and transfers it to the data bus on the receiving end接收端 UART 将串行数据转换回并行，并将其传输到接收端的数据总线：</li>
 </ol>
-<p><img src="https://pic4.zhimg.com/80/v2-c150e3de5909fdb6acb9446edf559263_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-c150e3de5909fdb6acb9446edf559263_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><h3 id="Framing-error"><a href="#Framing-error" class="headerlink" title="Framing error"></a>Framing error</h3><p>A “framing error” occurs <strong>when the designated “start” and “stop” bits are not found</strong>.</p>
 <p>As the start” bit is used to identify the beginning of an incoming character, it acts as a reference for the remaining bits.</p>
 <p>If the data line is <strong>not in the expected state (hi&#x2F;lo) when the “stop” bit is expected</strong>, a Framing Error will occur.</p>
@@ -424,12 +424,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
   
   
 
@@ -446,7 +446,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/UART/" class="print-no-link">#UART</a>
+        <a href="/Blogs/tags/UART/" class="print-no-link">#UART</a>
       
     </div>
   
@@ -459,7 +459,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>UART</div>
-      <div>http://example.com/2025/08/28/UART/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/UART/</div>
     </div>
     <div class="license-meta">
       
@@ -503,9 +503,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/Semiconductor/" title="Semiconductor">
+                      <a href="/Blogs/2025/08/28/%E5%87%A0%E4%BD%95%E7%AF%87/" title="几何篇">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Semiconductor</span>
+                        <span class="hidden-mobile">几何篇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -513,8 +513,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/VR%E4%B8%8E%E5%85%83%E5%AE%87%E5%AE%99/" title="VR与元宇宙">
-                        <span class="hidden-mobile">VR与元宇宙</span>
+                      <a href="/Blogs/2025/08/28/STM32/" title="STM32">
+                        <span class="hidden-mobile">STM32</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -642,8 +642,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -665,7 +665,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -764,7 +764,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -772,7 +772,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

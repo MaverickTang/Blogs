@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="Urlib首先我们介绍一个 Python 库，叫做 urllib，利用它我们可以实现 HTTP 请求的发送，而不用去关心 HTTP 协议本身甚至更低层的实现。我们只需要指定请求的 URL、请求头、请求体等信息即可实现 HTTP 请求的发送，同时 urllib 还可以把服务器返回的响应转化为 Python 对象，通过该对象我们便可以方便地获取响应的相关信息了，如响应状态码、响应头、响应体等等。  注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫编程基础">
-<meta property="og:url" content="http://example.com/2025/08/28/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="Urlib首先我们介绍一个 Python 库，叫做 urllib，利用它我们可以实现 HTTP 请求的发送，而不用去关心 HTTP 协议本身甚至更低层的实现。我们只需要指定请求的 URL、请求头、请求体等信息即可实现 HTTP 请求的发送，同时 urllib 还可以把服务器返回的响应转化为 Python 对象，通过该对象我们便可以方便地获取响应的相关信息了，如响应状态码、响应头、响应体等等。  注">
 <meta property="og:locale" content="zh_CN">
@@ -71,12 +71,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -85,15 +85,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -110,7 +110,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -165,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -177,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -207,7 +207,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -316,7 +316,7 @@
 </tr>
 </tbody></table>
 <p>运行结果如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/yqq2r.png" srcset="/img/loading.gif" lazyload alt="image-20200315212839610"></p>
+<p><img src="https://cdn.cuiqingcai.com/yqq2r.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20200315212839610"></p>
 <p>图 运行结果</p>
 <p>这里我们只用了两行代码，便完成了 Python 官网的抓取，输出了网页的源代码。得到源代码之后呢？我们想要的链接、图片地址、文本信息不就都可以提取出来了吗？</p>
 <p>接下来，看看它返回的到底是什么。利用 <code>type</code> 方法输出响应的类型：</p>
@@ -590,7 +590,7 @@
 <p>Opener 可以使用 <code>open</code> 方法，返回的类型和 <code>urlopen</code> 如出一辙。那么，它和 Handler 有什么关系呢？简而言之，就是利用 Handler 来构建 Opener。</p>
 <p>下面用几个实例来看看它们的用法。</p>
 <h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202221.html#%E9%AA%8C%E8%AF%81" title="验证"></a>验证</h4><p>在访问某些设置了身份认证的网站时，例如 <a target="_blank" rel="noopener" href="https://ssr3.scrape.center/%EF%BC%8C%E6%88%91%E4%BB%AC%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%81%87%E5%88%B0%E8%BF%99%E6%A0%B7%E7%9A%84%E8%AE%A4%E8%AF%81%E7%AA%97%E5%8F%A3%EF%BC%8C%E5%A6%82%E5%9B%BE">https://ssr3.scrape.center/，我们可能会遇到这样的认证窗口，如图</a> 2- 所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/fries.png" srcset="/img/loading.gif" lazyload alt="image-20210704202140395"></p>
+<p><img src="https://cdn.cuiqingcai.com/fries.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704202140395"></p>
 <p>图 2- 认证窗口</p>
 <p>如果遇到了这种情况，那么这个网站就是启用了基本身份认证，英文叫作 HTTP Basic Access Authentication，它是一种用来允许网页浏览器或其他客户端程序在请求时提供用户名和口令形式的身份凭证的一种登录验证方式。</p>
 <p>那么，如果要请求这样的页面，该怎么办呢？借助 <code>HTTPBasicAuthHandler</code> 就可以完成，相关代码如下：</p>
@@ -1774,11 +1774,11 @@
 </tr>
 </tbody></table>
 <p>这里抓取的内容是站点图标，也就是在浏览器每一个标签上显示的小图标，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/1sfy2.png" srcset="/img/loading.gif" lazyload alt="image-20210704202919308"></p>
+<p><img src="https://cdn.cuiqingcai.com/1sfy2.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704202919308"></p>
 <p>这里打印了 Response 对象的两个属性，一个是 text，另一个是 content。</p>
 <p>运行结果如图所示，分别是 r.text 和 r.content 的结果。</p>
-<p><img src="https://cdn.cuiqingcai.com/vexbl.png" srcset="/img/loading.gif" lazyload alt="image-20210704203039567"></p>
-<p><img src="https://cdn.cuiqingcai.com/xfo4w.png" srcset="/img/loading.gif" lazyload alt="image-20210704202959490"></p>
+<p><img src="https://cdn.cuiqingcai.com/vexbl.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704203039567"></p>
+<p><img src="https://cdn.cuiqingcai.com/xfo4w.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704202959490"></p>
 <p>可以注意到，前者出现了乱码，后者结果前带有一个 b，这代表是 bytes 类型的数据。由于图片是二进制数据，所以前者在打印时转化为 str 类型，也就是图片直接转化为字符串，这理所当然会出现乱码。</p>
 <p>上面返回的结果我们并不能看懂，它实际上是图片的二进制数据，没关系，我们将刚才提取到的信息保存下来就好了，代码如下：</p>
 <table>
@@ -1795,7 +1795,7 @@
 </tbody></table>
 <p>这里用了 open 方法，它的第一个参数是文件名称，第二个参数代表以二进制写的形式打开，可以向文件里写入二进制数据。</p>
 <p>运行结束之后，可以发现在文件夹中出现了名为 favicon.ico 的图标，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/16oto.png" srcset="/img/loading.gif" lazyload alt="image-20210704203204899"></p>
+<p><img src="https://cdn.cuiqingcai.com/16oto.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704203204899"></p>
 <p>这样，我们就把二进制数据成功保存成一张图片了，这个小图标就被我们成功爬取下来了。</p>
 <p>同样地，音频和视频文件我们也可以用这种方法获取。</p>
 <h4 id="添加-headers"><a href="#添加-headers" class="headerlink" title="添加 headers"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202222.html#%E6%B7%BB%E5%8A%A0-headers" title="添加 headers"></a>添加 headers</h4><p>我们知道，在发起一个 HTTP 请求的时候，会有一个请求头 Request Headers，那么这个怎么来设置呢？</p>
@@ -1960,7 +1960,7 @@
 </tbody></table>
 <p>这里我们首先调用 cookies 属性即可成功得到 Cookie，可以发现它是 RequestCookieJar 类型。然后用 items 方法将其转化为元组组成的列表，遍历输出每一个 Cookie 条目的名称和值，实现 Cookie 的遍历解析。</p>
 <p>当然，我们也可以直接用 Cookie 来维持登录状态，下面我们以 GitHub 为例来说明一下，首先我们登录 GitHub，然后将 Headers 中的 Cookie 内容复制下来，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/odrdk.png" srcset="/img/loading.gif" lazyload alt="image-20200301214840166"></p>
+<p><img src="https://cdn.cuiqingcai.com/odrdk.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20200301214840166"></p>
 <p>这里可以替换成你自己的 Cookie，将其设置到 Headers 里面，然后发送请求，示例如下：</p>
 <table>
 <thead>
@@ -1975,7 +1975,7 @@
 </tr>
 </tbody></table>
 <p>我们发现，结果中包含了登录后才能包含的结果，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/3j50b.png" srcset="/img/loading.gif" lazyload alt="image-20200301215251376"></p>
+<p><img src="https://cdn.cuiqingcai.com/3j50b.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20200301215251376"></p>
 <p>可以看到这里包含了我的 GitHub 用户名信息，你如果尝试之后同样可以得到你的用户信息。</p>
 <p>得到这样类似的结果，就说明我们用 Cookie 就成功模拟了登录状态，这样我们就能爬取登录之后才能看到的页面了。</p>
 <p>当然，我们也可以通过 cookies 参数来设置 Cookie 的信息，这里我们可以构造一个 RequestsCookieJar 对象，然后把刚才复制的 Cookie 处理下并赋值，示例如下：</p>
@@ -2059,7 +2059,7 @@
 <p>Session 在平常用得非常广泛，可以用于模拟在一个浏览器中打开同一站点的不同页面，后面会有专门的章节来讲解这部分内容。</p>
 <h3 id="SSL-证书验证"><a href="#SSL-证书验证" class="headerlink" title="SSL 证书验证"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202222.html#SSL-%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81" title="SSL 证书验证"></a>SSL 证书验证</h3><p>现在很多网站都要求使用 HTTPS 协议，但是有些网站可能并没有设置好 HTTPS 证书，或者网站的 HTTPS 证书可能并不被 CA 机构认可，这时候，这些网站可能就会出现 SSL 证书错误的提示。</p>
 <p>比如这个示例网站：<a target="_blank" rel="noopener" href="https://ssr2.scrape.center/">https://ssr2.scrape.center/</a>，如果我们用 Chrome 浏览器打开这个 URL，则会提示「您的连接不是私密连接」这样的错误，如图所示：</p>
-<p><img src="https://cdn.cuiqingcai.com/gyo9f.png" srcset="/img/loading.gif" lazyload alt="image-20210704204017465"></p>
+<p><img src="https://cdn.cuiqingcai.com/gyo9f.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704204017465"></p>
 <p>我们可以在浏览器中通过一些设置来忽略证书的验证。</p>
 <p>但是如果我们想用 requests 来请求这类网站，会遇到什么问题呢？我们用代码来试一下：</p>
 <table>
@@ -2211,7 +2211,7 @@
 </tr>
 </tbody></table>
 <h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a><a target="_blank" rel="noopener" href="https://cuiqingcai.com/202222.html#%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81" title="身份认证"></a>身份认证</h3><p>在上一节我们讲到，在访问启用了基本身份认证的网站时，我们会首先遇到一个认证窗口，例如：<a target="_blank" rel="noopener" href="https://ssr3.scrape.center/">https://ssr3.scrape.center/</a>，如图所示。</p>
-<p><img src="https://cdn.cuiqingcai.com/4cha6.png" srcset="/img/loading.gif" lazyload alt="image-20210704202140395"></p>
+<p><img src="https://cdn.cuiqingcai.com/4cha6.png" srcset="/Blogs/img/loading.gif" lazyload alt="image-20210704202140395"></p>
 <p>这个网站就是启用了基本身份认证，在上一节中我们可以利用 urllib 来实现身份的校验，但实现起来相对繁琐。那在 reqeusts 中怎么做呢？当然也有办法。</p>
 <p>我们可以使用 requests 自带的身份认证功能，通过 auth 参数即可设置，示例如下：</p>
 <table>
@@ -2372,15 +2372,15 @@
 </thead>
 <tbody><tr>
 <td></td>
-<td>Hello, my phone number is 010-86432100 and email is <a href="mailto:&#99;&#x71;&#x63;&#x40;&#99;&#117;&#x69;&#113;&#x69;&#110;&#x67;&#x63;&#x61;&#105;&#46;&#99;&#x6f;&#x6d;">&#99;&#x71;&#x63;&#x40;&#99;&#117;&#x69;&#113;&#x69;&#110;&#x67;&#x63;&#x61;&#105;&#46;&#99;&#x6f;&#x6d;</a>, and my website is <a target="_blank" rel="noopener" href="https://cuiqingcai.com/">https://cuiqingcai.com</a></td>
+<td>Hello, my phone number is 010-86432100 and email is <a href="mailto:&#99;&#x71;&#x63;&#x40;&#99;&#x75;&#105;&#113;&#x69;&#110;&#103;&#99;&#x61;&#105;&#46;&#x63;&#111;&#x6d;">&#99;&#x71;&#x63;&#x40;&#99;&#x75;&#105;&#113;&#x69;&#110;&#103;&#99;&#x61;&#105;&#46;&#x63;&#111;&#x6d;</a>, and my website is <a target="_blank" rel="noopener" href="https://cuiqingcai.com/">https://cuiqingcai.com</a></td>
 </tr>
 </tbody></table>
 <p>这段字符串中包含了一个电话号码和一个电子邮件和一个 URL，接下来就尝试用正则表达式提取出来，如图所示。</p>
 <p>在网页右侧选择「匹配 Email 地址」，就可以看到下方出现了文本中的 E-mail。</p>
-<p><img src="https://cdn.cuiqingcai.com/lsdsz.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/lsdsz.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>如果选择「匹配网址 URL」，就可以看到下方出现了文本中的 URL。</p>
 <p>在网页右侧选择 “匹配 Email 地址”，就可以看到下方出现了文本中的 E-mail。如果选择 “匹配网址 URL”，就可以看到下方出现了文本中的 URL。是不是非常神奇？</p>
-<p><img src="https://cdn.cuiqingcai.com/ijr13.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.cuiqingcai.com/ijr13.png" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>其实，这里就是用了正则表达式匹配，也就是用一定的规则将特定的文本提取出来。比如，电子邮件开头是一段字符串，然后是一个 <code>@</code> 符号，最后是某个域名，这是有特定的组成格式的。另外，对于 URL，开头是协议类型，然后是冒号加双斜线，最后是域名加路径。</p>
 <p>对于 URL 来说，可以用下面的正则表达式匹配：</p>
 <table>
@@ -3122,22 +3122,22 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" class="category-chain-item">python爬虫学习</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" class="category-chain-item">python爬虫学习</a>
   
   
 
@@ -3158,7 +3158,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="print-no-link">#爬虫编程基础</a>
+        <a href="/Blogs/tags/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="print-no-link">#爬虫编程基础</a>
       
     </div>
   
@@ -3171,7 +3171,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>爬虫编程基础</div>
-      <div>http://example.com/2025/08/28/爬虫编程基础/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/爬虫编程基础/</div>
     </div>
     <div class="license-meta">
       
@@ -3215,9 +3215,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%90%86%E8%A7%A3%20U%20%E7%9B%98%E5%86%85%E5%AD%98%E5%8D%A1%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%92%8C%E6%89%8B%E6%9C%BA%E5%82%A8%E5%AD%98%E8%8A%AF%E7%89%87%E6%9E%84%E9%80%A0/" title="理解 U 盘内存卡移动硬盘和手机储存芯片构造">
+                      <a href="/Blogs/2025/08/28/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" title="电路分析与设计">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">理解 U 盘内存卡移动硬盘和手机储存芯片构造</span>
+                        <span class="hidden-mobile">电路分析与设计</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -3225,8 +3225,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" title="电路分析与设计">
-                        <span class="hidden-mobile">电路分析与设计</span>
+                      <a href="/Blogs/2025/08/28/%E7%94%B5%E8%B7%AF%E5%AE%9A%E7%90%86%E4%B8%8E%E7%AD%89%E6%95%88/" title="电路定理与等效">
+                        <span class="hidden-mobile">电路定理与等效</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -3354,8 +3354,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -3377,7 +3377,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -3476,7 +3476,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -3484,7 +3484,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

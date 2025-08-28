@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="简介作用自动帮忙记录每次文件的改动，还可以让同事协作编辑，这样就不用自己管理一堆类似的文件了，也不需要把文件传来传去。如果想查看某次改动，只需要在软件里瞄一眼就可以 特点Git是分布式版本控制系统 git的基本概念git 将代码保存的位置分为工作区(Working Directory，你能看到的目录)，暂存区(stage，index，cache)和版本库(Repository)   正常写代码和文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git学习笔记">
-<meta property="og:url" content="http://example.com/2025/08/28/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="简介作用自动帮忙记录每次文件的改动，还可以让同事协作编辑，这样就不用自己管理一堆类似的文件了，也不需要把文件传来传去。如果想查看某次改动，只需要在软件里瞄一眼就可以 特点Git是分布式版本控制系统 git的基本概念git 将代码保存的位置分为工作区(Working Directory，你能看到的目录)，暂存区(stage，index，cache)和版本库(Repository)   正常写代码和文">
 <meta property="og:locale" content="zh_CN">
@@ -68,12 +68,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -82,15 +82,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -107,7 +107,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -174,7 +174,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -204,7 +204,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -297,10 +297,10 @@
 </ul>
 <p>在多人协作的场景下git分为<strong>本地仓库</strong>和<strong>远程仓库</strong>(两个仓库都包含几乎全部提交)，本地仓库用来管理 自己的代码，需要和其他人写作时，需要将远程仓库的修改pull到本地仓库，再将本地仓库的push到远 程仓库</p>
 <h1 id="底层概念"><a href="#底层概念" class="headerlink" title="底层概念"></a>底层概念</h1><h2 id="工作区与暂存区"><a href="#工作区与暂存区" class="headerlink" title="工作区与暂存区"></a>工作区与暂存区</h2><h3 id="工作区（Working-Directory）"><a href="#工作区（Working-Directory）" class="headerlink" title="工作区（Working Directory）"></a>工作区（Working Directory）</h3><p>就是你在电脑里能看到的目录，比如我的<code>learngit</code>文件夹就是一个工作区：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919021113952544/0" srcset="/img/loading.gif" lazyload alt="working-dir"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919021113952544/0" srcset="/Blogs/img/loading.gif" lazyload alt="working-dir"></p>
 <h3 id="版本库（Repository）"><a href="#版本库（Repository）" class="headerlink" title="版本库（Repository）"></a>版本库（Repository）</h3><p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。</p>
 <p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919020037470528/0" srcset="/img/loading.gif" lazyload alt="git-repo"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919020037470528/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-repo"></p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
 <p>第一步是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
 <p>第二步是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
@@ -318,7 +318,7 @@
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">$ git status<br><span class="hljs-keyword">On</span> branch master<br>Changes <span class="hljs-keyword">to</span> be committed:<br>  (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> unstage)<br><br>	<span class="hljs-keyword">new</span> <span class="hljs-keyword">file</span>:   LICENSE<br>	modified:   readme.txt<br></code></pre></td></tr></table></figure>
 
 <p>现在，暂存区的状态就变成这样了：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919020074026336/0" srcset="/img/loading.gif" lazyload alt="git-stage"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919020074026336/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-stage"></p>
 <p>所以，<code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ git commit -m <span class="hljs-string">&quot;understand how stage works&quot;</span><br>[<span class="hljs-keyword">master</span> <span class="hljs-title">e43a48b</span>] understand how stage works<br> <span class="hljs-number">2</span> files changed, <span class="hljs-number">2</span> insertions(+)<br> create mode <span class="hljs-number">100644</span> LICENSE<br></code></pre></td></tr></table></figure>
 
@@ -326,7 +326,7 @@
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">$ git status<br><span class="hljs-keyword">On</span> branch master<br><span class="hljs-keyword">nothing</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">commit</span>, working tree clean<br></code></pre></td></tr></table></figure>
 
 <p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919020100829536/0" srcset="/img/loading.gif" lazyload alt="git-stage-after-commit"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919020100829536/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-stage-after-commit"></p>
 <h1 id="对本地版本库"><a href="#对本地版本库" class="headerlink" title="对本地版本库"></a>对本地版本库</h1><p>[[1.git本地库操作]]</p>
 <h2 id="创建仓库git-init"><a href="#创建仓库git-init" class="headerlink" title="创建仓库git init"></a>创建仓库<code>git init</code></h2><p>通过<code>git init</code>命令把这个目录变成Git可以管理的仓库：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs swift">$ git <span class="hljs-keyword">init</span><br><span class="hljs-type">Initialized</span> empty <span class="hljs-type">Git</span> repository <span class="hljs-keyword">in</span> <span class="hljs-regexp">/Users/</span>michael<span class="hljs-regexp">/learngit/</span>.git<span class="hljs-operator">/</span><br></code></pre></td></tr></table></figure>
@@ -363,14 +363,14 @@
 
 <p>需要友情提示的是，你看到的一大串类似<code>1094adb...</code>的是<code>commit id</code>（版本号），和SVN不一样，Git的<code>commit id</code>不是1，2，3……递增的数字，而是一个SHA1计算出来的一个非常大的数字，用十六进制表示，而且你看到的<code>commit id</code>和我的肯定不一样，以你自己的为准。为什么<code>commit id</code>需要用这么一大串数字表示呢？因为Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作，如果大家都用1，2，3……作为版本号，那肯定就冲突了。</p>
 <p>每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919019707114272/0" srcset="/img/loading.gif" lazyload alt="git-log-timeline"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919019707114272/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-log-timeline"></p>
 <h2 id="运用HEAD回退版本"><a href="#运用HEAD回退版本" class="headerlink" title="运用HEAD回退版本"></a>运用HEAD回退版本</h2><h3 id="git-log查看提交历史"><a href="#git-log查看提交历史" class="headerlink" title="git log查看提交历史"></a><code>git log</code>查看提交历史</h3><p><code>git log</code>命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是<code>append GPL</code>，上一次是<code>add distributed</code>，最早的一次是<code>wrote a readme file</code>。</p>
 <p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数：</p>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs llvm">$ git log --pretty<span class="hljs-operator">=</span>oneline<br><span class="hljs-number">1094</span>adb<span class="hljs-number">7</span>b<span class="hljs-number">9</span>b<span class="hljs-number">3807259</span>d<span class="hljs-number">8</span>cb<span class="hljs-number">349e7</span>df<span class="hljs-number">1</span>d<span class="hljs-number">4</span>d<span class="hljs-number">6477073</span> (HEAD -&gt; master) append GPL<br>e<span class="hljs-number">475</span>afc<span class="hljs-number">93</span><span class="hljs-keyword">c</span><span class="hljs-number">209</span>a<span class="hljs-number">690</span><span class="hljs-keyword">c</span><span class="hljs-number">39</span><span class="hljs-keyword">c</span><span class="hljs-number">13</span>a<span class="hljs-number">46716e8</span>fa<span class="hljs-number">000</span><span class="hljs-keyword">c</span><span class="hljs-number">366</span> <span class="hljs-keyword">add</span> distributed<br>eaadf<span class="hljs-number">4e385</span>e<span class="hljs-number">865</span>d<span class="hljs-number">25</span><span class="hljs-keyword">c</span><span class="hljs-number">48e7</span>ca<span class="hljs-number">9</span><span class="hljs-keyword">c</span><span class="hljs-number">8395</span><span class="hljs-keyword">c</span><span class="hljs-number">3</span>f<span class="hljs-number">7</span>dfaef<span class="hljs-number">0</span> wrote a readme file<br></code></pre></td></tr></table></figure>
 
 <p>需要友情提示的是，你看到的一大串类似<code>1094adb...</code>的是<code>commit id</code>（版本号），和SVN不一样，Git的<code>commit id</code>不是1，2，3……递增的数字，而是一个SHA1计算出来的一个非常大的数字，用十六进制表示，而且你看到的<code>commit id</code>和我的肯定不一样，以你自己的为准。为什么<code>commit id</code>需要用这么一大串数字表示呢？因为Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作，如果大家都用1，2，3……作为版本号，那肯定就冲突了。</p>
 <p>每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919019707114272/0" srcset="/img/loading.gif" lazyload alt="git-log-timeline"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919019707114272/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-log-timeline"></p>
 <h3 id="git-reflog查看命令历史，以便确定要回到未来的哪个版本"><a href="#git-reflog查看命令历史，以便确定要回到未来的哪个版本" class="headerlink" title="git reflog查看命令历史，以便确定要回到未来的哪个版本"></a><code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本</h3><p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到<code>add distributed</code>版本时，再想恢复到<code>append GPL</code>，就必须找到<code>append GPL</code>的commit id。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">$ git reflog<br>e475afc HEAD@&#123;<span class="hljs-number">1</span>&#125;: <span class="hljs-keyword">reset</span>: moving <span class="hljs-keyword">to</span> HEAD^<br><span class="hljs-number">1094</span>adb (HEAD -&gt; master) HEAD@&#123;<span class="hljs-number">2</span>&#125;: <span class="hljs-keyword">commit</span>: append GPL<br>e475afc HEAD@&#123;<span class="hljs-number">3</span>&#125;: <span class="hljs-keyword">commit</span>: <span class="hljs-keyword">add</span> distributed<br>eaadf4e HEAD@&#123;<span class="hljs-number">4</span>&#125;: <span class="hljs-keyword">commit</span> (initial): wrote a readme file<br></code></pre></td></tr></table></figure>
 
@@ -511,7 +511,7 @@
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ git checkout <span class="hljs-keyword">master</span><br><span class="hljs-title">Switched</span> to branch &#x27;<span class="hljs-literal">master</span>&#x27;<br></code></pre></td></tr></table></figure>
 
 <p>切换回<code>master</code>分支后，再查看一个<code>readme.txt</code>文件，刚才添加的内容不见了！因为那个提交是在<code>dev</code>分支上，而<code>master</code>分支此刻的提交点并没有变：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022533080576/0" srcset="/img/loading.gif" lazyload alt="git-br-on-master"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022533080576/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-br-on-master"></p>
 <h3 id="git-merge命令用于合并指定分支到当前分支"><a href="#git-merge命令用于合并指定分支到当前分支" class="headerlink" title="git merge命令用于合并指定分支到当前分支"></a><code>git merge</code>命令用于合并指定分支到当前分支</h3><p>现在，我们把<code>dev</code>分支的工作成果合并到<code>master</code>分支上：</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-symbol">$</span> git merge dev<br><span class="hljs-function"><span class="hljs-title">Updating</span></span> d46f35e..b17d20e<br>Fast-forward<br> readme.txt | <span class="hljs-number">1</span> +<br> <span class="hljs-number">1</span> <span class="hljs-keyword">file</span> changed, <span class="hljs-number">1</span> insertion(+)<br></code></pre></td></tr></table></figure>
 
@@ -583,13 +583,13 @@
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">$ git <span class="hljs-built_in">log</span> <span class="hljs-comment">--graph --pretty=oneline --abbrev-commit</span><br>*   e1e9c68 (HEAD -&gt; master) <span class="hljs-built_in">merge</span> <span class="hljs-keyword">with</span> no-ff<br>|\  <br>| * f52c633 (dev) <span class="hljs-built_in">add</span> <span class="hljs-built_in">merge</span><br>|/  <br>*   cf810e4 conflict fixed<br>...<br></code></pre></td></tr></table></figure>
 
 <p>可以看到，不使用<code>Fast forward</code>模式，merge后就像这样：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919023225142304/0" srcset="/img/loading.gif" lazyload alt="git-no-ff-mode"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919023225142304/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-no-ff-mode"></p>
 <h3 id="团队合作中"><a href="#团队合作中" class="headerlink" title="团队合作中"></a>团队合作中</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
 <p>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
 <p>那在哪干活呢？干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；</p>
 <p>你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了。</p>
 <p>所以，团队合作的分支看起来就像这样：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0" srcset="/img/loading.gif" lazyload alt="git-br-policy"></p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0" srcset="/Blogs/img/loading.gif" lazyload alt="git-br-policy"></p>
 <h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p>Git分支十分强大，在团队开发中应该充分应用。</p>
 <p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p>
 <h2 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h2><p>每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
@@ -805,17 +805,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/" class="category-chain-item">02基础</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/" class="category-chain-item">02基础</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/git%E5%AD%A6%E4%B9%A0/" class="category-chain-item">git学习</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/git%E5%AD%A6%E4%B9%A0/" class="category-chain-item">git学习</a>
   
   
 
@@ -834,7 +834,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#git学习笔记</a>
+        <a href="/Blogs/tags/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#git学习笔记</a>
       
     </div>
   
@@ -847,7 +847,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>git学习笔记</div>
-      <div>http://example.com/2025/08/28/git学习笔记/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/git学习笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -891,9 +891,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/git%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%93%8D%E4%BD%9C/" title="git本地库操作">
+                      <a href="/Blogs/2025/08/28/git%E8%BF%9C%E7%A8%8B%E5%BA%93%E6%93%8D%E4%BD%9C/" title="git远程库操作">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git本地库操作</span>
+                        <span class="hidden-mobile">git远程库操作</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -901,8 +901,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/git%E8%BF%9C%E7%A8%8B%E5%BA%93%E6%93%8D%E4%BD%9C/" title="git远程库操作">
-                        <span class="hidden-mobile">git远程库操作</span>
+                      <a href="/Blogs/2025/08/28/javascript%E9%80%86%E5%90%91%E7%AE%80%E4%BB%8B/" title="javascript逆向简介">
+                        <span class="hidden-mobile">javascript逆向简介</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1030,8 +1030,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1053,7 +1053,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -1152,7 +1152,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -1160,7 +1160,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

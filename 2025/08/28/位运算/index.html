@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="bit，byte之间的转换1byte&#x3D;8bit 1个int&#x3D;4byte&#x3D;32bit 1个short&#x3D;2byte，一个long&#x3D;8byte，一个char&#x3D;2bytes byte的最高位为符号位，剩余7位为数值位，符号位为0表示正数，1为负数； 原码，反码，补码原码：将一个数值以二进制的形式展示； 反码：正数的反码就是它的原码，负数的反码就是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="位运算">
-<meta property="og:url" content="http://example.com/2025/08/28/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="bit，byte之间的转换1byte&#x3D;8bit 1个int&#x3D;4byte&#x3D;32bit 1个short&#x3D;2byte，一个long&#x3D;8byte，一个char&#x3D;2bytes byte的最高位为符号位，剩余7位为数值位，符号位为0表示正数，1为负数； 原码，反码，补码原码：将一个数值以二进制的形式展示； 反码：正数的反码就是它的原码，负数的反码就是">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -74,15 +74,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -99,7 +99,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -118,7 +118,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -196,7 +196,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -315,7 +315,7 @@
 <li>机器数的真值：因为带有符号位，所以机器数的形式值不等于其真值，以机器数1000 0111为例，其真正表示的值为-7，而形式值为135。<strong>将带符号的机器数的真正表示的值称为机器数的真值。</strong></li>
 <li>所以输入数据后：转换为原码，原码转反码，反码转补码最后储存</li>
 </ul>
-<p><img src="https://pic4.zhimg.com/80/v2-7507f422286e51a39cd4a873e76c1d97_1440w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-7507f422286e51a39cd4a873e76c1d97_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h3 id="使用补码运算"><a href="#使用补码运算" class="headerlink" title="使用补码运算"></a>使用补码运算</h3><p>1 - 1 &#x3D; 1 + (-1)</p>
 <p>&#x3D; 原：[ 0000 0001 ] + 原：[ 1000 0001 ]</p>
 <p>&#x3D; 补：[ 0000 0001 ] + 补：[ 1111 1111 ]</p>
@@ -419,12 +419,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/" class="category-chain-item">02基础</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/" class="category-chain-item">02基础</a>
   
   
 
@@ -441,7 +441,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="print-no-link">#位运算</a>
+        <a href="/Blogs/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="print-no-link">#位运算</a>
       
     </div>
   
@@ -454,7 +454,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>位运算</div>
-      <div>http://example.com/2025/08/28/位运算/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/位运算/</div>
     </div>
     <div class="license-meta">
       
@@ -498,9 +498,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" title="优化理论">
+                      <a href="/Blogs/2025/08/28/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" title="使用说明">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">优化理论</span>
+                        <span class="hidden-mobile">使用说明</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -508,8 +508,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/Latexit%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Latexit使用方法">
-                        <span class="hidden-mobile">Latexit使用方法</span>
+                      <a href="/Blogs/2025/08/28/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%BD%91%E9%A1%B5%E8%BF%90%E4%BD%9C%E5%8E%9F%E7%90%86/" title="信息安全网页运作原理">
+                        <span class="hidden-mobile">信息安全网页运作原理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -637,8 +637,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -660,7 +660,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -759,7 +759,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -767,7 +767,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="简介I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上 I2C物理层 ·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。 ·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。 ·每个连接到总线的设备都有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="I2C">
-<meta property="og:url" content="http://example.com/2025/08/28/I2C/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/I2C/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="简介I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上 I2C物理层 ·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。 ·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。 ·每个连接到总线的设备都有">
 <meta property="og:locale" content="zh_CN">
@@ -73,12 +73,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -87,15 +87,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -112,7 +112,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -131,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -143,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -155,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -167,7 +167,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -179,7 +179,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -209,7 +209,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -292,7 +292,7 @@
               <div class="markdown-body">
                 
                 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>I2C（内部集成电路）是一种串行通信协议，允许将多个设备连接到一条总线上</p>
-<h2 id="I2C物理层"><a href="#I2C物理层" class="headerlink" title="I2C物理层"></a><strong>I2C物理层</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-13f2e9e79052fab366696994d2cf85d9_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="I2C物理层"><a href="#I2C物理层" class="headerlink" title="I2C物理层"></a><strong>I2C物理层</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-13f2e9e79052fab366696994d2cf85d9_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>·它是一个支持设备的总线。“总线”指多个设备共用的信号线。在一个I2C通讯总线中，可连接多个I2C通讯设备，支持多个通讯主机及多个通讯从机。</p>
 <p>·一个I2C总线只使用两条总线线路，一条双向串行数据线(SDA)，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。</p>
 <p>·每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
@@ -300,20 +300,20 @@
 <p>·多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
 <p>·具有三种传输模式：标准模式传输速率为100kbit&#x2F;s，快速模式为400kbit&#x2F;s，高速模下可达3.4Mbit&#x2F;s，但目前大多I2C设备尚不支持高速模式。</p>
 <h2 id="I2C协议层"><a href="#I2C协议层" class="headerlink" title="I2C协议层"></a><strong>I2C协议层</strong></h2><p>以主机向从机写数据为例，其基本结构如图所示，依次为：<br><strong>起始信号——从机地址——读写信号——数据位——应答位——… … ——停止位</strong></p>
-<p><img src="https://pic2.zhimg.com/80/v2-1731c80f7c957ba510ac073e50483705_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic2.zhimg.com/80/v2-1731c80f7c957ba510ac073e50483705_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>起始信号(S)：当 SCL 线是高电平时，SDA 线从高电平向低电平切换；停止信号(P)：当 SCL 是高电平时，SDA 线由低电平向高电平切换。</p>
-<p><img src="https://pic3.zhimg.com/80/v2-2e7da749509983984c037ea57c151222_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic3.zhimg.com/80/v2-2e7da749509983984c037ea57c151222_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>帧地址：I2C总线上的每个设备都有自己的独立地址，主机发起通讯时，通过SDA信号线发送设备地址(SLAVE_ADDRESS)来查找从机。I2C协议规定设备地址可以是7位或10位，实际中7位的地址应用比较广泛。</p>
 <p>I2C使用SDA信号线来传输数据，使用SCL信号线进行数据同步。SDA数据线在SCL的每个时钟周期传输一位数据。传输时，SCL为高电平的时候SDA表示的数据有效，即此时的SDA为高电平时表示数据“1”，为低电平时表示数据“0”。当SCL为低电平时，SDA的数据无效，一般在这个时候SDA进行电平切换，为下一次表示数据做好准备。</p>
 <p>I2C的数据和地址传输都带响应。响应包括“应答(ACK)”和“非应答(NACK)”两种信号。</p>
 <p>作为数据接收端时，当设备(无论主从机)接收到I2C传输的一个字节数据或地址后，若希望对方继续发送数据，则需要向对方发送“应答(ACK)”信号，发送方会继续发送下一个数据；若接收端希望结束数据传输，则向对方发送“非应答(NACK)”信号，发送方接收到该信号后会产生一个停止信号，结束信号传输。</p>
-<h2 id="I2C功能框图剖析"><a href="#I2C功能框图剖析" class="headerlink" title="I2C功能框图剖析"></a><strong>I2C功能框图剖析</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-81bbae342cab337627cf272b44db67b5_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<h2 id="I2C功能框图剖析"><a href="#I2C功能框图剖析" class="headerlink" title="I2C功能框图剖析"></a><strong>I2C功能框图剖析</strong></h2><p><img src="https://pic2.zhimg.com/80/v2-81bbae342cab337627cf272b44db67b5_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p><strong>时钟控制逻辑：</strong></p>
 <p>SCL线的时钟信号，由I2C接口根据时钟控制寄存器(CCR)控制，控制的参数主要为时钟频率。配置I2C的CCR寄存器可修改通讯速率相关的参数。</p>
 <p>可选择I2C通讯的“标准&#x2F;快速”模式，这两个模式分别I2C对应100&#x2F;400Kbit&#x2F;s的通讯速率。</p>
 <p>在快速模式下可选择SCL时钟的占空比，可选Tlow&#x2F;Thigh&#x3D;2或Tlow&#x2F;Thigh&#x3D;16&#x2F;9模式，我们知道I2C协议在SCL高电平时对SDA信号采样，SCL低电平时SDA准备下一个数据，修改SCL 的高低电平比会影响数据采样，但其实这两个模式的比例差别并不大，若不是要求非常严格，随便选就可以了。</p>
 <p>CCR寄存器中还有一个12位的配置因子CCR，它与I2C外设的输入时钟源共同作用，产生SCL时钟，STM32的I2C外设都挂载在APB1总线上，使用APB1的时钟源PCLK1，SCL信号线的输出时钟公式如下：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-824476a9d0304a01ac3f4b15190abd08_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic1.zhimg.com/80/v2-824476a9d0304a01ac3f4b15190abd08_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>例如，我们的PCLK1&#x3D;36MHz，想要配置400Kbit&#x2F;s的速率，计算方式如下：</p>
 <p>PCLK时钟周期：TPCLK1 &#x3D; 1&#x2F;36000000</p>
 <p>目标SCL时钟周期：TSCL &#x3D; 1&#x2F;400000</p>
@@ -327,9 +327,9 @@
 <p>整体控制逻辑负责协调整个I2C外设，控制逻辑的工作模式根据我们配置的“控制寄存器(CR1&#x2F;CR2)”的参数而改变。在外设工作时，控制逻辑会根据外设的工作状态修改“状态寄存器(SR1和SR2)”，我们只要读取这些寄存器相关的寄存器位，就可以了解I2C的工作状态。除此之外，控制逻辑还根据要求，负责控制产生I2C中断信号、DMA请求及各种I2C的通讯信号(起始、停止、响应信号等)。</p>
 <h2 id="通讯过程"><a href="#通讯过程" class="headerlink" title="通讯过程"></a><strong>通讯过程</strong></h2><p>使用I2C外设通讯时，在通讯的不同阶段它会对“状态寄存器(SR1及SR2)”的不同数据位写入参数，我们通过读取这些寄存器标志来了解通讯状态。</p>
 <p><strong>从发送模式：</strong></p>
-<p><img src="https://pic4.zhimg.com/80/v2-933083b14613c8db15b7a9801e7bbf97_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic4.zhimg.com/80/v2-933083b14613c8db15b7a9801e7bbf97_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p><strong>从接收模式：</strong></p>
-<p><img src="https://pic4.zhimg.com/80/v2-cf186fae58138d2b2267c804ae49cfb3_1440w.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic4.zhimg.com/80/v2-cf186fae58138d2b2267c804ae49cfb3_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload></p>
 <h1 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a>I2C</h1><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>IC (Inter-Integrated Circuit) is a</p>
 <ul>
 <li><p>﻿﻿Synchronous</p>
@@ -389,7 +389,7 @@
 <p>I2C uses two bi directional open collector BJT or open drain of MOSFET lines</p>
 <p>It behave like a switch and can have possibly two states- ON or OFF</p>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>使用I2C时，数据被转换成messages，messages则被分解为数据帧。每条messages都有一个地址帧，其中包含从站的二进制地址，以及一个或多个包含正在传输的数据的数据帧。该消息还包括每个数据帧之间的启动和停止条件，读&#x2F;写位和ACK &#x2F; NACK位：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-14fd1d6dd21de804e75ad773003a1216_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-14fd1d6dd21de804e75ad773003a1216_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <p>启动条件：在SCL线路从高电平切换到低电平之前，SDA线路从高电平切换到低电平。</p>
 <p>停止条件：SCL线路从低电平切换到高电平后，SDA线路从低电平切换到高电平。</p>
 <p>地址帧：每个从站唯一的7或10位序列，用于在主站想与之通信时识别从站。</p>
@@ -422,27 +422,27 @@
 <h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
 <li>主机向每一个连接的从设备发送数据，然后<strong>将SDA信号从高切换到低，之后在将SCL从高切换到低电平</strong>。</li>
 </ol>
-<p><img src="https://pic3.zhimg.com/80/v2-5d68fa57d49c5f936f35c9ff6960666a_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-5d68fa57d49c5f936f35c9ff6960666a_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="2">
 <li>主设备向每个从设备发送它想要与之通信的从设备的7或10位<strong>地址，以及读&#x2F;写位</strong>：</li>
 </ol>
-<p><img src="https://pic4.zhimg.com/80/v2-b27296911924ff1f8cc4a45ca13604d7_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-b27296911924ff1f8cc4a45ca13604d7_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="3">
 <li>每个从设备将主设备发送的地址与其自己的地址进行比较。<strong>如果地址匹配，则从器件通过将SDA线拉低一位来返回ACK位</strong>。如果主设备的地址与从设备的地址<strong>不匹配，则从设备将SDA线保持为高电平</strong>。</li>
 </ol>
-<p><img src="https://pic2.zhimg.com/80/v2-a7609f6f52ffc96d92b806d106d40a19_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-a7609f6f52ffc96d92b806d106d40a19_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="4">
 <li>主设备<strong>发送或接收数据帧</strong>：</li>
 </ol>
-<p><img src="https://pic4.zhimg.com/80/v2-b5050de35cc69f96b49c1f0904f277b7_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-b5050de35cc69f96b49c1f0904f277b7_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="5">
 <li>在传输了每个数据帧之后，接收设备将另一个ACK位<strong>返回给发送方以确认成功接收到该帧</strong>：</li>
 </ol>
-<p><img src="https://pic2.zhimg.com/80/v2-d1158c854bfe5a8cdd2ae0313543d4f9_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-d1158c854bfe5a8cdd2ae0313543d4f9_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <ol start="6">
 <li>要停止数据传输，主机通过在<strong>将SDA切换为高电平之前切换SCL为高电平来向从机发送停止条件</strong>：</li>
 </ol>
-<p><img src="https://pic1.zhimg.com/80/v2-c62ae09d5c6d58c6893ab249b36ae740_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-c62ae09d5c6d58c6893ab249b36ae740_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <p>To stop the data transmission, the master sends a stop condition to the slave by <strong>switching SCL high  before switching SDA high</strong> </p>
 <p><strong>Idle</strong> <strong>–</strong> when both SDA and SCL are held high by the pull-up resistors and no I2C device is attempting to communicate.</p>
 <p><strong>Busy –</strong> when devices are driving the bus.</p>
@@ -486,12 +486,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
   
   
 
@@ -508,7 +508,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/I2C/" class="print-no-link">#I2C</a>
+        <a href="/Blogs/tags/I2C/" class="print-no-link">#I2C</a>
       
     </div>
   
@@ -521,7 +521,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>I2C</div>
-      <div>http://example.com/2025/08/28/I2C/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/I2C/</div>
     </div>
     <div class="license-meta">
       
@@ -565,9 +565,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/Docker/" title="Docker">
+                      <a href="/Blogs/2025/08/28/ADCDAC/" title="ADCDAC">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Docker</span>
+                        <span class="hidden-mobile">ADCDAC</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -575,7 +575,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/KVL%E5%92%8CKCL%E5%88%86%E6%9E%90/" title="KVL和KCL分析">
+                      <a href="/Blogs/2025/08/28/KVL%E5%92%8CKCL%E5%88%86%E6%9E%90/" title="KVL和KCL分析">
                         <span class="hidden-mobile">KVL和KCL分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -704,8 +704,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -727,7 +727,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -826,7 +826,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -834,7 +834,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

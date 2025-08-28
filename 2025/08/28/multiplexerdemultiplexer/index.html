@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="前置知识[[位运算]] Logic Gates符号   Binary symbols一大段为1和0（增加容错率），中间隔了一段不定义  多逻辑门一个逻辑门可以有多个input，运算法则与两个一致  Binary Code Decimal (BCD) The most obvious way of representing&#x2F;encoding digits is “natural BCD”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="multiplexerdemultiplexer">
-<meta property="og:url" content="http://example.com/2025/08/28/multiplexerdemultiplexer/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/multiplexerdemultiplexer/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="前置知识[[位运算]] Logic Gates符号   Binary symbols一大段为1和0（增加容错率），中间隔了一段不定义  多逻辑门一个逻辑门可以有多个input，运算法则与两个一致  Binary Code Decimal (BCD) The most obvious way of representing&#x2F;encoding digits is “natural BCD”">
 <meta property="og:locale" content="zh_CN">
@@ -71,12 +71,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -85,15 +85,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -110,7 +110,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -165,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -177,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -207,7 +207,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -290,20 +290,20 @@
               <div class="markdown-body">
                 
                 <p>前置知识<br>[[位运算]]</p>
-<h1 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h1><h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><p><img src="https://pic3.zhimg.com/80/v2-7286e1c81a80e4727042fe89d9178bc2_1440w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-d2d04b751590cfe45c826f4cb5dee9ce_1440w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-da8679f7d01afe9d577fd503186fb5b9_1440w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h1><h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><p><img src="https://pic3.zhimg.com/80/v2-7286e1c81a80e4727042fe89d9178bc2_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-d2d04b751590cfe45c826f4cb5dee9ce_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-da8679f7d01afe9d577fd503186fb5b9_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h2 id="Binary-symbols"><a href="#Binary-symbols" class="headerlink" title="Binary symbols"></a>Binary symbols</h2><p>一大段为1和0（增加容错率），中间隔了一段不定义</p>
-<p><img src="https://slideplayer.com/slide/9051355/27/images/52/Figure+1.3+Example+of+binary+signals.jpg" srcset="/img/loading.gif" lazyload alt="Chapter 1 Digital Systems and Binary Numbers - ppt download"></p>
+<p><img src="https://slideplayer.com/slide/9051355/27/images/52/Figure+1.3+Example+of+binary+signals.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="Chapter 1 Digital Systems and Binary Numbers - ppt download"></p>
 <h2 id="多逻辑门"><a href="#多逻辑门" class="headerlink" title="多逻辑门"></a>多逻辑门</h2><p>一个逻辑门可以有多个input，运算法则与两个一致</p>
-<p><img src="https://player.slideplayer.com/27/9051355/data/images/img45.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://player.slideplayer.com/27/9051355/data/images/img45.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h2 id="Binary-Code-Decimal-BCD"><a href="#Binary-Code-Decimal-BCD" class="headerlink" title="Binary Code Decimal (BCD)"></a>Binary Code Decimal (BCD)</h2><ul>
 <li>The most obvious way of representing&#x2F;encoding digits is “natural BCD” (NBCD), where each decimal digit is represented by its corresponding four-bit binary value</li>
 <li>This is also called “8421” encoding</li>
 </ul>
 <h1 id="Encoder-and-Decoder"><a href="#Encoder-and-Decoder" class="headerlink" title="Encoder and Decoder"></a>Encoder and Decoder</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p><strong>Encoder</strong> is a combinational circuit that changes a set of binary signals into a code (2n input lines with ‘n’ bits)</p>
 <p><strong>Decoder</strong> is the opposite of an encoder as it is a combinational circuit that changes a code into a set of binary signals (‘n’ input lines and maximum of 2n output lines)</p>
-<p><img src="https://www.electricaltechnology.org/wp-content/uploads/2022/08/Difference-between-Encoder-and-Decoder.png" srcset="/img/loading.gif" lazyload alt="What is the Differences Between Encoder and Decoder?"></p>
+<p><img src="https://www.electricaltechnology.org/wp-content/uploads/2022/08/Difference-between-Encoder-and-Decoder.png" srcset="/Blogs/img/loading.gif" lazyload alt="What is the Differences Between Encoder and Decoder?"></p>
 <h2 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h2><ul>
 <li><p>A Binary Encoder takes ALL its data inputs <strong>one at a time</strong> and then converts</p>
 <p>them into a single encoded output</p>
@@ -317,11 +317,11 @@
 <li><p>An “n-bit” binary encoder has 2n input lines and n-bit output lines with common types that include 4-to-2, 8-to-3 and 16-to-4 line configurations</p>
 </li>
 </ul>
-<p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2013/08/comb11.gif" srcset="/img/loading.gif" lazyload alt="Priority Encoder and Digital Encoder Tutorial"></p>
+<p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2013/08/comb11.gif" srcset="/Blogs/img/loading.gif" lazyload alt="Priority Encoder and Digital Encoder Tutorial"></p>
 <p>用output1和0不同的组合表示不同的input（input只能有一个输入）</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.ytimg.com/vi/NWiPVMDh7GE/maxresdefault.jpg" srcset="/img/loading.gif" lazyload alt="Encoder in Digital Electronics | Working, Application and Logic Circuit of  Encoder - YouTube"></h2><p>因为D0是00，这样设计不论怎样都不影响</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.ytimg.com/vi/NWiPVMDh7GE/maxresdefault.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="Encoder in Digital Electronics | Working, Application and Logic Circuit of  Encoder - YouTube"></h2><p>因为D0是00，这样设计不论怎样都不影响</p>
 <p>8路</p>
-<p><img src="https://static.javatpoint.com/tutorial/digital-electronics/images/encoders7.gif" srcset="/img/loading.gif" lazyload alt="Encoders"></p>
+<p><img src="https://static.javatpoint.com/tutorial/digital-electronics/images/encoders7.gif" srcset="/Blogs/img/loading.gif" lazyload alt="Encoders"></p>
 <p>有几路output就有几路或门</p>
 <h2 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h2><ul>
 <li>The Binary Decoder is the exact opposite to that of an “Encoder”</li>
@@ -331,7 +331,7 @@
 </ul>
 <p>作用就是还原encoder的电信号</p>
 <p>用了两个非门和四个三路与门来还原</p>
-<p><img src="https://www.electrically4u.com/wp-content/uploads/2020/09/2-to-4-decoder-block-and-circuit-diagram.png?ezimgfmt=rs:361x203/rscb4/ngcb4/notWebP" srcset="/img/loading.gif" lazyload alt="What is a decoder? Operation, types and applications"></p>
+<p><img src="https://www.electrically4u.com/wp-content/uploads/2020/09/2-to-4-decoder-block-and-circuit-diagram.png?ezimgfmt=rs:361x203/rscb4/ngcb4/notWebP" srcset="/Blogs/img/loading.gif" lazyload alt="What is a decoder? Operation, types and applications"></p>
 <h1 id="Multiplexer-and-De-multiplexer"><a href="#Multiplexer-and-De-multiplexer" class="headerlink" title="Multiplexer and De-multiplexer"></a>Multiplexer and De-multiplexer</h1><p>The multiplexer and de-multiplexer are used in many applications as a way to reduce the number of wires needed to communicate between subsystems</p>
 <ul>
 <li>The multiplexer and de-multiplexer are represented as trapezoids</li>
@@ -343,8 +343,8 @@
 <ul>
 <li>A typical multiplexer has <em>n</em> control inputs called <em>selection inputs</em>, 2<em>n</em> information inputs (<em>I</em>2<em>n</em> − 1, … , <em>I</em>0), and one output <em>Y</em></li>
 </ul>
-<p><img src="https://www.circuitbasics.com/wp-content/uploads/2020/06/image-45.png" srcset="/img/loading.gif" lazyload alt="A Complete Guide to Electronic Multiplexers - Circuit Basics"></p>
-<p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-multiplexer3.gif" srcset="/img/loading.gif" lazyload alt="The Multiplexer (MUX) and Multiplexing Tutorial"></p>
+<p><img src="https://www.circuitbasics.com/wp-content/uploads/2020/06/image-45.png" srcset="/Blogs/img/loading.gif" lazyload alt="A Complete Guide to Electronic Multiplexers - Circuit Basics"></p>
+<p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/combination-multiplexer3.gif" srcset="/Blogs/img/loading.gif" lazyload alt="The Multiplexer (MUX) and Multiplexing Tutorial"></p>
 <p>此处b，a是选择器（s1，s0）</p>
 <h2 id="demultiplexer"><a href="#demultiplexer" class="headerlink" title="demultiplexer"></a>demultiplexer</h2><p>A de-multiplexer is a digital switch with a single input(source) and multiple outputs (destinations)</p>
 <p>• The select pins determine which output the input connected to</p>
@@ -369,12 +369,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
   
   
 
@@ -391,7 +391,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/multiplexerdemultiplexer/" class="print-no-link">#multiplexerdemultiplexer</a>
+        <a href="/Blogs/tags/multiplexerdemultiplexer/" class="print-no-link">#multiplexerdemultiplexer</a>
       
     </div>
   
@@ -404,7 +404,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>multiplexerdemultiplexer</div>
-      <div>http://example.com/2025/08/28/multiplexerdemultiplexer/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/multiplexerdemultiplexer/</div>
     </div>
     <div class="license-meta">
       
@@ -448,7 +448,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/linuxcmd/" title="linuxcmd">
+                      <a href="/Blogs/2025/08/28/linuxcmd/" title="linuxcmd">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">linuxcmd</span>
                         <span class="visible-mobile">上一篇</span>
@@ -458,7 +458,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/stochasticprocess/" title="stochasticprocess">
+                      <a href="/Blogs/2025/08/28/stochasticprocess/" title="stochasticprocess">
                         <span class="hidden-mobile">stochasticprocess</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -587,8 +587,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -610,7 +610,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -709,7 +709,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -717,7 +717,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

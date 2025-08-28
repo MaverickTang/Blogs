@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="数学建模竞赛入门攻略（1）常见问题优化类，预测类，评价类以及机理分析类  可以看出其实纯预测类和评价类的题目几乎已经很少啦，近几年的国赛题目都是一道机理分析类的题目和一道优化类的题目。    其实不难理解，纯预测或者评价类题目都是一些套用的方法，比如预测类的灰色预测，BP预测等等，很难真正锻炼学生的建模和思考能力。    机理分析+优化类的题目能够针对一个实际问题，利用所学知识建立数学模型，再利用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数学建模">
-<meta property="og:url" content="http://example.com/2025/08/28/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="数学建模竞赛入门攻略（1）常见问题优化类，预测类，评价类以及机理分析类  可以看出其实纯预测类和评价类的题目几乎已经很少啦，近几年的国赛题目都是一道机理分析类的题目和一道优化类的题目。    其实不难理解，纯预测或者评价类题目都是一些套用的方法，比如预测类的灰色预测，BP预测等等，很难真正锻炼学生的建模和思考能力。    机理分析+优化类的题目能够针对一个实际问题，利用所学知识建立数学模型，再利用">
 <meta property="og:locale" content="zh_CN">
@@ -64,12 +64,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -78,15 +78,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -103,7 +103,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -122,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -134,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -146,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -158,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -170,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -200,7 +200,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -282,7 +282,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="数学建模竞赛入门攻略（1）"><a href="#数学建模竞赛入门攻略（1）" class="headerlink" title="数学建模竞赛入门攻略（1）"></a>数学建模竞赛入门攻略（1）</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>优化类，预测类，评价类以及机理分析类<br><img src="https://pic2.zhimg.com/80/v2-c50208cdbec863245b312afdd1c32229_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+                <h1 id="数学建模竞赛入门攻略（1）"><a href="#数学建模竞赛入门攻略（1）" class="headerlink" title="数学建模竞赛入门攻略（1）"></a>数学建模竞赛入门攻略（1）</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>优化类，预测类，评价类以及机理分析类<br><img src="https://pic2.zhimg.com/80/v2-c50208cdbec863245b312afdd1c32229_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <ul>
 <li><p>可以看出其实纯预测类和评价类的题目几乎已经很少啦，近几年的国赛题目都是一道机理分析类的题目和一道优化类的题目。  </p>
 </li>
@@ -295,16 +295,16 @@
 <h2 id="算法基础"><a href="#算法基础" class="headerlink" title="算法基础"></a>算法基础</h2><ul>
 <li>关于数模所需的算法，其实网上已经总结过关于数学建模的十类算法，就是如下图所示：</li>
 </ul>
-<p><img src="https://pic4.zhimg.com/80/v2-fbfa1f7f5caec54a57064fe7c000630b_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>数模常用的问题针对性<br><img src="https://pic2.zhimg.com/80/v2-7f69deaee5d6ff8da12650317bf9dd89_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
-<p> <img src="https://pic4.zhimg.com/80/v2-1d01fd60ad73c4bedfc574bbc90aca2b_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic4.zhimg.com/80/v2-fbfa1f7f5caec54a57064fe7c000630b_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
+<p>数模常用的问题针对性<br><img src="https://pic2.zhimg.com/80/v2-7f69deaee5d6ff8da12650317bf9dd89_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
+<p> <img src="https://pic4.zhimg.com/80/v2-1d01fd60ad73c4bedfc574bbc90aca2b_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p> 在看最近几年的优秀论文的时候，发现其实近几年许多题目的求解都采用的纯数学的方法，比如微分方程的求解等。所以如果有时间可以提前看一下数值分析这本书</p>
 <ul>
 <li>而对于大家一直迷恋的神算法：“模拟退火，粒子群，遗传算法”等几乎用不到，大家随便贴个智能算法原理，在去copy程序，甚至都不管程序能不能通的方法，真的已经行不通啦</li>
 <li>切记不要迷恋智能算法！！！</li>
 </ul>
 <h2 id="如何分工"><a href="#如何分工" class="headerlink" title="如何分工"></a>如何分工</h2><p>一般一个队需要一个擅长建模的，一个擅长求解的，一个擅长写作的。当然更好的是两个人擅长建模，两个人擅长求解，建模和求解本来就很难分开，两个人可以相互合作（要有耐心</p>
-<h2 id="如何论文撰写以及推荐书籍？"><a href="#如何论文撰写以及推荐书籍？" class="headerlink" title="如何论文撰写以及推荐书籍？"></a>如何论文撰写以及推荐书籍？</h2><p>基本都包括这几步：<br><img src="https://pic1.zhimg.com/80/v2-2c5dff77e5b43a26f17ad0ed3fd55e60_1440w.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="如何论文撰写以及推荐书籍？"><a href="#如何论文撰写以及推荐书籍？" class="headerlink" title="如何论文撰写以及推荐书籍？"></a>如何论文撰写以及推荐书籍？</h2><p>基本都包括这几步：<br><img src="https://pic1.zhimg.com/80/v2-2c5dff77e5b43a26f17ad0ed3fd55e60_1440w.jpg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>我的内容</p>
 <p>[[Matlab入门]]</p>
 <p>[[Matlab计算]]</p>
@@ -328,12 +328,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  <a href="/Blogs/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E6%A8%A1/" class="category-chain-item">数模</a>
+  <a href="/Blogs/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E6%A8%A1/" class="category-chain-item">数模</a>
   
   
 
@@ -350,7 +350,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+        <a href="/Blogs/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
       
     </div>
   
@@ -363,7 +363,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>数学建模</div>
-      <div>http://example.com/2025/08/28/数学建模/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/数学建模/</div>
     </div>
     <div class="license-meta">
       
@@ -407,9 +407,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81%E4%B8%8E%E9%80%BB%E8%BE%91/" title="数字电路基础数字编码与逻辑">
+                      <a href="/Blogs/2025/08/28/%E6%95%B0%E5%AD%97%E7%AF%87/" title="数字篇">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数字电路基础数字编码与逻辑</span>
+                        <span class="hidden-mobile">数字篇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -417,7 +417,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/%E6%95%B0%E5%AD%A6%E9%80%9A%E8%AF%86%E8%AE%B2%E4%B9%89/" title="数学通识讲义">
+                      <a href="/Blogs/2025/08/28/%E6%95%B0%E5%AD%A6%E9%80%9A%E8%AF%86%E8%AE%B2%E4%B9%89/" title="数学通识讲义">
                         <span class="hidden-mobile">数学通识讲义</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -546,8 +546,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -569,7 +569,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -668,7 +668,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -676,7 +676,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

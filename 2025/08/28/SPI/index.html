@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="简介SPI是串行外设接口（Serial Peripheral Interface）的缩写，是美国摩托罗拉公司（Motorola）最先推出的一种同步串行传输规范，也是一种单片机外设芯片串行扩展接口，是一种高速、全双工、同步通信总线，所以可以在同一时间发送和接收数据，SPI没有定义速度限制，通常能达到甚至超过10M&#x2F;bps。 SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPI">
-<meta property="og:url" content="http://example.com/2025/08/28/SPI/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/SPI/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="简介SPI是串行外设接口（Serial Peripheral Interface）的缩写，是美国摩托罗拉公司（Motorola）最先推出的一种同步串行传输规范，也是一种单片机外设芯片串行扩展接口，是一种高速、全双工、同步通信总线，所以可以在同一时间发送和接收数据，SPI没有定义速度限制，通常能达到甚至超过10M&#x2F;bps。 SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（S">
 <meta property="og:locale" content="zh_CN">
@@ -65,12 +65,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -79,15 +79,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -104,7 +104,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -123,7 +123,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -135,7 +135,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -147,7 +147,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -159,7 +159,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -171,7 +171,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -201,7 +201,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -356,12 +356,12 @@
 <p>The SS must be <strong>low</strong> before data transactions begin and normally stays low for the duration of the transaction.</p>
 <p>If the SS signal goes high any time during a data transfer, the transfer is considered to be aborted.</p>
 <h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>SPI一对一</p>
-<p><img src="https://img-blog.csdnimg.cn/20200429141530267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/20200429141530267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>SPI一对多</p>
-<p><img src="https://img-blog.csdnimg.cn/20200429141618139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/20200429141618139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>Daisy-chained SPI bus</p>
 <p>If only <strong>one</strong> slave select pin is available, the slaves can be daisy-chained like this</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/97/SPI_three_slaves_daisy_chained.svg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/97/SPI_three_slaves_daisy_chained.svg" srcset="/Blogs/img/loading.gif" lazyload></p>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="SPI设备选择"><a href="#SPI设备选择" class="headerlink" title="SPI设备选择"></a>SPI设备选择</h4><p>SPI是<strong>单主设备（ single-master)通信协议</strong>，这意味着总线中的只有一支中心设备能发起通信。当SPI主设备想读&#x2F;写［从设备］时，它<strong>首先拉低［从设备］对应的SS线</strong>（SS是低电平有效），接着开始发送工作脉冲到时钟线上，在相应的脉冲时间上，［<strong>主设备］把信号发到MOSI实现“写”</strong>，同时可对<strong>MISO采样而实现“读”</strong></p>
 <h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><h3 id="SPI数据发送接收"><a href="#SPI数据发送接收" class="headerlink" title="SPI数据发送接收"></a>SPI数据发送接收</h3><p>SPI主机和从机都有一个串行<strong>移位寄存器</strong>，主机通过向它的SPI串行寄存器写入一个字节来发起一次传输。</p>
 <ol>
@@ -370,7 +370,7 @@
 <li>主机(Master)将要发送的数据写到发送数据缓存区(Menory)，缓存区经过移位寄存器(0~7)，串行移位寄存器通过MOSI信号线将字节一位一位的移出去传送给从机，，同时MISO接口接收到的数据经过移位寄存器一位一位的移到接收缓存区。The master sends the data one bit at a time to the slave along the MOSI line. The slave reads the bits as they are received</li>
 <li>从机(Slave)也将自己的串行移位寄存器(0~7)中的内容通过MISO信号线返回给主机。同时通过MOSI信号线接收主机发送的数据，这样，两个移位寄存器中的内容就被交换。If a response is needed, the slave returns data one bit at a time to the master along the MISO line. The master reads the bits as they are received :</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200429143110758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/20200429143110758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FzNDgwMTMzOTM3,size_16,color_FFFFFF,t_70" srcset="/Blogs/img/loading.gif" lazyload></p>
 <p>SPI<strong>只有主模式和从模式之分，没有读和写的说法</strong>，外设的写操作和读操作是同步完成的。</p>
 <p>如果只进行写操作，主机只需忽略接收到的字节；反之，若主机要读取从机的一个字节，就必须发送一个空字节来引发从机的传输。也就是说，你发一个数据必然会收到一个数据；你要收一个数据必须也要先发一个数据。</p>
 <h3 id="SPI通信的四种模式"><a href="#SPI通信的四种模式" class="headerlink" title="SPI通信的四种模式"></a>SPI通信的四种模式</h3><blockquote>
@@ -419,9 +419,9 @@
 <p>时钟的极性（CPOL）用来<strong>决定在总线空闲时，同步时钟（SCK）信号线上的电位是高电平还是低电平</strong>。当时钟极性为0时（CPOL&#x3D;0），SCK信号线在空闲时为低电平；当时钟极性为1时（CPOL&#x3D;1），SCK信号线在空闲时为高电平；</p>
 <p>时钟的相位（CPHA）用来<strong>决定何时进行信号采样</strong>。</p>
 <p>当时钟相位为1时（CPHA&#x3D;1），在SCK信号线的第二个跳变沿进行采样；这里的跳变沿究竟是上升沿还是下降沿？取决于时钟的极性。当时钟<strong>极性为0时，取下降沿</strong>；当时钟极性为1时，取上升沿；如下图：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-1141b7036cf151564818cc6cb676d275_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-1141b7036cf151564818cc6cb676d275_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <p>当时钟相位为0时（CPHA&#x3D;0），在SCK信号线的第一个跳变沿进行采样。跳变沿同样与时钟极性有关：当时钟<strong>极性为0时，取上升沿</strong>；当时钟极性为1时，取下降沿；如下图： </p>
-<p><img src="https://pic2.zhimg.com/80/v2-e69e8be0703f70f3e6eb781fa86fee05_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-e69e8be0703f70f3e6eb781fa86fee05_720w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <h2 id="Pros-Cons"><a href="#Pros-Cons" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h2><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ul>
 <li><p>Full duplex communication </p>
 </li>
@@ -475,12 +475,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="category-chain-item">微电子知识体系</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
+  <a href="/Blogs/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/MS/" class="category-chain-item">MS</a>
   
   
 
@@ -497,7 +497,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/SPI/" class="print-no-link">#SPI</a>
+        <a href="/Blogs/tags/SPI/" class="print-no-link">#SPI</a>
       
     </div>
   
@@ -510,7 +510,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>SPI</div>
-      <div>http://example.com/2025/08/28/SPI/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/SPI/</div>
     </div>
     <div class="license-meta">
       
@@ -554,7 +554,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/Python%E7%88%AC%E8%99%AB/" title="Python爬虫">
+                      <a href="/Blogs/2025/08/28/Python%E7%88%AC%E8%99%AB/" title="Python爬虫">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Python爬虫</span>
                         <span class="visible-mobile">上一篇</span>
@@ -564,8 +564,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/STM32/" title="STM32">
-                        <span class="hidden-mobile">STM32</span>
+                      <a href="/Blogs/2025/08/28/Semiconductor/" title="Semiconductor">
+                        <span class="hidden-mobile">Semiconductor</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -693,8 +693,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -716,7 +716,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -815,7 +815,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -823,7 +823,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

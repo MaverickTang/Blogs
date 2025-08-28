@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="Docker 简介和安装Docker 是什么Docker 是一个应用打包、分发、部署的工具你也可以把它理解为一个轻量的虚拟机，它只虚拟你软件需要的运行环境，多余的一点都不要，而普通虚拟机则是一个完整而庞大的系统，包含各种不管你要不要的软件。  本文档课件配套 视频教程  跟普通虚拟机的对比   特性 普通虚拟机 Docker    跨平台 通常只能在桌面级系统运行，例如 Windows&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
-<meta property="og:url" content="http://example.com/2025/08/28/Docker/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/Docker/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="Docker 简介和安装Docker 是什么Docker 是一个应用打包、分发、部署的工具你也可以把它理解为一个轻量的虚拟机，它只虚拟你软件需要的运行环境，多余的一点都不要，而普通虚拟机则是一个完整而庞大的系统，包含各种不管你要不要的软件。  本文档课件配套 视频教程  跟普通虚拟机的对比   特性 普通虚拟机 Docker    跨平台 通常只能在桌面级系统运行，例如 Windows&#x2F;">
 <meta property="og:locale" content="zh_CN">
@@ -66,12 +66,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -80,15 +80,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -105,7 +105,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -124,7 +124,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -136,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -148,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -160,7 +160,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -172,7 +172,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -202,7 +202,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -317,7 +317,7 @@
 <td>稳定性好，不同系统都一样部署方式</td>
 </tr>
 </tbody></table>
-<h3 id="打包、分发、部署"><a href="#打包、分发、部署" class="headerlink" title="打包、分发、部署"></a>打包、分发、部署</h3><p><strong>打包</strong>：就是把你软件运行所需的依赖、第三方库、软件打包到一起，变成一个安装包<br><strong>分发</strong>：你可以把你打包好的“安装包”上传到一个镜像仓库，其他人可以非常方便的获取和安装<br><strong>部署</strong>：拿着“安装包”就可以一个命令运行起来你的应用，自动模拟出一摸一样的运行环境，不管是在 Windows&#x2F;Mac&#x2F;Linux。<br><img src="https://cos.easydoc.net/46901064/files/kv7rlicu.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="打包、分发、部署"><a href="#打包、分发、部署" class="headerlink" title="打包、分发、部署"></a>打包、分发、部署</h3><p><strong>打包</strong>：就是把你软件运行所需的依赖、第三方库、软件打包到一起，变成一个安装包<br><strong>分发</strong>：你可以把你打包好的“安装包”上传到一个镜像仓库，其他人可以非常方便的获取和安装<br><strong>部署</strong>：拿着“安装包”就可以一个命令运行起来你的应用，自动模拟出一摸一样的运行环境，不管是在 Windows&#x2F;Mac&#x2F;Linux。<br><img src="https://cos.easydoc.net/46901064/files/kv7rlicu.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
 <h3 id="Docker-部署的优势"><a href="#Docker-部署的优势" class="headerlink" title="Docker 部署的优势"></a>Docker 部署的优势</h3><p>常规应用开发部署方式：自己在 Windows 上开发、测试 –&gt; 到 Linux 服务器配置运行环境部署。</p>
 <blockquote>
 <p>问题：我机器上跑都没问题，怎么到服务器就各种问题了</p>
@@ -335,8 +335,8 @@
 </ul>
 <h3 id="重要概念：镜像、容器"><a href="#重要概念：镜像、容器" class="headerlink" title="重要概念：镜像、容器"></a>重要概念：镜像、容器</h3><p><strong>镜像</strong>：可以理解为软件安装包，可以方便的进行传播和安装。<br><strong>容器</strong>：软件安装后的状态，每个软件运行环境都是独立的、隔离的，称之为容器。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>桌面版：<a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a><br>服务器版：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/#server">https://docs.docker.com/engine/install/#server</a></p>
-<h3 id="启动报错解决"><a href="#启动报错解决" class="headerlink" title="启动报错解决"></a>启动报错解决</h3><p>报错截图<br><img src="https://cos.easydoc.net/46901064/files/kvacsk82.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
-<p><strong>解决方法</strong>：<br>控制面板-&gt;程序-&gt;启用或关闭 windows 功能，开启 Windows 虚拟化和 Linux 子系统（WSL2)<br><img src="https://cos.easydoc.net/46901064/files/kvactn57.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="启动报错解决"><a href="#启动报错解决" class="headerlink" title="启动报错解决"></a>启动报错解决</h3><p>报错截图<br><img src="https://cos.easydoc.net/46901064/files/kvacsk82.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
+<p><strong>解决方法</strong>：<br>控制面板-&gt;程序-&gt;启用或关闭 windows 功能，开启 Windows 虚拟化和 Linux 子系统（WSL2)<br><img src="https://cos.easydoc.net/46901064/files/kvactn57.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
 <p><strong>命令行安装 Linux 内核</strong><br><code>wsl.exe --install -d Ubuntu</code></p>
 <blockquote>
 <p>你也可以打开微软商店 Microsoft Store 搜索 Linux 进行安装，选择一个最新版本的 Ubuntu 或者 Debian 都可以</p>
@@ -349,13 +349,13 @@
 <p>注意要用管理员权限打开 PowerShell</p>
 </blockquote>
 <p><strong>设置默认使用版本2</strong><br><code>wsl.exe --set-default-version 2</code></p>
-<p><strong>查看 WSL 是否安装正确</strong><br><code>wsl.exe --list --verbose</code><br>应该如下图，可以看到一个 Linux 系统，名字你的不一定跟我的一样，看你安装的是什么版本。<br>并且 VERSION 是 2<br><img src="https://cos.easydoc.net/46901064/files/ldxvkks2.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><strong>查看 WSL 是否安装正确</strong><br><code>wsl.exe --list --verbose</code><br>应该如下图，可以看到一个 Linux 系统，名字你的不一定跟我的一样，看你安装的是什么版本。<br>并且 VERSION 是 2<br><img src="https://cos.easydoc.net/46901064/files/ldxvkks2.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
 <p><strong>确保 BIOS 已开启虚拟化，下图检查是否已开启好</strong></p>
 <blockquote>
 <p>如果是已禁用，请在开机时按 F2 进入 BIOS 开启一下，不会设置的可以网上搜索下自己主板的设置方法，Intel 和 AMD 的设置可能稍有不同</p>
 </blockquote>
-<p><img src="https://cos.easydoc.net/46901064/files/kvaf7ody.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
-<p><strong>出现下图错误，点击链接安装最新版本的 WSL2</strong><br><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a><br><img src="https://cos.easydoc.net/46901064/files/kvajwvuw.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://cos.easydoc.net/46901064/files/kvaf7ody.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
+<p><strong>出现下图错误，点击链接安装最新版本的 WSL2</strong><br><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a><br><img src="https://cos.easydoc.net/46901064/files/kvajwvuw.png" srcset="/Blogs/img/loading.gif" lazyload alt="image.png"></p>
 <h3 id="镜像加速源"><a href="#镜像加速源" class="headerlink" title="镜像加速源"></a>镜像加速源</h3><table>
 <thead>
 <tr>
@@ -398,7 +398,7 @@
 </tbody></table>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<span class="hljs-string">&quot;https://registry.docker-cn.com&quot;</span>]<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cos.easydoc.net/46901064/files/l25jdwrn.png" srcset="/img/loading.gif" lazyload alt="1.png"></p>
+<p><img src="https://cos.easydoc.net/46901064/files/l25jdwrn.png" srcset="/Blogs/img/loading.gif" lazyload alt="1.png"></p>
 <blockquote>
 <p>觉得老师讲得不错的话，记得点赞、关注、分享，鼓励下老师<br>你们的鼓励会让老师更加有动力继续创造更多更好的内容</p>
 </blockquote>
@@ -425,12 +425,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%A8%8B%E5%BA%8F/Docker/" class="category-chain-item">Docker</a>
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/Docker/" class="category-chain-item">Docker</a>
   
   
 
@@ -447,7 +447,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+        <a href="/Blogs/tags/Docker/" class="print-no-link">#Docker</a>
       
     </div>
   
@@ -460,7 +460,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Docker</div>
-      <div>http://example.com/2025/08/28/Docker/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/Docker/</div>
     </div>
     <div class="license-meta">
       
@@ -504,9 +504,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/Embedded%20System/" title="Embedded System">
+                      <a href="/Blogs/2025/08/28/C%E9%80%9F%E8%BD%ACPython/" title="C速转Python">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Embedded System</span>
+                        <span class="hidden-mobile">C速转Python</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -514,8 +514,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/I2C/" title="I2C">
-                        <span class="hidden-mobile">I2C</span>
+                      <a href="/Blogs/2025/08/28/Docker%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" title="Docker构建镜像">
+                        <span class="hidden-mobile">Docker构建镜像</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -643,8 +643,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -666,7 +666,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -765,7 +765,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -773,7 +773,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   

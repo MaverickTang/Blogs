@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/img/fluid.png">
+  <link rel="icon" href="/Blogs/img/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <meta name="description" content="人工智能背景芯片瓶颈随着半导体行业进入了22纳米以下的工艺节点，虽然集成密度仍在持续提升，但是计算效果提升效率远不如前，具体原因包括：  计算频率不再增加；  晶体管的能量密度逐渐趋缓，导致计算能效逐渐趋缓；  晶体管的成本在不同节点之间，几乎持平；在5nm&#x2F;3nm最先进的工艺节点上，单位成本是处于爬升趋势。   两种架构未来的10年是计算架构的黄金十年。他提出了特定领域架构设计思路：D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="类脑芯片简介">
-<meta property="og:url" content="http://example.com/2025/08/28/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Mavericreate.Blog">
 <meta property="og:description" content="人工智能背景芯片瓶颈随着半导体行业进入了22纳米以下的工艺节点，虽然集成密度仍在持续提升，但是计算效果提升效率远不如前，具体原因包括：  计算频率不再增加；  晶体管的能量密度逐渐趋缓，导致计算能效逐渐趋缓；  晶体管的成本在不同节点之间，几乎持平；在5nm&#x2F;3nm最先进的工艺节点上，单位成本是处于爬升趋势。   两种架构未来的10年是计算架构的黄金十年。他提出了特定领域架构设计思路：D">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
   
 
 
@@ -74,15 +74,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
   
 
 
@@ -99,7 +99,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blogs/">
       <strong>Fluid</strong>
     </a>
 
@@ -118,7 +118,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="/Blogs/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -196,7 +196,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -299,7 +299,7 @@
 <p>③量身定制，通过计算权重的低精度化和稀疏计算等模式，节省计算开销。</p>
 <h3 id="神经形态架构"><a href="#神经形态架构" class="headerlink" title="神经形态架构"></a>神经形态架构</h3><p>基于脑科学发展而来，通过模拟神经元和突触的典型特征，比如存算一体、脉冲编码、异步计算、动力学模型等特点，希望通过这些模拟从而达到更高的智能水平。其典型代表包括IBM TrueNorth,、Intel Loihi 和基于ARM架构发展而来的SpiNNaker</p>
 <h1 id="类脑计算趋势"><a href="#类脑计算趋势" class="headerlink" title="类脑计算趋势"></a>类脑计算趋势</h1><h2 id="深度学习与脑科学融合"><a href="#深度学习与脑科学融合" class="headerlink" title="深度学习与脑科学融合"></a>深度学习与脑科学融合</h2><p>深度学习和脑科学的发展有着各自的特点。一个是沿着计算机科学的导向，以精确的数值和矩阵计算为主，神经元处于连续值状态。另一个沿着脑模拟的方向发展而来，以0&#x2F;1脉冲序列表达信息流，所以也叫脉冲神经网络，编码里包含了时间信息；另外，神经元内部具有动力学特征，具有事件驱动、稀疏发放等特点。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-137692eef8cc676b5e45ea3e4e8165cf_1440w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-137692eef8cc676b5e45ea3e4e8165cf_1440w.webp" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
 <p>在深度学习和脉冲神经网络融合的探索方面，清华大学类脑计算研究中心早在2014年就开始探索，于2019、2020和2021年连续发表了三篇Nature论文，分别从架构、软件编译和算法模型三个方面进行研究。首篇论文（Figure 16）讲述的是异构融合架构的类脑芯片设计，如何在架构层面支持ANN和SNN的融合。第二篇（Figure 17）讲述的是类脑编译软件系统架构，提出了类脑计算完备性。第三篇（Figure 18）在自然通讯发表的类脑算法文章，首次融合了全局学习和本地学习的融合算法，为类脑融合算法模型的训练和在线学习机制提供支撑。</p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>深度学习网络处理</p>
 <p>脑科学研究</p>
@@ -322,7 +322,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87/" class="category-chain-item">类脑芯片</a>
+  <a href="/Blogs/categories/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87/" class="category-chain-item">类脑芯片</a>
   
   
 
@@ -337,7 +337,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87%E7%AE%80%E4%BB%8B/" class="print-no-link">#类脑芯片简介</a>
+        <a href="/Blogs/tags/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87%E7%AE%80%E4%BB%8B/" class="print-no-link">#类脑芯片简介</a>
       
     </div>
   
@@ -350,7 +350,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>类脑芯片简介</div>
-      <div>http://example.com/2025/08/28/类脑芯片简介/</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/类脑芯片简介/</div>
     </div>
     <div class="license-meta">
       
@@ -394,7 +394,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87/" title="类脑芯片">
+                      <a href="/Blogs/2025/08/28/%E7%B1%BB%E8%84%91%E8%8A%AF%E7%89%87/" title="类脑芯片">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">类脑芯片</span>
                         <span class="visible-mobile">上一篇</span>
@@ -404,7 +404,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" title="线性代数">
+                      <a href="/Blogs/2025/08/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" title="线性代数">
                         <span class="hidden-mobile">线性代数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -533,8 +533,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -556,7 +556,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
   
 
 
@@ -655,7 +655,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blogs/js/local-search.js" ></script>
 
 
 
@@ -663,7 +663,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blogs/js/boot.js" ></script>
 
 
   
