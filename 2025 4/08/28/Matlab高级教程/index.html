@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MATLAB 绘图（Plot）要绘制函数的图形，需要执行以下步骤：  通过指定变量 x 的值范围来定义 x，为此函数将绘制出来 定义函数， y &#x3D; f(x) 调用 plot 命令，如下 plot(x, y)  下面的实例将演示这个概念。让我们绘制一个简单的函数y&#x3D;x，x的取值范围为0到100，增量为5。 创建一个脚本文件并输入以下代码- 123x &#x3D; [0:5:100];y &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab高级教程">
+<meta property="og:url" content="http://example.com/2025/08/28/Matlab%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="MATLAB 绘图（Plot）要绘制函数的图形，需要执行以下步骤：  通过指定变量 x 的值范围来定义 x，为此函数将绘制出来 定义函数， y &#x3D; f(x) 调用 plot 命令，如下 plot(x, y)  下面的实例将演示这个概念。让我们绘制一个简单的函数y&#x3D;x，x的取值范围为0到100，增量为5。 创建一个脚本文件并输入以下代码- 123x &#x3D; [0:5:100];y &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.889Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="Matlab高级教程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Matlab高级教程 - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Matlab高级教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Matlab高级教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="MATLAB-绘图（Plot）"><a href="#MATLAB-绘图（Plot）" class="headerlink" title="MATLAB 绘图（Plot）"></a>MATLAB 绘图（Plot）</h1><p>要绘制函数的图形，需要执行以下步骤：</p>
+<ul>
+<li>通过指定变量 x 的值范围来定义 x，为此函数将绘制出来</li>
+<li>定义函数， <strong>y &#x3D; f(x)</strong></li>
+<li>调用 <strong>plot</strong> 命令，如下 <strong>plot(x, y)</strong></li>
+</ul>
+<p>下面的实例将演示这个概念。让我们绘制一个简单的函数y&#x3D;x，x的取值范围为0到100，增量为5。</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">0</span>:<span class="hljs-number">5</span>:<span class="hljs-number">100</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-variable language_">x</span>;<br>plot(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>)<br></code></pre></td></tr></table></figure>
+
+<p>运行文件时，MATLAB显示以下图-</p>
+<p>让我们再举一个实例来绘制函数y &#x3D; x 2。在此示例中，我们将绘制两个具有相同功能的图形，但是第二次，我们将减小增量值。请注意，随着我们减少增量，图形会变得更加平滑。</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span> <span class="hljs-number">10</span>];<br><span class="hljs-variable language_">x</span> = [<span class="hljs-number">-100</span>:<span class="hljs-number">20</span>:<span class="hljs-number">100</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span>;<br>plot(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>)<br></code></pre></td></tr></table></figure>
+
+<p>运行文件时，MATLAB显示以下图-</p>
+<p>稍微更改代码文件，将增量减少到5-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">-100</span>:<span class="hljs-number">5</span>:<span class="hljs-number">100</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span>;<br>plot(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>)<br></code></pre></td></tr></table></figure>
+
+<p>MATLAB绘制更平滑的图形-</p>
+<h2 id="在图形上添加标题，标签，网格线和缩放"><a href="#在图形上添加标题，标签，网格线和缩放" class="headerlink" title="在图形上添加标题，标签，网格线和缩放"></a>在图形上添加标题，标签，网格线和缩放</h2><p>MATLAB 允许您添加标题、沿 x 轴和 y 轴的标签、网格线，并且还可以调整轴以使图形更漂亮。</p>
+<ul>
+<li><strong>xlabel</strong> 和 <strong>ylabel</strong> 命令产生沿x轴和y轴的标签。</li>
+<li><strong>title</strong> 命令允许您在图形上放置标题。</li>
+<li><strong>grid on</strong> 命令允许您将网格线放在图形上。</li>
+<li><strong>axis equal</strong> 命令允许使用相同的比例因子和两个轴上的间距生成图。</li>
+<li><strong>axis square</strong> 命令生成一个正方形图。</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-attribute">x</span> = [<span class="hljs-number">0</span>:<span class="hljs-number">0.01</span>:<span class="hljs-number">10</span>];<br><span class="hljs-attribute">y</span> = <span class="hljs-built_in">sin</span>(x);<br><span class="hljs-function"><span class="hljs-title">plot</span><span class="hljs-params">(x, y)</span></span>, <span class="hljs-built_in">xlabel</span>(<span class="hljs-string">&#x27;x&#x27;</span>), <span class="hljs-built_in">ylabel</span>(<span class="hljs-string">&#x27;Sin(x)&#x27;</span>), <span class="hljs-built_in">title</span>(<span class="hljs-string">&#x27;Sin(x) Graph&#x27;</span>),<br><span class="hljs-attribute">grid</span> on, axis equal<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="在同一图形上绘制多个函数"><a href="#在同一图形上绘制多个函数" class="headerlink" title="在同一图形上绘制多个函数"></a>在同一图形上绘制多个函数</h2><p>您可以在同一图上绘制多个图形。以下示例演示了概念-</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-attribute">x</span> = [<span class="hljs-number">0</span> : <span class="hljs-number">0.01</span>: <span class="hljs-number">10</span>];<br><span class="hljs-attribute">y</span> = <span class="hljs-built_in">sin</span>(x);<br><span class="hljs-selector-tag">g</span> = <span class="hljs-built_in">cos</span>(<span class="hljs-attribute">x</span>);<br><span class="hljs-function"><span class="hljs-title">plot</span><span class="hljs-params">(x, y, x, g, <span class="hljs-string">&#x27;.-&#x27;</span>)</span></span>, <span class="hljs-selector-tag">legend</span>(<span class="hljs-string">&#x27;Sin(x)&#x27;</span>, <span class="hljs-string">&#x27;Cos(x)&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="在图形上设置颜色"><a href="#在图形上设置颜色" class="headerlink" title="在图形上设置颜色"></a>在图形上设置颜色</h2><p>MATLAB提供了八种基本的颜色选项来绘制图形。下表显示了颜色及其代码-</p>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">颜色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">w</td>
+<td align="center">白色</td>
+</tr>
+<tr>
+<td align="center">k</td>
+<td align="center">黑色</td>
+</tr>
+<tr>
+<td align="center">b</td>
+<td align="center">蓝色</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td align="center">红色</td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="center">青色</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td align="center">绿色</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td align="center">洋红色</td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td align="center">黄色</td>
+</tr>
+</tbody></table>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><p>让我们画出两个多项式的图</p>
+<ul>
+<li>f(x)&#x3D; 3x 4 + 2x 3 + 7x 2 + 2x + 9和</li>
+<li>g(x)&#x3D; 5x 3 + 9x + 2</li>
+</ul>
+<p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">-10</span> : <span class="hljs-number">0.01</span>: <span class="hljs-number">10</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-number">3</span>*<span class="hljs-variable language_">x</span>.^<span class="hljs-number">4</span> + <span class="hljs-number">2</span> * <span class="hljs-variable language_">x</span>.^<span class="hljs-number">3</span> + <span class="hljs-number">7</span> * <span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span> + <span class="hljs-number">2</span> * <span class="hljs-variable language_">x</span> + <span class="hljs-number">9</span>;<br>g = <span class="hljs-number">5</span> * <span class="hljs-variable language_">x</span>.^<span class="hljs-number">3</span> + <span class="hljs-number">9</span> * <span class="hljs-variable language_">x</span> + <span class="hljs-number">2</span>;<br>plot(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>, <span class="hljs-string">&#x27;r&#x27;</span>, <span class="hljs-variable language_">x</span>, g, <span class="hljs-string">&#x27;g&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="设定轴比例"><a href="#设定轴比例" class="headerlink" title="设定轴比例"></a>设定轴比例</h2><p><strong>axis</strong>命令允许您设置轴刻度。您可以按以下方式使用axis命令提供x和y轴的最小值和最大值：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">axis ( <span class="hljs-selector-attr">[xmin xmax ymin ymax]</span> )<br></code></pre></td></tr></table></figure>
+
+<p>以下示例显示了这一点-</p>
+<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">0</span> : <span class="hljs-number">0.01</span>: <span class="hljs-number">10</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-built_in">exp</span>(-<span class="hljs-variable language_">x</span>).* <span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>*<span class="hljs-variable language_">x</span> + <span class="hljs-number">3</span>);<br>plot(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>), axis([<span class="hljs-number">0</span> <span class="hljs-number">10</span> <span class="hljs-number">-1</span> <span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+<h2 id="生成子图"><a href="#生成子图" class="headerlink" title="生成子图"></a>生成子图</h2><p>在同一图形中创建一个绘图数组时，每个绘图都称为子绘图。<strong>subplot</strong> 命令用于创建子图。</p>
+<p>该命令的语法是-</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">subplot</span><span class="hljs-params">(m, n, p)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>其中，<em>m</em>和<em>n</em>是绘图数组的行数和列数，而<em>p</em>指定放置特定绘图的位置。</p>
+<p>使用subplot命令创建的每个图都可以具有自己的特征。以下示例演示了概念-</p>
+<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><p>让我们生成两个图-</p>
+<p>y &#x3D; e −1.5x sin(10x)</p>
+<p>y &#x3D; e -2x sin(10x)</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-variable language_">x</span> = [<span class="hljs-number">0</span>:<span class="hljs-number">0.01</span>:<span class="hljs-number">5</span>];<br><span class="hljs-variable language_">y</span> = <span class="hljs-built_in">exp</span>(<span class="hljs-number">-1.5</span>*<span class="hljs-variable language_">x</span>).*<span class="hljs-built_in">sin</span>(<span class="hljs-number">10</span>*<span class="hljs-variable language_">x</span>);<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)<br>plot(<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>), xlabel(<span class="hljs-string">&#x27;x&#x27;</span>),ylabel(<span class="hljs-string">&#x27;exp(–1.5x)*sin(10x)&#x27;</span>),axis([<span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">-1</span> <span class="hljs-number">1</span>])<br><span class="hljs-variable language_">y</span> = <span class="hljs-built_in">exp</span>(<span class="hljs-number">-2</span>*<span class="hljs-variable language_">x</span>).*<span class="hljs-built_in">sin</span>(<span class="hljs-number">10</span>*<span class="hljs-variable language_">x</span>);<br>subplot(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)<br>plot(<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>),xlabel(<span class="hljs-string">&#x27;x&#x27;</span>),ylabel(<span class="hljs-string">&#x27;exp(–2x)*sin(10x)&#x27;</span>),axis([<span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">-1</span> <span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="绘制条形图bar"><a href="#绘制条形图bar" class="headerlink" title="绘制条形图bar"></a>绘制条形图bar</h2><p><strong>bar</strong> 命令绘制二维条形图。让我们举一个实例来说明这个想法。</p>
+<h2 id="实例-5"><a href="#实例-5" class="headerlink" title="实例"></a>实例</h2><p>让我们有一个假想的教室，有10个学生。我们知道这些学生获得的分数百分比是75、58、90、87、50、85、92、75、60和95。我们将绘制此数据的条形图。</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<p>示例</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-attribute">x</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">10</span>];<br><span class="hljs-attribute">y</span> = [<span class="hljs-number">75</span>, <span class="hljs-number">58</span>, <span class="hljs-number">90</span>, <span class="hljs-number">87</span>, <span class="hljs-number">50</span>, <span class="hljs-number">85</span>, <span class="hljs-number">92</span>, <span class="hljs-number">75</span>, <span class="hljs-number">60</span>, <span class="hljs-number">95</span>];<br><span class="hljs-function"><span class="hljs-title">bar</span><span class="hljs-params">(x,y)</span></span>, <span class="hljs-built_in">xlabel</span>(<span class="hljs-string">&#x27;Student&#x27;</span>),<span class="hljs-built_in">ylabel</span>(<span class="hljs-string">&#x27;Score&#x27;</span>),<br><span class="hljs-function"><span class="hljs-title">title</span><span class="hljs-params">(<span class="hljs-string">&#x27;First Sem:&#x27;</span>)</span></span><br>print -deps graph.eps<br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="绘制等高线contour"><a href="#绘制等高线contour" class="headerlink" title="绘制等高线contour"></a>绘制等高线contour</h2><p>两个变量的函数的等高线是一条曲线，沿该曲线函数有一个常数。等高线用于创建等高线图，方法是将给定高程（如平均海平面）上的等高点连接起来。</p>
+<p>MATLAB提供了用于绘制等高线的函数 <strong>contour</strong> 。</p>
+<h3 id="实例-6"><a href="#实例-6" class="headerlink" title="实例"></a>实例</h3><p>让我们生成一个等高线图，显示给定函数g&#x3D;f(x,y)的等高线。这个函数有两个变量。因此，我们必须生成两个独立变量，即两个数据集x和y。这是通过调用meshgrid命令来完成的。</p>
+<p><strong>meshgrid</strong>命令用于生成元素矩阵，这些元素矩阵给出x和y的范围以及每种情况下的增量说明。</p>
+<p>让我们绘制函数g &#x3D; f(x, y)，其中−5≤x≤5，−3≤y≤3。让我们对两个值取0.1的增量。变量设置为-</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns">[x,y] = meshgrid(–<span class="hljs-number">5:0.1:5</span>, –<span class="hljs-number">3:0.1:3</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>最后，我们需要给函数赋值能。令我们的函数为：x 2 + y 2</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<p>示例</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gml">[<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>] = meshgrid(<span class="hljs-number">-5</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">5</span>,<span class="hljs-number">-3</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">3</span>);   %自变量<br>g = <span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span> + <span class="hljs-variable language_">y</span>.^<span class="hljs-number">2</span>;                       %我们的函数<br>contour(<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>,g)                         %调用等高线函数<br>print -deps graph.eps<br></code></pre></td></tr></table></figure>
+
+<p>运行文件时，MATLAB显示轮廓图</p>
+<p>让我们稍微修改一下代码以整理映射</p>
+<p>示例</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gml">[<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>] = meshgrid(<span class="hljs-number">-5</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">5</span>,<span class="hljs-number">-3</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">3</span>);   %independent variables<br>g = <span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span> + <span class="hljs-variable language_">y</span>.^<span class="hljs-number">2</span>;                       % our <span class="hljs-keyword">function</span><br>[C, h] = contour(<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>,g);               % call the contour <span class="hljs-keyword">function</span><br>set(h,<span class="hljs-string">&#x27;ShowText&#x27;</span>,<span class="hljs-string">&#x27;on&#x27;</span>,<span class="hljs-string">&#x27;TextStep&#x27;</span>,get(h,<span class="hljs-string">&#x27;LevelStep&#x27;</span>)*<span class="hljs-number">2</span>)<br>print -deps graph.eps<br></code></pre></td></tr></table></figure>
+
+<h2 id="三维图"><a href="#三维图" class="headerlink" title="三维图"></a>三维图</h2><p>三维图基本上显示了由函数定义的两个变量g &#x3D; f(x,y)的曲面。</p>
+<p>如前所述，要定义g，我们首先使用<strong>meshgrid</strong>命令在函数的范围内创建一组(x,y)点。接下来，我们分配函数本身。最后，我们使用<strong>surf</strong>命令创建表面图。</p>
+<p>以下示例演示了概念-</p>
+<h3 id="实例-7"><a href="#实例-7" class="headerlink" title="实例"></a>实例</h3><p>让我们为函数g &#x3D; xe- （x 2 + y 2）创建3D表面图。</p>
+<p>创建一个脚本文件并输入以下代码-</p>
+<p>示例</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gml">[<span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>] = meshgrid(<span class="hljs-number">-2</span>:<span class="hljs-number">.2</span>:<span class="hljs-number">2</span>);<br>g = <span class="hljs-variable language_">x</span> .* <span class="hljs-built_in">exp</span>(-<span class="hljs-variable language_">x</span>.^<span class="hljs-number">2</span> - <span class="hljs-variable language_">y</span>.^<span class="hljs-number">2</span>);<br>surf(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>, g)<br>print -deps graph.eps<br></code></pre></td></tr></table></figure>
+
+<p>您也可以使用<strong>mesh</strong>命令生成三维表面。但是，<strong>surf</strong>命令同时以颜色显示连接线和曲面的面，而<strong>mesh</strong>命令创建的线框表面带有连接定义点的彩色线。</p>
+<h1 id="Symbolic-Maths"><a href="#Symbolic-Maths" class="headerlink" title="Symbolic Maths"></a>Symbolic Maths</h1><h2 id="符号对象-Symbolic-Objects"><a href="#符号对象-Symbolic-Objects" class="headerlink" title="符号对象(Symbolic Objects)"></a><strong>符号对象(Symbolic Objects)</strong></h2><p>Symbolic Maths Toolbox使用一种称为符号对象的特殊数据类型，该数据类型可用于表示可根据代数和微积分的规则进行操作的符号变量，数字和表达式。</p>
+<h3 id="创建符号变量-Creating-Symbolic-Variables"><a href="#创建符号变量-Creating-Symbolic-Variables" class="headerlink" title="创建符号变量(Creating Symbolic Variables)"></a>创建符号变量(Creating Symbolic Variables)</h3><p>可以使用sym()函数创建符号变量和表达式，例如，创建两个变量x和y分别显示为x和y，</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = sym(<span class="hljs-string">&#x27;x&#x27;</span>);<br>y = sym(<span class="hljs-string">&#x27;y&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>如果变量名称和显示字符串相同，则使用syms更简单。例如，创建符号变量x, y</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x y<br></code></pre></td></tr></table></figure>
+
+<p>然而，以这种方式创建的变量都是复数。在sym() 中添加’real’ 可以使一个变量变为实数。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = sym( <span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;real&#x27;</span>);<br>y = sym( <span class="hljs-string">&#x27;y&#x27;</span>, <span class="hljs-string">&#x27;real&#x27;</span>);<br><span class="hljs-comment">% 或者使用syms 并在最后加real</span><br>syms x y <span class="hljs-built_in">real</span> <br></code></pre></td></tr></table></figure>
+
+<h3 id="Symbolic-Numbers-这个你让我怎么翻译呀QAQ"><a href="#Symbolic-Numbers-这个你让我怎么翻译呀QAQ" class="headerlink" title="Symbolic Numbers(这个你让我怎么翻译呀QAQ)"></a>Symbolic Numbers(这个你让我怎么翻译呀QAQ)</h3><p>数字也可以使用sym()表示,转换为有理数形式。 默认情况下，如果存在数字，则将这些数字以有理形式表示。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = sym(<span class="hljs-number">0.1</span>)<br><span class="hljs-comment">% 等同于x = sym(0.1, &#x27;r&#x27;)</span><br><span class="hljs-comment">% ans = 1/10</span><br>y = <span class="hljs-built_in">sqrt</span>(<span class="hljs-number">5</span>)<br><span class="hljs-comment">% ans = 5^(1/2)</span><br></code></pre></td></tr></table></figure>
+
+<p>然而， 为无理数，则可以使用无限精度(infinite precision)地进行计算。数字的其他符号表示也是可能的。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">y = sym(<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">5</span>), <span class="hljs-string">&#x27;d&#x27;</span>)<br><span class="hljs-comment">% ans = 2.2360679774997898050514777423814</span><br><span class="hljs-comment">% 结果位数取决于位数设置（默认为32位）。也可将该值设置为10位</span><br>digits(<span class="hljs-number">10</span>)<br>y = sym(<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">5</span>), <span class="hljs-string">&#x27;d&#x27;</span>)<br><span class="hljs-comment">% ans =  2.236067977</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="符号表达式和函数-Symbolic-Expressions-and-Functions"><a href="#符号表达式和函数-Symbolic-Expressions-and-Functions" class="headerlink" title="符号表达式和函数( Symbolic Expressions and Functions)"></a>符号表达式和函数( Symbolic Expressions and Functions)</h3><p>Symbolic工具箱可以创建符号表达式和符号变量的函数，例如</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x a b<br>f = <span class="hljs-built_in">sin</span>(a*x + b)<br><span class="hljs-comment">% Note: 当f根据符号变量定义时，f将自动转换为符号对象。</span><br></code></pre></td></tr></table></figure>
+
+<p>为了以更易读的形式在屏幕上显示符号表达式，pretty()函数可能非常有用。它以一种更易读的形式显示表达式（个人认为在显示高次数方程时比较方便），</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab">pretty(f)<br><span class="hljs-comment">% f =  sin(b + a x)</span><br>f1 = x^<span class="hljs-number">4</span> + <span class="hljs-number">2</span>*x^<span class="hljs-number">3</span> - <span class="hljs-number">6</span>*x^<span class="hljs-number">2</span> + <span class="hljs-number">10</span><br>pretty(f1)<br><span class="hljs-comment">% f1 = </span><br><span class="hljs-comment">%  4      3      2</span><br><span class="hljs-comment">% x  + 2 x  - 6 x  + 10</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="绘图（Plotting-Functions）"><a href="#绘图（Plotting-Functions）" class="headerlink" title="绘图（Plotting Functions）"></a>绘图（Plotting Functions）</h3><p>fplot()函数可用于绘制符号函数。它将使用fplot(f)在默认范围-5≤x≤5(可指定范围)内绘制一个变量f(x)的函数。它还可以绘制隐函数f(x, y)或参数定义的曲线，即f(x, y)。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">y = <span class="hljs-built_in">tan</span>(x)<br>fplot(y)<br></code></pre></td></tr></table></figure>
+
+<h3 id="求解代数方程-Solving-Algebraic-Equations"><a href="#求解代数方程-Solving-Algebraic-Equations" class="headerlink" title="求解代数方程(Solving Algebraic Equations)"></a>求解代数方程(Solving Algebraic Equations)</h3><h4 id="简化-Simplification-of-Expressions"><a href="#简化-Simplification-of-Expressions" class="headerlink" title="简化(Simplification of Expressions)"></a>简化(Simplification of Expressions)</h4><p>有许多函数可以简化表达式并执行替换。它们包括collect(), expand(), factor() 和simplify()。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% collect()：将所有指数相同的底数的系数相加</span><br>f = <span class="hljs-number">2</span>*x - <span class="hljs-number">6</span> + x*(x^<span class="hljs-number">2</span> + <span class="hljs-number">2</span>*x <span class="hljs-number">-7</span>);<br>collect(f)<br><span class="hljs-comment">% ans = x^3 + 2*x^2 - 5*x - 6</span><br><br><span class="hljs-comment">% expand(): 将方程展开</span><br>f = a*(x+y)<br>expand(f)<br><span class="hljs-comment">% ans = a*x + a*y</span><br>f = <span class="hljs-built_in">cos</span>(x+y)<br>expand(f)<br><span class="hljs-comment">% ans =  cos(x)*cos(y) - sin(x)*sin(y)</span><br><br><span class="hljs-comment">% factor(): 合并</span><br>f = x^<span class="hljs-number">3</span> + <span class="hljs-number">2</span>*x^<span class="hljs-number">2</span> - <span class="hljs-number">5</span>*x <span class="hljs-number">-6</span><br><span class="hljs-built_in">factor</span>(f)<br><span class="hljs-comment">% ans = [ x - 2, x + 3, x + 1] = (x-2)*(x+3)*(x+1)</span><br><br><span class="hljs-comment">% simplify(): 简化，消除公因数等等。</span><br><span class="hljs-comment">% 注：产生具有最少字符数的表达形式（并非总是最有用的结果）</span><br>f = (x^<span class="hljs-number">2</span> <span class="hljs-number">-2</span>*x + <span class="hljs-number">1</span>)/(x<span class="hljs-number">-1</span>);<br>simplify(f)<br><span class="hljs-comment">% ans = x-1</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="替换（Substitutions）"><a href="#替换（Substitutions）" class="headerlink" title="替换（Substitutions）"></a>替换（Substitutions）</h4><p>subs(s, old, new)将s中所有出现的old替换为new。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f = (x+y)*<span class="hljs-number">4</span> + <span class="hljs-number">3</span><br>subs(f, (x+y), z)<br><span class="hljs-comment">% ans = 4*z + 3</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="解方程"><a href="#解方程" class="headerlink" title="解方程"></a>解方程</h3><p>求解函数对一个或多个方程式求解指定变量。最简单的形式是只接受一个表达式作为参数，将方程转化为f(x) &#x3D; 0求解</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 求解x^2 = 2</span><br>f = x^<span class="hljs-number">2</span> - <span class="hljs-number">2</span><br>solve(f)<br><span class="hljs-comment">% ans = </span><br>  <span class="hljs-number">2</span>^(<span class="hljs-number">1</span>/<span class="hljs-number">2</span>)<br> <span class="hljs-number">-2</span>^(<span class="hljs-number">1</span>/<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<p>求解联立方程</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 求解x+y = 0； x-y = 0</span><br>f1 = x + y<br>f2 = x - y<br>Ans = solve(f1, f2)<br><span class="hljs-comment">% 此时返回的Ans是一个struct</span><br><span class="hljs-built_in">disp</span>(Ans.x)<br><span class="hljs-built_in">disp</span>(Ans.y)<br></code></pre></td></tr></table></figure>
+
+<h2 id="微积分"><a href="#微积分" class="headerlink" title="微积分"></a>微积分</h2><h3 id="diff-求微分求导"><a href="#diff-求微分求导" class="headerlink" title="diff()求微分求导"></a>diff()求微分求导</h3><p>diff()函数可以用于求导。diff(需要求导的公式，自变量)</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f = <span class="hljs-built_in">sin</span>(a*x + b)<br>diff(f, <span class="hljs-string">&#x27;x&#x27;</span>)<br><span class="hljs-comment">% ans = a*cos(b + a*x)</span><br>f1 = x^<span class="hljs-number">4</span> + <span class="hljs-number">2</span>*x^<span class="hljs-number">3</span> - <span class="hljs-number">6</span>*x^<span class="hljs-number">2</span> + <span class="hljs-number">10</span><br>diff(f1, <span class="hljs-string">&#x27;x&#x27;</span>)<br><span class="hljs-comment">% ans = 4*x^3 + 6*x^2 - 12*x</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="int-求积分-与diff-函数用法相同"><a href="#int-求积分-与diff-函数用法相同" class="headerlink" title="int()求积分, 与diff()函数用法相同"></a>int()求积分, 与diff()函数用法相同</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms y<br>f = y^(<span class="hljs-number">-1</span>);<br>int(f)<br><span class="hljs-comment">% ans =</span><br><span class="hljs-comment">% log(y)</span><br><br><span class="hljs-comment">% 加上下限 int(f, a, b)</span><br>syms x<br>f = x^<span class="hljs-number">7</span>;<br>a = <span class="hljs-number">0</span>;<br>b = <span class="hljs-number">1</span>;<br>int(f, a, b)<br><span class="hljs-comment">% ans =</span><br><span class="hljs-comment">% 1/8</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="symsum-求和"><a href="#symsum-求和" class="headerlink" title="symsum()求和"></a>symsum()求和</h3><p>F &#x3D; symsum(f,k,a,b)返回级数F关于求和索引k从下界a到上界b的和。如果不指定k, symsum使用由symvar确定的变量作为求和索引。如果f是常数，那么默认变量是x。 <code>symsum(f,k,[a b]) = symsum(f,k,[a; b]) = symsum(f,k,a,b)</code>.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms k x<br><span class="hljs-comment">% k^2从0到10求和</span><br>F1 = symsum(k^<span class="hljs-number">2</span>,k,<span class="hljs-number">0</span>,<span class="hljs-number">10</span>)<br><span class="hljs-comment">% k^(-2)从1到正无穷求和</span><br>F2 = symsum(<span class="hljs-number">1</span>/k^<span class="hljs-number">2</span>,k,<span class="hljs-number">1</span>,Inf)<br></code></pre></td></tr></table></figure>
+
+<h3 id="limit-求极限"><a href="#limit-求极限" class="headerlink" title="limit()求极限"></a>limit()求极限</h3><p>当x趋向0时，计算这个符号表达式的双向极限。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x h<br>f = <span class="hljs-built_in">sin</span>(x)/x;<br>limit(f,x,<span class="hljs-number">0</span>)<br><span class="hljs-comment">% ans = 1</span><br></code></pre></td></tr></table></figure>
+
+<p>计算这个表达式在h趋于0时的极限。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f = (<span class="hljs-built_in">sin</span>(x+h)-<span class="hljs-built_in">sin</span>(x))/h;<br>limit(f,h,<span class="hljs-number">0</span>)<br><span class="hljs-comment">% ans = cos(x)</span><br></code></pre></td></tr></table></figure>
+
+<p>计算符号表达式的左右极限。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms x f = <span class="hljs-number">1</span>/x; <br>limit(f,x,<span class="hljs-number">0</span>,<span class="hljs-string">&#x27;right&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E6%A8%A1/" class="category-chain-item">数模</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Matlab%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/" class="print-no-link">#Matlab高级教程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Matlab高级教程</div>
+      <div>http://example.com/2025/08/28/Matlab高级教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/28/Mbed%20OS/" title="Mbed OS">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mbed OS</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/28/Memory/" title="Memory">
+                        <span class="hidden-mobile">Memory</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

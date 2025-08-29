@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/warhammer.png">
+  <link rel="icon" href="/Blogs/warhammer.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="title: Linux指令学习date: 2022-12-02 22:19:26tags:- Linuxcategories: 程序笔记    前言最近玩树莓派总要用到Linux命令行，兴趣盎然正好入门 命令行指令主要分为  文件管理与传输 文档编辑 磁盘管理与维护 网络通讯 系统管理与设置 备份与压缩 设备管理  这里只整理了我开发树莓派用到的指令，想要完整的命令行可以移步菜鸟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linuxcmd">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/linuxcmd/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="title: Linux指令学习date: 2022-12-02 22:19:26tags:- Linuxcategories: 程序笔记    前言最近玩树莓派总要用到Linux命令行，兴趣盎然正好入门 命令行指令主要分为  文件管理与传输 文档编辑 磁盘管理与维护 网络通讯 系统管理与设置 备份与压缩 设备管理  这里只整理了我开发树莓派用到的指令，想要完整的命令行可以移步菜鸟">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/08/rwx-standard-unix-permission-bits.png">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.913Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="linuxcmd">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg">
+  
+  
+  
+  <title>linuxcmd - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blogs/">
+      <strong>Mavericreate.Gallery</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="linuxcmd"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">linuxcmd</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <hr>
+<h2 id="title-Linux指令学习date-2022-12-02-22-19-26tags-Linuxcategories-程序笔记"><a href="#title-Linux指令学习date-2022-12-02-22-19-26tags-Linuxcategories-程序笔记" class="headerlink" title="title: Linux指令学习date: 2022-12-02 22:19:26tags:- Linuxcategories: 程序笔记
+   "></a>title: Linux指令学习<br>date: 2022-12-02 22:19:26<br>tags:<br>- Linux<br>categories: 程序笔记
+   </h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近玩树莓派总要用到Linux命令行，兴趣盎然正好入门</p>
+<p>命令行指令主要分为</p>
+<ul>
+<li>文件管理与传输</li>
+<li>文档编辑</li>
+<li>磁盘管理与维护</li>
+<li>网络通讯</li>
+<li>系统管理与设置</li>
+<li>备份与压缩</li>
+<li>设备管理</li>
+</ul>
+<p>这里只整理了我开发树莓派用到的指令，想要完整的命令行可以移步<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-command-manual.html">菜鸟</a></p>
+<span id="more"></span>
+
+<h1 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h1><h2 id="cd跳转到要切换的目录"><a href="#cd跳转到要切换的目录" class="headerlink" title="cd跳转到要切换的目录"></a>cd跳转到要切换的目录</h2><h2 id="mkdir-创建目录-make-dir"><a href="#mkdir-创建目录-make-dir" class="headerlink" title="mkdir 创建目录 make dir"></a><strong>mkdir</strong> 创建目录 make dir</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">mkdir [-p] dirName<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li>-p 确保目录名称存在，不存在的就建一个。</li>
+</ul>
+<h2 id="cp-拷贝文件-copy"><a href="#cp-拷贝文件-copy" class="headerlink" title="cp 拷贝文件 copy"></a><strong>cp</strong> 拷贝文件 copy</h2><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">cp</span> [<span class="hljs-keyword">options</span>] <span class="hljs-keyword">source</span> dest<br></code></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">cp</span> [<span class="hljs-keyword">options</span>] <span class="hljs-keyword">source</span>... directory<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li>-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li>
+<li>-d：复制时保留链接。这里所说的链接相当于 Windows 系统中的快捷方式。</li>
+<li>-f：覆盖已经存在的目标文件而不给出提示。</li>
+<li>-i：与 <strong>-f</strong> 选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 <strong>y</strong> 时目标文件将被覆盖。</li>
+<li>-p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li>
+<li>-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li>
+<li>-l：不复制文件，只是生成链接文件。</li>
+</ul>
+<h2 id="mv-移动文件-move"><a href="#mv-移动文件-move" class="headerlink" title="mv 移动文件 move"></a><strong>mv</strong> 移动文件 move</h2><h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mv</span> [options] <span class="hljs-built_in">source</span> dest<br><span class="hljs-built_in">mv</span> [options] <span class="hljs-built_in">source</span>... directory<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><strong>-b</strong>: 当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份。</li>
+<li><strong>-i</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件，输入 y 表示直接覆盖，输入 n 表示取消该操作。</li>
+<li><strong>-f</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件。</li>
+<li><strong>-n</strong>: 不要覆盖任何已存在的文件或目录。</li>
+<li><strong>-u</strong>：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。</li>
+</ul>
+<h2 id="rm-删除文件-remove"><a href="#rm-删除文件-remove" class="headerlink" title="rm 删除文件 remove"></a><strong>rm</strong> 删除文件 remove</h2><p>注意，rm 命令是一个具有破坏性的命令，因为 rm 命令会永久性地删除文件或目录，这就意味着，如果没有对文件或目录进行备份，一旦使用 rm 命令将其删除，将无法恢复，因此，尤其在使用 rm 命令删除目录时，要慎之又慎</p>
+<ul>
+<li>-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</li>
+<li>-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</li>
+<li>-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 创建目录和父目录a,b,c,d</span><br><span class="hljs-built_in">mkdir</span> -p a/b/c/d<br><br><span class="hljs-comment"># 拷贝文件夹a到/tmp目录</span><br><span class="hljs-built_in">cp</span> -rvf a/ /tmp/<br><br><span class="hljs-comment"># 移动文件a到/tmp目录，并重命名为b</span><br><span class="hljs-built_in">mv</span> -vf a /tmp/b<br><br><span class="hljs-comment"># 删除tmp目录的所有文件</span><br><span class="hljs-built_in">rm</span> -rvf /tmp/<br></code></pre></td></tr></table></figure>
+
+<h2 id="ls-看到当前目录的所有内容"><a href="#ls-看到当前目录的所有内容" class="headerlink" title="ls 看到当前目录的所有内容"></a>ls 看到当前目录的所有内容</h2><h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">ls <span class="hljs-selector-attr">[-alrtAFR]</span> <span class="hljs-selector-attr">[name...]</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>参数</strong> :</p>
+<ul>
+<li>-a 显示所有文件及目录 (<strong>.</strong> 开头的隐藏文件也会列出)</li>
+<li>-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
+<li>-r 将文件以相反次序显示(原定依英文字母次序)</li>
+<li>-t 将文件依建立时间之先后次序列出</li>
+<li>-A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)</li>
+<li>-F 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “&#x2F;“</li>
+<li>-R 若目录下有文件，则以下之文件亦皆依序列出</li>
+</ul>
+<h2 id="pwd-看到当前终端所在的目录"><a href="#pwd-看到当前终端所在的目录" class="headerlink" title="pwd  看到当前终端所在的目录"></a>pwd  看到当前终端所在的目录</h2><p>Linux pwd（英文全拼：print work directory） 命令用于显示工作目录。</p>
+<p>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</p>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">pwd</span> [<span class="hljs-params">--help</span>][<span class="hljs-params">--version</span>]<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明:</strong></p>
+<ul>
+<li>–help 在线帮助。</li>
+<li>–version 显示版本信息。</li>
+</ul>
+<h2 id="find-在指定目录下查找文件"><a href="#find-在指定目录下查找文件" class="headerlink" title="find 在指定目录下查找文件"></a>find 在指定目录下查找文件</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-find.html">https://www.runoob.com/linux/linux-comm-find.html</a></p>
+<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">find   path   -option   [   -<span class="hljs-built_in">print</span> ]   [ -<span class="hljs-built_in">exec</span>   -ok   <span class="hljs-built_in">command</span> ]   &#123;&#125; \;<br></code></pre></td></tr></table></figure>
+
+<h1 id="系统管理与设置"><a href="#系统管理与设置" class="headerlink" title="系统管理与设置"></a>系统管理与设置</h1><h2 id="mount：挂载Linux系统外的文件"><a href="#mount：挂载Linux系统外的文件" class="headerlink" title="mount：挂载Linux系统外的文件"></a><strong>mount</strong>：挂载Linux系统外的文件</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-mount.html">https://www.runoob.com/linux/linux-comm-mount.html</a></p>
+<h3 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h3><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs inform7">mount <span class="hljs-comment">[-hV]</span><br>mount -a <span class="hljs-comment">[-fFnrsvw]</span> <span class="hljs-comment">[-t vfstype]</span><br>mount <span class="hljs-comment">[-fnrsvw]</span> <span class="hljs-comment">[-o options <span class="hljs-comment">[,...]</span>]</span> device | dir<br>mount <span class="hljs-comment">[-fnrsvw]</span> <span class="hljs-comment">[-t vfstype]</span> <span class="hljs-comment">[-o options]</span> device dir<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li>-V：显示程序版本</li>
+<li>-h：显示辅助讯息</li>
+<li>-v：显示较讯息，通常和 -f 用来除错。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">mount /dev/sdb1 /xiaodianying<br></code></pre></td></tr></table></figure>
+
+<h2 id="chown：设置文件所有者和文件关联组的命令"><a href="#chown：设置文件所有者和文件关联组的命令" class="headerlink" title="chown：设置文件所有者和文件关联组的命令"></a><strong>chown</strong>：设置文件所有者和文件关联组的命令</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chmod.html">https://www.runoob.com/linux/linux-comm-chmod.html</a></p>
+<p>Linux&#x2F;Unix 是多人多工操作系统，所有的文件皆有拥有者。利用 chown 将指定文件的拥有者改为指定的用户或组，用户可以是用户名或者用户 ID，组可以是组名或者组 ID，文件是以空格分开的要改变权限的文件列表，支持通配符。 。</p>
+<p>chown 需要超级用户 <strong>root</strong> 的权限才能执行此命令。</p>
+<p>只有超级用户和属于组的文件所有者才能变更文件关联组。非超级用户如需要设置关联组可能需要使用 <a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chgrp.html">chgrp</a> 命令。</p>
+<p><strong>使用权限</strong> : root</p>
+<h3 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h3><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prolog">chown [-cfhvR] [--help] [--version] user[:group] file...<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数</strong> :</p>
+<ul>
+<li>user : 新的文件拥有者的使用者 ID</li>
+<li>group : 新的文件拥有者的使用者组(group)</li>
+<li>-c : 显示更改的部分的信息</li>
+<li>-f : 忽略错误信息</li>
+<li>-h :修复符号链接</li>
+<li>-v : 显示详细的处理信息</li>
+<li>-R : 处理指定目录以及其子目录下的所有文件</li>
+<li>–help : 显示辅助说明</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 毁灭性的命令</span><br><span class="hljs-built_in">chmod</span> 000 -R /<br><br><span class="hljs-comment"># 修改a目录的用户和组为 xjj</span><br><span class="hljs-built_in">chown</span> -R xjj:xjj a<br><br><span class="hljs-comment"># 给a.sh文件增加执行权限（这个太常用了)</span><br><span class="hljs-built_in">chmod</span> a+x a.sh<br></code></pre></td></tr></table></figure>
+
+<h2 id="chmod：控制用户对文件权限的命令"><a href="#chmod：控制用户对文件权限的命令" class="headerlink" title="chmod：控制用户对文件权限的命令"></a>chmod：控制用户对文件权限的命令</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chmod.html">https://www.runoob.com/linux/linux-comm-chmod.html</a></p>
+<p>Linux&#x2F;Unix 的文件调用权限分为三级 : 文件所有者（Owner）、用户组（Group）、其它用户（Other Users）。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
+<p>只有文件所有者和超级用户可以修改文件或目录的权限。可以使用绝对模式（八进制数字模式），符号模式指定文件的权限。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/08/rwx-standard-unix-permission-bits.png" srcset="/Blogs/img/loading.gif" lazyload alt="img"></p>
+<h3 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> [-cfvR] [--<span class="hljs-built_in">help</span>] [--version] mode file...<br></code></pre></td></tr></table></figure>
+
+<h3 id="符号模式"><a href="#符号模式" class="headerlink" title="符号模式"></a>符号模式</h3><p>使用符号模式可以设置多个项目：who（用户类型），operator（操作符）和 permission（权限），每个项目的设置可以用逗号隔开。 命令 chmod 将修改 who 指定的用户类型对文件的访问权限，用户类型由一个或者多个字母在 who 的位置来说明，如 who 的符号模式表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="left">who</th>
+<th align="left">用户类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>u</code></td>
+<td align="left">user</td>
+<td align="left">文件所有者</td>
+</tr>
+<tr>
+<td align="left"><code>g</code></td>
+<td align="left">group</td>
+<td align="left">文件所有者所在组</td>
+</tr>
+<tr>
+<td align="left"><code>o</code></td>
+<td align="left">others</td>
+<td align="left">所有其他用户</td>
+</tr>
+<tr>
+<td align="left"><code>a</code></td>
+<td align="left">all</td>
+<td align="left">所有用户, 相当于 <em>ugo</em></td>
+</tr>
+</tbody></table>
+<p>operator 的符号模式表:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>+</code></td>
+<td align="left">为指定的用户类型增加权限</td>
+</tr>
+<tr>
+<td align="left"><code>-</code></td>
+<td align="left">去除指定用户类型的权限</td>
+</tr>
+<tr>
+<td align="left"><code>=</code></td>
+<td align="left">设置指定用户权限的设置，即将用户类型的所有权限重新设置</td>
+</tr>
+</tbody></table>
+<p>permission 的符号模式表:</p>
+<table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">名字</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>r</code></td>
+<td align="left">读</td>
+<td align="left">设置为可读权限</td>
+</tr>
+<tr>
+<td align="left"><code>w</code></td>
+<td align="left">写</td>
+<td align="left">设置为可写权限</td>
+</tr>
+<tr>
+<td align="left"><code>x</code></td>
+<td align="left">执行权限</td>
+<td align="left">设置为可执行权限</td>
+</tr>
+<tr>
+<td align="left"><code>X</code></td>
+<td align="left">特殊执行权限</td>
+<td align="left">只有当文件为目录文件，或者其他类型的用户有可执行权限时，才将文件权限设置可执行</td>
+</tr>
+<tr>
+<td align="left"><code>s</code></td>
+<td align="left">setuid&#x2F;gid</td>
+<td align="left">当文件被执行时，根据who参数指定的用户类型设置文件的setuid或者setgid权限</td>
+</tr>
+<tr>
+<td align="left"><code>t</code></td>
+<td align="left">粘贴位</td>
+<td align="left">设置粘贴位，只有超级用户可以设置该位，只有文件所有者u可以使用该位</td>
+</tr>
+</tbody></table>
+<h3 id="八进制语法"><a href="#八进制语法" class="headerlink" title="八进制语法"></a>八进制语法</h3><p>chmod命令可以使用八进制数来指定权限。文件或目录的权限位是由9个权限位来控制，每三位为一组，它们分别是文件所有者（User）的读、写、执行，用户组（Group）的读、写、执行以及其它用户（Other）的读、写、执行。历史上，文件权限被放在一个比特掩码中，掩码中指定的比特位设为1，用来说明一个类具有相应的优先级。</p>
+<table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">权限</th>
+<th align="left">rwx</th>
+<th align="left">二进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">7</td>
+<td align="left">读 + 写 + 执行</td>
+<td align="left">rwx</td>
+<td align="left">111</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">读 + 写</td>
+<td align="left">rw-</td>
+<td align="left">110</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">读 + 执行</td>
+<td align="left">r-x</td>
+<td align="left">101</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">只读</td>
+<td align="left">r–</td>
+<td align="left">100</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">写 + 执行</td>
+<td align="left">-wx</td>
+<td align="left">011</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">只写</td>
+<td align="left">-w-</td>
+<td align="left">010</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">只执行</td>
+<td align="left">–x</td>
+<td align="left">001</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">无</td>
+<td align="left">—</td>
+<td align="left">000</td>
+</tr>
+</tbody></table>
+<h2 id="yum"><a href="#yum" class="headerlink" title="yum"></a><strong>yum</strong></h2><p>假定你用的是centos，则包管理工具就是yum。如果你的系统没有wget命令，就可以使用如下命令进行安装。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">yum install wget -y<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a><strong>systemctl</strong></h2><p>当然，centos管理后台服务也有一些套路。<code>service</code>命令就是。<code>systemctl</code>兼容了<code>service</code>命令，我们看一下怎么重启mysql服务。 推荐用下面这个</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">service mysql restart<br>systemctl restart  mysqld <br></code></pre></td></tr></table></figure>
+
+
+<p>对于普通的进程，就要使用kill命令进行更加详细的控制了。kill命令有很多信号，如果你在用<code>kill -9</code>，你一定想要了解<code>kill -15</code>以及<code>kill -3</code>的区别和用途。</p>
+<p><strong>su</strong><br>su用来切换用户。比如你现在是root，想要用xjj用户做一些勾当，就可以使用su切换。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">su xjj<br>su - xjj<br></code></pre></td></tr></table></figure>
+
+
+<p><code>-</code>可以让你干净纯洁的降临另一个账号，不出意外，推荐。</p>
+<h1 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h1><h2 id="cat：连接文件并打印到标准输出设备上"><a href="#cat：连接文件并打印到标准输出设备上" class="headerlink" title="cat：连接文件并打印到标准输出设备上"></a>cat：连接文件并打印到标准输出设备上</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-find.html">https://www.runoob.com/linux/linux-comm-find.html</a></p>
+<h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">cat <span class="hljs-selector-attr">[-AbeEnstTuv]</span> <span class="hljs-selector-attr">[--help]</span> <span class="hljs-selector-attr">[--version]</span> fileName<br></code></pre></td></tr></table></figure>
+
+<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p>-n 或 –number：由 1 开始对所有输出的行数编号。</p>
+<p>-A, –show-all：等价于 -vET。</p>
+<p>-e：等价于”-vE”选项；</p>
+<p>-t：等价于”-vT”选项；</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text"># 查看文件大小<br>du -h file<br><br># 查看文件内容<br>cat file<br></code></pre></td></tr></table></figure>
+
+<h2 id="less-随意浏览文件"><a href="#less-随意浏览文件" class="headerlink" title="less:随意浏览文件"></a>less:随意浏览文件</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-less.html">https://www.runoob.com/linux/linux-comm-less.html</a></p>
+<p>支持翻页和搜索，支持向上翻页和向下翻页语法</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">less</span> [参数] 文件 <br></code></pre></td></tr></table></figure>
+
+<h2 id="tail：查看文件的内容"><a href="#tail：查看文件的内容" class="headerlink" title="tail：查看文件的内容"></a><strong>tail</strong>：查看文件的内容</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-tail.html">https://www.runoob.com/linux/linux-comm-tail.html</a></p>
+<p>tail 命令可用于查看文件的内容，有一个常用的参数 <strong>-f</strong> 常用于查阅正在改变的日志文件。</p>
+<p><strong>tail -f filename</strong> 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。</p>
+<h3 id="命令格式："><a href="#命令格式：" class="headerlink" title="命令格式："></a>命令格式：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">tail <span class="hljs-selector-attr">[参数]</span> <span class="hljs-selector-attr">[文件]</span>  <br></code></pre></td></tr></table></figure>
+
+<h3 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h3><ul>
+<li>-f 循环读取</li>
+<li>-q 不显示处理信息</li>
+<li>-v 显示详细的处理信息</li>
+<li>-c&lt;数目&gt; 显示的字节数</li>
+<li>-n&lt;行数&gt; 显示文件的尾部 n 行内容</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">tail -n100 access.log<br>head -n100 access.log<br></code></pre></td></tr></table></figure>
+
+
+<p><strong>统计</strong></p>
+<p>sort和uniq经常配对使用。<br>sort可以使用<code>-t</code>指定分隔符，使用<code>-k</code>指定要排序的列。<br>下面这个命令输出nginx日志的ip和每个ip的pv，pv最高的前10</p>
+<p>ext<br>tail -n100 access.log<br>head -n100 access.log</p>
+<pre><code class="hljs">
+
+**统计**
+
+sort和uniq经常配对使用。
+sort可以使用`-t`指定分隔符，使用`-k`指定要排序的列。
+下面这个命令输出nginx日志的ip和每个ip的pv，pv最高的前10
+
+
+
+
+
+
+
+
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/02%E5%9F%BA%E7%A1%80/" class="category-chain-item">02基础</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Blogs/tags/linuxcmd/" class="print-no-link">#linuxcmd</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>linuxcmd</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/linuxcmd/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/javascript%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="javascript逆向实战">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">javascript逆向实战</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/multiplexerdemultiplexer/" title="multiplexerdemultiplexer">
+                        <span class="hidden-mobile">multiplexerdemultiplexer</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Blogs/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Blogs/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

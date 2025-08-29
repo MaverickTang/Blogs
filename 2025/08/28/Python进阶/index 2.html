@@ -1,0 +1,1335 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/warhammer.png">
+  <link rel="icon" href="/Blogs/warhammer.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="高级特性切片 :对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作 取前3个元素，用一行代码就可以完成切片： 12&gt;&gt;&gt; L[0:3][&#x27;Michael&#x27;, &#x27;Sarah&#x27;, &#x27;Tracy&#x27;]  L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python进阶">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/Python%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="高级特性切片 :对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作 取前3个元素，用一行代码就可以完成切片： 12&gt;&gt;&gt; L[0:3][&#x27;Michael&#x27;, &#x27;Sarah&#x27;, &#x27;Tracy&#x27;]  L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.liaoxuefeng.com/files/attachments/923923787018816/0">
+<meta property="og:image" content="https://www.liaoxuefeng.com/files/attachments/923923759189600/0">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.897Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="Python进阶">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.liaoxuefeng.com/files/attachments/923923787018816/0">
+  
+  
+  
+  <title>Python进阶 - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blogs/">
+      <strong>Mavericreate.Gallery</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python进阶"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          134 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python进阶</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><h2 id="切片"><a href="#切片" class="headerlink" title="切片 :"></a>切片 <code>:</code></h2><p>对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作</p>
+<p>取前3个元素，用一行代码就可以完成切片：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>L[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>]<br>[<span class="hljs-string">&#x27;Michael&#x27;</span>, <span class="hljs-string">&#x27;Sarah&#x27;</span>, <span class="hljs-string">&#x27;Tracy&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<p><code>L[0:3]</code>表示，从索引<code>0</code>开始取，直到索引<code>3</code>为止，但不包括索引<code>3</code>。即索引<code>0</code>，<code>1</code>，<code>2</code>，正好是3个元素。</p>
+<ul>
+<li><p>如果第一个索引是<code>0</code>，还可以省略</p>
+</li>
+<li><p>什么都不写，只写<code>[:]</code>就可以原样复制一个list</p>
+</li>
+</ul>
+<p>tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以用切片操作，只是操作的结果仍是tuple：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)[:<span class="hljs-number">3</span>]<br></code></pre></td></tr></table></figure>
+
+<p>前10个数，每两个取一个：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">L[:<span class="hljs-number">10</span>:<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>如果给定一个<code>list</code>或<code>tuple</code>，我们可以通过<code>for</code>循环来遍历这个<code>list</code>或<code>tuple</code>，这种遍历我们称为迭代（Iteration）</p>
+<p>Python的<code>for</code>循环抽象程度要高于C的<code>for</code>循环，因为Python的<code>for</code>循环不仅可以用在<code>list</code>或<code>tuple</code>上，还可以作用在其他可迭代对象上。</p>
+<p><code>list</code>这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如<code>dict</code>就可以迭代：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">3</span>&#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> d:<br><span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(key)<br></code></pre></td></tr></table></figure>
+
+<p>判断一个对象是可迭代对象呢？方法是通过<code>collections.abc</code>模块的<code>Iterable</code>类型判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections.abc <span class="hljs-keyword">import</span> Iterable<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, Iterable) <span class="hljs-comment"># str是否可迭代</span><br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], Iterable) <span class="hljs-comment"># list是否可迭代</span><br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>(<span class="hljs-number">123</span>, Iterable) <span class="hljs-comment"># 整数是否可迭代</span><br><span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式</p>
+<p>生成<code>[1x1, 2x2, 3x3, ..., 10x10]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">[x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>)]<br></code></pre></td></tr></table></figure>
+
+<p>写列表生成式时，把要生成的元素<code>x * x</code>放到前面，后面跟<code>for</code>循环，就可以把list创建出来</p>
+<h3 id="if形式"><a href="#if形式" class="headerlink" title="if形式"></a>if形式</h3><p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>[x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>) <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>]<br>[<span class="hljs-number">4</span>, <span class="hljs-number">16</span>, <span class="hljs-number">36</span>, <span class="hljs-number">64</span>, <span class="hljs-number">100</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="if-else-写法"><a href="#if-else-写法" class="headerlink" title="if else 写法"></a>if else 写法</h3><p>因为<code>for</code>前面的部分是一个表达式，它必须根据<code>x</code>计算出一个结果。因此，考察表达式：<code>x if x % 2 == 0</code>，它无法根据<code>x</code>计算出结果，因为缺少<code>else</code>，必须加上<code>else</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>[x <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> -x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>)]<br></code></pre></td></tr></table></figure>
+
+<h3 id="两重循环"><a href="#两重循环" class="headerlink" title="两重循环"></a>两重循环</h3><p>还可以使用两层循环，可以生成全排列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>[m + n <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;ABC&#x27;</span> <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;XYZ&#x27;</span>]<br>[<span class="hljs-string">&#x27;AX&#x27;</span>, <span class="hljs-string">&#x27;AY&#x27;</span>, <span class="hljs-string">&#x27;AZ&#x27;</span>, <span class="hljs-string">&#x27;BX&#x27;</span>, <span class="hljs-string">&#x27;BY&#x27;</span>, <span class="hljs-string">&#x27;BZ&#x27;</span>, <span class="hljs-string">&#x27;CX&#x27;</span>, <span class="hljs-string">&#x27;CY&#x27;</span>, <span class="hljs-string">&#x27;CZ&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="特殊技巧"><a href="#特殊技巧" class="headerlink" title="特殊技巧"></a>特殊技巧</h3><p>运用列表生成式，可以写出非常简洁的代码。</p>
+<h4 id="列出当前目录下的所有文件和目录名"><a href="#列出当前目录下的所有文件和目录名" class="headerlink" title="列出当前目录下的所有文件和目录名"></a>列出当前目录下的所有文件和目录名</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> os <span class="hljs-comment"># 导入os模块，模块的概念后面讲到</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>[d <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> os.listdir(<span class="hljs-string">&#x27;.&#x27;</span>)] <span class="hljs-comment"># os.listdir可以列出文件和目录</span><br>[<span class="hljs-string">&#x27;.emacs.d&#x27;</span>, <span class="hljs-string">&#x27;.ssh&#x27;</span>, <span class="hljs-string">&#x27;.Trash&#x27;</span>, <span class="hljs-string">&#x27;Adlm&#x27;</span>, <span class="hljs-string">&#x27;Applications&#x27;</span>, <span class="hljs-string">&#x27;Desktop&#x27;</span>, <span class="hljs-string">&#x27;Documents&#x27;</span>, <span class="hljs-string">&#x27;Downloads&#x27;</span>, <span class="hljs-string">&#x27;Library&#x27;</span>, <span class="hljs-string">&#x27;Movies&#x27;</span>, <span class="hljs-string">&#x27;Music&#x27;</span>, <span class="hljs-string">&#x27;Pictures&#x27;</span>, <span class="hljs-string">&#x27;Public&#x27;</span>, <span class="hljs-string">&#x27;VirtualBox VMs&#x27;</span>, <span class="hljs-string">&#x27;Workspace&#x27;</span>, <span class="hljs-string">&#x27;XCode&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h4 id="列表生成式也可以使用两个变量来生成list："><a href="#列表生成式也可以使用两个变量来生成list：" class="headerlink" title="列表生成式也可以使用两个变量来生成list："></a>列表生成式也可以使用两个变量来生成list：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>d = &#123;<span class="hljs-string">&#x27;x&#x27;</span>: <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;y&#x27;</span>: <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;z&#x27;</span>: <span class="hljs-string">&#x27;C&#x27;</span> &#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span>[k + <span class="hljs-string">&#x27;=&#x27;</span> + v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> d.items()]<br>[<span class="hljs-string">&#x27;y=B&#x27;</span>, <span class="hljs-string">&#x27;x=A&#x27;</span>, <span class="hljs-string">&#x27;z=C&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h4 id="把一个list中所有的字符串变成小写："><a href="#把一个list中所有的字符串变成小写：" class="headerlink" title="把一个list中所有的字符串变成小写："></a>把一个list中所有的字符串变成小写：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>L = [<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;World&#x27;</span>, <span class="hljs-string">&#x27;IBM&#x27;</span>, <span class="hljs-string">&#x27;Apple&#x27;</span>]<br><span class="hljs-meta">&gt;&gt;&gt; </span>[s.lower() <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> L]<br>[<span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-string">&#x27;world&#x27;</span>, <span class="hljs-string">&#x27;ibm&#x27;</span>, <span class="hljs-string">&#x27;apple&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？这样就不必创建完整的list，从而节省大量的空间。在Python中，这种一边循环一边计算的机制，称为生成器：generator。</p>
+<p>要创建一个generator，有很多种方法。</p>
+<h3 id="第一种方法把一个列表生成式的-改成"><a href="#第一种方法把一个列表生成式的-改成" class="headerlink" title="第一种方法把一个列表生成式的[]改成()"></a>第一种方法把一个列表生成式的<code>[]</code>改成<code>()</code></h3><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">L = [x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)]</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">L</span><br>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">g = (x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">g</span><br>&lt;generator object &lt;genexpr&gt; at 0x1022ef630&gt;<br></code></pre></td></tr></table></figure>
+
+<p>创建<code>L</code>和<code>g</code>的区别仅在于最外层的<code>[]</code>和<code>()</code>，<code>L</code>是一个list，而<code>g</code>是一个generator。</p>
+<p>可以通过<code>next()</code>函数获得generator的下一个返回值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">next</span>(g)<br><span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>使用<code>for</code>循环迭代，因为generator也是可迭代对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>g = (x * x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> g:<br><span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(n)<br></code></pre></td></tr></table></figure>
+
+<h3 id="第二种方法（在函数定义中包含yield关键字"><a href="#第二种方法（在函数定义中包含yield关键字" class="headerlink" title="第二种方法（在函数定义中包含yield关键字"></a>第二种方法（在函数定义中包含<code>yield</code>关键字</h3><p>把<code>fib</code>函数变成generator函数，只需要把<code>print(b)</code>改为<code>yield b</code>就可以了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">fib</span>(<span class="hljs-params"><span class="hljs-built_in">max</span></span>):<br>    n, a, b = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span><br>    <span class="hljs-keyword">while</span> n &lt; <span class="hljs-built_in">max</span>:<br>        <span class="hljs-keyword">yield</span> b<br>        a, b = b, a + b<br>        n = n + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;done&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>这就是定义generator的另一种方法。如果一个函数定义中包含<code>yield</code>关键字，那么这个函数就不再是一个普通函数，而是一个generator函数，调用一个generator函数将返回一个generator：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = fib(<span class="hljs-number">6</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这里，最难理解的就是generator函数和普通函数的执行流程不一样。普通函数是顺序执行，遇到<code>return</code>语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用<code>next()</code>的时候执行，遇到<code>yield</code>语句返回，再次执行时从上次返回的<code>yield</code>语句处继续执行。</p>
+<p>举个简单的例子，定义一个generator函数，依次返回数字1，3，5</p>
+<p>注意</p>
+<blockquote>
+<p>调用generator函数会创建一个generator对象，多次调用generator函数会创建多个相互独立的generator。</p>
+<p>不能每次都这样写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">next</span>(odd())<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>变量可以指向函数</p>
+<p>比如<code>abs(-10)</code>是函数调用，而<code>abs</code>是函数本身</p>
+<p>要获得函数调用结果，我们可以把结果赋值给变量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>x = <span class="hljs-built_in">abs</span>(-<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果把函数本身赋值给变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = <span class="hljs-built_in">abs</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>f(-<span class="hljs-number">10</span>)<br><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>成功！说明变量f现在已经指向了abs函数本身。直接调用abs()函数和调用变量f()完全相同。</p>
+<h3 id="函数名也是变量（要点）"><a href="#函数名也是变量（要点）" class="headerlink" title="函数名也是变量（要点）"></a>函数名也是变量（要点）</h3><p>那么函数名是什么呢？函数名其实就是指向函数的变量！对于<code>abs()</code>这个函数，完全可以把函数名<code>abs</code>看成变量，它指向一个可以计算绝对值的函数！</p>
+<p>如果把<code>abs</code>指向其他对象，会有什么情况发生？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">abs</span> = <span class="hljs-number">10</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">abs</span>(-<span class="hljs-number">10</span>)<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>TypeError: <span class="hljs-string">&#x27;int&#x27;</span> <span class="hljs-built_in">object</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">callable</span><br></code></pre></td></tr></table></figure>
+
+<p>把<code>abs</code>指向<code>10</code>后，就无法通过<code>abs(-10)</code>调用该函数了！因为<code>abs</code>这个变量已经不指向求绝对值函数而是指向一个整数<code>10</code>！</p>
+<p>当然实际代码绝对不能这么写，这里是为了说明函数名也是变量。要恢复<code>abs</code>函数，请重启Python交互环境。</p>
+<p>注：由于<code>abs</code>函数实际上是定义在<code>import builtins</code>模块中的，所以要让修改<code>abs</code>变量的指向在其它模块也生效，要用<code>import builtins; builtins.abs = 10</code>。</p>
+<h3 id="传入函数"><a href="#传入函数" class="headerlink" title="传入函数"></a>传入函数</h3><p>既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。</p>
+<p>一个最简单的高阶函数：</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gml">def add(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>, f):<br>    <span class="hljs-keyword">return</span> f(<span class="hljs-variable language_">x</span>) + f(<span class="hljs-variable language_">y</span>)<br></code></pre></td></tr></table></figure>
+
+<p>当我们调用<code>add(-5, 6, abs)</code>时，参数<code>x</code>，<code>y</code>和<code>f</code>分别接收<code>-5</code>，<code>6</code>和<code>abs</code>，根据函数定义，我们可以推导计算过程为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">x = -<span class="hljs-number">5</span><br>y = <span class="hljs-number">6</span><br>f = <span class="hljs-built_in">abs</span><br>f(x) + f(y) ==&gt; <span class="hljs-built_in">abs</span>(-<span class="hljs-number">5</span>) + <span class="hljs-built_in">abs</span>(<span class="hljs-number">6</span>) ==&gt; <span class="hljs-number">11</span><br><span class="hljs-keyword">return</span> <span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h2><p>如果不需要立刻求和，而是在后面的代码中，根据需要再计算怎么办？可以不返回求和的结果，而是返回求和的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">lazy_sum</span>(<span class="hljs-params">*args</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sum</span>():<br>        ax = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> args:<br>            ax = ax + n<br>        <span class="hljs-keyword">return</span> ax<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br></code></pre></td></tr></table></figure>
+
+<p>当我们调用<code>lazy_sum()</code>时，每次调用都会返回一个新的函数，即使传入相同的参数</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f1 = lazy_sum(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f2 = lazy_sum(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f1==f2</span><br>False<br></code></pre></td></tr></table></figure>
+
+<p><code>f1()</code>和<code>f2()</code>的调用结果互不影响。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>注意到返回的函数在其定义内部引用了局部变量<code>args</code>，所以，当一个函数返回了一个函数后，其内部的局部变量还被新函数引用，所以，闭包用起来简单，实现起来可不容易。</p>
+<p>另一个需要注意的问题是，返回的函数并没有立刻执行，而是直到调用了<code>f()</code>才执行。我们来看一个例子：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">def</span> <span class="hljs-keyword">count</span>():<br>    fs = []<br>    <span class="hljs-keyword">for</span> i in range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>):<br>        <span class="hljs-keyword">def</span> f():<br>             <span class="hljs-keyword">return</span> i*i<br>        fs.<span class="hljs-keyword">append</span>(f)<br>    <span class="hljs-keyword">return</span> fs<br><br>f1, f2, f3 = <span class="hljs-keyword">count</span>()<br></code></pre></td></tr></table></figure>
+
+<p>在上面的例子中，每次循环，都创建了一个新的函数，然后，把创建的3个函数都返回了。</p>
+<p>你可能认为调用<code>f1()</code>，<code>f2()</code>和<code>f3()</code>结果应该是<code>1</code>，<code>4</code>，<code>9</code>，但实际结果是：</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs isbl">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title">f1</span>()</span><br><span class="hljs-number">9</span><br>&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title">f2</span>()</span><br><span class="hljs-number">9</span><br>&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title">f3</span>()</span><br><span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
+
+<p>全部都是<code>9</code>！原因就在于返回的函数引用了变量<code>i</code>，但它并非立刻执行。等到3个函数都返回时，它们所引用的变量<code>i</code>已经变成了<code>3</code>，因此最终结果为<code>9</code>。</p>
+<p> 返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。</p>
+<h3 id="nonlocal"><a href="#nonlocal" class="headerlink" title="nonlocal"></a>nonlocal</h3><p>使用闭包，就是内层函数引用了外层函数的局部变量。如果只是读外层变量的值，我们会发现返回的闭包函数调用一切正常：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">inc</span>():<br>    x = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>():<br>        <span class="hljs-comment"># 仅读取x的值:</span><br>        <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> fn<br><br>f = inc()<br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br></code></pre></td></tr></table></figure>
+
+<p>但是，如果对外层变量赋值，由于Python解释器会把<code>x</code>当作函数<code>fn()</code>的局部变量，它会报错：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>():<br>        <span class="hljs-comment"># nonlocal x</span><br>        x = x + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> x<br>    <span class="hljs-keyword">return</span> fn<br><br>f = inc()<br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>有些时候，不需要显式地定义函数，直接传入匿名函数更方便。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = <span class="hljs-keyword">lambda</span> x: x * x<br><span class="hljs-meta">&gt;&gt;&gt; </span>f<br>&lt;function &lt;<span class="hljs-keyword">lambda</span>&gt; at <span class="hljs-number">0x101c6ef28</span>&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>f(<span class="hljs-number">5</span>)<br><span class="hljs-number">25</span><br></code></pre></td></tr></table></figure>
+
+<p>通过对比可以看出，匿名函数<code>lambda x: x * x</code>实际上就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x * x<br></code></pre></td></tr></table></figure>
+
+<p>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。</p>
+<p>匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p>
+<p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>在面向对象（OOP）的设计模式中，decorator被称为装饰模式。OOP的装饰模式需要通过继承和组合来实现，而Python除了能支持OOP的decorator外，直接从语法层次支持decorator。Python的decorator可以用函数实现，也可以用类实现。</p>
+<p>decorator可以增强函数的功能，定义起来虽然有点复杂，但使用起来非常灵活和方便。</p>
+<p>本质上，decorator就是一个返回函数的高阶函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">log</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kw</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;call %s():&#x27;</span> % func.__name__)<br>        <span class="hljs-keyword">return</span> func(*args, **kw)<br>    <span class="hljs-keyword">return</span> wrapper<br><span class="hljs-comment"># 我们要借助Python的@语法，把decorator置于函数的定义处</span><br><span class="hljs-comment"># 相当于执行了语句：now = log(now)</span><br><span class="hljs-meta">@log</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">now</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;2023-7-8&#x27;</span>)<br><span class="hljs-comment"># 函数对象有一个__name__属性（注意：是前后各两个下划线），可以拿到函数的名字：</span><br>now.__name__<br>now()<br></code></pre></td></tr></table></figure>
+
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">int2</span>(<span class="hljs-params">x, base=<span class="hljs-number">2</span></span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(x, base)<br></code></pre></td></tr></table></figure>
+
+<p><code>functools.partial</code>就是帮助我们创建一个偏函数的，不需要我们自己定义<code>int2()</code>，可以直接使用下面的代码创建一个新的函数<code>int2</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> functools<br><span class="hljs-meta">&gt;&gt;&gt; </span>int2 = functools.partial(<span class="hljs-built_in">int</span>, base=<span class="hljs-number">2</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>int2(<span class="hljs-string">&#x27;1000000&#x27;</span>)<br><span class="hljs-number">64</span><br></code></pre></td></tr></table></figure>
+
+<p>简单总结<code>functools.partial</code>的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单</p>
+<p>创建偏函数时，实际上可以接收函数对象、<code>*args</code>和<code>**kw</code>这3个参数，当传入：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">int2 = functools.<span class="hljs-keyword">partial</span>(<span class="hljs-built_in">int</span>, <span class="hljs-keyword">base</span>=<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<p>实际上固定了int()函数的关键字参数<code>base</code>，也就是：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">int2</span><span class="hljs-params">(<span class="hljs-string">&#x27;10010&#x27;</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>相当于：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">kw = &#123; <span class="hljs-string">&#x27;base&#x27;</span>: <span class="hljs-number">2</span> &#125;<br><span class="hljs-function"><span class="hljs-title">int</span><span class="hljs-params">(<span class="hljs-string">&#x27;10010&#x27;</span>, **kw)</span></span><br></code></pre></td></tr></table></figure>
+
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Python中，一个.py文件就称之为一个模块（Module）。</p>
+<p>模块是一组Python代码的集合，可以使用其他模块，也可以被其他模块使用。</p>
+<p>创建自己的模块时，要注意：</p>
+<ul>
+<li>模块名要遵循Python变量命名规范，不要使用中文、特殊字符；</li>
+<li>模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，检查方法是在Python交互环境执行<code>import abc</code>，若成功则说明系统存在此模块。</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>最大的好处是大大提高了代码的可维护性</strong>。其次，编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其他模块，包括Python内置的模块和来自第三方的模块。</p>
+<p>使用模块还可以<strong>避免函数名和变量名冲突</strong>。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。但是也要注意，尽量不要与内置函数名字冲突。点<a target="_blank" rel="noopener" href="http://docs.python.org/3/library/functions.html">这里</a>查看Python的所有内置函数。</p>
+<p>你也许还想到，如果不同的人编写的模块名相同怎么办？为了避免模块名冲突，Python又引入了<strong>按目录来组织模块的方法，称为包（Package）</strong>。</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>引入了包以后，只要顶层的包名不与别人冲突，那所有模块都不会与别人冲突。现在，<code>abc.py</code>模块的名字就变成了<code>mycompany.abc</code>，类似的，<code>xyz.py</code>的模块名变成了<code>mycompany.xyz</code>。</p>
+<p>请注意，每一个包目录下面都会有一个<code>__init__.py</code>的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。<code>__init__.py</code>可以是空文件，也可以有Python代码，因为<code>__init__.py</code>本身就是一个模块，而它的模块名就是<code>mycompany</code>。</p>
+<p>类似的，可以有多级目录，组成多级层次的包结构。比如如下的目录结构：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">mycompany<br> ├─ web<br> │  ├─ __init__.py<br> │  ├─ utils.py<br> │  └─ www.py<br> ├─ __init__.py<br> ├─ abc.py<br> └─ utils.py<br></code></pre></td></tr></table></figure>
+
+<p>文件<code>www.py</code>的模块名就是<code>mycompany.web.www</code>，两个文件<code>utils.py</code>的模块名分别是<code>mycompany.utils</code>和<code>mycompany.web.utils</code>。</p>
+<p> 自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了sys模块，自己的模块就不可命名为sys.py，否则将无法导入系统自带的sys模块</p>
+<h2 id="创建方法"><a href="#创建方法" class="headerlink" title="创建方法"></a>创建方法</h2><h3 id="标准模块"><a href="#标准模块" class="headerlink" title="标准模块"></a>标准模块</h3><p>编写一个<code>hello</code>的模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-string">&#x27; a test module &#x27;</span><br><br>__author__ = <span class="hljs-string">&#x27;Michael Liao&#x27;</span><br><br><span class="hljs-keyword">import</span> sys<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>():<br>    args = sys.argv<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(args)==<span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello, world!&#x27;</span>)<br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">len</span>(args)==<span class="hljs-number">2</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello, %s!&#x27;</span> % args[<span class="hljs-number">1</span>])<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Too many arguments!&#x27;</span>)<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    test()<br></code></pre></td></tr></table></figure>
+
+<p>第1行和第2行是标准注释，第1行注释可以让这个<code>hello.py</code>文件直接在Unix&#x2F;Linux&#x2F;Mac上运行，第2行注释表示.py文件本身使用标准UTF-8编码；</p>
+<p>第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；</p>
+<p>第6行使用<code>__author__</code>变量把作者写进去，这样当你公开源代码后别人就可以瞻仰你的大名；</p>
+<p>以上就是Python模块的标准文件模板，当然也可以全部删掉不写，但是，按标准办事肯定没错。</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>正常的函数和变量名是公开的（public），可以被直接引用，比如：<code>abc</code>，<code>x123</code>，<code>PI</code>等；</p>
+<p>类似<code>__xxx__</code>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的<code>__author__</code>，<code>__name__</code>就是特殊变量，<code>hello</code>模块定义的文档注释也可以用特殊变量<code>__doc__</code>访问，我们自己的变量一般不要用这种变量名；</p>
+<p>类似<code>_xxx</code>和<code>__xxx</code>这样的函数或变量就是非公开的（private），不应该被直接引用，比如<code>_abc</code>，<code>__abc</code>等；</p>
+<p>之所以我们说，private函数和变量“不应该”被直接引用，而不是“不能”被直接引用，是因为Python并没有一种方法可以完全限制访问private函数或变量，但是，从编程习惯上不应该引用private函数或变量。</p>
+<p>private函数或变量不应该被别人引用，那它们有什么用呢？请看例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_private_1</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Hello, %s&#x27;</span> % name<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">_private_2</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Hi, %s&#x27;</span> % name<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">greeting</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(name) &gt; <span class="hljs-number">3</span>:<br>        <span class="hljs-keyword">return</span> _private_1(name)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> _private_2(name)<br></code></pre></td></tr></table></figure>
+
+<p>我们在模块里公开<code>greeting()</code>函数，而把内部逻辑用private函数隐藏起来了，这样，调用<code>greeting()</code>函数不用关心内部的private函数细节，这也是一种非常有用的代码封装和抽象的方法，即：</p>
+<p>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用<code>sys</code>模块的第一步，就是导入该模块：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> sys<br></code></pre></td></tr></table></figure>
+
+<p>导入<code>sys</code>模块后，我们就有了变量<code>sys</code>指向该模块，利用<code>sys</code>这个变量，就可以访问<code>sys</code>模块的所有功能。</p>
+<p><code>sys</code>模块有一个<code>argv</code>变量，用list存储了命令行的所有参数。<code>argv</code>至少有一个元素，因为第一个参数永远是该.py文件的名称，例如：</p>
+<p>运行<code>python3 hello.py</code>获得的<code>sys.argv</code>就是<code>[&#39;hello.py&#39;]</code>；</p>
+<p>最后，注意到这两行代码：</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">__name__</span>==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-function"><span class="hljs-title">test</span>()</span><br></code></pre></td></tr></table></figure>
+
+<p>当我们在命令行运行<code>hello</code>模块文件时，Python解释器把一个特殊变量<code>__name__</code>置为<code>__main__</code>，而如果在其他地方导入该<code>hello</code>模块时，<code>if</code>判断将失败，因此，这种<code>if</code>测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。</p>
+<p>调用<code>hello.test()</code>时，才能打印出<code>Hello, word!</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>hello.test()<br></code></pre></td></tr></table></figure>
+
+<h3 id="第三方模块"><a href="#第三方模块" class="headerlink" title="第三方模块"></a>第三方模块</h3><p>一般来说，第三方库都会在Python官方的<a target="_blank" rel="noopener" href="https://pypi.python.org/">pypi.python.org</a>网站注册，要安装一个第三方库，必须先知道该库的名称，可以在官网或者pypi上搜索，比如Pillow的名称叫<a target="_blank" rel="noopener" href="https://pypi.python.org/pypi/Pillow/">Pillow</a>，因此，安装Pillow的命令就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install Pillow<br></code></pre></td></tr></table></figure>
+
+<h3 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a>模块搜索路径</h3><p>当我们试图加载一个模块时，Python会在指定的路径下搜索对应的.py文件，如果找不到，就会报错：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fortran">&gt;&gt;&gt; <span class="hljs-keyword">import</span> mymodule<br>Traceback (most recent <span class="hljs-keyword">call</span> last):<br>  <span class="hljs-keyword">File</span> <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-keyword">module</span>&gt;<br>ImportError: No <span class="hljs-keyword">module</span> <span class="hljs-keyword">named</span> mymodule<br></code></pre></td></tr></table></figure>
+
+<p>默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在<code>sys</code>模块的<code>path</code>变量中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-operator">&gt;&gt;&gt;</span> <span class="hljs-keyword">import</span> sys<br><span class="hljs-operator">&gt;&gt;&gt;</span> sys.path<br>[&#x27;&#x27;, &#x27;<span class="hljs-regexp">/Library/</span><span class="hljs-type">Frameworks</span><span class="hljs-regexp">/Python.framework/</span><span class="hljs-type">Versions</span><span class="hljs-regexp">/3.6/</span>lib<span class="hljs-regexp">/python36.zip&#x27;, &#x27;/</span><span class="hljs-type">Library</span><span class="hljs-regexp">/Frameworks/</span><span class="hljs-type">Python</span>.framework<span class="hljs-regexp">/Versions/</span><span class="hljs-number">3.6</span><span class="hljs-regexp">/lib/</span>python3.<span class="hljs-number">6</span>&#x27;, <span class="hljs-operator">...</span>, &#x27;<span class="hljs-regexp">/Library/</span><span class="hljs-type">Frameworks</span><span class="hljs-regexp">/Python.framework/</span><span class="hljs-type">Versions</span><span class="hljs-regexp">/3.6/</span>lib<span class="hljs-regexp">/python3.6/</span>site<span class="hljs-operator">-</span>packages&#x27;]<br></code></pre></td></tr></table></figure>
+
+<p>如果我们要添加自己的搜索目录，有两种方法：</p>
+<p>一是直接修改<code>sys.path</code>，添加要搜索的目录：</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-keyword">import</span> sys</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">sys.path.append(<span class="hljs-string">&#x27;/Users/michael/my_py_scripts&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
+
+<p>这种方法是在运行时修改，运行结束后失效。</p>
+<p>第二种方法是设置环境变量<code>PYTHONPATH</code>，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。</p>
+<h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="OOP思想"><a href="#OOP思想" class="headerlink" title="OOP思想"></a>OOP思想</h2><p>面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。</p>
+<p>面向过程的程序设计把计算机程序视为一系列的命令集合，即一组函数的顺序执行。为了简化程序设计，面向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度。</p>
+<p>而面向对象的程序设计把计算机程序视为一组对象的集合，而每个对象都可以接收其他对象发过来的消息，并处理这些消息，计算机程序的执行就是一系列消息在各个对象之间传递。</p>
+<p>在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。自定义的对象数据类型就是面向对象中的类（Class）的概念。</p>
+<h2 id="OOP思想与面向过程思想对比"><a href="#OOP思想与面向过程思想对比" class="headerlink" title="OOP思想与面向过程思想对比"></a>OOP思想与面向过程思想对比</h2><h3 id="面向过程思想"><a href="#面向过程思想" class="headerlink" title="面向过程思想"></a>面向过程思想</h3><p>假设我们要处理学生的成绩表，为了表示一个学生的成绩，面向过程的程序可以用一个dict表示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">std1 = &#123; <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Michael&#x27;</span>, <span class="hljs-string">&#x27;score&#x27;</span>: <span class="hljs-number">98</span> &#125;<br>std2 = &#123; <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;score&#x27;</span>: <span class="hljs-number">81</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>而处理学生成绩可以通过函数实现，比如打印学生的成绩：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_score</span>(<span class="hljs-params">std</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%s: %s&#x27;</span> % (std[<span class="hljs-string">&#x27;name&#x27;</span>], std[<span class="hljs-string">&#x27;score&#x27;</span>]))<br></code></pre></td></tr></table></figure>
+
+<h3 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h3><p>如果采用面向对象的程序设计思想，我们首选思考的不是程序的执行流程，而是<code>Student</code>这种数据类型应该被视为一个对象，这个对象拥有<code>name</code>和<code>score</code>这两个属性（Property）。如果要打印一个学生的成绩，首先必须创建出这个学生对应的对象，然后，给对象发一个<code>print_score</code>消息，让对象自己把自己的数据打印出来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.score = score<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">print_score</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%s: %s&#x27;</span> % (<span class="hljs-variable language_">self</span>.name, <span class="hljs-variable language_">self</span>.score))<br></code></pre></td></tr></table></figure>
+
+<p>给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法（Method）。面向对象的程序写出来就像这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">bart = Student(<span class="hljs-string">&#x27;Bart Simpson&#x27;</span>, <span class="hljs-number">59</span>)<br>lisa = Student(<span class="hljs-string">&#x27;Lisa Simpson&#x27;</span>, <span class="hljs-number">87</span>)<br>bart.print_score()<br>lisa.print_score()<br></code></pre></td></tr></table></figure>
+
+<h2 id="类与实例"><a href="#类与实例" class="headerlink" title="类与实例"></a>类与实例</h2><p>面向对象最重要的概念就是类（Class）和实例（Instance），必须牢记类是抽象的模板，比如Student类，而实例是根据类创建出来的一个个具体的“对象”，每个对象都拥有相同的方法，但各自的数据可能不同</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>在Python中，定义类是通过<code>class</code>关键字：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">class</span> <span class="hljs-symbol">Student</span>(<span class="hljs-symbol">object</span>):<br>    <span class="hljs-symbol">pass</span><br></code></pre></td></tr></table></figure>
+
+<p><code>class</code>后面紧接着是类名，即<code>Student</code>，类名通常是大写开头的单词，紧接着是<code>(object)</code>，表示该类是从哪个类继承下来的，继承的概念我们后面再讲，通常，如果没有合适的继承类，就使用<code>object</code>类，这是所有类最终都会继承的类。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>定义好了<code>Student</code>类，就可以根据<code>Student</code>类创建出<code>Student</code>的实例，创建实例是通过类名+()实现的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>bart = Student()<br><span class="hljs-meta">&gt;&gt;&gt; </span>bart<br>&lt;__main__.Student <span class="hljs-built_in">object</span> at <span class="hljs-number">0x10a67a590</span>&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Student<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;__main__.Student&#x27;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，变量<code>bart</code>指向的就是一个<code>Student</code>的实例，后面的<code>0x10a67a590</code>是内存地址，每个object的地址都不一样，而<code>Student</code>本身则是一个类。</p>
+<p>可以自由地给一个实例变量绑定属性，比如，给实例<code>bart</code>绑定一个<code>name</code>属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>bart.name = <span class="hljs-string">&#x27;Bart Simpson&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>bart.name<br><span class="hljs-string">&#x27;Bart Simpson&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="函数引用"><a href="#函数引用" class="headerlink" title="函数引用"></a>函数引用</h3><p>初始化Student对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">bart = Student(<span class="hljs-string">&#x27;Bart&#x27;</span>, <span class="hljs-number">59</span>)<br><br><span class="hljs-built_in">print</span>(lisa.name, lisa.get_grade())<br></code></pre></td></tr></table></figure>
+
+<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线<code>__</code>，在Python中，实例的变量名如果以<code>__</code>开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, score</span>):<br>        <span class="hljs-variable language_">self</span>.__name = name<br>        <span class="hljs-variable language_">self</span>.__score = score<br></code></pre></td></tr></table></figure>
+
+<p>改完后，对于外部代码来说，没什么变动，但是已经无法从外部访问<code>实例变量.__name</code>和<code>实例变量.__score</code>了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>bart = Student(<span class="hljs-string">&#x27;Bart Simpson&#x27;</span>, <span class="hljs-number">59</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>bart.__name<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>AttributeError: <span class="hljs-string">&#x27;Student&#x27;</span> <span class="hljs-built_in">object</span> has no attribute <span class="hljs-string">&#x27;__name&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问<code>__name</code>是因为Python解释器对外把<code>__name</code>变量改成了<code>_Student__name</code>，所以，仍然可以通过<code>_Student__name</code>来访问<code>__name</code>变量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>bart._Student__name<br><span class="hljs-string">&#x27;Bart Simpson&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span>(object):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params"><span class="hljs-variable language_">self</span></span>):<br>        print(<span class="hljs-string">&#x27;Animal is running...&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>当我们需要编写<code>Cat</code>类时，就可以直接从<code>Animal</code>类继承：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">class</span> <span class="hljs-symbol">Dog</span>(<span class="hljs-symbol">Animal</span>):<br>    <span class="hljs-symbol">pass</span><br></code></pre></td></tr></table></figure>
+
+<p>当然，也可以对子类增加一些方法，比如Dog类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Dog is running...&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Eating meat...&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>你会发现，新增一个<code>Animal</code>的子类，不必对<code>run_twice()</code>做任何修改，实际上，任何依赖<code>Animal</code>作为参数的函数或者方法都可以不加修改地正常运行，原因就在于多态。</p>
+<p>传入的任意类型，只要是<code>Animal</code>类或者子类，就会自动调用实际类型的<code>run()</code>方法，这就是多态的意思：</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>对于一个变量，我们只需要知道它是<code>Animal</code>类型，无需确切地知道它的子类型，就可以放心地调用<code>run()</code>方法，而具体调用的<code>run()</code>方法是作用在<code>Animal</code>、<code>Dog</code>、<code>Cat</code>还是<code>Tortoise</code>对象上，由运行时该对象的确切类型决定，这就是多态真正的威力：调用方只管调用，不管细节，而当我们新增一种<code>Animal</code>的子类时，只要确保<code>run()</code>方法编写正确，不用管原来的代码是如何调用的。</p>
+<p>这就是著名的“开闭”原则：</p>
+<ul>
+<li><p>对扩展开放：允许新增<code>Animal</code>子类；</p>
+</li>
+<li><p>对修改封闭：不需要修改依赖<code>Animal</code>类型的<code>run_twice()</code>等函数。</p>
+</li>
+</ul>
+<p>继承还可以一级一级地继承下来，就好比从爷爷到爸爸、再到儿子这样的关系。而任何类，最终都可以追溯到根类object，这些继承关系看上去就像一颗倒着的树。比如如下的继承树：</p>
+<h3 id="静态语言-vs-动态语言"><a href="#静态语言-vs-动态语言" class="headerlink" title="静态语言 vs 动态语言"></a>静态语言 vs 动态语言</h3><p>对于静态语言（例如Java）来说，如果需要传入<code>Animal</code>类型，则传入的对象必须是<code>Animal</code>类型或者它的子类，否则，将无法调用<code>run()</code>方法。</p>
+<p>对于Python这样的动态语言来说，则不一定需要传入<code>Animal</code>类型。我们只需要保证传入的对象有一个<code>run()</code>方法就可以了：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Timer</span>(object):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params"><span class="hljs-variable language_">self</span></span>):<br>        print(<span class="hljs-string">&#x27;Start...&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
+<p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个<code>read()</code>方法，返回其内容。但是，许多对象，只要有<code>read()</code>方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了<code>read()</code>方法的对象。</p>
+<h2 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h2><h3 id="使用type"><a href="#使用type" class="headerlink" title="使用type"></a>使用<code>type</code></h3><p>首先，我们来判断对象类型，使用<code>type()</code>函数：</p>
+<p>基本类型都可以用<code>type()</code>判断：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-number">123</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-string">&#x27;str&#x27;</span>)<br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;str&#x27;</span>&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(<span class="hljs-literal">None</span>)<br>&lt;<span class="hljs-built_in">type</span>(<span class="hljs-literal">None</span>) <span class="hljs-string">&#x27;NoneType&#x27;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>判断基本数据类型可以直接写<code>int</code>，<code>str</code>等，但如果要判断一个对象是否是函数怎么办？可以使用<code>types</code>模块中定义的常量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> types<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>():<br><span class="hljs-meta">... </span>    <span class="hljs-keyword">pass</span><br>...<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(fn)==types.FunctionType<br><span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="使用isinstance"><a href="#使用isinstance" class="headerlink" title="使用isinstance()"></a>使用<code>isinstance()</code></h3><p>对于class的继承关系来说，使用<code>type()</code>就很不方便。我们要判断class的类型，可以使用<code>isinstance()</code>函数。</p>
+<p>能用<code>type()</code>判断的基本类型也可以用<code>isinstance()</code>判断：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-built_in">str</span>)<br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>(<span class="hljs-number">123</span>, <span class="hljs-built_in">int</span>)<br><span class="hljs-literal">True</span><br><span class="hljs-comment"># 还可以判断一个变量是否是某些类型中的一种，比如下面的代码就可以判断是否是list或者tuple</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">isinstance</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], (<span class="hljs-built_in">list</span>, <span class="hljs-built_in">tuple</span>))<br><span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="使用dir"><a href="#使用dir" class="headerlink" title="使用dir()"></a>使用<code>dir()</code></h3><p>如果要获得一个对象的所有属性和方法，可以使用<code>dir()</code>函数，它返回一个包含字符串的list，比如，获得一个str对象的所有属性和方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">dir</span>(<span class="hljs-string">&#x27;ABC&#x27;</span>)<br>[<span class="hljs-string">&#x27;__add__&#x27;</span>, <span class="hljs-string">&#x27;__class__&#x27;</span>,..., <span class="hljs-string">&#x27;__subclasshook__&#x27;</span>, <span class="hljs-string">&#x27;capitalize&#x27;</span>, <span class="hljs-string">&#x27;casefold&#x27;</span>,..., <span class="hljs-string">&#x27;zfill&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<p>剩下的都是普通属性或方法，比如<code>lower()</code>返回小写的字符串：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade">&gt;&gt;&gt; <span class="hljs-string">&#x27;ABC&#x27;</span>.<span class="hljs-built_in">lower</span>()<br><span class="hljs-string">&#x27;abc&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="getatttr-等"><a href="#getatttr-等" class="headerlink" title="getatttr()等"></a><code>getatttr()</code>等</h3><p>仅仅把属性和方法列出来是不够的，配合<code>getattr()</code>、<code>setattr()</code>以及<code>hasattr()</code>，我们可以直接操作一个对象的状态：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyObject</span>(<span class="hljs-title class_ inherited__">object</span>):<br><span class="hljs-meta">... </span>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br><span class="hljs-meta">... </span>        <span class="hljs-variable language_">self</span>.x = <span class="hljs-number">9</span><br><span class="hljs-meta">... </span>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">power</span>(<span class="hljs-params">self</span>):<br><span class="hljs-meta">... </span>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.x * <span class="hljs-variable language_">self</span>.x<br>...<br><span class="hljs-meta">&gt;&gt;&gt; </span>obj = MyObject()<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">hasattr</span>(obj, <span class="hljs-string">&#x27;x&#x27;</span>) <span class="hljs-comment"># 有属性&#x27;x&#x27;吗？</span><br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>obj.x<br><span class="hljs-number">9</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">hasattr</span>(obj, <span class="hljs-string">&#x27;y&#x27;</span>) <span class="hljs-comment"># 有属性&#x27;y&#x27;吗？</span><br><span class="hljs-literal">False</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">setattr</span>(obj, <span class="hljs-string">&#x27;y&#x27;</span>, <span class="hljs-number">19</span>) <span class="hljs-comment"># 设置一个属性&#x27;y&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">hasattr</span>(obj, <span class="hljs-string">&#x27;y&#x27;</span>) <span class="hljs-comment"># 有属性&#x27;y&#x27;吗？</span><br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">getattr</span>(obj, <span class="hljs-string">&#x27;y&#x27;</span>) <span class="hljs-comment"># 获取属性&#x27;y&#x27;</span><br><span class="hljs-number">19</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>obj.y <span class="hljs-comment"># 获取属性&#x27;y&#x27;</span><br><span class="hljs-number">19</span><br></code></pre></td></tr></table></figure>
+
+<p>一个正确的用法的例子如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">readImage</span>(<span class="hljs-params">fp</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">hasattr</span>(fp, <span class="hljs-string">&#x27;read&#x27;</span>):<br>        <span class="hljs-keyword">return</span> readData(fp)<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<p>假设我们希望从文件流fp中读取图像，我们首先要判断该fp对象是否存在read方法，如果存在，则该对象是一个流，如果不存在，则无法读取。<code>hasattr()</code>就派上了用场。</p>
+<p>请注意，在Python这类动态语言中，根据鸭子类型，有<code>read()</code>方法，不代表该fp对象就是一个文件流，它也可能是网络流，也可能是内存中的一个字节流，但只要<code>read()</code>方法返回的是有效的图像数据，就不影响读取图像的功能。</p>
+<h2 id="实例属性与类属性"><a href="#实例属性与类属性" class="headerlink" title="实例属性与类属性"></a>实例属性与类属性</h2><p>由于Python是动态语言，根据类创建的实例可以任意绑定属性。</p>
+<p>给实例绑定属性的方法是通过实例变量，或者通过<code>self</code>变量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br><br>s = Student(<span class="hljs-string">&#x27;Bob&#x27;</span>)<br>s.score = <span class="hljs-number">90</span><br></code></pre></td></tr></table></figure>
+
+<p>但是，如果<code>Student</code>类本身需要绑定一个属性呢？可以直接在class中定义属性，这种属性是类属性，归<code>Student</code>类所有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    name = <span class="hljs-string">&#x27;Student&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>当我们定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到。来测试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br><span class="hljs-meta">... </span>    name = <span class="hljs-string">&#x27;Student&#x27;</span><br>...<br><span class="hljs-meta">&gt;&gt;&gt; </span>s = Student() <span class="hljs-comment"># 创建实例s</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(s.name) <span class="hljs-comment"># 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性</span><br>Student<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(Student.name) <span class="hljs-comment"># 打印类的name属性</span><br>Student<br><span class="hljs-meta">&gt;&gt;&gt; </span>s.name = <span class="hljs-string">&#x27;Michael&#x27;</span> <span class="hljs-comment"># 给实例绑定name属性</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(s.name) <span class="hljs-comment"># 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性</span><br>Michael<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(Student.name) <span class="hljs-comment"># 但是类属性并未消失，用Student.name仍然可以访问</span><br>Student<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">del</span> s.name <span class="hljs-comment"># 如果删除实例的name属性</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(s.name) <span class="hljs-comment"># 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了</span><br>Student<br></code></pre></td></tr></table></figure>
+
+<p>从上面的例子可以看出，在编写程序的时候，千万不要对实例属性和类属性使用相同的名字，因为相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。</p>
+<h1 id="错误、调试和测试错误处理"><a href="#错误、调试和测试错误处理" class="headerlink" title="错误、调试和测试错误处理"></a>错误、调试和测试错误处理</h1><p>在程序运行的过程中，如果发生了错误，可以事先约定返回一个错误代码，这样，就可以知道是否有错，以及出错的原因。在操作系统提供的调用中，返回错误码非常常见。比如打开文件的函数<code>open()</code>，成功时返回文件描述符（就是一个整数），出错时返回<code>-1</code>。</p>
+<p>用错误码来表示是否出错十分不便，因为函数本身应该返回的正常结果和错误码混在一起，造成调用者必须用大量的代码来判断是否出错：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    r = some_function()<br>    <span class="hljs-keyword">if</span> r==(-<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">return</span> (-<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># do something</span><br>    <span class="hljs-keyword">return</span> r<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>():<br>    r = foo()<br>    <span class="hljs-keyword">if</span> r==(-<span class="hljs-number">1</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Error&#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">pass</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="try-except-finally-的错误处理机制"><a href="#try-except-finally-的错误处理机制" class="headerlink" title="try...except...finally...的错误处理机制"></a><code>try...except...finally...</code>的错误处理机制</h2><h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><p>让我们用一个例子来看看<code>try</code>的机制：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;try...&#x27;</span>)<br>    r = <span class="hljs-number">10</span> / <span class="hljs-number">0</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;result:&#x27;</span>, r)<br><span class="hljs-keyword">except</span> ZeroDivisionError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;except:&#x27;</span>, e)<br><span class="hljs-keyword">finally</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;finally...&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;END&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>当我们认为某些代码可能会出错时，就可以用<code>try</code>来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理代码，即<code>except</code>语句块，执行完<code>except</code>后，如果有<code>finally</code>语句块，则执行<code>finally</code>语句块，至此，执行完毕。</p>
+<p>上面的代码在计算<code>10 / 0</code>时会产生一个除法运算错误：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>...<br><span class="hljs-keyword">except</span>: division by zero<br><span class="hljs-keyword">finally</span>...<br>END<br></code></pre></td></tr></table></figure>
+
+<p>如果把除数<code>0</code>改成<code>2</code>，则执行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>...<br>result: <span class="hljs-number">5</span><br><span class="hljs-keyword">finally</span>...<br>END<br></code></pre></td></tr></table></figure>
+
+<p>错误应该有很多种类，如果发生了不同类型的错误，应该由不同的<code>except</code>语句块处理。没错，可以有多个<code>except</code>来捕获不同类型的错误：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;try...&#x27;</span>)<br>    r = <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;a&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;result:&#x27;</span>, r)<br><span class="hljs-keyword">except</span> ValueError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;ValueError:&#x27;</span>, e)<br><span class="hljs-keyword">except</span> ZeroDivisionError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;ZeroDivisionError:&#x27;</span>, e)<br><span class="hljs-keyword">finally</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;finally...&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;END&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>Python所有的错误都是从<code>BaseException</code>类派生的，常见的错误类型和继承关系看这里：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">https://docs.python.org/3/library/exceptions.html#exception-hierarchy</a></p>
+<p>使用<code>try...except</code>捕获错误还有一个巨大的好处，就是可以跨越多层调用，比如函数<code>main()</code>调用<code>bar()</code>，<code>bar()</code>调用<code>foo()</code>，结果<code>foo()</code>出错了，这时，只要<code>main()</code>捕获到了，就可以处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(s)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> foo(s) * <span class="hljs-number">2</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-keyword">try</span>:<br>        bar(<span class="hljs-string">&#x27;0&#x27;</span>)<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Error:&#x27;</span>, e)<br>    <span class="hljs-keyword">finally</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;finally...&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h2><p>如果错误没有被捕获，它就会一直往上抛，最后被Python解释器捕获，打印一个错误信息，然后程序退出。来看看<code>err.py</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># err.py:</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(s)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> foo(s) * <span class="hljs-number">2</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    bar(<span class="hljs-string">&#x27;0&#x27;</span>)<br><br>main()<br></code></pre></td></tr></table></figure>
+
+<p>执行，结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">$ python3 err.py<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">11</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    main()<br>  File <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">9</span>, <span class="hljs-keyword">in</span> main<br>    bar(<span class="hljs-string">&#x27;0&#x27;</span>)<br>  File <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">6</span>, <span class="hljs-keyword">in</span> bar<br>    <span class="hljs-keyword">return</span> foo(s) * <span class="hljs-number">2</span><br>  File <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">3</span>, <span class="hljs-keyword">in</span> foo<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(s)<br>ZeroDivisionError: division by zero<br></code></pre></td></tr></table></figure>
+
+<p>解读错误信息是定位错误的关键。我们从上往下可以看到整个错误的调用函数链：</p>
+<p>错误信息第1行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Traceback</span> (most recent call <span class="hljs-literal">last</span>):<br></code></pre></td></tr></table></figure>
+
+<p>告诉我们这是错误的跟踪信息。</p>
+<p>第2~3行：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">File</span> <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">11</span>, in &lt;<span class="hljs-keyword">module</span>&gt;<br>  <span class="hljs-built_in">main</span>()<br></code></pre></td></tr></table></figure>
+
+<p>调用<code>main()</code>出错了，在代码文件<code>err.py</code>的第11行代码，但原因是第9行：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">File <span class="hljs-string">&quot;err.py&quot;</span>, <span class="hljs-selector-tag">line</span> <span class="hljs-number">9</span>, <span class="hljs-keyword">in</span> <span class="hljs-selector-tag">main</span><br>  <span class="hljs-built_in">bar</span>(<span class="hljs-string">&#x27;0&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>调用<code>bar(&#39;0&#39;)</code>出错了，在代码文件<code>err.py</code>的第9行代码，但原因是第6行：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">File</span> <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">6</span>, <span class="hljs-function">in bar</span><br><span class="hljs-function">  <span class="hljs-keyword">return</span> <span class="hljs-title">foo</span><span class="hljs-params">(s)</span> * 2</span><br></code></pre></td></tr></table></figure>
+
+<p>原因是<code>return foo(s) * 2</code>这个语句出错了，但这还不是最终原因，继续往下看：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">File</span> <span class="hljs-string">&quot;err.py&quot;</span>, line <span class="hljs-number">3</span>, in foo<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(s)<br></code></pre></td></tr></table></figure>
+
+<p>原因是<code>return 10 / int(s)</code>这个语句出错了，这是错误产生的源头，因为下面打印了：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-symbol">ZeroDivisionError:</span> integer <span class="hljs-keyword">division </span><span class="hljs-keyword">or </span>modulo <span class="hljs-keyword">by </span><span class="hljs-built_in">zero</span><br></code></pre></td></tr></table></figure>
+
+<p>根据错误类型<code>ZeroDivisionError</code>，我们判断，<code>int(s)</code>本身并没有出错，但是<code>int(s)</code>返回<code>0</code>，在计算<code>10 / 0</code>时出错，至此，找到错误源头</p>
+<h2 id="记录错误"><a href="#记录错误" class="headerlink" title="记录错误"></a>记录错误</h2><p>Python内置的<code>logging</code>模块可以非常容易地记录错误信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># err_logging.py</span><br><br><span class="hljs-keyword">import</span> logging<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / <span class="hljs-built_in">int</span>(s)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params">s</span>):<br>    <span class="hljs-keyword">return</span> foo(s) * <span class="hljs-number">2</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-keyword">try</span>:<br>        bar(<span class="hljs-string">&#x27;0&#x27;</span>)<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        logging.exception(e)<br><br>main()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;END&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>同样是出错，但程序打印完错误信息后会继续执行，并正常退出</p>
+<p>通过配置，<code>logging</code>还可以把错误记录到日志文件里，方便事后排查</p>
+<h2 id="抛出错误"><a href="#抛出错误" class="headerlink" title="抛出错误"></a>抛出错误</h2><p>因为错误是class，捕获一个错误就是捕获到该class的一个实例。因此，错误并不是凭空产生的，而是有意创建并抛出的。Python的内置函数会抛出很多类型的错误，我们自己编写的函数也可以抛出错误。</p>
+<p>如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用<code>raise</code>语句抛出一个错误的实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># err_raise.py</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FooError</span>(<span class="hljs-title class_ inherited__">ValueError</span>):<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">s</span>):<br>    n = <span class="hljs-built_in">int</span>(s)<br>    <span class="hljs-keyword">if</span> n==<span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">raise</span> FooError(<span class="hljs-string">&#x27;invalid value: %s&#x27;</span> % s)<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / n<br><br>foo(<span class="hljs-string">&#x27;0&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>执行，可以最后跟踪到我们自己定义的错误：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim">$ <span class="hljs-keyword">python3</span> err_raise.<span class="hljs-keyword">py</span> <br>Traceback (most recent <span class="hljs-keyword">call</span> <span class="hljs-keyword">last</span>):<br>  File <span class="hljs-string">&quot;err_throw.py&quot;</span>, <span class="hljs-built_in">line</span> <span class="hljs-number">11</span>, in <span class="hljs-symbol">&lt;module&gt;</span><br>    foo(<span class="hljs-string">&#x27;0&#x27;</span>)<br>  File <span class="hljs-string">&quot;err_throw.py&quot;</span>, <span class="hljs-built_in">line</span> <span class="hljs-number">8</span>, in foo<br>    raise FooError(<span class="hljs-string">&#x27;invalid value: %s&#x27;</span> % s)<br>__main__.FooError: invalid value: <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h3 id="断言assert"><a href="#断言assert" class="headerlink" title="断言assert"></a>断言assert</h3><p>凡是用<code>print()</code>来辅助查看的地方，都可以用断言（assert）来替代：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">s</span>):<br>    n = <span class="hljs-built_in">int</span>(s)<br>    <span class="hljs-keyword">assert</span> n != <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;n is zero!&#x27;</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> / n<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    foo(<span class="hljs-string">&#x27;0&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>assert</code>的意思是，表达式<code>n != 0</code>应该是<code>True</code>，否则，根据程序运行的逻辑，后面的代码肯定会出错。</p>
+<p>断言的开关“-O”是英文大写字母O，不是数字0</p>
+<p>如果断言失败，<code>assert</code>语句本身就会抛出<code>AssertionError</code>：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">$ <span class="hljs-keyword">python</span> err.<span class="hljs-keyword">py</span><br>Traceback (most recent <span class="hljs-keyword">call</span> <span class="hljs-keyword">last</span>):<br>  ...<br>AssertionError: n <span class="hljs-keyword">is</span> zero!<br></code></pre></td></tr></table></figure>
+
+<p>程序中如果到处充斥着<code>assert</code>，和<code>print()</code>相比也好不到哪去。不过，启动Python解释器时可以用<code>-O</code>参数来关闭<code>assert</code>：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">$ <span class="hljs-keyword">python</span> -O err.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把<code>print()</code>替换为<code>logging</code>是第3种方式，和<code>assert</code>比，<code>logging</code>不会抛出错误，而且可以输出到文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><br>s = <span class="hljs-string">&#x27;0&#x27;</span><br>n = <span class="hljs-built_in">int</span>(s)<br>logging.info(<span class="hljs-string">&#x27;n = %d&#x27;</span> % n)<br><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / n)<br></code></pre></td></tr></table></figure>
+
+<p><code>logging.info()</code>就可以输出一段文本。运行，发现除了<code>ZeroDivisionError</code>，没有任何信息。怎么回事？</p>
+<p>别急，在<code>import logging</code>之后添加一行配置再试试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br>logging.basicConfig(level=logging.INFO)<br></code></pre></td></tr></table></figure>
+
+<p>这就是<code>logging</code>的好处，它允许你指定记录信息的级别，有<code>debug</code>，<code>info</code>，<code>warning</code>，<code>error</code>等几个级别，当我们指定<code>level=INFO</code>时，<code>logging.debug</code>就不起作用了。同理，指定<code>level=WARNING</code>后，<code>debug</code>和<code>info</code>就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。</p>
+<p><code>logging</code>的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。</p>
+<h3 id="pbd"><a href="#pbd" class="headerlink" title="pbd"></a>pbd</h3><p>启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。我们先准备好程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># err.py</span><br>s = <span class="hljs-string">&#x27;0&#x27;</span><br>n = <span class="hljs-built_in">int</span>(s)<br><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / n)<br></code></pre></td></tr></table></figure>
+
+<p>然后启动：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">python -m pdb err.py</span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">/Users/michael/Github/learn-python3/samples/debug/err.py(2)&lt;module&gt;()</span><br><span class="hljs-meta prompt_">-&gt; </span><span class="language-bash">s = <span class="hljs-string">&#x27;0&#x27;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>以参数<code>-m pdb</code>启动后，pdb定位到下一步要执行的代码<code>-&gt; s = &#39;0&#39;</code>。输入命令<code>l</code>来查看代码：</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">(Pdb) l<br> <span class="hljs-number"> 1 </span>    <span class="hljs-comment"># err.py</span><br> <span class="hljs-number"> 2 </span> -&gt; s = &#x27;0&#x27;<br> <span class="hljs-number"> 3 </span>    n = int(s)<br> <span class="hljs-number"> 4 </span>    print(10 / n)<br></code></pre></td></tr></table></figure>
+
+<p>输入命令<code>n</code>可以单步执行代码：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livescript">(Pdb) n<br>&gt; /Users/michael/Github/learn-python3/samples/debug/err.py<span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">3</span>)</span>&lt;<span class="hljs-title">module</span>&gt;<span class="hljs-params">()</span></span><br><span class="hljs-function">-&gt;</span> n = int(s)<br>(Pdb) n<br>&gt; /Users/michael/Github/learn-python3/samples/debug/err.py<span class="hljs-function"><span class="hljs-params">(<span class="hljs-number">4</span>)</span>&lt;<span class="hljs-title">module</span>&gt;<span class="hljs-params">()</span></span><br><span class="hljs-function">-&gt;</span> <span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / n)<br></code></pre></td></tr></table></figure>
+
+<p>任何时候都可以输入命令<code>p 变量名</code>来查看变量：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">(Pdb) <span class="hljs-selector-tag">p</span> s<br><span class="hljs-string">&#x27;0&#x27;</span><br>(Pdb) <span class="hljs-selector-tag">p</span> n<br><span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>输入命令<code>q</code>结束调试，退出程序：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">(Pdb) <span class="hljs-selector-tag">q</span><br></code></pre></td></tr></table></figure>
+
+<p>这种通过pdb在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第999行得敲多少命令啊。还好，我们还有另一种调试方法。</p>
+<h3 id="pdb-set-trace"><a href="#pdb-set-trace" class="headerlink" title="pdb.set_trace()"></a>pdb.set_trace()</h3><p>这个方法也是用pdb，但是不需要单步执行，我们只需要<code>import pdb</code>，然后，在可能出错的地方放一个<code>pdb.set_trace()</code>，就可以设置一个断点：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># err.py</span><br><span class="hljs-keyword">import</span> pdb<br><br>s = <span class="hljs-string">&#x27;0&#x27;</span><br>n = <span class="hljs-built_in">int</span>(s)<br>pdb.set_trace() <span class="hljs-comment"># 运行到这里会自动暂停</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / n)<br></code></pre></td></tr></table></figure>
+
+<p>运行代码，程序会自动在<code>pdb.set_trace()</code>暂停并进入pdb调试环境，可以用命令<code>p</code>查看变量，或者用命令<code>c</code>继续运行</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作</p>
+<p>如果单元测试通过，说明我们测试的这个函数能够正常工作。如果单元测试不通过，要么函数有bug，要么测试条件输入不正确，总之，需要修复使单元测试能够通过。</p>
+<p>单元测试通过后有什么意义呢？如果我们对<code>abs()</code>函数代码做了修改，只需要再跑一遍单元测试，如果通过，说明我们的修改不会对<code>abs()</code>函数原有的行为造成影响，如果测试不通过，说明我们的修改与原有行为不一致，要么修改代码，要么修改测试。</p>
+<p>这种以测试为驱动的开发模式最大的好处就是确保一个程序模块的行为符合我们设计的测试用例。在将来修改的时候，可以极大程度地保证该模块行为仍然是正确的。</p>
+<p>为了编写单元测试，我们需要引入Python自带的<code>unittest</code>模块，编写<code>mydict_test.py</code>如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> unittest<br><span class="hljs-comment"># 编写单元测试时，我们需要编写一个测试类，从unittest.TestCase继承</span><br><span class="hljs-keyword">from</span> mydict <span class="hljs-keyword">import</span> <span class="hljs-type">Dict</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TestDict</span>(unittest.TestCase):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test_init</span>(<span class="hljs-params">self</span>):<br>        d = <span class="hljs-type">Dict</span>(a=<span class="hljs-number">1</span>, b=<span class="hljs-string">&#x27;test&#x27;</span>)<br>        <span class="hljs-comment"># 断言函数返回的结果与1相等</span><br>        <span class="hljs-variable language_">self</span>.assertEqual(d.a, <span class="hljs-number">1</span>)<br>        <span class="hljs-variable language_">self</span>.assertEqual(d.b, <span class="hljs-string">&#x27;test&#x27;</span>)<br>        <span class="hljs-variable language_">self</span>.assertTrue(<span class="hljs-built_in">isinstance</span>(d, <span class="hljs-built_in">dict</span>))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test_key</span>(<span class="hljs-params">self</span>):<br>        d = <span class="hljs-type">Dict</span>()<br>        d[<span class="hljs-string">&#x27;key&#x27;</span>] = <span class="hljs-string">&#x27;value&#x27;</span><br>        <span class="hljs-variable language_">self</span>.assertEqual(d.key, <span class="hljs-string">&#x27;value&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test_attr</span>(<span class="hljs-params">self</span>):<br>        d = <span class="hljs-type">Dict</span>()<br>        d.key = <span class="hljs-string">&#x27;value&#x27;</span><br>        <span class="hljs-variable language_">self</span>.assertTrue(<span class="hljs-string">&#x27;key&#x27;</span> <span class="hljs-keyword">in</span> d)<br>        <span class="hljs-variable language_">self</span>.assertEqual(d[<span class="hljs-string">&#x27;key&#x27;</span>], <span class="hljs-string">&#x27;value&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test_keyerror</span>(<span class="hljs-params">self</span>):<br>        d = <span class="hljs-type">Dict</span>()<br>        <span class="hljs-comment"># 期待抛出指定类型的Error，比如通过d[&#x27;empty&#x27;]访问不存在的key时，断言会抛出KeyError</span><br>        <span class="hljs-keyword">with</span> <span class="hljs-variable language_">self</span>.assertRaises(KeyError):<br>            value = d[<span class="hljs-string">&#x27;empty&#x27;</span>]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test_attrerror</span>(<span class="hljs-params">self</span>):<br>        d = <span class="hljs-type">Dict</span>()<br>        <span class="hljs-keyword">with</span> <span class="hljs-variable language_">self</span>.assertRaises(AttributeError):<br>            value = d.empty<br><br>    <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>        unittest.main()<br></code></pre></td></tr></table></figure>
+
+<h3 id="运行单元测试"><a href="#运行单元测试" class="headerlink" title="运行单元测试"></a>运行单元测试</h3><p>一旦编写好单元测试，我们就可以运行单元测试。最简单的运行方式是在<code>mydict_test.py</code>的最后加上两行代码：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">if <span class="hljs-strong">__name__</span> == &#x27;<span class="hljs-strong">__main__</span>&#x27;:<br><span class="hljs-code">    unittest.main()</span><br></code></pre></td></tr></table></figure>
+
+<p>这样就可以把<code>mydict_test.py</code>当做正常的python脚本运行：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">$ <span class="hljs-keyword">python</span> mydict_test.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+
+<p>另一种方法是在命令行通过参数<code>-m unittest</code>直接运行单元测试：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">$ python -m unittest mydict_test<br><span class="hljs-section">.....</span><br><span class="hljs-section">----------------------------------------------------------------------</span><br>Ran 5 tests in 0.000s<br><br>OK<br></code></pre></td></tr></table></figure>
+
+<p>这是推荐的做法，因为这样可以一次批量运行很多单元测试，并且，有很多工具可以自动来运行这些单元测试</p>
+<h3 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h3><p>当我们编写注释时，如果写上这样的注释：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">abs</span>(<span class="hljs-params">n</span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    Function to get absolute value of number.</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Example:</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    &gt;&gt;&gt; abs(1)</span><br><span class="hljs-string">    1</span><br><span class="hljs-string">    &gt;&gt;&gt; abs(-1)</span><br><span class="hljs-string">    1</span><br><span class="hljs-string">    &gt;&gt;&gt; abs(0)</span><br><span class="hljs-string">    0</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> (-n)<br></code></pre></td></tr></table></figure>
+
+<p>无疑更明确地告诉函数的调用者该函数的期望输入和输出。</p>
+<p>并且，Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。</p>
+<h1 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h1><p>IO在计算机中指Input&#x2F;Output，也就是输入和输出。由于程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口</p>
+<p>IO编程中，Stream（流）是一个很重要的概念，可以把流想象成一个水管，数据就是水管里的水，但是只能单向流动。Input Stream就是数据从外面（磁盘、网络）流进内存，Output Stream就是数据从内存流到外面去。对于浏览网页来说，浏览器和新浪服务器之间至少需要建立两根水管，才可以既能发数据，又能收数据。</p>
+<p>由于CPU和内存的速度远远高于外设的速度，所以，在IO编程中，就存在速度严重不匹配的问题</p>
+<p>第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为<strong>同步IO</strong>；</p>
+<p>另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为<strong>异步IO</strong>。</p>
+<p>同步和异步的区别就在于是否等待IO执行的结果</p>
+<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>读写文件前，我们先必须了解一下，在磁盘上读写文件的功能都是由操作系统提供的，现代操作系统不允许普通的程序直接操作磁盘，所以，读写文件就是请求操作系统打开一个文件对象（通常称为文件描述符），然后，通过操作系统提供的接口从这个文件对象中读取数据（读文件），或者把数据写入这个文件对象（写文件）。</p>
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>要以读文件的模式打开一个文件对象，使用Python内置的<code>open()</code>函数，传入文件名和标示符：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/test.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>标示符’r’表示读，这样，我们就成功地打开了一个文件。</p>
+<p>如果文件不存在，<code>open()</code>函数就会抛出一个<code>IOError</code>的错误，并且给出错误码和详细的信息告诉你文件不存在：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f=<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/notfound.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>FileNotFoundError: [Errno <span class="hljs-number">2</span>] No such file <span class="hljs-keyword">or</span> directory: <span class="hljs-string">&#x27;/Users/michael/notfound.txt&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果文件打开成功，接下来，调用<code>read()</code>方法可以一次读取文件的全部内容，Python把内容读到内存，用一个<code>str</code>对象表示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f.read()<br><span class="hljs-string">&#x27;Hello, world!&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>最后一步是调用<code>close()</code>方法关闭文件。文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f.close()<br></code></pre></td></tr></table></figure>
+
+<p>由于文件读写时都有可能产生<code>IOError</code>，一旦出错，后面的<code>f.close()</code>就不会调用。所以，为了保证无论是否出错都能正确地关闭文件，我们可以使用<code>try ... finally</code>来实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/path/to/file&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)<br>    <span class="hljs-built_in">print</span>(f.read())<br><span class="hljs-keyword">finally</span>:<br>    <span class="hljs-keyword">if</span> f:<br>        f.close()<br></code></pre></td></tr></table></figure>
+
+<p>但是每次都这么写实在太繁琐，所以，Python引入了<code>with</code>语句来自动帮我们调用<code>close()</code>方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/path/to/file&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    <span class="hljs-built_in">print</span>(f.read())<br></code></pre></td></tr></table></figure>
+
+<p>这和前面的<code>try ... finally</code>是一样的，但是代码更佳简洁，并且不必调用<code>f.close()</code>方法。</p>
+<p>调用<code>read()</code>会一次性读取文件的全部内容，如果文件有10G，内存就爆了，所以，要保险起见，可以反复调用<code>read(size)</code>方法，每次最多读取size个字节的内容。另外，调用<code>readline()</code>可以每次读取一行内容，调用<code>readlines()</code>一次读取所有内容并按行返回<code>list</code>。因此，要根据需要决定怎么调用。</p>
+<p>如果文件很小，<code>read()</code>一次性读取最方便；如果不能确定文件大小，反复调用<code>read(size)</code>比较保险；如果是配置文件，调用<code>readlines()</code>最方便：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f.readlines():<br>    <span class="hljs-built_in">print</span>(line.strip()) <span class="hljs-comment"># 把末尾的&#x27;\n&#x27;删掉</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="file-like-Object"><a href="#file-like-Object" class="headerlink" title="file-like Object"></a>file-like Object</h3><p>像<code>open()</code>函数返回的这种有个<code>read()</code>方法的对象，在Python中统称为file-like Object。除了file外，还可以是内存的字节流，网络流，自定义流等等。file-like Object不要求从特定类继承，只要写个<code>read()</code>方法就行。</p>
+<p><code>StringIO</code>就是在内存中创建的file-like Object，常用作临时缓冲。</p>
+<h3 id="二进制文件rb"><a href="#二进制文件rb" class="headerlink" title="二进制文件rb"></a>二进制文件<code>rb</code></h3><p>前面讲的默认都是读取文本文件，并且是UTF-8编码的文本文件。要读取二进制文件，比如图片、视频等等，用<code>&#39;rb&#39;</code>模式打开文件即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/test.jpg&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>f.read()<br><span class="hljs-string">b&#x27;\xff\xd8\xff\xe1\x00\x18Exif\x00\x00...&#x27;</span> <span class="hljs-comment"># 十六进制表示的字节</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>要读取非UTF-8编码的文本文件，需要给<code>open()</code>函数传入<code>encoding</code>参数，例如，读取GBK编码的文件：</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/gbk.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;gbk&#x27;</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f.read()</span><br>&#x27;测试&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>遇到有些编码不规范的文件，你可能会遇到<code>UnicodeDecodeError</code>，因为在文本文件中可能夹杂了一些非法编码的字符。遇到这种情况，<code>open()</code>函数还接收一个<code>errors</code>参数，表示如果遇到编码错误后如何处理。最简单的方式是直接忽略：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&gt;&gt;&gt; f = open(<span class="hljs-string">&#x27;/Users/michael/gbk.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, <span class="hljs-attribute">encoding</span>=<span class="hljs-string">&#x27;gbk&#x27;</span>, <span class="hljs-attribute">errors</span>=<span class="hljs-string">&#x27;ignore&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>写文件和读文件是一样的，唯一区别是调用<code>open()</code>函数时，传入标识符<code>&#39;w&#39;</code>或者<code>&#39;wb&#39;</code>表示写文本文件或写二进制文件：</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/test.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f.write(<span class="hljs-string">&#x27;Hello, world!&#x27;</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f.close()</span><br></code></pre></td></tr></table></figure>
+
+<p>你可以反复调用<code>write()</code>来写入文件，但是务必要调用<code>f.close()</code>来关闭文件。当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入。只有调用<code>close()</code>方法时，操作系统才保证把没有写入的数据全部写入磁盘。忘记调用<code>close()</code>的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用<code>with</code>语句来得保险：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/Users/michael/test.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    f.<span class="hljs-built_in">write</span>(<span class="hljs-string">&#x27;Hello, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>要写入特定编码的文本文件，请给<code>open()</code>函数传入<code>encoding</code>参数，将字符串自动转换成指定编码。</p>
+<p>细心的童鞋会发现，以<code>&#39;w&#39;</code>模式写入文件时，如果文件已存在，会直接覆盖（相当于删掉后新写入一个文件）。如果我们希望追加到文件末尾怎么办？可以传入<code>&#39;a&#39;</code>以追加（append）模式写入。</p>
+<h2 id="StringIO-和ByteIO"><a href="#StringIO-和ByteIO" class="headerlink" title="StringIO 和ByteIO"></a>StringIO 和ByteIO</h2><h3 id="StringIO"><a href="#StringIO" class="headerlink" title="StringIO"></a>StringIO</h3><p>很多时候，数据读写不一定是文件，也可以在内存中读写。</p>
+<p>StringIO顾名思义就是在内存中读写str。</p>
+<p>要把str写入StringIO，我们需要先创建一个StringIO，然后，像文件一样写入即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> StringIO<br><span class="hljs-meta">&gt;&gt;&gt; </span>f = StringIO()<br><span class="hljs-meta">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">&#x27;hello&#x27;</span>)<br><span class="hljs-number">5</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">&#x27; &#x27;</span>)<br><span class="hljs-number">1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">&#x27;world!&#x27;</span>)<br><span class="hljs-number">6</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(f.getvalue())<br>hello world!<br></code></pre></td></tr></table></figure>
+
+<p><code>getvalue()</code>方法用于获得写入后的str。</p>
+<p>要读取StringIO，可以用一个str初始化StringIO，然后，像读文件一样读取：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> StringIO<br><span class="hljs-meta">&gt;&gt;&gt; </span>f = StringIO(<span class="hljs-string">&#x27;Hello!\nHi!\nGoodbye!&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><span class="hljs-meta">... </span>    s = f.readline()<br><span class="hljs-meta">... </span>    <span class="hljs-keyword">if</span> s == <span class="hljs-string">&#x27;&#x27;</span>:<br><span class="hljs-meta">... </span>        <span class="hljs-keyword">break</span><br><span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(s.strip())<br>...<br>Hello!<br>Hi!<br>Goodbye!<br></code></pre></td></tr></table></figure>
+
+<h3 id="BytesIO"><a href="#BytesIO" class="headerlink" title="BytesIO"></a>BytesIO</h3><p>StringIO操作的只能是str，如果要操作二进制数据，就需要使用BytesIO。</p>
+<p>BytesIO实现了在内存中读写bytes，我们创建一个BytesIO，然后写入一些bytes：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO<br><span class="hljs-meta">&gt;&gt;&gt; </span>f = BytesIO()<br><span class="hljs-meta">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">&#x27;中文&#x27;</span>.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>))<br><span class="hljs-number">6</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(f.getvalue())<br><span class="hljs-string">b&#x27;\xe4\xb8\xad\xe6\x96\x87&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>请注意，写入的不是str，而是经过UTF-8编码的bytes。</p>
+<p>和StringIO类似，可以用一个bytes初始化BytesIO，然后，像读文件一样读取：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO<br><span class="hljs-meta">&gt;&gt;&gt; </span>f = BytesIO(<span class="hljs-string">b&#x27;\xe4\xb8\xad\xe6\x96\x87&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>f.read()<br><span class="hljs-string">b&#x27;\xe4\xb8\xad\xe6\x96\x87&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h2><h3 id="初始化os指令"><a href="#初始化os指令" class="headerlink" title="初始化os指令"></a>初始化os指令</h3><p>打开Python交互式命令行，我们来看看如何使用<code>os</code>模块的基本功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> os<br><span class="hljs-meta">&gt;&gt;&gt; </span>os.name <span class="hljs-comment"># 操作系统类型</span><br><span class="hljs-string">&#x27;posix&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果是<code>posix</code>，说明系统是<code>Linux</code>、<code>Unix</code>或<code>Mac OS X</code>，如果是<code>nt</code>，就是<code>Windows</code>系统。</p>
+<p>要获取详细的系统信息，可以调用<code>uname()</code>函数</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在操作系统中定义的环境变量，全部保存在<code>os.environ</code>这个变量中，可以直接查看：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>os.environ<br>environ(&#123;<span class="hljs-string">&#x27;VERSIONER_PYTHON_PREFER_32_BIT&#x27;</span>: <span class="hljs-string">&#x27;no&#x27;</span>, <span class="hljs-string">&#x27;TERM_PROGRAM_VERSION&#x27;</span>: <span class="hljs-string">&#x27;326&#x27;</span>, <span class="hljs-string">&#x27;LOGNAME&#x27;</span>: <span class="hljs-string">&#x27;michael&#x27;</span>, <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;michael&#x27;</span>, <span class="hljs-string">&#x27;PATH&#x27;</span>: <span class="hljs-string">&#x27;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin&#x27;</span>, ...&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>要获取某个环境变量的值，可以调用<code>os.environ.get(&#39;key&#39;)</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>os.environ.get(<span class="hljs-string">&#x27;PATH&#x27;</span>)<br><span class="hljs-string">&#x27;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.environ.get(<span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;default&#x27;</span>)<br><span class="hljs-string">&#x27;default&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="操作文件和目录-1"><a href="#操作文件和目录-1" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h3><p>操作文件和目录的函数一部分放在<code>os</code>模块中，一部分放在<code>os.path</code>模块中，这一点要注意一下。查看、创建和删除目录可以这么调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查看当前目录的绝对路径:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.abspath(<span class="hljs-string">&#x27;.&#x27;</span>)<br><span class="hljs-string">&#x27;/Users/michael&#x27;</span><br><span class="hljs-comment"># 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.join(<span class="hljs-string">&#x27;/Users/michael&#x27;</span>, <span class="hljs-string">&#x27;testdir&#x27;</span>)<br><span class="hljs-string">&#x27;/Users/michael/testdir&#x27;</span><br><span class="hljs-comment"># 然后创建一个目录:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.mkdir(<span class="hljs-string">&#x27;/Users/michael/testdir&#x27;</span>)<br><span class="hljs-comment"># 删掉一个目录:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.rmdir(<span class="hljs-string">&#x27;/Users/michael/testdir&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>把两个路径合成一个时，不要直接拼字符串，而要通过<code>os.path.join()</code>函数，这样可以正确处理不同操作系统的路径分隔符</p>
+<p>同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过<code>os.path.split()</code>函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lua">&gt;&gt;&gt; <span class="hljs-built_in">os</span>.<span class="hljs-built_in">path</span>.split(<span class="hljs-string">&#x27;/Users/michael/testdir/file.txt&#x27;</span>)<br>(<span class="hljs-string">&#x27;/Users/michael/testdir&#x27;</span>, <span class="hljs-string">&#x27;file.txt&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>os.path.splitext()</code>可以直接让你得到文件扩展名，很多时候非常方便：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.splitext(<span class="hljs-string">&#x27;/path/to/file.txt&#x27;</span>)<br>(<span class="hljs-string">&#x27;/path/to/file&#x27;</span>, <span class="hljs-string">&#x27;.txt&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>文件操作使用下面的函数。假定当前目录下有一个<code>test.txt</code>文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 对文件重命名:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.rename(<span class="hljs-string">&#x27;test.txt&#x27;</span>, <span class="hljs-string">&#x27;test.py&#x27;</span>)<br><span class="hljs-comment"># 删掉文件:</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.remove(<span class="hljs-string">&#x27;test.py&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>列出当前目录下的所有目录，只需要一行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>[x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> os.listdir(<span class="hljs-string">&#x27;.&#x27;</span>) <span class="hljs-keyword">if</span> os.path.isdir(x)]<br>[<span class="hljs-string">&#x27;.lein&#x27;</span>, <span class="hljs-string">&#x27;.local&#x27;</span>, <span class="hljs-string">&#x27;.m2&#x27;</span>, <span class="hljs-string">&#x27;.npm&#x27;</span>, <span class="hljs-string">&#x27;.ssh&#x27;</span>, <span class="hljs-string">&#x27;.Trash&#x27;</span>, <span class="hljs-string">&#x27;.vim&#x27;</span>, <span class="hljs-string">&#x27;Applications&#x27;</span>, <span class="hljs-string">&#x27;Desktop&#x27;</span>, ...]<br></code></pre></td></tr></table></figure>
+
+<p>要列出所有的<code>.py</code>文件，也只需一行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>[x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> os.listdir(<span class="hljs-string">&#x27;.&#x27;</span>) <span class="hljs-keyword">if</span> os.path.isfile(x) <span class="hljs-keyword">and</span> os.path.splitext(x)[<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;.py&#x27;</span>]<br>[<span class="hljs-string">&#x27;apis.py&#x27;</span>, <span class="hljs-string">&#x27;config.py&#x27;</span>, <span class="hljs-string">&#x27;models.py&#x27;</span>, <span class="hljs-string">&#x27;pymonitor.py&#x27;</span>, <span class="hljs-string">&#x27;test_db.py&#x27;</span>, <span class="hljs-string">&#x27;urls.py&#x27;</span>, <span class="hljs-string">&#x27;wsgiapp.py&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening等等，都是一个意思。</p>
+<p>序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。</p>
+<p>反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。</p>
+<p>Python提供了<code>pickle</code>模块来实现序列化。</p>
+<h3 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h3><p>首先，我们尝试把一个对象序列化并写入文件：</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-keyword">import</span> pickle</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">d = <span class="hljs-built_in">dict</span>(name=<span class="hljs-string">&#x27;Bob&#x27;</span>, age=<span class="hljs-number">20</span>, score=<span class="hljs-number">88</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">pickle.dumps(d)</span><br>b&#x27;\x80\x03&#125;q\x00(X\x03\x00\x00\x00ageq\x01K\x14X\x05\x00\x00\x00scoreq\x02KXX\x04\x00\x00\x00nameq\x03X\x03\x00\x00\x00Bobq\x04u.&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><code>pickle.dumps()</code>方法把任意对象序列化成一个<code>bytes</code>，然后，就可以把这个<code>bytes</code>写入文件。或者用另一个方法<code>pickle.dump()</code>直接把对象序列化后写入一个file-like Object：</p>
+<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;dump.txt&#x27;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">pickle.dump(d, f)</span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">f.close()</span><br></code></pre></td></tr></table></figure>
+
+<p>看看写入的<code>dump.txt</code>文件，一堆乱七八糟的内容，这些都是Python保存的对象内部信息。</p>
+<p>当我们要把对象从磁盘读到内存时，可以先把内容读到一个<code>bytes</code>，然后用<code>pickle.loads()</code>方法反序列化出对象，也可以直接用<code>pickle.load()</code>方法从一个<code>file-like Object</code>中直接反序列化出对象。我们打开另一个Python命令行来反序列化刚才保存的对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;dump.txt&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>d = pickle.load(f)<br><span class="hljs-meta">&gt;&gt;&gt; </span>f.close()<br><span class="hljs-meta">&gt;&gt;&gt; </span>d<br>&#123;<span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;score&#x27;</span>: <span class="hljs-number">88</span>, <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Pickle的问题和所有其他编程语言特有的序列化问题一样，就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，因此，只能用Pickle保存那些不重要的数据，不能成功地反序列化也没关系。</p>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>如果我们要在不同的编程语言之间传递对象，就必须把对象序列化为标准格式，比如XML，但更好的方法是序列化为JSON，因为JSON表示出来就是一个字符串，可以被所有语言读取，也可以方便地存储到磁盘或者通过网络传输。JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面中读取，非常方便。</p>
+<p>JSON表示的对象就是标准的JavaScript语言的对象，JSON和Python内置的数据类型对应如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">JSON类型</th>
+<th align="left">Python类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">{}</td>
+<td align="left">dict</td>
+</tr>
+<tr>
+<td align="left">[]</td>
+<td align="left">list</td>
+</tr>
+<tr>
+<td align="left">“string”</td>
+<td align="left">str</td>
+</tr>
+<tr>
+<td align="left">1234.56</td>
+<td align="left">int或float</td>
+</tr>
+<tr>
+<td align="left">true&#x2F;false</td>
+<td align="left">True&#x2F;False</td>
+</tr>
+<tr>
+<td align="left">null</td>
+<td align="left">None</td>
+</tr>
+</tbody></table>
+<p>Python内置的<code>json</code>模块提供了非常完善的Python对象到JSON格式的转换。我们先看看如何把Python对象变成一个JSON：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> json<br><span class="hljs-meta">&gt;&gt;&gt; </span>d = <span class="hljs-built_in">dict</span>(name=<span class="hljs-string">&#x27;Bob&#x27;</span>, age=<span class="hljs-number">20</span>, score=<span class="hljs-number">88</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>json.dumps(d)<br><span class="hljs-string">&#x27;&#123;&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>dumps()</code>方法返回一个<code>str</code>，内容就是标准的JSON。类似的，<code>dump()</code>方法可以直接把JSON写入一个<code>file-like Object</code>。</p>
+<p>要把JSON反序列化为Python对象，用<code>loads()</code>或者对应的<code>load()</code>方法，前者把JSON的字符串反序列化，后者从<code>file-like Object</code>中读取字符串并反序列化：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>json_str = <span class="hljs-string">&#x27;&#123;&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;&#125;&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>json.loads(json_str)<br>&#123;<span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;score&#x27;</span>: <span class="hljs-number">88</span>, <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>由于JSON标准规定JSON编码是UTF-8，所以我们总是能正确地在Python的<code>str</code>与JSON的字符串之间转换。</p>
+<h3 id="JSON进阶"><a href="#JSON进阶" class="headerlink" title="JSON进阶"></a>JSON进阶</h3><p>Python的<code>dict</code>对象可以直接序列化为JSON的<code>&#123;&#125;</code>，不过，很多时候，我们更喜欢用<code>class</code>表示对象，比如定义<code>Student</code>类，然后序列化：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age, score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>        <span class="hljs-variable language_">self</span>.score = score<br><br>s = Student(<span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-number">88</span>)<br><span class="hljs-built_in">print</span>(json.dumps(s))<br></code></pre></td></tr></table></figure>
+
+<p>运行代码，毫不留情地得到一个<code>TypeError</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">Traceback (most recent call last):<br>  ...<br>TypeError: &lt;__main__.Student <span class="hljs-built_in">object</span> at <span class="hljs-number">0x10603cc50</span>&gt; <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> JSON serializable<br></code></pre></td></tr></table></figure>
+
+<p>错误的原因是<code>Student</code>对象不是一个可序列化为JSON的对象。</p>
+<p>如果连<code>class</code>的实例对象都无法序列化为JSON，这肯定不合理！</p>
+<p>别急，我们仔细看看<code>dumps()</code>方法的参数列表，可以发现，除了第一个必须的<code>obj</code>参数外，<code>dumps()</code>方法还提供了一大堆的可选参数：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/json.html#json.dumps">https://docs.python.org/3/library/json.html#json.dumps</a></p>
+<p>这些可选参数就是让我们来定制JSON序列化。前面的代码之所以无法把<code>Student</code>类实例序列化为JSON，是因为默认情况下，<code>dumps()</code>方法不知道如何将<code>Student</code>实例变为一个JSON的<code>&#123;&#125;</code>对象。</p>
+<p>可选参数<code>default</code>就是把任意一个对象变成一个可序列为JSON的对象，我们只需要为<code>Student</code>专门写一个转换函数，再把函数传进去即可：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-keyword">def</span> <span class="hljs-title function_">student2dict</span>(<span class="hljs-params">std</span>):<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-string">&#x27;name&#x27;</span>: std.name,<br>        <span class="hljs-string">&#x27;age&#x27;</span>: std.age,<br>        <span class="hljs-string">&#x27;score&#x27;</span>: std.score<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样，<code>Student</code>实例首先被<code>student2dict()</code>函数转换成<code>dict</code>，然后再被顺利序列化为JSON：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&gt;&gt;&gt; <span class="hljs-title function_">print</span>(<span class="hljs-params">json.dumps(s, <span class="hljs-keyword">default</span>=student2dict)</span>)<br>&#123;<span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">88</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>不过，下次如果遇到一个<code>Teacher</code>类的实例，照样无法序列化为JSON。我们可以偷个懒，把任意<code>class</code>的实例变为<code>dict</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(json.dumps(s, default=<span class="hljs-keyword">lambda</span> obj: obj.__dict__))<br></code></pre></td></tr></table></figure>
+
+<h1 id="进阶（可选）"><a href="#进阶（可选）" class="headerlink" title="进阶（可选）"></a>进阶（可选）</h1><h2 id="高级特性（已完成）"><a href="#高级特性（已完成）" class="headerlink" title="高级特性（已完成）"></a>高级特性（已完成）</h2><h2 id="函数式编程（已完成）"><a href="#函数式编程（已完成）" class="headerlink" title="函数式编程（已完成）"></a>函数式编程（已完成）</h2><h2 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h2><h2 id="IO编程-1"><a href="#IO编程-1" class="headerlink" title="IO编程"></a>IO编程</h2><h2 id="venv"><a href="#venv" class="headerlink" title="venv"></a>venv</h2><h1 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h1><p>粗略看下，知道有什么就好，需要用的时候再学。</p>
+<ul>
+<li><code>§ 常用内建模块</code></li>
+<li><code>§ 正则表达式</code></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><code>§ 图形界面</code> 之后的暂时不用学习，需要的时候再来。</p>
+<h2 id="编码类型"><a href="#编码类型" class="headerlink" title="编码类型"></a>编码类型</h2><h3 id="ASCIL"><a href="#ASCIL" class="headerlink" title="ASCIL"></a>ASCIL</h3><p>计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为<code>ASCII</code>编码，比如大写字母<code>A</code>的编码是<code>65</code>，小写字母<code>z</code>的编码是<code>122</code>。</p>
+<p>但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了<code>GB2312</code>编码，用来把中文编进去。</p>
+<p>你可以想得到的是，全世界有上百种语言，日本把日文编到<code>Shift_JIS</code>里，韩国把韩文编到<code>Euc-kr</code>里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。</p>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p>Unicode 字符集应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
+<p>Unicode标准也在不断发展，但最常用的是UCS-16编码，用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p>
+<p>现在，捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p>
+<p>字母<code>A</code>用ASCII编码是十进制的<code>65</code>，二进制的<code>01000001</code>；</p>
+<p>字符<code>0</code>用ASCII编码是十进制的<code>48</code>，二进制的<code>00110000</code>，注意字符<code>&#39;0&#39;</code>和整数<code>0</code>是不同的；</p>
+<p>汉字<code>中</code>已经超出了ASCII编码的范围，用Unicode编码是十进制的<code>20013</code>，二进制的<code>01001110 00101101</code>。</p>
+<p>你可以猜测，如果把ASCII编码的<code>A</code>用Unicode编码，只需要在前面补0就可以，因此，<code>A</code>的Unicode编码是<code>00000000 01000001</code>。</p>
+<p>新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p>
+<h3 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h3><p>把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：</p>
+<table>
+<thead>
+<tr>
+<th align="left">字符</th>
+<th align="left">ASCII</th>
+<th align="left">Unicode</th>
+<th align="left">UTF-8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A</td>
+<td align="left">01000001</td>
+<td align="left">00000000 01000001</td>
+<td align="left">01000001</td>
+</tr>
+<tr>
+<td align="left">中</td>
+<td align="left">x</td>
+<td align="left">01001110 00101101</td>
+<td align="left">11100100 10111000 10101101</td>
+</tr>
+</tbody></table>
+<p>从上面的表格还可以发现，UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：</p>
+<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
+<p>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/923923787018816/0" srcset="/Blogs/img/loading.gif" lazyload alt="rw-file-utf-8"></p>
+<p>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/923923759189600/0" srcset="/Blogs/img/loading.gif" lazyload alt="web-utf-8"></p>
+<p>所以你看到很多网页的源码上会有类似<code>&lt;meta charset=&quot;UTF-8&quot; /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</p>
+<h2 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h2><h3 id="SyntaxError"><a href="#SyntaxError" class="headerlink" title="SyntaxError"></a>SyntaxError</h3><p>如果遇到<code>SyntaxError</code>，表示输入的Python代码有语法错误，最常见的一种语法错误是使用了中文标点，例如使用了中文括号<code>（</code>和<code>）</code>,或者使用了中文引号<code>“</code>和<code>”</code>：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gradle">&gt;&gt;&gt; <span class="hljs-keyword">print</span>（<span class="hljs-string">&#x27;hello&#x27;</span>）<br>  <span class="hljs-keyword">File</span> <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span><br>    <span class="hljs-keyword">print</span>（<span class="hljs-string">&#x27;hello&#x27;</span>）<br>         ^<br>SyntaxError: invalid character <span class="hljs-string">&#x27;（&#x27;</span> (U+FF08)<br></code></pre></td></tr></table></figure>
+
+<p>出错时，务必阅读错误原因。对于上述<code>SyntaxError</code>，解释器会明确指出错误原因是无法识别的字符<code>“</code>：<code>invalid character &#39;“&#39;</code>。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Blogs/tags/Python%E8%BF%9B%E9%98%B6/" class="print-no-link">#Python进阶</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python进阶</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/Python进阶/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/Python3%20%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/" title="Python3 网络爬虫学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python3 网络爬虫学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/SPI/" title="SPI">
+                        <span class="hidden-mobile">SPI</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Blogs/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Blogs/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blogs/warhammer.png">
+  <link rel="icon" href="/Blogs/warhammer.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="字符与字符串存储char字符其实是数字，根据ascil码可查  65-90是A-Z，97-122是a-z  字符串一般以’\0’结尾 注意在赋值时，字符char c&#x3D;’a’，字符串char * a&#x3D;”abc”或者 char a[]&#x3D;&#x3D;{‘a’,’b’,’c’};注意这样赋值字符串不会以’\0’结尾 char * 与char x[]由于C语言中没有真正的字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言Char和string">
+<meta property="og:url" content="http://mavericreate.top/Blogs/2025/08/28/C%E8%AF%AD%E8%A8%80Char%E5%92%8Cstring/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="字符与字符串存储char字符其实是数字，根据ascil码可查  65-90是A-Z，97-122是a-z  字符串一般以’\0’结尾 注意在赋值时，字符char c&#x3D;’a’，字符串char * a&#x3D;”abc”或者 char a[]&#x3D;&#x3D;{‘a’,’b’,’c’};注意这样赋值字符串不会以’\0’结尾 char * 与char x[]由于C语言中没有真正的字符串">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.904Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="C语言Char和string">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C语言Char和string - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/Blogs/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Blogs/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Blogs/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mavericreate.top","root":"/Blogs/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/Blogs/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Blogs/js/utils.js" ></script>
+  <script  src="/Blogs/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blogs/">
+      <strong>Mavericreate.Gallery</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blogs/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Blogs/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C语言Char和string"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">C语言Char和string</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="字符与字符串"><a href="#字符与字符串" class="headerlink" title="字符与字符串"></a>字符与字符串</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>char字符其实是数字，根据ascil码可查</p>
+<blockquote>
+<p>65-90是A-Z，97-122是a-z</p>
+</blockquote>
+<p>字符串一般以’\0’结尾</p>
+<p>注意在赋值时，字符char c&#x3D;’a’，字符串char * a&#x3D;”abc”或者</p>
+<p>char a[]&#x3D;&#x3D;{‘a’,’b’,’c’};注意这样赋值字符串不会以’\0’结尾</p>
+<h2 id="char-与char-x"><a href="#char-与char-x" class="headerlink" title="char * 与char x[]"></a>char * 与char x[]</h2><p>由于C语言中没有真正的字符串类型，可以通过字符数组表示字符串，因为它的元素地址是连续的，这就足够了。</p>
+<p>C语言中规定数组代表数组所在<strong>内存位置的首地址</strong>，也是 str[0]的地址，即str &#x3D; &amp;str[0];</p>
+<p>在C语言中<strong>字符串常量的本质表示其实是一个地址</strong></p>
+<p>%s的原理其实也是<strong>通过字符串首地址输出字符串</strong>，所以可以char *str; printf(“%s”,str);</p>
+<p>char * 与 char a[ ] 的本质区别：</p>
+<p>当定义 char a[10 ] 时，编译器会给数组<strong>分配十个单元</strong>，每个单元的数据类型为字符。。</p>
+<p>而定义 char *s 时， 这是个指针变量，只占四个字节，32位，用来<strong>保存一个地址</strong>。。</p>
+<p>写程序是尽量用char a[]; 来定义string，免得出锅</p>
+<h2 id="单个字符的输入与输出。"><a href="#单个字符的输入与输出。" class="headerlink" title="单个字符的输入与输出。"></a>单个字符的输入与输出。</h2><p>通常，我们用char定义的字符型变量可以用以下形式进行输入：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> ch;<br>ch = getchar();<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>,&amp;ch);<br></code></pre></td></tr></table></figure>
+
+
+<p>同样的，输出的格式我们也有：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">ch = <span class="hljs-built_in">putchar</span>()；<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>,ch);<br></code></pre></td></tr></table></figure>
+
+<h2 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h2><p>scanf遇到空格、回车就会终止！而gets认为空格也是字符，可以将空格输入，遇到回车才会终止！</p>
+<p>printf输出时，需要加\n才会换行；而puts函数自带换行功能！</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> a[<span class="hljs-number">10</span>];<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,a);<span class="hljs-comment">//注意这里没有地址符！！！</span><br><span class="hljs-comment">//当输入的字符串中有空格就会停止</span><br><span class="hljs-type">char</span>* str;<br>str=(<span class="hljs-type">char</span>*)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">char</span>)*<span class="hljs-number">10</span>);<br>gets(str);<br>fgets(str, <span class="hljs-keyword">sizeof</span>(str), <span class="hljs-built_in">stdin</span>);<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%[^\n]&quot;</span>,a);<br></code></pre></td></tr></table></figure>
+
+<p>下面是 fgets() 函数的声明。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-built_in">char</span> *fgets(<span class="hljs-built_in">char</span> *<span class="hljs-built_in">str</span>, <span class="hljs-built_in">int</span> n, FILE *stream)<br></code></pre></td></tr></table></figure>
+
+<p>参数</p>
+<ul>
+<li><strong>str</strong> – 这是指向一个字符数组的指针，该数组存储了要读取的字符串。</li>
+<li><strong>n</strong> – 这是要读取的最大字符数（包括最后的空字符）。通常是使用以 str 传递的数组长度。</li>
+<li><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象标识了要从中读取字符的流。</li>
+</ul>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">puts</span>(str);<br></code></pre></td></tr></table></figure>
+
+<h2 id="string-h库"><a href="#string-h库" class="headerlink" title="string.h库"></a>string.h库</h2><p>C 中有大量操作字符串的函数：</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">函数 &amp; 目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>strcpy(s1, s2);</strong> 复制字符串 s2 到字符串 s1。（后到前）</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>strcat(s1, s2);</strong> 连接字符串 s2 到字符串 s1 的末尾。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>strlen(s1);</strong> 返回字符串 s1 的长度。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>strcmp(s1, s2);</strong> 如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回小于 0；如果 s1&gt;s2 则返回大于 0。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><strong>strchr(s1, ch);</strong> 返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><strong>strstr(s1, s2);</strong> 返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><strong>strtok()</strong> <strong>Method:</strong> Splits str[] according to given delimiters and returns the next token. It needs to be called in a loop to get all tokens. It returns NULL when there are no more tokens.</td>
+</tr>
+</tbody></table>
+<p>islower(), isupper(), isalpha(), isdigit()</p>
+<p>在第一次循环中，strtok函数将第一个人信息后的这个逗号，改为了’\0，这时strtok内部的this指针指向的是逗号的后一个字符。</p>
+<p>而在第一个循环结束后，函数第一个参数被设定为NULL，strtok将以this指针指向的位置作为分解起始位置，此时this指针指向的是’\0’，strtok对一个空串无法切分，返回NULL，所以得到上面的结果。</p>
+<p>正确返回大于0的值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> str[]= “The quick brown fox”; <span class="hljs-comment">// string to be searched</span><br><span class="hljs-type">char</span> ch= ‘q’; <span class="hljs-comment">// The character we are looking for</span><br><span class="hljs-type">char</span> *pGot_char= <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// Pointer initialized to NULL</span><br>pGot_char= <span class="hljs-built_in">strchr</span>(str,chr); <span class="hljs-comment">// stores address where chis found</span><br><br><br>tokenize<br>    <span class="hljs-comment">// Declaration of string</span><br>    <span class="hljs-type">char</span> gfg[<span class="hljs-number">100</span>] = <span class="hljs-string">&quot;Geeks-for - geeks - Contribute&quot;</span>;<br>    <span class="hljs-comment">// Declaration of delimiter</span><br>    <span class="hljs-type">const</span> <span class="hljs-type">char</span> s[<span class="hljs-number">4</span>] = <span class="hljs-string">&quot;-&quot;</span>;<br>    <span class="hljs-type">char</span>* tok;<br>    <span class="hljs-comment">// Use of strtok</span><br>    <span class="hljs-comment">// get first token</span><br>    tok = strtok(gfg, s);<br>    <span class="hljs-comment">// Checks for delimiter</span><br>    <span class="hljs-keyword">while</span> (tok != <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; %s\n&quot;</span>, tok);<br>        <span class="hljs-comment">// Use of strtok</span><br>        <span class="hljs-comment">// go through other tokens</span><br>        tok = strtok(<span class="hljs-number">0</span>, s);<span class="hljs-comment">//!!!!!!千万注意这里是NULL或者0</span><br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="define-constant-srings"><a href="#define-constant-srings" class="headerlink" title="define constant srings"></a>define constant srings</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MONTHS 12 </span><br></code></pre></td></tr></table></figure>
+
+<p>Important things to remember</p>
+<p>– No semicolon at the end</p>
+<p>– No equal sign used to assign values to string</p>
+<p>– There is no such thing as local define since they can appear anywhere </p>
+<p>in the program</p>
+<p>– String Messages</p>
+<p>• #define Message “You have won the game!”</p>
+<h2 id="指针与string"><a href="#指针与string" class="headerlink" title="指针与string"></a>指针与string</h2><p>const int* ptr&#x3D;&a;&#x2F;&#x2F;指针指向地址会变</p>
+<p>int *const ptr&#x3D;&a;&#x2F;&#x2F;不会变，变化时报错</p>
+<h2 id="交换字符串"><a href="#交换字符串" class="headerlink" title="交换字符串"></a>交换字符串</h2><p>第一行代码的意思是定义了一个char*类型的指针，我们将关注的是代码的存储问题，这里str变量是存储于栈区的，而”hello”, 则是存放在字符串常量区，字符串常量区的数据是不可更改的。所以无法直接更改“hello”和“world”的存储位置来达到交换的目的</p>
+<p>正确的思路是，再分别定义一个指针来指向str1和str2,即指向指针的指针（二级指针）——把函数的参数定义为二级指针，作用是为了通过交换栈区的str1， 和str2存储的字符串所在内存空间的地址来达到目的</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/Blogs/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/" class="category-chain-item">C语言</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Blogs/tags/C%E8%AF%AD%E8%A8%80Char%E5%92%8Cstring/" class="print-no-link">#C语言Char和string</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C语言Char和string</div>
+      <div>http://mavericreate.top/Blogs/2025/08/28/C语言Char和string/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/C%E8%AF%AD%E8%A8%80/" title="C语言">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C语言</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blogs/2025/08/28/C%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E9%9B%86/" title="C语言代码集">
+                        <span class="hidden-mobile">C语言代码集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Blogs/js/events.js" ></script>
+<script  src="/Blogs/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Blogs/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Blogs/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Blogs/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

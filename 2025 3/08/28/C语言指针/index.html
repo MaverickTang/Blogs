@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="指针指针也就是内存地址，指针变量是用来存放内存地址的变量 所有实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，对应指针的值的类型都是一样的，都是一个代表内存地址的长的十六进制数 int *p&#x3D;&amp;a申明p指针，储存的是a的地址 p引用地址，*p反引用，改变的是指针所指地址的值 C语言引用数组时，得到的数组第一个元素的地址 NULL 指针是一个定义在标准库中的值为零的常量 %p是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言指针">
+<meta property="og:url" content="http://example.com/2025/08/28/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="指针指针也就是内存地址，指针变量是用来存放内存地址的变量 所有实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，对应指针的值的类型都是一样的，都是一个代表内存地址的长的十六进制数 int *p&#x3D;&amp;a申明p指针，储存的是a的地址 p引用地址，*p反引用，改变的是指针所指地址的值 C语言引用数组时，得到的数组第一个元素的地址 NULL 指针是一个定义在标准库中的值为零的常量 %p是">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.904Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="C语言指针">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C语言指针 - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C语言指针"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">C语言指针</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p>指针也就是内存地址，指针变量是用来存放内存地址的变量</p>
+<p>所有实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，对应指针的值的类型都是一样的，都是一个代表内存地址的长的十六进制数</p>
+<p><code>int *p=&amp;a</code>申明p指针，储存的是a的地址</p>
+<p><code>p</code>引用地址，<code>*p</code>反引用，改变的是指针所指地址的值</p>
+<p>C语言引用数组时，得到的数组第一个元素的地址</p>
+<p>NULL 指针是一个定义在标准库中的值为零的常量</p>
+<p>%p是打印地址（指针地址）的，是十六<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BF%9B%E5%88%B6&spm=1001.2101.3001.7020">进制</a>的形式，但是会全部打完，即有多少位打印多少位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> b=<span class="hljs-number">13</span>;<br>   <span class="hljs-type">int</span> *ptr=&amp;b;<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;pointer:%d\n&quot;</span>,ptr);<span class="hljs-comment">//pointer:6487572</span><br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;value:%d\n&quot;</span>,*ptr);<span class="hljs-comment">//value:13</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>打代码时一定注意需要的是指针还是需要里面存储的东西</strong></p>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><ol>
+<li><code>int *p</code>; &#x2F;&#x2F;首先从P 处开始,先与*结合,所以说明P 是一个指针,然后再与int 结合,说明指针所指向的内容的类型为int 型.所以P是一个返回整型数据的指针 </li>
+<li><code>int *p[3]</code>; &#x2F;&#x2F;首先从P 处开始,先与[]结合,因为其优先级比<em>高,所以P 是一个数组,然后再与</em>结合,说明数组里的元素是指针类型,然后再与int 结合,说明指针所指向的内容的类型是整型的,所以P 是一个由返回整型数据的指针所组成的数组 </li>
+<li><code>int (*p)[3]</code>; &#x2F;&#x2F;首先从P 处开始,先与*结合,说明P 是一个指针然后再与[]结合(与”()”这步可以忽略,只是为了改变优先级),说明指针所指向的内容是一个数组,然后再与int 结合,说明数组里的元素是整型的.所以P 是一个指向由整型数据组成的数组的指针 </li>
+<li><code>int **p</code>; &#x2F;&#x2F;首先从P 开始,先与<em>结合,说是P 是一个指针,然后再与</em>结合,说明指针所指向的元素是指针,然后再与int 结合,说明该指针所指向的元素是整型数据.由于二级指针以及更高级的指针极少用在复杂的类型中,所以后面更复杂的类型我们就不考虑多级指针了,最多只考虑一级指针. </li>
+<li><code>int p(int)</code>; &#x2F;&#x2F;从P 处起,先与()结合,说明P 是一个函数,然后进入()里分析,说明该函数有一个整型变量的参数,然后再与外面的int 结合,说明函数的返回值是一个整型数据 </li>
+<li><code>int (*p)(int)</code>; &#x2F;&#x2F;从P 处开始,先与指针结合,说明P 是一个指针,然后与()结合,说明指针指向的是一个函数,然后再与()里的int 结合,说明函数有一个int 型的参数,再与最外层的int 结合,说明函数的返回类型是整型,所以P 是一个指向有一个整型参数且返回类型为整型的函数的指针 </li>
+<li><code>int *(*p(int))[3]</code>; &#x2F;&#x2F;可以先跳过,不看这个类型,过于复杂从P 开始,先与()结合,说明P 是一个函数,然后进入()里面,与int 结合,说明函数有一个整型变量参数,然后再与外面的<em>结合,说明函数返回的是一个指针,,然后到最外面一层,先与[]结合,说明返回的指针指向的是一个数组,然后再与</em>结合,说明数组里的元素是指针,然后再与int 结合,说明指针指向的内容是整型数据.所以P 是一个参数为一个整数据且返回一个指向由整型指针变量组成的数组的指针变量的函数.</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs C">	<span class="hljs-type">const</span> <span class="hljs-type">int</span> a=<span class="hljs-number">20</span>;<span class="hljs-comment">//只读（不改变数值） </span><br>	<span class="hljs-type">int</span> *p=&amp;a;<br>	<span class="hljs-type">char</span> ch[<span class="hljs-number">5</span>]=&#123;<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-string">&#x27;c&#x27;</span>,<span class="hljs-string">&#x27;\0&#x27;</span>&#125;;<span class="hljs-comment">// 可以修改 </span><br>	<span class="hljs-type">char</span> *c=<span class="hljs-string">&quot;abcsd&quot;</span>;<span class="hljs-comment">//放在常量区 不能修改 </span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,a);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,&amp;a);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,p);<span class="hljs-comment">//a的地址 </span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,p+<span class="hljs-number">1</span>);<span class="hljs-comment">//a的地址+4（下一个整数，一个整数占十位）</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,*p);<span class="hljs-comment">//p本身 </span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span>));<span class="hljs-comment">//char占1位，int，long占4位，long long，double占8位 </span><br>	<span class="hljs-comment">//void指针（指向指针的指针） </span><br>	<span class="hljs-type">void</span> *pr=p;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,pr+<span class="hljs-number">1</span>);<span class="hljs-comment">//a的地址+4（下一个整数，一个整数占十位）</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,*pr);<span class="hljs-comment">//p本身 </span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">20</span><br><span class="hljs-comment">000000000062FE14</span><br><span class="hljs-comment">6487572</span><br><span class="hljs-comment">000000000062FE14</span><br><span class="hljs-comment">20</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="指针的类型"><a href="#指针的类型" class="headerlink" title="指针的类型"></a>指针的类型</h2><p><strong>这个指针的类型是什么？指针指的类型是什么？该指针指向了哪里？</strong></p>
+<p>指针的值是指针本身存储的数值，这个值将被编译器<strong>当作一个地址</strong>，而不是一个一般的数值。</p>
+<p>在32 位程序里，所有类型的指针的值都是一个32 位整数，因为32 位程序里内存地址全都是32 位长。指针所指向的内存区就是从指针的值所代表的那个内存地址开始，长度为si zeof(指针所指向的类型)的一片内存区。以后，我们说一个指针的值是XX，就相当于说该指针指向了以XX 为首地址的一片内存区域；我们说一个指针指向了某块内存区域，就相当于说该指针的值是这块内存区域的首地址。指针所指向的内存区和指针所指向的类型是两个完全不同的概念</p>
+<p>指向多维数组的指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">int</span> b[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>],i,j,k;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">2</span>;i++)<br>	<span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">3</span>;j++)&#123;<br>		b[i][j]=i+j;<br>&#125;<br><span class="hljs-type">int</span> (*pb)[<span class="hljs-number">3</span>]=b;<span class="hljs-comment">//指向二维数组的指针（数组套数组） </span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,**pb);<span class="hljs-comment">//输出b[0][0] </span><br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">2</span>;i++)<br>	<span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">3</span>;j++)&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,*(*pb+i)+j);<span class="hljs-comment">//最外面的*取消地址，内部+2是前面的第二位，外部+3是后面的第三位 printf(&quot;%d&quot;,*(*pb+i)+j);//最外面的*取消地址，内部+2是前面的第二位，外部+3是后面的第三位 </span><br>&#125;<br><span class="hljs-type">int</span> b2[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]=&#123;&#123;&#123;<span class="hljs-number">2</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">7</span>,<span class="hljs-number">9</span>&#125;&#125;,&#123;&#123;<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;,&#123;<span class="hljs-number">6</span>,<span class="hljs-number">1</span>&#125;&#125;,&#123;&#123;<span class="hljs-number">8</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">11</span>,<span class="hljs-number">13</span>&#125;&#125;&#125;,cnt=<span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> (*pb2)[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]=b2;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d %d %d\n&quot;</span>, b2,*b2,b2[<span class="hljs-number">0</span>],&amp;b2[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<span class="hljs-comment">//全部打印出地址（指针） </span><br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">3</span>;i++)&#123;<br>	<span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">2</span>;j++)&#123;<br>		<span class="hljs-keyword">for</span>(k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">2</span>;k++)&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,b2[i][j][k]);<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,*(pb2[i][j]+k));<span class="hljs-comment">//*(c[1]+1)得到c[1][1]首字母的指针 </span><br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="程序的运行"><a href="#程序的运行" class="headerlink" title="程序的运行"></a>程序的运行</h2><h3 id="程序内存空间的分配"><a href="#程序内存空间的分配" class="headerlink" title="程序内存空间的分配"></a>程序内存空间的分配</h3><p>内存中的每个空间都是可以寻址的</p>
+<p>从大到小：</p>
+<p>堆Heap（动态内存）：更自由，可自由分配大小</p>
+<p>栈Stack： 存储函数执行时的信息 ，局部变量（程序启动时空间固定）</p>
+<p>静态或全局变量： （不在函数里定义的就是全局变量），在任何地方都能访问修改</p>
+<p>代码：存储程序的指令</p>
+<h3 id="运行时的空间调用"><a href="#运行时的空间调用" class="headerlink" title="运行时的空间调用"></a>运行时的空间调用</h3><p>在栈中先执行main函数，给予栈帧，每当调用函数时，当前函数会在调用的那行暂停，机器转而去执行被调函数，被调函数被赋予新的栈帧，如果一个函数无限次调用另一个函数，就会造成栈溢出</p>
+<h3 id="实参与形参"><a href="#实参与形参" class="headerlink" title="实参与形参"></a>实参与形参</h3><p>实参：主函数中调用其他函数，</p>
+<p>形参：被调函数中的参数</p>
+<h3 id="堆heap的使用"><a href="#堆heap的使用" class="headerlink" title="堆heap的使用"></a>堆heap的使用</h3><p>在堆里的内存只能被引用</p>
+<p><strong>#include&lt;stdlib.h&gt;</strong></p>
+<p>malloc：</p>
+<p>在heap里找到内存然后返回地址 <code>int *p=(int*)malloc(n*·sizeof(int));</code></p>
+<p>返回的是void指针，指向分配发给我们的内存块的第一个地址，需要将其转换为特定的指针</p>
+<p>注意malloc括号内的数字是bytes数，一个int占4bytes</p>
+<p>calloc ：</p>
+<p>与mallloc相似，需要两个参数：返回特定类型的元素的数量，第二个参数是类型的大小</p>
+<p><code>int *p=(int*)calloc(3,sizeof(int));</code></p>
+<p>realloc ：</p>
+<p>修改已经定义的内存</p>
+<p><code>int *pr=(int*)calloc(p,sizeof(int));</code></p>
+<p>free：<code>free(p)</code>释放队中的内存（不会自动释放）</p>
+<p>C++</p>
+<p> new delete</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stddef.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	<span class="hljs-type">char</span> *pr,*pr2;<br>	pr=(<span class="hljs-type">char</span>*)<span class="hljs-built_in">malloc</span>(<span class="hljs-number">15</span>*<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">char</span>));<span class="hljs-comment">//注意malloc和calloc关系</span><br>	<span class="hljs-built_in">strcpy</span>(pr,<span class="hljs-string">&quot;tht nb&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;string pr is %s, address is %p\n&quot;</span>,pr,pr);<br>	pr2=(<span class="hljs-type">char</span>*)<span class="hljs-built_in">calloc</span>(<span class="hljs-number">15</span>,<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">char</span>));<br>	<span class="hljs-built_in">strcpy</span>(pr2,<span class="hljs-string">&quot;tht nbnb&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;string pr2 is %s, address is %p\n&quot;</span>,pr2,pr2);<br>	pr=(<span class="hljs-type">char</span>*)<span class="hljs-built_in">realloc</span>(pr,<span class="hljs-number">20</span>*<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">char</span>));<br>	<span class="hljs-built_in">strcat</span>(pr,<span class="hljs-string">&quot;nbnbnb&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;string pr is %s, address is %p\n&quot;</span>,pr,pr);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="指针的算术运算"><a href="#指针的算术运算" class="headerlink" title="指针的算术运算"></a>指针的算术运算</h2><p>一个指针ptrold 加(减)一个整数n 后，结果是一个<strong>新的指针</strong>ptrnew，ptrnew 的类型和ptrold 的类型相同，ptrnew 所指向的类型和ptrold所指向的类型也相同。ptrnew 的值将比ptrold 的值<strong>增加(减少)了n 乘sizeof(ptrold 所指向的类型)个字节</strong>。就是说，ptrnew 所指向的内存区将比ptrold 所指向的内存区向高(低)地址方向移动了n 乘sizeof(ptrold 所指向的类型)个字节。指针和指针进行加减：两个指针不能进行加法运算，这是非法操作，因为进行加法后，得到的结果指向一个不知所向的地方，而且毫无意义。两个指针可以进行减法操作，但必须类型相同，一般用在数组方面</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> a[<span class="hljs-number">20</span>]; <br>   <span class="hljs-type">int</span> *ptr=(<span class="hljs-type">int</span> *)a; <span class="hljs-comment">//强制类型转换并不会改变a 的类型 </span><br>   ptr++; <br></code></pre></td></tr></table></figure>
+
+<p>指针ptr 的类型是int*,它指向的类型是int，它被初始化为指向整型变量a。接下来的第3句中，指针ptr被加了1，编译器是这样处理的：它把指针ptr 的值加上了sizeof(int)，在32 位程序中，是被加上了4，因为在32 位程序中，int 占4 个字节。由于地址是用字节做单位的，故ptr 所指向的地址由原来的变量a 的地址向高地址方向增加了4 个字节。由于char 类型的长度是一个字节，所以，原来ptr 是指向数组a 的第0 号单元开始的四个字节，此时指向了数组a 中从第4 号单元开始的四个字</p>
+<h2 id="取值符与地址符"><a href="#取值符与地址符" class="headerlink" title="取值符与地址符"></a>取值符与地址符</h2><p><code>&amp;</code> 运算符 ：用于取一个对象的地址</p>
+<p><code>* </code>运算符：作用于指针时表示访问指针所指向的对象</p>
+<p>地址与数据的关系相当于x与y</p>
+<ol>
+<li>处于不同维度</li>
+<li>一个数据可对应多个地址</li>
+<li>一个地址有且只有一个数据</li>
+</ol>
+<h3 id="实参与形参-1"><a href="#实参与形参-1" class="headerlink" title="实参与形参"></a>实参与形参</h3><p>可以把指针作为函数的形参。在函数调用语句中，可以用指针表达式来作为实参。</p>
+<h4 id="实参"><a href="#实参" class="headerlink" title="实参"></a>实参</h4><p>函数被调用时给出的参数包含了实实在在的数据，会被函数内部的代码使用</p>
+<ul>
+<li>必须有确定的值s</li>
+</ul>
+<h4 id="形参"><a href="#形参" class="headerlink" title="形参"></a>形参</h4><p>在函数定义中出现的参数可以看做是一个占位符，它没有数据，只能等到函数被调用时接收传递进来的数据</p>
+<ul>
+<li>只在函数内部有效（只有在函数被调用时才会分配内存，调用结束后，立刻释放内存</li>
+<li>函数调用中发生的数据传递是单向的，只能把实参的值传递给形参，而不能把形参的值反向地传递给实参</li>
+</ul>
+<h3 id="函数与调用指针"><a href="#函数与调用指针" class="headerlink" title="函数与调用指针"></a>函数与调用指针</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">void</span> <span class="hljs-title function_">swaps</span><span class="hljs-params">(<span class="hljs-type">int</span> *a,<span class="hljs-type">int</span> *b)</span>&#123; <span class="hljs-comment">//本质是交换地址 </span><br>    <span class="hljs-type">int</span> c=*b;<br>    *b=*a;<span class="hljs-comment">//b的地址赋值为a的地址 </span><br>    *a=c; <br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">SwapStringArray</span><span class="hljs-params">(<span class="hljs-type">char</span> *str1, <span class="hljs-type">char</span> *str2)</span>&#123;<span class="hljs-comment">//交换数组</span><br>    <span class="hljs-type">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(str1[i]!=<span class="hljs-string">&#x27;\0&#x27;</span> &amp;&amp; str2[j]!=<span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>        Swap(&amp;str1[i],&amp;str2[j]);<br>        i++;<br>        j++;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(str1[i] != <span class="hljs-string">&#x27;\0&#x27;</span> &amp;&amp; str2[j] == <span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>        <span class="hljs-keyword">while</span>(str1[i] != <span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>            Swap(&amp;str1[i],&amp;str2[i]);<br>            i++;<br>        &#125;<br>        str1[j] =<span class="hljs-string">&#x27;\0&#x27;</span>;<br>        str2[i] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str1[i] == <span class="hljs-string">&#x27;\0&#x27;</span> &amp;&amp; str2[j] != <span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>        <span class="hljs-keyword">while</span>(str2[j] !=<span class="hljs-string">&#x27;\0&#x27;</span>)&#123;<br>            Swap(&amp;str1[j],&amp;str2[j]);<br>            j++;<br>        &#125;<br>        str1[j]=<span class="hljs-string">&#x27;\0&#x27;</span>;<br>        str2[i]=<span class="hljs-string">&#x27;\0&#x27;</span>;<br>    &#125;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">sorrt</span><span class="hljs-params">(<span class="hljs-type">int</span> a[],<span class="hljs-type">int</span> b)</span>&#123;<br>    a[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	swaps(&amp;a,&amp;b);<br>    <span class="hljs-type">int</span> a[<span class="hljs-number">20</span>],b;<br>    sorrt(a,b);<span class="hljs-comment">//shu&#x27;zu</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>函数的调用其实就是将执行程序的地址跳转到函数的第一条指令</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta"># <span class="hljs-keyword">include</span>  <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">adds</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span>&#123; <span class="hljs-comment">//本质是交换地址 </span><br>    <span class="hljs-keyword">return</span> a+b;<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">abc</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sb&quot;</span>);<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">b</span><span class="hljs-params">(<span class="hljs-type">void</span> (*ptr)())</span>&#123;<br>    ptr();<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>	<span class="hljs-type">int</span> (*pf)(<span class="hljs-type">int</span>,<span class="hljs-type">int</span>);<br>	pf=&amp;adds;<br>	<span class="hljs-type">int</span> x=<span class="hljs-number">2</span>,y=<span class="hljs-number">3</span>;<br>	<span class="hljs-type">int</span> xpy;<br>	xpy=(*pf)(x,y);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,xpy);<br><span class="hljs-comment">//	void (*pv)()=&amp;abc;</span><br><span class="hljs-comment">//	b(pv);</span><br>	b(abc);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p><strong>NULL</strong> is the constant that is defined by the standard </p>
+<p>library</p>
+<p>• It is equivalent to zero for a pointer</p>
+<p>• It guarantees that the pointer does not point to any location in the memory and prevents accidental overwriting of a memory</p>
+<p>• You need to add #include directive for <strong>stddef.h</strong> to your source fileNever dereference an uninitialized pointer</p>
+<p>int * pt; &#x2F;&#x2F; uninitialized pointer</p>
+<p>*pt &#x3D; 5; &#x2F;&#x2F; store the value 5 to a location where pt points</p>
+<p>Problem : pt has a random value and there is no knowing where pt will be placed</p>
+<ol>
+<li><p>It might go somewhere harmless, it might overwrite data or code, or might cause the program to crash</p>
+</li>
+<li><p>Creating a pointer only allocated memory to store the pointer itself and it does not allocate memory to store the data itself.</p>
+</li>
+</ol>
+<h2 id="pointers-to-arrays"><a href="#pointers-to-arrays" class="headerlink" title="pointers to arrays"></a>pointers to arrays</h2><p><strong>Remember:</strong> <em>array names are themselves pointers and</em> </p>
+<p><em>therefore you do not use</em> <strong>&amp;</strong> <em>operator when pointing towards</em> </p>
+<p><em>an arrayname</em></p>
+<p>• <strong>valuesPtr &#x3D; values;</strong></p>
+<p>When specifying the array name without a subscript, this </p>
+<p>has an effect of producing a pointer to the first element of </p>
+<p>the <strong>values or</strong></p>
+<p>• valuesPtr &#x3D; &amp;values[0];</p>
+<p>To reference values[3] via pointer, you can simply add 3 to values Ptr such as *(valuesPtr+3)</p>
+<p>To set the valuesPtr to point the second element of  the array, you do the following</p>
+<p>valuesPtr &#x3D; &amp;values[1];</p>
+<p><strong>Or</strong></p>
+<p>valuesPtr +&#x3D;1;</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/" class="category-chain-item">03高级语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/03%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/" class="category-chain-item">C语言</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" class="print-no-link">#C语言指针</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C语言指针</div>
+      <div>http://example.com/2025/08/28/C语言指针/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/28/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/" title="C语言函数">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C语言函数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/28/C%E9%80%9F%E8%BD%ACPython/" title="C速转Python">
+                        <span class="hidden-mobile">C速转Python</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

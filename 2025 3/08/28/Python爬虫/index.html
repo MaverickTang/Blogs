@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐浩天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="title: 爬取进击的巨人漫画date: 2020-02-23 15:13:57lang: zh-Hanstags:- Pythoncategories: 技术[[0Python3 网络爬虫学习]] [[1爬虫简介]] [[2爬虫原理]] [[3爬虫编程基础]] [[5Ajax内容爬取]] [[6异步爬虫和模拟登录]] [[7javascript逆向简介]] [[8javascript逆向实战">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫">
+<meta property="og:url" content="http://example.com/2025/08/28/Python%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:site_name" content="Mavericreate.Blog">
+<meta property="og:description" content="title: 爬取进击的巨人漫画date: 2020-02-23 15:13:57lang: zh-Hanstags:- Pythoncategories: 技术[[0Python3 网络爬虫学习]] [[1爬虫简介]] [[2爬虫原理]] [[3爬虫编程基础]] [[5Ajax内容爬取]] [[6异步爬虫和模拟登录]] [[7javascript逆向简介]] [[8javascript逆向实战">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGY3Ct.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGNf91.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect3.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGN2N9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/pic.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGNsnU.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGN7He.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGUpDS.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGNvgP.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/02/GGNX9I.jpg">
+<meta property="article:published_time" content="2025-08-28T07:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T13:30:31.910Z">
+<meta property="article:author" content="唐浩天">
+<meta property="article:tag" content="Python爬虫">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/02/GGY3Ct.png">
+  
+  
+  
+  <title>Python爬虫 - Mavericreate.Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python爬虫"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-28 00:00" pubdate>
+          2025年8月28日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python爬虫</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <hr>
+<h2 id="title-爬取进击的巨人漫画date-2020-02-23-15-13-57lang-zh-Hanstags-Pythoncategories-技术"><a href="#title-爬取进击的巨人漫画date-2020-02-23-15-13-57lang-zh-Hanstags-Pythoncategories-技术" class="headerlink" title="title: 爬取进击的巨人漫画date: 2020-02-23 15:13:57lang: zh-Hanstags:- Pythoncategories: 技术"></a>title: 爬取进击的巨人漫画<br>date: 2020-02-23 15:13:57<br>lang: zh-Hans<br>tags:<br>- Python<br>categories: 技术</h2><p>[[0Python3 网络爬虫学习]]</p>
+<p>[[1爬虫简介]]</p>
+<p>[[2爬虫原理]]</p>
+<p>[[3爬虫编程基础]]</p>
+<p>[[5Ajax内容爬取]]</p>
+<p>[[6异步爬虫和模拟登录]]</p>
+<p>[[7javascript逆向简介]]</p>
+<p>[[8javascript逆向实战]]</p>
+<p>[[信息安全：网页运作原理]]</p>
+<h1 id="使用Scrapy爬取进击的巨人漫画"><a href="#使用Scrapy爬取进击的巨人漫画" class="headerlink" title="使用Scrapy爬取进击的巨人漫画"></a>使用Scrapy爬取进击的巨人漫画</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>​		自己看到网上有两个大牛分别爬取了<strong>合法</strong>(Naruto)与<strong>非法</strong>(<del>你懂的</del>)的漫画，十分感叹，便也想借鉴借鉴，结果大牛的的代码在博主的电脑上运行不了(<del>丧尽天良</del>),所以就只有自己写了一个算是结合版的代码，爬取了这个<a target="_blank" rel="noopener" href="https://www.fzdm.com/">网站</a>。在此分享给大家，授人以both🐟。</p>
+<p>​		代码已经挂在GitHub上面了，想下漫画的可以滑到最下面观看下载方法，这个方法不仅可以下载进击的巨人，整个网站的漫画都可以爬，建议大家别乱改我设置的延迟，爬的太快了可能会被网站锁IP。</p>
+<span id="more"></span>
+
+<h2 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h2><p>博主的环境如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Mavericks</span>-MacBook-Pro:~ maverick$<br><span class="hljs-attribute">Python</span> <span class="hljs-number">2</span>.<span class="hljs-number">7</span>.<span class="hljs-number">10</span> (default, Feb <span class="hljs-number">22</span> <span class="hljs-number">2019</span>, <span class="hljs-number">21</span>:<span class="hljs-number">55</span>:<span class="hljs-number">15</span>) <br><span class="hljs-attribute">Scrapy</span> <span class="hljs-number">1</span>.<span class="hljs-number">8</span>.<span class="hljs-number">0</span> - no active project<br></code></pre></td></tr></table></figure>
+
+<p>在这里我默认大家都已经安装好了scrapy，<a target="_blank" rel="noopener" href="https://www.osgeo.cn/scrapy/intro/install.html#intro-install">传送门</a></p>
+<p>不知道大家会遇到什么麻烦，博主只用了这一句代码：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> Scrapy<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、基础准备"><a href="#三、基础准备" class="headerlink" title="三、基础准备"></a>三、基础准备</h2><h3 id="Scrapy简介（大牛的文章）"><a href="#Scrapy简介（大牛的文章）" class="headerlink" title="Scrapy简介（大牛的文章）"></a>Scrapy简介（<a target="_blank" rel="noopener" href="https://blog.csdn.net/c406495762/article/details/72858983">大牛的文章</a>）</h3><pre><code class="hljs">  Scrapy Engine(Scrapy核心) 负责数据流在各个组件之间的流。Spiders(爬虫)发出Requests请求，经由Scrapy Engine(Scrapy核心) 交给Scheduler(调度器)，Downloader(下载器)Scheduler(调度器) 获得Requests请求，然后根据Requests请求，从网络下载数据。Downloader(下载器)的Responses响应再传递给Spiders进行分析。根据需求提取出Items，交给Item Pipeline进行下载。Spiders和Item Pipeline是需要用户根据响应的需求进行编写的。除此之外，还有两个中间件，Downloaders Mddlewares和Spider Middlewares，这两个中间件为用户提供方面，通过插入自定义代码扩展Scrapy的功能，例如去重等。
+</code></pre>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGY3Ct.png" srcset="/img/loading.gif" lazyload alt="Scrapy"></p>
+<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>注意！这篇文章并不是official文章，一切还以<a target="_blank" rel="noopener" href="https://www.osgeo.cn/scrapy/intro/tutorial.html">官方教程</a>为准。这里只讲本次操作用到的知识。</p>
+<ul>
+<li>创建一个Scrapy项目；</li>
+<li>定义提取的Item；</li>
+<li>编写爬取网站的 spider 并提取 Item；</li>
+<li>利用python自带的request库莱下载漫画</li>
+</ul>
+<h2 id="四、第二次准备"><a href="#四、第二次准备" class="headerlink" title="四、第二次准备"></a>四、第二次准备</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">scrapy startproject Titan</span><br></code></pre></td></tr></table></figure>
+
+<p>然后我们可以观察项目内涉及的文件</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">|<span class="hljs-string">____Titan</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string">____.DS_Store</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string">____scrapy.cfg</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|____Titan<br>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____.DS_Store</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|____spiders<br>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____titan_spider.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|______pycache__<br>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.cpython-38.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____titan_spider.cpython-38.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____titan_spider.cpython-37.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.cpython-37.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|______pycache__<br>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.cpython-38.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____settings.cpython-38.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____settings.cpython-37.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">______init__.cpython-37.pyc</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____middlewares.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____settings.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____items.py</span><br><span class="hljs-string"></span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">____pipelines.py</span><br></code></pre></td></tr></table></figure>
+
+<p>大部分都没啥用，重点是我们要在spider里面添加一个自己编写的python文件，可以是任意名字，像我就叫他巨人蜘蛛</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">titan_spider.<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建spider类"><a href="#创建spider类" class="headerlink" title="创建spider类"></a>创建spider类</h3><p>创建一个用来实现具体爬取功能的类，我们所有的处理实现都会在这个类中进行，它必须为 <code>scrapy.Spider</code> 的子类。</p>
+<p>在 <code>Titan/spiders</code> 文件路径下创建 <code>titan_spider.py</code> 文件。在里面就开始我们蜘蛛（<del>只猪</del>）的初始化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment">#上面code是为了让其支持中文</span><br><span class="hljs-keyword">import</span> scrapy<span class="hljs-comment">#scrapy本尊</span><br><span class="hljs-keyword">import</span> re<span class="hljs-comment">#保存文件的library</span><br><span class="hljs-keyword">import</span> time<span class="hljs-comment">#设置延时</span><br><span class="hljs-keyword">import</span> requests<span class="hljs-comment">#从网络下载图片</span><br><span class="hljs-keyword">from</span> urllib.request <span class="hljs-keyword">import</span> urlretrieve<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TitanSpider</span>(scrapy.Spider):<br>	name = <span class="hljs-string">&quot;titan&quot;</span><span class="hljs-comment">#定义spider的名字</span><br>	start_urls = [<span class="hljs-string">&#x27;https://manhua.fzdm.com/132/&#x27;</span>]<span class="hljs-comment">#起始页面</span><br>	allowed_domains = [<span class="hljs-string">&#x27;https://manhua.fzdm.com&#x27;</span>,<span class="hljs-string">&#x27;http://p2.manhuapan.com/&#x27;</span>]<span class="hljs-comment">#允许范围</span><br>  <span class="hljs-comment">#上面的名字都是official的名字千万别改</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="shell分析"><a href="#shell分析" class="headerlink" title="shell分析"></a>shell分析</h3><p>在command line里面输入</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">scrapy <span class="hljs-keyword">shell</span><span class="language-bash"> <span class="hljs-string">&#x27;https://manhua.fzdm.com/39&#x27;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>然后你会得到这一堆东西（别🐦它）</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">23</span> <span class="hljs-number">20</span>:<span class="hljs-number">14</span>:<span class="hljs-number">47</span> <span class="hljs-selector-attr">[scrapy.utils.log]</span> INFO: Scrapy <span class="hljs-number">1.8</span>.<span class="hljs-number">0</span> started (bot: scrapybot)<br><span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">23</span> <span class="hljs-number">20</span>:<span class="hljs-number">14</span>:<span class="hljs-number">47</span> <span class="hljs-selector-attr">[scrapy.utils.log]</span> INFO: Versions: lxml <span class="hljs-number">4.4</span>.<span class="hljs-number">2.0</span>, libxml2 <span class="hljs-number">2.9</span>.<span class="hljs-number">4</span>, cssselect <span class="hljs-number">1.1</span>.<span class="hljs-number">0</span>, parsel <span class="hljs-number">1.5</span>.<span class="hljs-number">2</span>, w3lib <span class="hljs-number">1.21</span>.<span class="hljs-number">0</span>, Twisted <span class="hljs-number">19.10</span>.<span class="hljs-number">0</span>, Python <span class="hljs-number">3.8</span>.<span class="hljs-number">1</span> (v3.<span class="hljs-number">8.1</span>:<span class="hljs-number">1</span>b293b6006, Dec <span class="hljs-number">18</span> <span class="hljs-number">2019</span>, <span class="hljs-number">14</span>:<span class="hljs-number">08</span>:<span class="hljs-number">53</span>) - <span class="hljs-selector-attr">[Clang 6.0 (clang-600.0.57)]</span>, pyOpenSSL <span class="hljs-number">19.1</span>.<span class="hljs-number">0</span> (OpenSSL <span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>d  <span class="hljs-number">10</span> Sep <span class="hljs-number">2019</span>), cryptography <span class="hljs-number">2.8</span>, Platform macOS-<span class="hljs-number">10.14</span>.<span class="hljs-number">6</span>-x86_64-i386-<span class="hljs-number">64</span>bit<br><span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">23</span> <span class="hljs-number">20</span>:<span class="hljs-number">14</span>:<span class="hljs-number">47</span> <span class="hljs-selector-attr">[scrapy.crawler]</span> INFO: Overridden settings: &#123;<span class="hljs-string">&#x27;DUPEFILTER_CLASS&#x27;</span>: <span class="hljs-string">&#x27;scrapy.dupefilters.BaseDupeFilter&#x27;</span>, <span class="hljs-string">&#x27;LOGSTATS_INTERVAL&#x27;</span>: <span class="hljs-number">0</span>&#125;<br><span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">23</span> <span class="hljs-number">20</span>:<span class="hljs-number">14</span>:<span class="hljs-number">47</span> <span class="hljs-selector-attr">[scrapy.extensions.telnet]</span> INFO: Telnet Password: e3528447494d6c3d<br><span class="hljs-number">2020</span>-<span class="hljs-number">02</span>-<span class="hljs-number">23</span> <span class="hljs-number">20</span>:<span class="hljs-number">14</span>:<span class="hljs-number">47</span> <span class="hljs-selector-attr">[scrapy.middleware]</span> INFO: Enabled extensions:<br>...中间省略...<br><span class="hljs-selector-attr">[s]</span> Available Scrapy objects:<br><span class="hljs-selector-attr">[s]</span>   scrapy     scrapy module (contains scrapy<span class="hljs-selector-class">.Request</span>, scrapy<span class="hljs-selector-class">.Selector</span>, etc)<br><span class="hljs-selector-attr">[s]</span>   crawler    &lt;scrapy<span class="hljs-selector-class">.crawler</span><span class="hljs-selector-class">.Crawler</span> <span class="hljs-selector-tag">object</span> at <span class="hljs-number">0</span>x10d0cd760&gt;<br><span class="hljs-selector-attr">[s]</span>   item       &#123;&#125;<br><span class="hljs-selector-attr">[s]</span>   request    &lt;GET https:<span class="hljs-comment">//manhua.fzdm.com/39&gt;</span><br><span class="hljs-selector-attr">[s]</span>   response   &lt;<span class="hljs-number">200</span> https:<span class="hljs-comment">//manhua.fzdm.com/39//&gt;</span><br><span class="hljs-selector-attr">[s]</span>   settings   &lt;scrapy<span class="hljs-selector-class">.settings</span><span class="hljs-selector-class">.Settings</span> <span class="hljs-selector-tag">object</span> at <span class="hljs-number">0</span>x10d0cd460&gt;<br><span class="hljs-selector-attr">[s]</span>   spider     &lt;DefaultSpider <span class="hljs-string">&#x27;default&#x27;</span> at <span class="hljs-number">0</span>x10d573400&gt;<br><span class="hljs-selector-attr">[s]</span> Useful shortcuts:<br><span class="hljs-selector-attr">[s]</span>   <span class="hljs-built_in">fetch</span>(url<span class="hljs-selector-attr">[, redirect=True]</span>) Fetch URL and update local objects (by default, redirects are followed)<br><span class="hljs-selector-attr">[s]</span>   <span class="hljs-built_in">fetch</span>(req)                  Fetch <span class="hljs-selector-tag">a</span> scrapy<span class="hljs-selector-class">.Request</span> and update local objects <br><span class="hljs-selector-attr">[s]</span>   <span class="hljs-built_in">shelp</span>()           Shell help (print this help)<br><span class="hljs-selector-attr">[s]</span>   <span class="hljs-built_in">view</span>(response)    View response <span class="hljs-keyword">in</span> <span class="hljs-selector-tag">a</span> browser<br>&gt;&gt;&gt; <br></code></pre></td></tr></table></figure>
+
+<p>然后我们就要使用xpath或者是css去寻找指定的页面内容（<del>奥利给干它</del>）</p>
+<p>博主也学习了一些时间，建议各位去康康这个<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/489c5d21cdc7">教程</a>(<del>求作者给广告费恰饭</del>)</p>
+<p>理清思路，现在我们要找到各话的url，通过观察发现这些url都在<a>标签下</p>
+<p>观察方法：鼠标右键然后点击inspect，再点一下左上角的选择器就可以查看页面元素的所在位置了</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGNf91.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>于是输入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//li/a[1]/@href&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br></code></pre></td></tr></table></figure>
+
+<p>获取到所有符合这种特征的herf</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//li/a[1]/@href&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;//www.fzdm.com&#x27;</span>, <span class="hljs-string">&#x27;//news.fzdm.com&#x27;</span>, <span class="hljs-string">&#x27;//manhua.fzdm.com&#x27;</span>, <span class="hljs-string">&#x27;126/&#x27;</span>, <span class="hljs-string">&#x27;125/&#x27;</span>, <span class="hljs-string">&#x27;124/&#x27;</span>, <span class="hljs-string">&#x27;123/&#x27;</span>, <span class="hljs-string">&#x27;122/&#x27;</span>, <span class="hljs-string">&#x27;121/&#x27;</span>, <span class="hljs-string">&#x27;120/&#x27;</span>, <span class="hljs-string">&#x27;119/&#x27;</span>, <span class="hljs-string">&#x27;118/&#x27;</span>, <span class="hljs-string">&#x27;117/&#x27;</span>, <span class="hljs-string">&#x27;116/&#x27;</span>, <span class="hljs-string">&#x27;qc65/&#x27;</span>, <span class="hljs-string">&#x27;115/&#x27;</span>, <span class="hljs-string">&#x27;qc64/&#x27;</span>, <span class="hljs-string">&#x27;114/&#x27;</span>, <span class="hljs-string">&#x27;qc63/&#x27;</span>, <span class="hljs-string">&#x27;113/&#x27;</span>, <span class="hljs-string">&#x27;qc62/&#x27;</span>, <span class="hljs-string">&#x27;112/&#x27;</span>, <span class="hljs-string">&#x27;前传61/&#x27;</span>, <span class="hljs-string">&#x27;111/&#x27;</span>, <span class="hljs-string">&#x27;前传60/&#x27;</span>, <span class="hljs-string">&#x27;110/&#x27;</span>, <span class="hljs-string">&#x27;前传59/&#x27;</span>, <span class="hljs-string">&#x27;109/&#x27;</span>, <span class="hljs-string">&#x27;108/&#x27;</span>, <span class="hljs-string">&#x27;前传57/&#x27;</span>, <span class="hljs-string">&#x27;107/&#x27;</span>, <span class="hljs-string">&#x27;前传56/&#x27;</span>, <span class="hljs-string">&#x27;106/&#x27;</span>, <span class="hljs-string">&#x27;前传55/&#x27;</span>, <span class="hljs-string">&#x27;105/&#x27;</span>, <span class="hljs-string">&#x27;前传54/&#x27;</span>, <span class="hljs-string">&#x27;104/&#x27;</span>, <span class="hljs-string">&#x27;103/&#x27;</span>, <span class="hljs-string">&#x27;102/&#x27;</span>, <span class="hljs-string">&#x27;qz51/&#x27;</span>, <span class="hljs-string">&#x27;101/&#x27;</span>, <span class="hljs-string">&#x27;100/&#x27;</span>, <span class="hljs-string">&#x27;qz49/&#x27;</span>, <span class="hljs-string">&#x27;99/&#x27;</span>, <span class="hljs-string">&#x27;qz48/&#x27;</span>, <span class="hljs-string">&#x27;98/&#x27;</span>, <span class="hljs-string">&#x27;qz47/&#x27;</span>, <span class="hljs-string">&#x27;97/&#x27;</span>, <span class="hljs-string">&#x27;thf46/&#x27;</span>, <span class="hljs-string">&#x27;096/&#x27;</span>, <span class="hljs-string">&#x27;wp45/&#x27;</span>, <span class="hljs-string">&#x27;95/&#x27;</span>, <span class="hljs-string">&#x27;qz44/&#x27;</span>, <span class="hljs-string">&#x27;94/&#x27;</span>, <span class="hljs-string">&#x27;qz43/&#x27;</span>, <span class="hljs-string">&#x27;93/&#x27;</span>, <span class="hljs-string">&#x27;qz42/&#x27;</span>, <span class="hljs-string">&#x27;92/&#x27;</span>, <span class="hljs-string">&#x27;qz41/&#x27;</span>, <span class="hljs-string">&#x27;91/&#x27;</span>, <span class="hljs-string">&#x27;qz40/&#x27;</span>, <span class="hljs-string">&#x27;qz40/&#x27;</span>, <span class="hljs-string">&#x27;qz39/&#x27;</span>, <span class="hljs-string">&#x27;qz38/&#x27;</span>, <span class="hljs-string">&#x27;90/&#x27;</span>, <span class="hljs-string">&#x27;89/&#x27;</span>, <span class="hljs-string">&#x27;88/&#x27;</span>, <span class="hljs-string">&#x27;qz37/&#x27;</span>, <span class="hljs-string">&#x27;87/&#x27;</span>, <span class="hljs-string">&#x27; before-the-fall-36/&#x27;</span>, <span class="hljs-string">&#x27;86/&#x27;</span>, <span class="hljs-string">&#x27;85/&#x27;</span>, <span class="hljs-string">&#x27;84/&#x27;</span>, <span class="hljs-string">&#x27;83/&#x27;</span>, <span class="hljs-string">&#x27;82/&#x27;</span>, <span class="hljs-string">&#x27;81/&#x27;</span>, <span class="hljs-string">&#x27;80/&#x27;</span>, <span class="hljs-string">&#x27;079/&#x27;</span>, <span class="hljs-string">&#x27;078/&#x27;</span>, <span class="hljs-string">&#x27;77/&#x27;</span>, <span class="hljs-string">&#x27;76/&#x27;</span>, <span class="hljs-string">&#x27;75/&#x27;</span>, <span class="hljs-string">&#x27;d74/&#x27;</span>, <span class="hljs-string">&#x27;73/&#x27;</span>, <span class="hljs-string">&#x27;72/&#x27;</span>, <span class="hljs-string">&#x27;71/&#x27;</span>, <span class="hljs-string">&#x27;70/&#x27;</span>, <span class="hljs-string">&#x27;69/&#x27;</span>, <span class="hljs-string">&#x27;d68/&#x27;</span>, <span class="hljs-string">&#x27;67/&#x27;</span>, <span class="hljs-string">&#x27;66/&#x27;</span>, <span class="hljs-string">&#x27;dxj52/&#x27;</span>, <span class="hljs-string">&#x27;65/&#x27;</span>, <span class="hljs-string">&#x27;64/&#x27;</span>, <span class="hljs-string">&#x27;63/&#x27;</span>, <span class="hljs-string">&#x27;62/&#x27;</span>, <span class="hljs-string">&#x27;61/&#x27;</span>, <span class="hljs-string">&#x27;60/&#x27;</span>, <span class="hljs-string">&#x27;59/&#x27;</span>, <span class="hljs-string">&#x27;wc08/&#x27;</span>, <span class="hljs-string">&#x27;58/&#x27;</span>, <span class="hljs-string">&#x27;wc07/&#x27;</span>, <span class="hljs-string">&#x27;qc07/&#x27;</span>, <span class="hljs-string">&#x27;57/&#x27;</span>, <span class="hljs-string">&#x27;wc06/&#x27;</span>, <span class="hljs-string">&#x27;56/&#x27;</span>, <span class="hljs-string">&#x27;qc06/&#x27;</span>, <span class="hljs-string">&#x27;55/&#x27;</span>, <span class="hljs-string">&#x27;54/&#x27;</span>, <span class="hljs-string">&#x27;wc04/&#x27;</span>, <span class="hljs-string">&#x27;53/&#x27;</span>, <span class="hljs-string">&#x27;wc02/&#x27;</span>, <span class="hljs-string">&#x27;52/&#x27;</span>, <span class="hljs-string">&#x27;wc01/&#x27;</span>, <span class="hljs-string">&#x27;51/&#x27;</span>, <span class="hljs-string">&#x27;50/&#x27;</span>, <span class="hljs-string">&#x27;wc00/&#x27;</span>, <span class="hljs-string">&#x27;49/&#x27;</span>, <span class="hljs-string">&#x27;xz/&#x27;</span>, <span class="hljs-string">&#x27;qc01/&#x27;</span>, <span class="hljs-string">&#x27;48/&#x27;</span>, <span class="hljs-string">&#x27;fwp/&#x27;</span>, <span class="hljs-string">&#x27;47/&#x27;</span>, <span class="hljs-string">&#x27;sgp/&#x27;</span>, <span class="hljs-string">&#x27;46/&#x27;</span>, <span class="hljs-string">&#x27;45/&#x27;</span>, <span class="hljs-string">&#x27;44/&#x27;</span>, <span class="hljs-string">&#x27;fwp02/&#x27;</span>, <span class="hljs-string">&#x27;fwp01/&#x27;</span>, <span class="hljs-string">&#x27;043/&#x27;</span>, <span class="hljs-string">&#x27;042/&#x27;</span>, <span class="hljs-string">&#x27;041/&#x27;</span>, <span class="hljs-string">&#x27;040/&#x27;</span>, <span class="hljs-string">&#x27;039/&#x27;</span>, <span class="hljs-string">&#x27;038/&#x27;</span>, <span class="hljs-string">&#x27;037/&#x27;</span>, <span class="hljs-string">&#x27;036/&#x27;</span>, <span class="hljs-string">&#x27;035/&#x27;</span>, <span class="hljs-string">&#x27;034/&#x27;</span>, <span class="hljs-string">&#x27;033/&#x27;</span>, <span class="hljs-string">&#x27;032/&#x27;</span>, <span class="hljs-string">&#x27;031/&#x27;</span>, <span class="hljs-string">&#x27;030/&#x27;</span>, <span class="hljs-string">&#x27;029/&#x27;</span>, <span class="hljs-string">&#x27;028/&#x27;</span>, <span class="hljs-string">&#x27;027/&#x27;</span>, <span class="hljs-string">&#x27;026/&#x27;</span>, <span class="hljs-string">&#x27;025/&#x27;</span>, <span class="hljs-string">&#x27;024/&#x27;</span>, <span class="hljs-string">&#x27;023/&#x27;</span>, <span class="hljs-string">&#x27;022/&#x27;</span>, <span class="hljs-string">&#x27;021/&#x27;</span>, <span class="hljs-string">&#x27;020/&#x27;</span>, <span class="hljs-string">&#x27;019/&#x27;</span>, <span class="hljs-string">&#x27;018/&#x27;</span>, <span class="hljs-string">&#x27;017/&#x27;</span>, <span class="hljs-string">&#x27;016/&#x27;</span>, <span class="hljs-string">&#x27;015/&#x27;</span>, <span class="hljs-string">&#x27;014/&#x27;</span>, <span class="hljs-string">&#x27;013/&#x27;</span>, <span class="hljs-string">&#x27;012/&#x27;</span>, <span class="hljs-string">&#x27;011/&#x27;</span>, <span class="hljs-string">&#x27;010/&#x27;</span>, <span class="hljs-string">&#x27;009/&#x27;</span>, <span class="hljs-string">&#x27;008/&#x27;</span>, <span class="hljs-string">&#x27;007/&#x27;</span>, <span class="hljs-string">&#x27;006/&#x27;</span>, <span class="hljs-string">&#x27;005/&#x27;</span>, <span class="hljs-string">&#x27;004/&#x27;</span>, <span class="hljs-string">&#x27;003/&#x27;</span>, <span class="hljs-string">&#x27;002/&#x27;</span>, <span class="hljs-string">&#x27;001/&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<p>我们发现又有几个浑水<strong>摸鱼</strong>的url混了进来，不过咱们先把这个放在一边，等会在python里面用字符串操作把它们给筛掉（<del>博主不会一步找到正确url的方法qaq</del>），如果有更好的方法请大神指出（带我带我！）</p>
+<p> 使用ctrl+d退出之前的shell，分析章节页面。这次我们需要找到图片的url以及下一页的url</p>
+<h3 id="再次分析"><a href="#再次分析" class="headerlink" title="再次分析"></a>再次分析</h3><p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect2.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>手动@风车动漫的广告商到我这里来把广告费结一下，【手动狗头】</p>
+<p>这次我们找一下下一页的url（这个网站他图片的url放的比较日怪）</p>
+<p>在command line里面输入</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">scrapy</span> shell &#x27;https://manhua.fzdm.com/<span class="hljs-number">39</span>//<span class="hljs-number">126</span>/&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>然后我们需要再次找到 </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;a <span class="hljs-attribute">href</span>=<span class="hljs-string">&quot;index_0.html&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">&quot;pure-button button-success&quot;</span>&gt;第1页&lt;/a&gt;<br></code></pre></td></tr></table></figure>
+
+<p>然后老套路</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/@href&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;index_0.html&#x27;</span>, <span class="hljs-string">&#x27;index_1.html&#x27;</span>, <span class="hljs-string">&#x27;index_2.html&#x27;</span>, <span class="hljs-string">&#x27;index_3.html&#x27;</span>, <span class="hljs-string">&#x27;index_4.html&#x27;</span>, <span class="hljs-string">&#x27;index_5.html&#x27;</span>, <span class="hljs-string">&#x27;index_6.html&#x27;</span>, <span class="hljs-string">&#x27;index_1.html&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<p>我们知道最后一个url就是咱们的next page了</p>
+<p><strong>但是！！！</strong></p>
+<p>我们这么才能知道这一章什么时候结束呢？</p>
+<p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/Inspect3.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>这是我们的最后一页的代码，看起来从url上一点头绪都没有，但是从旁边的文字上我们又有了新的线索，一般它会给出如：下一页这样的信息，最后一页则没有这样的信息，只要我们知道是否有“下一页”，我们就能知道是否为最后一页</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGN2N9.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>所以要获取上面的文字，使用如下方法：</p>
+<p>请看第一页与最后一页的对比</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/text()&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;第1页&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>, <span class="hljs-string">&#x27;下一页&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/text()&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;上一页&#x27;</span>, <span class="hljs-string">&#x27;40&#x27;</span>, <span class="hljs-string">&#x27;41&#x27;</span>, <span class="hljs-string">&#x27;42&#x27;</span>, <span class="hljs-string">&#x27;43&#x27;</span>, <span class="hljs-string">&#x27;44&#x27;</span>, <span class="hljs-string">&#x27;第45页&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<p>然后既然我们已经知道了判断下一页的方法，接下来就是获取图片链接了</p>
+<h3 id="获取图片链接"><a href="#获取图片链接" class="headerlink" title="获取图片链接"></a>获取图片链接</h3><p><img src="https://raw.githubusercontent.com/MaverickTang/Images/master/%E7%88%AC%E5%8F%96%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA%E6%BC%AB%E7%94%BB/pic.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>再次选择我们找到了图片的url</p>
+<p><strong>但是</strong>。。。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; response<span class="hljs-selector-class">.xpath</span>(<span class="hljs-string">&#x27;//img/@src&#x27;</span>)<span class="hljs-selector-class">.extract</span>()<br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;https://static.fzdm.com/css/logo.png&#x27;</span>, <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/gh/fzdm/st@75839ec8feb53ac89fe52134fc648a17bd1bd31f/img/loading.gif&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<p>woc居然找不到图片的url？？？</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGNsnU.jpg" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>于是康康这个蜘蛛获取到的整个html代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">&gt;&gt;&gt; response.body<br>b&#x27;<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Language&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=Edge,chrome=1&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;x-dns-prefetch-control&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;on&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//www.fzdm.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//manhua.fzdm.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//p1.manhuapan.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//p2.manhuapan.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//p5.manhuapan.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//p17.manhuapan.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;all&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;robots&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>\xe8\xbf\x9b\xe5\x87\xbb\xe7\x9a\x84\xe5\xb7\xa8\xe4\xba\xba126\xe8\xaf\x9d <br>……以下省略<br></code></pre></td></tr></table></figure>
+
+<p>我们复制之后打开任意代码编译器然后<code>Command+f</code>寻找这个“2020&#x2F;02&#x2F;08055441539556.jpg”url在哪里。</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGN7He.png" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>我们发现这个url放在javascript里面，使用<code>document.write()</code>。。。</p>
+<p>你以为我有什么骚操作？？？</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGUpDS.gif" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>我还真没有。。。</p>
+<p>找到script</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-operator">&gt;&gt;&gt;</span> response.xpath(&#x27;<span class="hljs-comment">//script/text()&#x27;).extract()</span><br>[<span class="hljs-string">&quot;if (&#x27;serviceWorker&#x27; in navigator) &#123;<span class="hljs-subst">\n</span>      navigator.serviceWorker.register(&#x27;/sw.js&#x27;, &#123; scope: &#x27;/&#x27; &#125;).then(function (registration) &#123;<span class="hljs-subst">\n</span>        // registration.unregister().then(function(boolean) &#123;<span class="hljs-subst">\n</span>        // if boolean = true, unregister is successful<span class="hljs-subst">\n</span>        // &#125;);<span class="hljs-subst">\n</span>        // 注册成功<span class="hljs-subst">\n</span>        /*<span class="hljs-subst">\n</span>      var serviceWorker;<span class="hljs-subst">\n</span>      if (registration.installing) &#123;<span class="hljs-subst">\n</span>        console.log(&#x27;installing&#x27;);<span class="hljs-subst">\n</span>      &#125; else if (registration.waiting) &#123;<span class="hljs-subst">\n</span>        console.log(&#x27;waiting&#x27;);<span class="hljs-subst">\n</span>      &#125; else if (registration.active) &#123;<span class="hljs-subst">\n</span>        console.log(&#x27;active&#x27;);<span class="hljs-subst">\n</span>      &#125;<span class="hljs-subst">\n</span>      */<span class="hljs-subst">\n</span>        console.log(&#x27;ServiceWorker registration successful with scope: &#x27;, registration.scope);<span class="hljs-subst">\n</span>      &#125;).catch(function (err) &#123;<span class="hljs-subst">\n</span>        // 注册失败 :(<span class="hljs-subst">\n</span>        console.log(&#x27;ServiceWorker registration failed: &#x27;, err);<span class="hljs-subst">\n</span>        let refreshing = false<span class="hljs-subst">\n</span>        navigator.serviceWorker.addEventListener(&#x27;controllerchange&#x27;, () =&gt; &#123;<span class="hljs-subst">\n</span>          if (refreshing) &#123;<span class="hljs-subst">\n</span>            return<span class="hljs-subst">\n</span></span><br><span class="hljs-string">……以下省略</span><br></code></pre></td></tr></table></figure>
+
+<p>于是我们获得了一个很大的array which有我们需要的url</p>
+<p>博主是个铁憨憨，强行用python的正则表达式找到了这个url</p>
+<p>正则表达式不会的可以走<a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-reg-expressions.html">这里</a></p>
+<p>在编程的时候，我们就先记录下这些script，然后再继续操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">pre_img_url = response.xpath(<span class="hljs-string">&#x27;//script/text()&#x27;</span>).extract()<span class="hljs-comment">#记录script</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(pre_img_url)):<span class="hljs-comment">#记录的时候是以array存储的</span><br>			matchObj = re.search( <span class="hljs-string">r&#x27;url=\&quot;()\s*(.*)jpg&#x27;</span>, pre_img_url[i], re.M|re.I)<span class="hljs-comment">#正则表达式寻找</span><br>			<span class="hljs-keyword">if</span> matchObj:<br>				ppreimgurl = matchObj.group()<span class="hljs-comment">#里面就包含了我们要找的url（本例是“2020/02/08055441539556.jpg”）</span><br>				img_url= <span class="hljs-string">&#x27;http://p2.manhuapan.com/&#x27;</span> + ppreimgurl[<span class="hljs-number">5</span>:<span class="hljs-built_in">len</span>(ppreimgurl)]<span class="hljs-comment">#在前面加上存储图片的网址</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="五、开始编写"><a href="#五、开始编写" class="headerlink" title="五、开始编写"></a>五、开始编写</h2><p>还记得我们最开始的<code>parse()</code>吗？我们现在给他添加一点东西</p>
+<p>解释都在代码里面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python">	<span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):<br>		link_urls = response.xpath(<span class="hljs-string">&#x27;//li/a[1]/@href&#x27;</span>).extract()<span class="hljs-comment">#找到各话的url</span><br>		names = response.xpath(<span class="hljs-string">&#x27;//li/a[1]/@title&#x27;</span>).extract()<span class="hljs-comment">#找到各话的名字，方便命名文件夹</span><br>    <span class="hljs-comment"># 下面的variable可以不管</span><br>		x=-<span class="hljs-number">1</span><br>		h=<span class="hljs-number">0</span><br>		comics_url_list = []<br>		rnames = []<br>		base = <span class="hljs-string">&#x27;https://manhua.fzdm.com/132/&#x27;</span><br>		<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(link_urls)):<br>			h=<span class="hljs-built_in">bool</span>(re.search(<span class="hljs-string">r&#x27;\d&#x27;</span>, link_urls[i]))<br>			<span class="hljs-keyword">if</span>(h==<span class="hljs-literal">True</span>):<br>				x=x+<span class="hljs-number">1</span><br>				name=names[x]<br>				url=base + link_urls[i]<span class="hljs-comment">#它的url只有base后面的部分，所以要把base加上</span><br>				rnames.append(name)<span class="hljs-comment">#将各话的名字加入一个新的array</span><br>				comics_url_list.append(url)<span class="hljs-comment">#将url加入array</span><br><span class="hljs-comment">#				print(&quot;%s :https://www.manhuadui.com %s&quot;%(names[4+x],link_urls[i]))</span><br><span class="hljs-comment">#				print(&quot;%s : %s&quot;%(rnames[x],comics_url_list[x]))	</span><br>				<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;\n&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; current page comics list &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#x27;</span>)<br>		<span class="hljs-built_in">print</span>(comics_url_list)<br>		<br>		<span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> comics_url_list:<br>			<span class="hljs-keyword">yield</span> scrapy.Request(url=url, callback=<span class="hljs-variable language_">self</span>.comics_parse, dont_filter=<span class="hljs-literal">True</span>)<span class="hljs-comment">#通过特殊的scrapy传递将url传到下一个函数对下一层网页进行爬取</span><br>      <span class="hljs-comment">#一定要加入dont_filter=True，不然会出bug（不进入下个函数）</span><br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;  parse comics:&#x27;</span> + url)<br></code></pre></td></tr></table></figure>
+
+<p>接下来我们编写<code>comics_parse(self, response)</code>函数来处理各话的url</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs python">	<span class="hljs-keyword">def</span> <span class="hljs-title function_">comics_parse</span>(<span class="hljs-params">self, response</span>):<span class="hljs-comment">#另一个函数爬取下层页面</span><br>		pre_img_url = response.xpath(<span class="hljs-string">&#x27;//script/text()&#x27;</span>).extract()<span class="hljs-comment">#获取script</span><br>		img_url = <span class="hljs-string">&#x27;&#x27;</span><br>		ptitle=response.xpath(<span class="hljs-string">&#x27;//title/text()&#x27;</span>).extract()<span class="hljs-comment">#获取章节名称</span><br>		prepage_num=response.xpath(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/text()&#x27;</span>).extract()<span class="hljs-comment">#获取页面名字</span><br>		page_num=<span class="hljs-string">&#x27;&#x27;</span><br>		a=<span class="hljs-number">0</span><br>		<span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(prepage_num)):<span class="hljs-comment">#寻找page number来作为文件名</span><br>			<span class="hljs-keyword">for</span> _char <span class="hljs-keyword">in</span> prepage_num[j]:<span class="hljs-comment">#判断中文字符来找到当前页码（它会是“第n页”）</span><br>				<span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;\u4e00&#x27;</span> &lt;= _char &lt;= <span class="hljs-string">&#x27;\u9fa5&#x27;</span>:<br>					page_num=prepage_num[j]<br>					<span class="hljs-keyword">if</span> page_num == <span class="hljs-string">&#x27;下一页&#x27;</span>:<span class="hljs-comment">#如果是‘下一页’叫表示它漏过了‘第一页’</span><br>						page_num=<span class="hljs-string">&#x27;第1页&#x27;</span><br>					a=<span class="hljs-number">1</span><br>					<span class="hljs-keyword">break</span><br>			<span class="hljs-keyword">if</span>(a==<span class="hljs-number">1</span>):<br>				<span class="hljs-keyword">break</span>	 <br>		t=ptitle[<span class="hljs-number">0</span>]<br>		index=ptitle[<span class="hljs-number">0</span>].find(<span class="hljs-string">&#x27;话&#x27;</span>)<span class="hljs-comment">#通过找到‘话’来找到章节的名字</span><br>		title=t[<span class="hljs-number">0</span>:(index+<span class="hljs-number">1</span>)]<span class="hljs-comment">#截取章节名字</span><br><span class="hljs-comment">#		matchObj = re.search( r&#x27;url=\&quot;()\s*(.*)jpg&#x27;, line, re.M|re.I)</span><br> 	 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(pre_img_url)):<span class="hljs-comment">#记录的时候是以array存储的      </span><br>   		matchObj = re.search( <span class="hljs-string">r&#x27;url=\&quot;()\s*(.*)jpg&#x27;</span>, pre_img_url[i], re.M|re.I)<span class="hljs-comment">#正则表达式寻找      </span><br>    	<span class="hljs-keyword">if</span> matchObj:        <br>      	ppreimgurl = matchObj.group()<span class="hljs-comment">#里面就包含了我们要找的url（本例是“2020/02/08055441539556.jpg”）        img_url= &#x27;http://p2.manhuapan.com/&#x27; + ppreimgurl[5:len(ppreimgurl)]#在前面加上存储图片的网址</span><br>				<span class="hljs-variable language_">self</span>.log(<span class="hljs-string">&#x27;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;开始下载&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#x27;</span>)<br><span class="hljs-comment">#				self.save_img(page_num[len(page_num)], title, img_url)</span><br>				document = <span class="hljs-string">&#x27;/Users/maverick/Desktop/test/One punch&#x27;</span><br>				comics_path = document + <span class="hljs-string">&#x27;/&#x27;</span> + title<br>				exists = os.path.exists(comics_path)<br>				<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exists:<span class="hljs-comment">#如果没有创建过文件夹</span><br><span class="hljs-comment">#					self.log(&#x27;create document: &#x27; + title)</span><br>					os.makedirs(comics_path)<br>				pic_name = comics_path + <span class="hljs-string">&#x27;/&#x27;</span> + page_num + <span class="hljs-string">&#x27;.jpg&#x27;</span><br>				exists = os.path.exists(pic_name)<br>				<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exists:<br>					time.sleep(<span class="hljs-number">0.1</span>)<span class="hljs-comment">#延时防止锁ip</span><br>					urlretrieve(img_url, pic_name)<span class="hljs-comment">#下载图片</span><br>				<span class="hljs-keyword">break</span>		<br>		pages_urls = response.xpath(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/@href&#x27;</span>).extract()<span class="hljs-comment">#找到下一页的url</span><br>		page_situation = response.xpath(<span class="hljs-string">&#x27;//a[contains(@href, &quot;index&quot;)]/text()&#x27;</span>).extract()<span class="hljs-comment">#与是否为最后一页有关</span><br>		ans=<span class="hljs-number">0</span><br>		<span class="hljs-keyword">for</span> _char <span class="hljs-keyword">in</span> page_situation[<span class="hljs-built_in">len</span>(page_situation)-<span class="hljs-number">1</span>]:<span class="hljs-comment">#还是通过中文来判断是否为最后一页</span><br>			<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-string">&#x27;\u4e00&#x27;</span> &lt;= _char &lt;= <span class="hljs-string">&#x27;\u9fa5&#x27;</span>:<br>				ans=<span class="hljs-number">1</span><br>		<span class="hljs-keyword">if</span>(ans==<span class="hljs-number">0</span>):<br>			premyfront = response.request.url<span class="hljs-comment">#找到当前页面的url，再通过字符串操作得到基础页</span><br>			fenge = premyfront.split(<span class="hljs-string">&#x27;/&#x27;</span>)<br>			myfont=<span class="hljs-string">&#x27;&#x27;</span><br>			<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):<br>				myfont=myfont+fenge[i]+<span class="hljs-string">&#x27;/&#x27;</span><br>			next_page = myfont+pages_urls[<span class="hljs-built_in">len</span>(pages_urls)-<span class="hljs-number">1</span>]<span class="hljs-comment">#得到下一页</span><br>			<span class="hljs-variable language_">self</span>.log(next_page)<br>			<span class="hljs-keyword">yield</span> scrapy.Request(next_page, callback=<span class="hljs-variable language_">self</span>.comics_parse, dont_filter=<span class="hljs-literal">True</span>)	<span class="hljs-comment">#递归自己</span><br>		<span class="hljs-keyword">else</span>:<br>			<span class="hljs-variable language_">self</span>.log(<span class="hljs-string">&#x27;parse comics:&#x27;</span> + title + <span class="hljs-string">&#x27;finished.&#x27;</span>)	<br></code></pre></td></tr></table></figure>
+
+<p>然后我们就可以欣赏它爬取的漫画了。因为整个网站的机制是一样的，所以我们只需要修改url地址，就可以任意爬取自己想看的漫画了。</p>
+<h2 id="五、后记"><a href="#五、后记" class="headerlink" title="五、后记"></a>五、后记</h2><p>如果是自己想用的话，代码已经在<a target="_blank" rel="noopener" href="https://github.com/MaverickTang/Attack-on-titan-download">GitHub</a>上面了，下载下来就可以直接用。</p>
+<p>不仅是巨人，这个爬虫还可以爬取整个网站上的其他漫画，比如：</p>
+<p>一拳超人，火影忍者，海贼王,鬼灭之刃等。</p>
+<p>请求星星✨</p>
+<p>使用terminalcd到根目录然后运行以下代码：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">scrapy crawl titan</span><br></code></pre></td></tr></table></figure>
+
+<p>记得把保存的本机地址还有想爬取的漫画地址改一下</p>
+<p>当然只要编程的速度够快，这种下载速度绝对比某网盘快得多，最关键的是方便并且可以装B。。。</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGNvgP.gif" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<p>放上自己爬到的兵长帅照哈哈哈哈哈</p>
+<p><img src="https://s1.ax1x.com/2020/04/02/GGNX9I.jpg" srcset="/img/loading.gif" lazyload alt="Inspect"></p>
+<h2 id="六、参考链接及版权说明"><a href="#六、参考链接及版权说明" class="headerlink" title="六、参考链接及版权说明"></a>六、参考链接及版权说明</h2><p>博主是第一次写博客，如果侵权请联系我删除，还有对两个大佬写的博客表示诚挚感谢，链接第一与第二个为两个大佬的博客。</p>
+<p>参考链接：</p>
+<p>1(合法).<a target="_blank" rel="noopener" href="https://blog.csdn.net/c406495762/article/details/72858983">https://blog.csdn.net/c406495762/article/details/72858983</a></p>
+<p>2(非法).<a target="_blank" rel="noopener" href="https://moshuqi.github.io/2016/09/27/Python%E7%88%AC%E8%99%AB-Scrapy%E6%A1%86%E6%9E%B6/">https://moshuqi.github.io/2016/09/27/Python%E7%88%AC%E8%99%AB-Scrapy%E6%A1%86%E6%9E%B6/</a></p>
+<p>3(正则表达式).<a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-reg-expressions.html">https://www.runoob.com/python/python-reg-expressions.html</a></p>
+<p>4(xpath与css学习).<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/489c5d21cdc7">https://www.jianshu.com/p/489c5d21cdc7</a></p>
+<p>5(下载图片方法).<a target="_blank" rel="noopener" href="https://morvanzhou.github.io/tutorials/data-manipulation/scraping/3-02-download/">https://morvanzhou.github.io/tutorials/data-manipulation/scraping/3-02-download/</a></p>
+<p>6(进击的巨人在线观看).<a target="_blank" rel="noopener" href="https://manhua.fzdm.com/39/">https://manhua.fzdm.com/39/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="category-chain-item">程序</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%A8%8B%E5%BA%8F/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="category-chain-item">软件开发</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python%E7%88%AC%E8%99%AB/" class="print-no-link">#Python爬虫</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python爬虫</div>
+      <div>http://example.com/2025/08/28/Python爬虫/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐浩天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年8月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/28/Python/" title="Python">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/28/SPI/" title="SPI">
+                        <span class="hidden-mobile">SPI</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
